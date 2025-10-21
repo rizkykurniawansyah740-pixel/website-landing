@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV. YOGIES - Bandung</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Style tambahan untuk testimoni dan maps */
+    .testimoni-section {
+      background-color: #f9fafb;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .testimoni-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimoni-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .testimoni-card h3 {
+      margin-bottom: 5px;
+      color: #222;
+    }
+
+    .testimoni-card p {
+      font-style: italic;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Maps */
+    .maps-section {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .maps-section h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .maps-embed {
+      width: 90%;
+      max-width: 1000px;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Responsif */
+    @media (max-width: 600px) {
+      .testimoni-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">
+    <a>CV. YOGIES</a>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="about.html">Tentang</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+  <i class="fa-solid fa-moon" id="themeToggle" title="Ubah Tema"></i>
+</header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="fade-in">Selamat Datang di <span>CV. YOGIES</span></h1>
+      <p class="fade-in delay">Melayani Konsumen Ke Seluruh Indonesia</p>
+      <div class="buttons fade-in delay-2">
+        <a href="contact.html" class="btn primary">Hubungi Sekarang</a>
+        <a href="produk.html" class="btn secondary">Lihat Selengkapnya</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESKRIPSI SINGKAT -->
+  <section class="info-section">
+    <div class="info-text">
+      <div style="text-align: center;">
+        <h2>CV. YOGIES</h2>
+        <p style="text-align: justify;">
+          CV. YOGIES adalah perusahaan yang bergerak di bidang Digital Marketing dengan komitmen untuk membantu pelaku bisnis dalam membangun dan mengembangkan kehadiran mereka di dunia digital.
+          Kami percaya bahwa strategi pemasaran digital yang tepat dapat meningkatkan nilai dan daya saing sebuah brand di era modern. Dengan tim yang berpengalaman di bidang pemasaran online, desain, dan teknologi informasi, CV. YOGIES siap menjadi mitra terpercaya dalam menghadirkan solusi digital yang kreatif, efektif, dan berorientasi hasil.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- GALERI KATEGORI -->
+  <section class="testimoni-section">
+    <h2>PRODUK</h2>
+    <div class="testimoni-container">
+      <div class="testimoni-card">
+        <h3>LOGAM MULIA</h3>
+        <p>CV. YOGIES menyediakan produk Logam Mulia murni dan bersertifikat dari sumber resmi.
+		Kami memastikan setiap pembelian Anda aman, transparan, dan bernilai tinggi.
+		Jadikan emas pilihan cerdas untuk menjaga nilai kekayaan Anda.</p>
+      </div>
+      <div class="testimoni-card">
+        <h3>PROPERTI</h3>
+        <p>"CV. YOGIES, mitra terpercaya dalam penyediaan properti berkualitas tinggi.
+		Aman secara legalitas, strategis dalam lokasi, dan menjanjikan dalam nilai investasi.</p>
+      </div>
+      <div class="testimoni-card">
+        <h3>COWAY</h3>
+        <p>Coway menghadirkan kualitas hidup lebih baik melalui air dan udara yang lebih bersih.
+			Dapatkan produk Coway asli dan bergaransi hanya di CV. YOGIES supplier terpercaya untuk kebutuhan rumah sehat Anda.</p>
+      </div>
+	  <div class="testimoni-card">
+        <h3>KESEHATAN</h3>
+        <p>Temukan berbagai produk kesehatan pilihan di CV. YOGIES.
+			Semua produk kami dipilih dengan cermat untuk memastikan keamanan, kualitas, dan efektivitasnya.
+			Jaga kesehatan Anda dan keluarga bersama kami.</p>
+      </div>
+	  <div class="testimoni-card">
+        <h3><a href="bracket-tv-bandung.html">ELEKTRONIK</a></h3>
+        <p>Teknologi terbaik untuk kenyamanan Anda.
+				CV. YOGIES menghadirkan produk elektronik unggulan yang menggabungkan kualitas, inovasi, dan keandalan.</p>
+      </div>
+	  <div class="testimoni-card">
+        <h3><a href="cv-yogies-tempat-pkl-di-bandung.html">PENDIDIKAN</a></h3>
+        <p>CV. YOGIES membuka peluang PKL bagi siswa SMK yang ingin mengasah keterampilan dan menambah pengalaman di dunia kerja nyata.
+			Jadikan kesempatan ini sebagai langkah awal menuju karier profesional yang gemilang.</p>
+      </div>
+	  
+    </div>
+  </section>
+
+
+  <!-- TESTIMONI KONSUMEN -->
+  <section class="testimoni-section">
+    <h2>Testimoni Konsumen</h2>
+    <div class="testimoni-container">
+      <div class="testimoni-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Konsumen 1">
+        <h3>Sinta Herniawati</h3>
+        <p>"Pelayanannya cepat dan ramah! Produk yang saya pesan datang dalam kondisi sangat baik. Terima kasih CV. YOGIES!"</p>
+      </div>
+      <div class="testimoni-card">
+        <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Konsumen 2">
+        <h3>Adi Nugraha</h3>
+        <p>"Sudah beberapa kali order di sini, hasilnya selalu memuaskan. Kualitas produk sangat bagus!"</p>
+      </div>
+      <div class="testimoni-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Konsumen 3">
+        <h3>Dewi Kartika</h3>
+        <p>"Sangat direkomendasikan! Tim CV. YOGIES sangat profesional dan membantu dalam setiap kebutuhan saya."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE MAPS -->
+  <section class="maps-section">
+    <h2>Lokasi Kami</h2>
+    <iframe 
+      class="maps-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.975931056642!2d107.60821997444464!3d-6.93704886795263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e8b99a32f15d%3A0xa8cb4a53b158f0d0!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Kec.%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1729400341234!5m2!1sid!2sid" 
+      allowfullscreen="" 
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+</body>
+</html>

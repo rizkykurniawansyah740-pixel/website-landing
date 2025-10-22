@@ -50,7 +50,7 @@ body {
 }
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  background: url('https://img.freepik.com/free-photo/low-angle-view-skyscrapers_1359-1105.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;

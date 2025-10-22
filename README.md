@@ -1,4 +1,4 @@
-# 🌐 CV. YOGIES
+## CV. YOGIES
 
 Selamat datang di repository resmi **CV. YOGIES** — perusahaan kreatif yang berfokus pada pengembangan digital, desain multimedia, dan layanan teknologi informasi.
 
@@ -25,7 +25,7 @@ Repository ini dibuat untuk:
 - Mendukung kegiatan magang dan pelatihan siswa SMK/mahasiswa
 - Mendukung UMKM Dalam Kegiatan Marketing Digital
 
-## Struktur :
+## Struktur Masih Dalam Pengembangan :
 - Index
 - CSS
 - Style

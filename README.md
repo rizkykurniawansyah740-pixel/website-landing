@@ -26,7 +26,12 @@ Repository ini dibuat untuk:
 - Mendukung UMKM Dalam Kegiatan Marketing Digital
 
 ## Struktur Masih Dalam Pengembangan :
-- Update - 23 Oktober 2025 >Pendidikan ( Page Pendidikan Siswa / Siswi PKL )
+- Pendidikan ( Berisi Testimon & Rekrutmen Siswa / Siswi Untuk Praktek kerja Lapangan )
 - Index ( Home Page )
 - CSS ( Warna Maping Tempat )
 - Style
+
+## Histori Update
+- Update - 24 Oktober 2025 
+    -> Update Header & Galeri
+- Update - 23 Oktober 2025 >Pendidikan ( Page Pendidikan Siswa / Siswi PKL )

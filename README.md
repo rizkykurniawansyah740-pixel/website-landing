@@ -26,6 +26,7 @@ Repository ini dibuat untuk:
 - Mendukung UMKM Dalam Kegiatan Marketing Digital
 
 ## Struktur Masih Dalam Pengembangan :
+- Kesehatan ( Berisi Produk Supoert UMKM Kategori Herbal )
 - Elektronik ( Berisi Produk Suport UMKM )
 - Pendidikan ( Berisi Testimon & Rekrutmen Siswa / Siswi Untuk Praktek kerja Lapangan )
 - Index ( Home Page )
@@ -33,6 +34,7 @@ Repository ini dibuat untuk:
 - Style
 
 ## Histori Update
+- Update - 28 Oktober 2025 -> New Kategori Kesehatan
 - Update - 24 Oktober 2025 -> New Kategori Elektronik
 - Update - 24 Oktober 2025 
     -> Update Header & Galeri

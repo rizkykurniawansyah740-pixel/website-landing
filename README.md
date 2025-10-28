@@ -26,6 +26,7 @@ Repository ini dibuat untuk:
 - Mendukung UMKM Dalam Kegiatan Marketing Digital
 
 ## Struktur Masih Dalam Pengembangan :
+- Coway ( Berisi tentang produk Kesehatan Udara & Air / Filter )
 - Kesehatan ( Berisi Produk Supoert UMKM Kategori Herbal )
 - Elektronik ( Berisi Produk Suport UMKM )
 - Pendidikan ( Berisi Testimon & Rekrutmen Siswa / Siswi Untuk Praktek kerja Lapangan )
@@ -34,6 +35,7 @@ Repository ini dibuat untuk:
 - Style
 
 ## Histori Update
+- Update - 28 Oktober 2025 -> New Kategori Water Purifier
 - Update - 28 Oktober 2025 -> New Kategori Kesehatan
 - Update - 24 Oktober 2025 -> New Kategori Elektronik
 - Update - 24 Oktober 2025 

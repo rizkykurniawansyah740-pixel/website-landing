@@ -37,15 +37,14 @@ Repository ini dibuat untuk:
 
 ## Page
 - Sticker
-- Camilan
+- Camilan 9 ( Update tanggal 31 Oktober 2025 )
 
 ## Histori Update
 - Update - 31 Oktober 2025 -> New Kategori Sticker & Camilan UMKM
-- Update - 30 Oktober 2025 -> Domain
+- Update - 30 Oktober 2025 -> Tambah Domain
 - Update - 29 Oktober 2025 -> New Kategori Momapan
 - Update - 28 Oktober 2025 -> New Kategori Water Purifier
 - Update - 28 Oktober 2025 -> New Kategori Kesehatan
 - Update - 24 Oktober 2025 -> New Kategori Elektronik
-- Update - 24 Oktober 2025 
-    -> Update Header & Galeri
-- Update - 23 Oktober 2025 >Pendidikan ( Page Pendidikan Siswa / Siswi PKL )
+- Update - 24 Oktober 2025 -> Update Header & Galeri
+- Update - 23 Oktober 2025 -> Pendidikan ( Page Pendidikan Siswa / Siswi PKL )

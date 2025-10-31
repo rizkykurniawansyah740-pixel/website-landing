@@ -35,7 +35,13 @@ Repository ini dibuat untuk:
 - CSS ( Warna Maping Tempat )
 - Style
 
+## Page
+- Sticker
+- Camilan
+
 ## Histori Update
+- Update - 31 Oktober 2025 -> New Kategori Sticker & Camilan UMKM
+- Update - 30 Oktober 2025 -> Domain
 - Update - 29 Oktober 2025 -> New Kategori Momapan
 - Update - 28 Oktober 2025 -> New Kategori Water Purifier
 - Update - 28 Oktober 2025 -> New Kategori Kesehatan

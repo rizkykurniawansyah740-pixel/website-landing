@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<!-- Hubungkan CSS di sini -->
+  <link rel="stylesheet" href="../style.css">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yogies - Sticker Anti Radiasi</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f0f6ff; /* biru muda lembut */
+      color: #111;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #0047ab; /* biru gelap */
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background-color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 64, 128, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/Jteglnw.png" alt="1" />
+      </div>
+      <div class="slide">
+        <img src="https://i.imgur.com/qSsm2CH.png" alt="2" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Yogies Sticker Anti Radiasi</h1>
+      <p>Lindungi Perangkat & Diri dari Radiasi Berlebih!</p>
+    </div>
+
+    <style>
+      .hero-text {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 64, 0.5);
+        padding: 20px 40px;
+        border-radius: 12px;
+      }
+      .hero-text h1 {
+        font-size: 2.2rem;
+        color: #66b3ff; /* biru cerah */
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+    </style>
+  </section>
+
+  <!-- INFO PRODUK -->
+  <section class="info-section">
+    <div class="info-text">
+      <h2>Apa Itu Sticker Anti Radiasi ?</h2>
+      <p>
+        Sticker Anti Radiasi, berfungsi untuk membantu mengurangi paparan radiasi elektromagnetik dari perangkat elektronik.
+        Desain elegan, mudah dipasang, dan cocok untuk semua jenis gadget.
+      </p>
+
+      <ul class="program-list">
+			<li>1. <b>Menetralkan Radiasi</b> – Membantu menyeimbangkan gelombang elektromagnetik dari perangkat agar tidak berbahaya bagi tubuh.</li>
+			<li>2. <b>Menjaga Kesehatan Tubuh</b> – Mengurangi kelelahan, sakit kepala, dan gangguan tidur akibat paparan radiasi berlebih.</li>
+			<li>3. <b>Meningkatkan Energi Positif</b> – Membantu menjaga kestabilan energi dan konsentrasi saat menggunakan perangkat elektronik.</li>
+			<li>4. <b>Aman untuk Semua Perangkat</b> – Dapat digunakan pada HP, laptop, router Wi-Fi, dan alat elektronik lainnya tanpa gangguan sinyal.</li>
+			<li>5. <b>Desain Elegan & Tahan Lama</b> – Berbentuk tipis, stylish, dan tidak mudah rusak, menempel kuat di permukaan perangkat.</li>
+		</ul>
+
+
+      <p>
+        Gunakan <b>Sticker Anti Radiasi Yogies</b> untuk perlindungan maksimal setiap hari — solusi sederhana untuk gaya hidup sehat dan aman!
+      </p>
+
+      <br>
+      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <style>
+    .info-section {
+      background: linear-gradient(135deg, #e6f3ff 0%, #ffffff 100%);
+      padding: 80px 20px;
+      text-align: center;
+      color: #111;
+    }
+
+    .info-text {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-text h2 {
+      font-size: 2.2rem;
+      color: #0047ab;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .program-list li {
+      background: #f0f8ff;
+      border-left: 4px solid #007bff;
+      padding: 12px 16px;
+      margin: 8px 0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .btn.primary {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #0047ab;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn.primary:hover {
+      background-color: #0066cc;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <!-- GALERI -->
+  <h2>Galeri Produk</h2>
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/3tvRDfx.jpeg" alt="1">
+      <div class="caption">Sticker</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/V9j6vEP.jpeg" alt="2">
+      <div class="caption">Pemasangan Rapi & Aman</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/3tSVf4I.jpeg" alt="3">
+      <div class="caption">Kemasan Sticker</div>
+    </div>
+  </div>
+
+  <!-- PRODUK -->
+<section class="testimoni-section">
+  <h2>Manfaat Sticker Anti Radiasi</h2>
+  <div class="testimoni-wrapper">
+    <div class="testimoni-card">
+      <span><b>Reduksi Radiasi</b> – Membantu menetralkan gelombang elektromagnetik dari ponsel, laptop, dan perangkat elektronik lainnya.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Perlindungan Tubuh</b> – Mengurangi potensi dampak negatif radiasi terhadap kepala, mata, dan sistem saraf.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Peningkatan Energi Positif</b> – Membantu menjaga keseimbangan energi tubuh agar tetap stabil selama penggunaan perangkat.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Stabilitas Sinyal</b> – Tidak mengganggu kualitas jaringan atau koneksi, tetap aman digunakan di berbagai jenis perangkat.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Desain Stylish & Praktis</b> – Tipis, ringan, dan mudah dipasang tanpa mengubah tampilan perangkat kamu.</span>
+    </div>
+  </div>
+</section>
+
+
+  <style>
+    .testimoni-section {
+      background: linear-gradient(135deg, #e6f2ff, #ffffff);
+      padding: 80px 20px;
+      text-align: center;
+      color: #111;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2.2rem;
+      color: #003366;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      border: 1px solid #cce0ff;
+      border-left: 4px solid #007bff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .testimoni-card span {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #111;
+      display: block;
+      text-align: left;
+    }
+  </style>
+
+  <!-- MAPS -->
+  <section class="maps-section">
+    <h2>CV. YOGIES</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer" style="background:#001f3f; color:white; text-align:center; padding:20px;">
+    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides.forEach(slide => slide.classList.remove("active"));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
+  </script>
+  
+</body>
+</html>

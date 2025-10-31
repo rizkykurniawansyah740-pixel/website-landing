@@ -36,8 +36,8 @@ Repository ini dibuat untuk:
 - Style
 
 ## Page
-- Sticker
-- Camilan 9 ( Update tanggal 31 Oktober 2025 )
+- Sticker ( Update tanggal 31 Oktober 2025 )
+- Camilan ( Update tanggal 31 Oktober 2025 )
 
 ## Histori Update
 - Update - 31 Oktober 2025 -> New Kategori Sticker & Camilan UMKM

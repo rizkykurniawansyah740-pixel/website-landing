@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<!-- Hubungkan CSS di sini -->
+  <link rel="stylesheet" href="../style.css">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yogies Properti</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f0f6ff; /* biru muda lembut */
+      color: #111;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #0047ab; /* biru gelap */
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background-color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 64, 128, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/Y4THvYV.jpeg" alt="1" />
+      </div>
+      <div class="slide">
+        <img src="https://i.imgur.com/r3VUr0v.jpeg" alt="2" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Yogies Properti</h1>
+      <p>Cari Rumah & Kantor Idamanmu Bersama Kami!</p>
+    </div>
+
+    <style>
+      .hero-text {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 64, 0.5);
+        padding: 20px 40px;
+        border-radius: 12px;
+      }
+      .hero-text h1 {
+        font-size: 2.2rem;
+        color: #66b3ff; /* biru cerah */
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+    </style>
+  </section>
+
+  <!-- INFO PRODUK -->
+  <section class="info-section">
+    <div class="info-text">
+      <h2>Apa Itu Properti dari CV. Yogies?</h2>
+		<p>
+			Properti dari <b>CV. Yogies</b> merupakan hunian dan investasi bernilai tinggi dengan desain modern, lokasi strategis, serta lingkungan yang nyaman. 
+			Kami menghadirkan solusi properti terbaik bagi keluarga maupun investor yang mengutamakan kualitas dan kenyamanan.
+		</p>
+
+	<ul class="program-list">
+		<li>1. <b>Desain Modern & Fungsional</b> – Setiap unit dirancang dengan gaya arsitektur kekinian yang memaksimalkan kenyamanan dan pencahayaan alami.</li>
+		<li>2. <b>Lokasi Strategis</b> – Dekat dengan pusat kota, fasilitas umum, dan transportasi, menjadikan investasi properti lebih bernilai tinggi.</li>
+		<li>3. <b>Material Berkualitas</b> – Menggunakan bahan bangunan pilihan untuk hasil yang kuat, tahan lama, dan estetik.</li>
+		<li>4. <b>Investasi Menguntungkan</b> – Nilai properti terus meningkat setiap tahun, cocok untuk investasi jangka panjang.</li>
+		<li>5. <b>Layanan Profesional</b> – Didukung oleh tim berpengalaman dalam pengelolaan dan konsultasi properti terbaik.</li>
+	</ul>
+
+	<p>
+		Pilih <b>Properti CV. Yogies</b> sebagai langkah cerdas untuk memiliki hunian impian sekaligus aset masa depan yang bernilai tinggi.
+	</p>
+
+
+      <br>
+      <a href="https://wa.me/6283800889643" class="btn primary">Hubungi Sekarang</a>
+    </div>
+  </section>
+
+  <style>
+    .info-section {
+      background: linear-gradient(135deg, #e6f3ff 0%, #ffffff 100%);
+      padding: 80px 20px;
+      text-align: center;
+      color: #111;
+    }
+
+    .info-text {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-text h2 {
+      font-size: 2.2rem;
+      color: #0047ab;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .program-list li {
+      background: #f0f8ff;
+      border-left: 4px solid #007bff;
+      padding: 12px 16px;
+      margin: 8px 0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .btn.primary {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #0047ab;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn.primary:hover {
+      background-color: #0066cc;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <!-- GALERI -->
+  <h2>Ada Apa Aja Di Yogies Properti ?</h2>
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/UETh7XA.jpeg" alt="1">
+      <div class="caption">Gudang</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/DGg71tE.jpeg" alt="2">
+      <div class="caption">Kantor</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.imgur.com/wXc8lUq.jpeg" alt="3">
+      <div class="caption">Rumah</div>
+    </div>
+  </div>
+
+ <!-- PRODUK -->
+<section class="testimoni-section">
+  <h2>Yogies Properti</h2>
+  <div class="testimoni-wrapper">
+    <div class="testimoni-card">
+      <span><b>Beragam Pilihan Properti</b> – Kami menyediakan rumah tinggal, kantor, ruko, gudang, dan lahan strategis yang siap pakai atau bisa disesuaikan dengan kebutuhan Anda.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Lokasi Potensial</b> – Semua properti berada di area berkembang dengan akses mudah ke jalan utama, pusat bisnis, sekolah, dan fasilitas umum lainnya.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Legalitas Aman & Terjamin</b> – Setiap unit properti memiliki dokumen resmi dan legalitas yang jelas, aman untuk pembelian pribadi maupun investasi.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Investasi Menguntungkan</b> – Nilai properti terus meningkat setiap tahun, cocok untuk investasi jangka panjang yang stabil dan bernilai tinggi.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Dukungan Tim Profesional</b> – Tim kami siap membantu Anda dalam proses jual beli, konsultasi harga, serta pengurusan dokumen secara cepat dan transparan.</span>
+    </div>
+  </div>
+</section>
+
+
+
+  <style>
+    .testimoni-section {
+      background: linear-gradient(135deg, #e6f2ff, #ffffff);
+      padding: 80px 20px;
+      text-align: center;
+      color: #111;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2.2rem;
+      color: #003366;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      border: 1px solid #cce0ff;
+      border-left: 4px solid #007bff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .testimoni-card span {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #111;
+      display: block;
+      text-align: left;
+    }
+  </style>
+
+  <!-- MAPS -->
+  <section class="maps-section">
+    <h2>CV. YOGIES</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer" style="background:#001f3f; color:white; text-align:center; padding:20px;">
+    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides.forEach(slide => slide.classList.remove("active"));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
+  </script>
+
+</body>
+</html>

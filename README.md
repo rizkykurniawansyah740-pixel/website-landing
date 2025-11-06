@@ -40,6 +40,7 @@ Repository ini dibuat untuk:
 - Camilan ( Update tanggal 31 Oktober 2025 )
 
 ## Histori Update
+- Update - 6 November 2025 -> Kategori Water Purifier
 - Update - 4 November 2025 -> Webmaster Utama Index - Jam 7.15
 - Update - 31 Oktober 2025 -> New Kategori Sticker & Camilan UMKM
 - Update - 30 Oktober 2025 -> Tambah Domain

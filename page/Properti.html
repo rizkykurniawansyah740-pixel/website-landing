@@ -309,6 +309,40 @@
     <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
   </footer>
 
+<!-- ✅ TOMBOL KEMBALI KE HOME -->
+<a href="index.html" class="back-home-btn">
+  <i class="fas fa-arrow-left"></i> <span>Kembali</span>
+</a>
+
+<!-- Tambahkan di <head> agar ikon bisa muncul -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  .back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+
+  .back-home-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  .back-home-btn i {
+    font-size: 16px;
+  }
+</style>
+
+
+	
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -323,3 +357,4 @@
 
 </body>
 </html>
+

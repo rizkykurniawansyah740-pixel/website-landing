@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<!-- Hubungkan CSS di sini -->
+<link rel="stylesheet" href="../style.css">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basreng Chili Oil Bandung - Yogies Indonesia</title>
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #222;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/VcHzQJj.jpeg" alt="1" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Basreng Chili Oil Bandung - Yogies Indonesia</h1>
+      <p>Basreng pedas gurih yang bikin kamu nggak bisa berhenti ngunyah!</p>
+    </div>
+	
+	<style>
+		.no-click {
+		  pointer-events: none;
+		}
+	</style>
+  </section>
+
+  <!-- INFO PRODUK -->
+  <section class="info-section">
+    <div class="info-text">
+    <h2 style="text-align: center;">Apa Itu Basreng?</h2>
+<p style="text-align: justify; text-align-last: center;">
+  <b>Basreng</b> (Bakso Goreng) adalah camilan khas Sunda yang dibuat dari irisan bakso yang digoreng hingga kering dan renyah. 
+  Teksturnya yang gurih dan rasa pedasnya yang menggugah selera membuat basreng digemari berbagai kalangan. 
+  Basreng sering disajikan sebagai camilan ringan atau teman nongkrong, karena rasanya yang nagih dan cocok dinikmati kapan saja.
+</p>
+
+
+
+      <ul class="program-list">
+        <li>1. <b>Rasa Premium</b> – Dibuat dengan bumbu pilihan dan resep khas, menghadirkan cita rasa istimewa.</li>
+        <li>2. <b>Tekstur Super Renyah</b> – Garingnya tahan lama tanpa mengurangi rasa gurihnya.</li>
+        <li>3. <b>Bahan Berkualitas</b> – Menggunakan baso pilihan, tepung terbaik, dan rempah asli Indonesia.</li>
+        <li>4. <b>Banyak Varian Rasa</b> – Rendang, Black Pepper, Original, hingga Pedas Daun Jeruk siap memanjakan lidahmu.</li>
+        <li>5. <b>Kemasan Praktis & Higienis</b> – Dikemas dalam pouch 100 gram, mudah dibawa dan disimpan kapan saja.</li>
+      </ul>
+      <p>
+        Dengan Basreng Bandung, Anda bisa menikmati camilan premium yang renyah, gurih, dan pedasnya pas — teman sempurna untuk setiap momen santai Anda.
+      </p>
+
+      <br>
+      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <style>
+    .info-section {
+      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+      padding: 80px 20px;
+      text-align: center;
+      color: #222;
+    }
+
+    .info-text {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-text h2 {
+      font-size: 2.2rem;
+      color: #c8a600;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .program-list li {
+      background: #fffbea;
+      border-left: 4px solid #d4af37;
+      padding: 12px 16px;
+      margin: 8px 0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .btn.primary {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #d4af37;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn.primary:hover {
+      background-color: #b6952d;
+      transform: translateY(-2px);
+    }
+  </style>
+
+ <!-- GALERI -->
+<h2>Galeri Basreng Bandung</h2>
+<div class="gallery-container">
+  <div class="gallery-item">
+    <img src="https://i.imgur.com/hbhKAb2.jpeg" alt="2">
+    <div class="caption">Basreng Pedas Gurih</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://i.imgur.com/L2wKC62.jpeg" alt="3">
+    <div class="caption">Basreng Original Renyah</div>
+  </div>
+  <div class="gallery-item">
+    <img src="https://i.imgur.com/z71W7pB.jpeg" alt="Basreng Level Ekstra Pedas">
+    <div class="caption">Basreng Level Ekstra Pedas</div>
+  </div>
+</div>
+
+
+  <!-- PRODUK -->
+  <section class="testimoni-section">
+    <h2>Varian Basreng</h2>
+    <div class="testimoni-wrapper">
+      <div class="testimoni-card">
+        <span><b>Basreng Original Daun Jeruk</b> – Gurih renyah dengan aroma daun jeruk yang khas dan segar.</span>
+      </div>
+      <div class="testimoni-card">
+        <span><b>Basreng Spicy Black Pepper</b> – Perpaduan pedas dan lada hitam yang menggigit, bikin nagih di setiap gigitan!</span>
+      </div>
+      <div class="testimoni-card">
+        <span><b>Basreng Pedas Daun Jeruk</b> – Sensasi pedas segar yang harum, cocok buat pecinta pedas sejati.</span>
+      </div>
+      <div class="testimoni-card">
+        <span><b>Basreng Spicy Rendang</b> – Rasa rendang khas Nusantara dengan sentuhan pedas gurih yang menggoda.</span>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .testimoni-section {
+      background: linear-gradient(135deg, #fffdea, #ffffff);
+      padding: 80px 20px;
+      text-align: center;
+      color: #222;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2.2rem;
+      color: #c8a600;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      border: 1px solid #f6e9b5;
+      border-left: 4px solid #d4af37;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .testimoni-card span {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      display: block;
+      text-align: left;
+    }
+  </style>
+
+  <!-- MAPS -->
+  <section class="maps-section">
+    <h2>CV. YOGIES</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© <span id="year"></span> YOGIES. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides.forEach(slide => slide.classList.remove("active"));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
+  </script>
+  
+  <!-- Script No Copas -->
+  <script>
+    (function() {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('selectstart', e => e.preventDefault());
+      document.addEventListener('dragstart', e => e.preventDefault());
+      document.addEventListener('copy', e => e.preventDefault());
+      document.addEventListener('cut', e => e.preventDefault());
+      document.addEventListener('paste', e => e.preventDefault());
+      document.addEventListener('keydown', function(e) {
+        var key = e.key.toLowerCase();
+        var ctrl = e.ctrlKey || e.metaKey;
+        if (ctrl && ['c', 'u', 's', 'p'].includes(key)) e.preventDefault();
+        if (e.keyCode === 123) e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key.toLowerCase())) e.preventDefault();
+      });
+    })();
+  </script>
+
+  <!-- ✅ TOMBOL KEMBALI KE HOME -->
+  <a href="index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left"></i> <span>Kembali</span>
+  </a>
+
+  <style>
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, #d4af37, #c8a600);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1000;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .back-home-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-30deg);
+      transition: all 0.5s ease;
+    }
+
+    .back-home-btn:hover::before {
+      left: 120%;
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: linear-gradient(135deg, #e3c74e, #b6952d);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .back-home-btn i {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-home-btn:hover i {
+      transform: translateX(-5px);
+    }
+
+    @media (max-width: 600px) {
+      .back-home-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('load', () => {
+      const backBtn = document.querySelector('.back-home-btn');
+      setTimeout(() => {
+        backBtn.style.transition = 'all 0.8s ease';
+        backBtn.style.opacity = '1';
+        backBtn.style.transform = 'translateY(0)';
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kopi Robusta Dan Arabika Bandung - Yogies Indonesia</title>
+  
+  <!-- Meta Deskripsi -->
+  <meta name="description" content="Nikmati cita rasa khas Kopi Robusta dan Arabika dari Bandung bersama Yogies Indonesia. Kopi pilihan berkualitas dengan aroma kuat dan rasa khas Nusantara.">
+
+  <!-- Kata Kunci -->
+  <meta name="keywords" content="kopi robusta bandung, kopi arabika bandung, kopi nusantara, kopi yogies indonesia, kopi asli bandung">
+
+  <!-- Penulis -->
+  <meta name="author" content="CV. Yogies Indonesia">
+
+  <!-- Robots (biarkan Google index dan follow link) -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <!-- Open Graph untuk tampilan di media sosial -->
+  <meta property="og:title" content="Kopi Robusta Dan Arabika Bandung - Yogies Indonesia">
+  <meta property="og:description" content="Kopi Robusta dan Arabika terbaik dari Bandung. Nikmati rasa khas Nusantara hanya di Yogies Indonesia.">
+  <meta property="og:image" content="https://yogies.my.id/images/kopi-bandung.jpg">
+  <meta property="og:url" content="https://yogies.my.id/page/Kopi.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kopi Robusta Dan Arabika Bandung - Yogies Indonesia">
+  <meta name="twitter:description" content="Cita rasa kopi Robusta dan Arabika khas Bandung dari Yogies Indonesia.">
+  <meta name="twitter:image" content="https://yogies.my.id/images/kopi-bandung.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yogies.my.id/page/Kopi.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://yogies.my.id/images/favicon.png">
+
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+
+
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === HERO SECTION === */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slider .slider-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-slider .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slider .slide.active {
+      opacity: 1;
+    }
+
+    .hero-slider .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(65%);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      max-width: 800px;
+      padding: 0 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      color: #f5d28c;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translate(-50%, -40%);}
+      to {opacity: 1; transform: translate(-50%, -50%);}
+    }
+
+    /* === KEUNIKAN KOPI === */
+    .coffee-unique {
+      background: linear-gradient(180deg, #4b2e1e 0%, #6f4e37 100%);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .coffee-unique h2 {
+      font-size: 2.5rem;
+      color: #f5d28c;
+      margin-bottom: 20px;
+    }
+
+    .coffee-unique p.desc {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      line-height: 1.8;
+      color: #f8f5ef;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 30px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #d4af37;
+      margin-bottom: 12px;
+      animation: floatIcon 2.5s ease-in-out infinite;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: #f7e1a3;
+      margin-bottom: 8px;
+    }
+
+    .btn-discover {
+      display: inline-block;
+      background: #d4af37;
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-discover:hover {
+      background-color: #b9952b;
+      transform: translateY(-3px);
+    }
+
+    @keyframes floatIcon {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-6px);}
+    }
+
+    /* === INFO PRODUK === */
+    .info-section {
+      background: linear-gradient(135deg, #a1827e 0%, #ffffff 100%);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .info-text {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-text h2 {
+      font-size: 2.3rem;
+      color: #662e1d;
+      margin-bottom: 25px;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .program-list li {
+      background: #a1827e;
+      border-left: 5px solid #662e1d;
+      padding: 14px 18px;
+      margin: 10px 0;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .btn.primary {
+      display: inline-block;
+      background: #662e1d;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn.primary:hover {
+      background: #a1827e;
+      transform: translateY(-3px);
+    }
+
+    /* === GALERI === */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* === TESTIMONI === */
+    .testimoni-section {
+      background: linear-gradient(135deg, #a1827e, #ffffff);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2.3rem;
+      color: #662e1d;
+      margin-bottom: 40px;
+    }
+
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      border-left: 5px solid #662e1d;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .maps-section {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fdfdfd;
+    }
+
+    .maps-section h2 {
+      color: #662e1d;
+      font-size: 2rem;
+    }
+
+    .maps-section p {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    /* === BACK HOME BUTTON === */
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: #6f4e37;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .back-home-btn:hover {
+      background: #5b3b28;
+      transform: translateY(-4px) scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/fAaAbOi.jpeg" alt="1" />
+      </div>
+      <div class="slide">
+        <img src="https://i.imgur.com/5gzU4zh.jpeg" alt="2" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <h2>Kopi Robusta Dan Arabika Bandung - Yogies Indonesia</h2>
+      <p>Hangat, harum, dan autentik setiap tegukan membawa cerita dari tanah Nusantara.</p>
+    </div>
+  </section>
+
+  <!-- KEUNIKAN -->
+  <section class="coffee-unique">
+    <h2>Keunikan Kopi Indonesia</h2>
+    <p class="desc">Dari biji pilihan, disangrai alami dengan rasa dan aroma yang menghadirkan tradisi dan kehangatan.</p>
+    <div class="features">
+      <div class="card"><i class="fas fa-seedling"></i><h3>Ragam Rasa</h3><p>Setiap daerah punya cita rasa unik, dari fruity hingga earthy.</p></div>
+      <div class="card"><i class="fas fa-fire"></i><h3>Proses Tradisional</h3><p>Disangrai perlahan dengan metode alami.</p></div>
+      <div class="card"><i class="fas fa-mug-hot"></i><h3>Aroma Memikat</h3><p>Kombinasi cokelat, rempah, dan karamel.</p></div>
+      <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>Budaya Kopi</h3><p>Simbol kebersamaan dan cerita rakyat.</p></div>
+    </div>
+    <a href="https://wa.me/6283800889643" class="btn-discover">Nikmati Sekarang</a>
+  </section>
+
+  <!-- INFO -->
+  <section class="info-section">
+    <div class="info-text">
+      <h2>Kenapa Memilih Kopi Tradisional Premium?</h2>
+      <ul class="program-list">
+        <li><b>Aroma Unik & Hangat</b> – Proses sangrai kayu alami menghadirkan aroma lembut namun kuat.</li>
+        <li><b>Biji Pilihan</b> – Dari dataran tinggi terbaik Nusantara.</li>
+        <li><b>Pematangan Alami</b> – Menyempurnakan keseimbangan rasa.</li>
+        <li><b>Varian Seimbang</b> – Arabika lembut & Robusta kuat.</li>
+      </ul>
+      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <h2 style="text-align:center; margin-top:80px;">Foto Produk</h2>
+  <div class="gallery-container">
+    <div class="gallery-item"><img src="https://i.imgur.com/cleaF1Z.jpeg"><div class="caption">Kemasan Premium</div></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/qwMMkGD.jpeg"><div class="caption">Suasana Kedai</div></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/4VeNMRf.jpeg"><div class="caption">Proses Sangrai</div></div>
+  </div>
+
+  <!-- TESTIMONI -->
+  <section class="testimoni-section">
+  <h2>Manfaatnya Apa Sih?</h2>
+  <div class="testimoni-wrapper">
+    <div class="testimoni-card">
+      <span><b>Meningkatkan Fokus dan Konsentrasi</b> – Kandungan kafein membantu otak tetap segar dan fokus lebih lama.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Menambah Energi Tubuh</b> – Cocok diminum saat pagi atau menjelang aktivitas untuk semangat maksimal.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Meningkatkan Mood</b> – Aroma dan rasa khas kopi membantu mengurangi stres dan membuat pikiran lebih rileks.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Mengandung Antioksidan</b> – Melindungi tubuh dari radikal bebas dan membantu menjaga kesehatan sel.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Meningkatkan Metabolisme</b> – Membantu pembakaran kalori lebih cepat dan menjaga berat badan ideal.</span>
+    </div>
+    <div class="testimoni-card">
+      <span><b>Menjaga Kesehatan Jantung</b> – Konsumsi kopi dalam takaran wajar dapat mendukung fungsi jantung yang sehat.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- MAPS -->
+  <section class="maps-section">
+    <h2>CV. YOGIES</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const slides = document.querySelectorAll(".slide");
+    let i = 0;
+    setInterval(() => {
+      slides.forEach(s => s.classList.remove("active"));
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 4000);
+
+    window.addEventListener('load', () => {
+      const btn = document.querySelector('.back-home-btn');
+      setTimeout(() => {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      }, 500);
+    });
+  </script>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i><span>Kembali</span></a>
+</body>
+</html>

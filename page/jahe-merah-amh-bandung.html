@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jahe Merah AMH - Yogies Indonesia</title>
+  
+  <!-- 🔹 SEO BASIC TAGS -->
+  <title>Jahe Merah AMH - Minuman Herbal Hangat & Sehat | CV. Yogies Indonesia</title>
+  <meta name="description" content="Jahe Merah AMH adalah minuman herbal alami dari jahe merah pilihan yang membantu menjaga daya tahan tubuh, menambah energi, dan memperlancar peredaran darah." />
+  <meta name="keywords" content="Jahe Merah AMH, minuman herbal, jahe merah Bandung, minuman sehat alami, Yogies Indonesia" />
+  <meta name="author" content="Yogies Indonesia" 
+  
+  <!-- 🔹 OPEN GRAPH (UNTUK SOSIAL MEDIA: FACEBOOK, WHATSAPP, DLL) -->
+  <meta property="og:title" content="Jahe Merah AMH - Minuman Herbal Hangat & Sehat" />
+  <meta property="og:description" content="Minuman herbal alami dari jahe merah pilihan untuk menjaga daya tahan tubuh dan meningkatkan energi." />
+  <meta property="og:image" content="https://i.imgur.com/OPzyo8f.png" />
+  <meta property="og:url" content="https://yogiesindonesia.co.id/produk/jahe-merah-amh.html" />
+  <meta property="og:type" content="website" />
+  
+  <!-- 🔹 TWITTER CARD (JIKA DISHARE DI TWITTER / X) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jahe Merah AMH - Minuman Herbal Hangat & Sehat" />
+  <meta name="twitter:description" content="Minuman herbal alami dari jahe merah pilihan yang membantu menjaga stamina dan imunitas tubuh." />
+  <meta name="twitter:image" content="https://i.imgur.com/OPzyo8f.png" />
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* === HERO === */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slider .slider-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(65%);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+      max-width: 800px;
+      padding: 0 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      color: #f5d28c;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translate(-50%, -40%);}
+      to {opacity: 1; transform: translate(-50%, -50%);}
+    }
+
+    /* === INFO PRODUK === */
+    .info-section {
+      background: linear-gradient(135deg, #a1827e 0%, #ffffff 100%);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .info-text {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-text h2 {
+      font-size: 2.3rem;
+      color: #662e1d;
+      margin-bottom: 25px;
+    }
+
+    .program-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .program-list li {
+      background: #a1827e;
+      border-left: 5px solid #662e1d;
+      padding: 14px 18px;
+      margin: 10px 0;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    /* === GALERI === */
+    h2 {
+      text-align: center;
+      margin: 80px 0 40px;
+      color: #662e1d;
+      font-size: 2.3rem;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* === TESTIMONI === */
+    .testimoni-section {
+      background: linear-gradient(135deg, #a1827e, #ffffff);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2.3rem;
+      color: #662e1d;
+      margin-bottom: 40px;
+    }
+
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      border-left: 5px solid #662e1d;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      text-align: left;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* === BUTTON === */
+    .btn.primary {
+      display: inline-block;
+      background: #662e1d;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn.primary:hover {
+      background: #a1827e;
+      transform: translateY(-3px);
+    }
+
+    /* === MAPS & FOOTER === */
+    .maps-section {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fdfdfd;
+    }
+
+    .maps-section h2 {
+      color: #662e1d;
+      font-size: 2rem;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    /* === BACK BUTTON === */
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: #6f4e37;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .back-home-btn:hover {
+      background: #5b3b28;
+      transform: translateY(-4px) scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/r3VWfC8.jpeg" alt="1" />
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Jahe Merah AMH Bandung</h1>
+      <p>Minuman Herbal Sehat Untuk Keluarga Anda</p>
+    </div>
+  </section>
+
+  <!-- INFO PRODUK -->
+  <section class="info-section">
+    <div class="info-text">
+      <h2>Apa Itu Jahe Merah AMH?</h2>
+      <p>
+        <b>Jahe Merah AMH</b> adalah minuman herbal alami yang terbuat dari ekstrak jahe merah pilihan, 
+        dikenal memiliki rasa hangat khas serta aroma menenangkan. 
+        Membantu menjaga daya tahan tubuh, meningkatkan energi, dan memperlancar peredaran darah.
+      </p>
+    </div>
+  </section>
+
+  <!-- VARIAN -->
+  <section class="info-section">
+    <div class="info-text">
+      <h2>Varian Jahe Merah AMH</h2>
+      <ul class="program-list">
+        <li><b>Jahe Merah Original</b> – Sensasi hangat alami dari jahe merah murni, cocok untuk menjaga stamina.</li>
+        <li><b>Jahe Merah Plus Madu</b> – Perpaduan jahe merah dan madu alami untuk rasa lembut dan menutrisi tubuh.</li>
+        <li><b>Perbedaan</b> – Original lebih kuat jahenya, Plus Madu lebih manis dan lembut.</li>
+        <li><b>Proses Pembuatan</b> – Higienis dengan teknologi modern tanpa kehilangan nutrisi alami.</li>
+        <li><b>Kemasan</b> – Praktis dalam sachet dan botol eksklusif, mudah dinikmati kapan pun.</li>
+      </ul>
+      <a href="https://wa.me/6283800889643" class="btn primary">Hubungi Sekarang</a>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <h2>Galeri Jahe Merah AMH</h2>
+  <div class="gallery-container">
+    <div class="gallery-item"><img src="https://i.imgur.com/7fZp8dj.jpeg" alt="1"><div class="caption">Jahe Merah AMH Original</div></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/IhO7a5Y.jpeg" alt="2"><div class="caption">Jahe Merah AMH Plus Madu</div></div>
+    <div class="gallery-item"><img src="https://i.imgur.com/RD9wYOm.jpeg" alt="3"><div class="caption">Kemasan Produk</div></div>
+  </div>
+
+  <!-- MANFAAT -->
+  <section class="testimoni-section">
+    <h2>Manfaat Jahe Merah AMH</h2>
+    <div class="testimoni-wrapper">
+      <div class="testimoni-card"><span><b>Meningkatkan Daya Tahan Tubuh</b> – Membantu sistem imun tetap kuat menghadapi aktivitas padat.</span></div>
+      <div class="testimoni-card"><span><b>Melancarkan Peredaran Darah</b> – Jahe merah membantu menurunkan tekanan darah dan menghangatkan tubuh.</span></div>
+      <div class="testimoni-card"><span><b>Meredakan Masuk Angin & Batuk</b> – Efektif membantu tenggorokan gatal dan perut kembung secara alami.</span></div>
+      <div class="testimoni-card"><span><b>Mengurangi Nyeri Otot & Sendi</b> – Gingerol berfungsi sebagai antiinflamasi alami.</span></div>
+      <div class="testimoni-card"><span><b>Menambah Stamina</b> – Menjaga energi dan kebugaran tubuh sepanjang hari.</span></div>
+      <div class="testimoni-card"><span><b>Menjaga Pencernaan</b> – Membantu metabolisme dan meredakan mual.</span></div>
+    </div>
+  </section>
+
+  <!-- MAPS -->
+  <section class="maps-section">
+    <h2>CV. YOGIES</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const slides = document.querySelectorAll(".slide");
+    let i = 0;
+    setInterval(() => {
+      slides.forEach(s => s.classList.remove("active"));
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 4000);
+
+    window.addEventListener('load', () => {
+      const btn = document.querySelector('.back-home-btn');
+      setTimeout(() => {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      }, 500);
+    });
+  </script>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i><span>Kembali</span></a>
+
+</body>
+</html>

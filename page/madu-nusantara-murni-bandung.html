@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madu Nusantara Bandung - Yogies Indonesia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fffaf3;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ==== HERO SECTION ==== */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slider .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slider .slide.active {
+      opacity: 1;
+    }
+
+    .hero-slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(80%);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fffbea;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #ffda7b;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-top: 12px;
+      color: #fffbe9;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    /* === GALERI === */
+    .gallery-section {
+      text-align: center;
+      margin: 80px 0;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.4rem;
+      color: #a06b00;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .gallery-section h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #ffda7b;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* ==== KEUNIKAN MADU ==== */
+    .honey-unique {
+      background: linear-gradient(180deg, #f9e0a6 0%, #fff7e1 100%);
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .honey-unique h2 {
+      font-size: 2.4rem;
+      color: #a06b00;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .honey-unique h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #ffda7b;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .honey-unique p.desc {
+      font-size: 1.1rem;
+      color: #6d4b00;
+      max-width: 700px;
+      margin: 20px auto 60px;
+      line-height: 1.7;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fffef8;
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center; /* Menambahkan ini agar isi kartu rata tengah */
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(160, 107, 0, 0.2);
+    }
+
+    .card i {
+      font-size: 2.3rem;
+      color: #d4a017;
+      margin-bottom: 15px;
+      animation: floatIcon 2.5s ease-in-out infinite;
+    }
+
+    .card h3 {
+      color: #a06b00;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #6f4e0f;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* ==== INFO PRODUK ==== */
+    .info-section {
+      background: linear-gradient(135deg, #fff9e6, #f1d590);
+      padding: 90px 25px;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      font-size: 2.3rem;
+      color: #8a5500;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      color: #5c3a00;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .info-list {
+      list-style: none;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 0;
+    }
+
+    .info-list li {
+      background: #ffeec4;
+      border-left: 5px solid #d4a017;
+      margin: 12px 0;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #4a3100;
+      transition: all 0.3s ease;
+    }
+
+    .info-list li:hover {
+      background: #ffdf90;
+      transform: translateX(5px);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: #d4a017;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #b88c0a;
+      transform: translateY(-4px);
+    }
+
+    /* ==== ANIMASI MASUK ==== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #1c1300;
+      color: #fff6d6;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Tombol Kembali */
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, #d4a017, #f6d465);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: linear-gradient(135deg, #b88c0a, #e8c55f);
+    }
+
+    .back-home-btn i {
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HERO -->
+  <section class="hero-slider">
+    <div class="slide active">
+      <img src="https://i.imgur.com/5F1gbbh.jpeg" alt="Madu Nusantara 1">
+    </div>
+    <div class="slide">
+      <img src="https://i.imgur.com/BXYF3cv.jpeg" alt="Madu Nusantara 2">
+    </div>
+    <div class="hero-text">
+      <h1>Madu Nusantara Bandung - Yogies Indonesia</h1>
+      <p>Kelezatan alami dari hutan tropis Indonesia yang murni dan bernutrisi tinggi.</p>
+    </div>
+  </section>
+
+  <!-- KEUNIKAN MADU -->
+  <section class="honey-unique" data-animate>
+    <h2>Keajaiban Madu Nusantara</h2>
+    <p class="desc">Dipanen langsung dari hutan dan ladang bunga liar Nusantara, madu kami kaya manfaat, rasa, dan tradisi.</p>
+    <div class="features">
+      <div class="card">
+        <i class="fa-solid fa-leaf"></i>
+        <h3>Alami 100%</h3>
+        <p>Tanpa tambahan bahan kimia, dijaga murni sejak dari lebah hingga botol.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Energi Alami</h3>
+        <p>Kaya glukosa dan mineral alami untuk mendukung stamina harian.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-heart"></i>
+        <h3>Baik untuk Tubuh</h3>
+        <p>Antioksidan alami membantu menjaga daya tahan dan kesehatan kulit.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-mountain-sun"></i>
+        <h3>Dari Alam Nusantara</h3>
+        <p>Dikumpulkan dari lebah yang hidup bebas di pegunungan dan hutan tropis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="gallery-section" data-animate>
+    <h2>Madu Super Nusantara</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/v4kwDFl.jpeg">
+        <div class="caption">650 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/XI9O2u8.jpeg">
+        <div class="caption">250 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/Hy0uNKa.jpeg">
+        <div class="caption">100 ML</div>
+      </div>
+    </div>
+    <h2>Madu Murni Nusantara</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/JIznFEv.jpeg">
+        <div class="caption">650 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/JUHK3ca.jpeg">
+        <div class="caption">250 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/Dg4kZGg.jpeg">
+        <div class="caption">100 ML</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO PRODUK -->
+  <section class="info-section" data-animate>
+    <h2>Kenapa Pilih Madu Ini?</h2>
+    <p>Madu Nusantara adalah perpaduan cita rasa manis alami, aroma lembut bunga liar, dan manfaat kesehatan yang luar biasa.</p>
+    <ul class="info-list">
+      <li><b>Murni Tanpa Campuran</b> – Tidak melalui proses pemanasan yang merusak enzim alami madu.</li>
+      <li><b>Rasa Khas</b> – Setiap tetes membawa keunikan rasa bunga Nusantara yang kaya dan berlapis.</li>
+      <li><b>Kemasan Premium</b> – Botol kaca elegan menjaga kualitas dan tampil menawan di meja Anda.</li>
+      <li><b>Multi-Manfaat</b> – Baik untuk kesehatan, kecantikan, dan stamina alami keluarga.</li>
+    </ul>
+    <a href="https://wa.me/6283800889643" class="btn">Pesan Sekarang</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Madu Nusantara Premium | Dikelola oleh CV. Yogies</p>
+  </footer>
+
+  <!-- Tombol Kembali -->
+  <a href="../index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left"></i> Kembali
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Slider
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides.forEach(slide => slide.classList.remove("active"));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 5000);
+
+    // Scroll animation (muncul saat elemen masuk viewport dari bawah atau atas, dan hilang saat keluar)
+    const animElements = document.querySelectorAll("[data-animate]");
+    const onScroll = () => {
+      animElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Jika elemen di dalam viewport (dengan margin 100px), tambahkan kelas visible
+        if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+          el.classList.add("visible");
+        } else {
+          // Jika keluar viewport, hapus kelas visible
+          el.classList.remove("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // Jalankan sekali saat load
+
+    // Back button muncul animasi
+    window.addEventListener('load', () => {
+      const backBtn = document.querySelector('.back-home-btn');
+      setTimeout(() => {
+        backBtn.style.transition = 'all 0.8s ease';
+        backBtn.style.opacity = '1';
+        backBtn.style.transform = 'translateY(0)';
+      }, 600);
+    });
+  </script>
+</body>
+</html>

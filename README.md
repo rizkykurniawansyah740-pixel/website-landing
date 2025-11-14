@@ -26,6 +26,8 @@ Repository ini dibuat untuk:
 - Mendukung UMKM Dalam Kegiatan Marketing Digital
 
 ## Struktur Masih Dalam Pengembangan :
+
+= Kopi ( Berisi Produk UMKM Tentang Kopi Robusta & Arabika )
 - Momapan ( Berisi Tentang Produk Momapan )
 - Coway ( Berisi tentang produk Kesehatan Udara & Air / Filter )
 - Kesehatan ( Berisi Produk Supoert UMKM Kategori Herbal )
@@ -40,6 +42,7 @@ Repository ini dibuat untuk:
 - Camilan ( Update tanggal 31 Oktober 2025 )
 
 ## Histori Update
+- Update - 14 November 2025 -> Update Konten Baru, Penambahan Kategori Baru 
 - Update - 6 November 2025 -> Kategori Water Purifier
 - Update - 4 November 2025 -> Webmaster Utama Index - Jam 7.15
 - Update - 31 Oktober 2025 -> New Kategori Sticker & Camilan UMKM

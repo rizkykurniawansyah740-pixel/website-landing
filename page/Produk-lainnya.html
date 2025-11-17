@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Produk Lainnya - Yogies Indonesia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fffaf3;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ==== HEADER ==== */
+    .header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      object-fit: cover;
+      filter: brightness(80%);
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fffbea;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1.5s ease;
+      z-index: 10;
+    }
+
+    .header-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #ffda7b;
+    }
+
+    .header-text p {
+      font-size: 1.2rem;
+      margin-top: 12px;
+      color: #fffbe9;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    /* Indikator Titik */
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dot.active {
+      background: #ffda7b;
+    }
+
+    /* Tombol Kembali */
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, #d4a017, #f6d465);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: linear-gradient(135deg, #b88c0a, #e8c55f);
+    }
+
+    .back-home-btn i {
+      font-size: 18px;
+    }
+
+    /* ==== PENJELASAN PRODUK BEST ==== */
+    .product-explanation {
+      background: linear-gradient(180deg, #f9e0a6 0%, #fff7e1 100%);
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .product-explanation h2 {
+      font-size: 2.4rem;
+      color: #a06b00;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .product-explanation h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #ffda7b;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .product-explanation p {
+      font-size: 1.1rem;
+      color: #6d4b00;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ==== JENIS PRODUK ==== */
+    .product-types {
+      padding: 90px 20px;
+      background: #fff;
+    }
+
+    .product-types h2 {
+      font-size: 2.4rem;
+      color: #a06b00;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .product-types h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #ffda7b;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .product-item {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      padding: 20px;
+      background: #fffef8;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(160, 107, 0, 0.2);
+    }
+
+    .product-item img {
+      width: 300px;
+      height: 300px; /* Diubah ke 1:1 (300px x 300px) */
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-info h3 {
+      font-size: 1.8rem;
+      color: #a06b00;
+      margin-bottom: 15px;
+    }
+
+    .product-info p {
+      font-size: 1rem;
+      color: #6f4e0f;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .product-info ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .product-info ul li {
+      background: #ffeec4;
+      border-left: 5px solid #d4a017;
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #4a3100;
+    }
+
+    .btn {
+      display: flex;
+        justify-content: center;
+  align-items: center;
+      margin-top: 10px;
+      background: #d4a017;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #b88c0a;
+      transform: translateY(-4px);
+    }
+
+    /* ==== MAPS ==== */
+    .maps-section {
+      background: linear-gradient(135deg, #fff9e6, #f1d590);
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .maps-section h2 {
+      font-size: 2.3rem;
+      color: #8a5500;
+      margin-bottom: 20px;
+    }
+
+    .maps-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ==== ANIMASI MASUK ==== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #1c1300;
+      color: #fff6d6;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .product-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .product-item img {
+        width: 100%;
+        height: 300px; /* Tetap 1:1 di mobile, atau sesuaikan jika perlu */
+      }
+
+      .header-text h1 {
+        font-size: 2rem;
+      }
+
+      .header-text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="slideshow">
+      <img src="https://i.imgur.com/5F1gbbh.jpeg" alt="Produk Best Header 1" class="slide active">
+    </div>
+    <div class="header-text">
+     <h1>Produk Lainnya</h1>
+    <p>Koleksi produk terbaik dari Yogies Indonesia untuk kesehatan dan kehidupan sehari-hari.</p>
+    </div>
+  </header>
+
+  <!-- Tombol Kembali -->
+  <a href="../index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left"></i> Kembali
+  </a>
+
+  <!-- PENJELASAN PRODUK BEST -->
+  <section class="product-explanation" data-animate>
+    <h2>Apa Itu Produk Lainnya?</h2>
+<p>Produk Lainnya adalah rangkaian produk tambahan dari Yogies Indonesia yang dirancang untuk memenuhi berbagai kebutuhan harian Anda. Mulai dari kesehatan, perawatan kendaraan, hingga energi tubuh, semua dibuat dari bahan berkualitas dan teknologi unggulan.</p>
+  </section>
+
+  <!-- JENIS PRODUK -->
+  <section class="product-types" data-animate>
+    <h2>Jenis Produk Lainnya</h2>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/qBxb8bI.jpeg" alt="Eco Mobil">
+      <div class="product-info">
+        <h3>Eco Mobil</h3>
+        <p>Produk pembersih dan perawatan mobil ramah lingkungan yang efektif menghilangkan kotoran tanpa merusak cat mobil.</p>
+        <ul>
+          <li>Membersihkan tanpa air berlebih</li>
+          <li>Ramah lingkungan dan biodegradable</li>
+          <li>Meningkatkan kilau dan perlindungan cat mobil</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/TreU8rP.jpeg" alt="Eco Motor">
+      <div class="product-info">
+        <h3>Eco Motor</h3>
+        <p>Pembersih motor yang cepat kering dan memberikan perlindungan ekstra terhadap debu dan hujan.</p>
+        <ul>
+          <li>Cepat mengering dan tidak meninggalkan noda</li>
+          <li>Anti-karat dan pelindung UV</li>
+          <li>Mudah digunakan untuk perawatan rutin</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/lSZRIog.jpeg" alt="Eco Diesel">
+      <div class="product-info">
+        <h3>Eco Diesel</h3>
+        <p>Aditif diesel yang meningkatkan efisiensi bahan bakar dan mengurangi emisi polutan.</p>
+        <ul>
+          <li>Meningkatkan performa mesin diesel</li>
+          <li>Mengurangi konsumsi bahan bakar hingga 10%</li>
+          <li>Ramah lingkungan dengan emisi lebih rendah</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/ifZAz2B.jpeg" alt="LVN Calsi">
+      <div class="product-info">
+        <h3>LVN Calsi</h3>
+        <p>Suplemen kalsium alami untuk memperkuat tulang dan gigi, cocok untuk semua usia.</p>
+        <ul>
+          <li>Sumber kalsium dari bahan alami</li>
+          <li>Membantu mencegah osteoporosis</li>
+          <li>Mudah diserap tubuh tanpa efek samping</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/NvxTcPe.jpeg" alt="LVN Xlim">
+      <div class="product-info">
+        <h3>LVN Xlim</h3>
+        <p>Suplemen untuk detoksifikasi tubuh dan meningkatkan metabolisme, membantu program diet sehat.</p>
+        <ul>
+          <li>Membantu pembakaran lemak</li>
+          <li>Detoksifikasi racun dalam tubuh</li>
+          <li>Meningkatkan energi dan vitalitas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/3pijvzc.jpeg" alt="LVN Collagen">
+      <div class="product-info">
+        <h3>LVN Collagen</h3>
+        <p>Suplemen kolagen untuk kulit sehat, rambut berkilau, dan sendi kuat.</p>
+        <ul>
+          <li>Mengurangi kerutan dan penuaan dini</li>
+          <li>Memperbaiki kekuatan rambut dan kuku</li>
+          <li>Mendukung kesehatan sendi dan tulang</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/xuOyIkv.jpeg" alt="Habspro">
+      <div class="product-info">
+        <h3>Habspro</h3>
+        <p>Produk herbal untuk kesehatan pria, meningkatkan stamina dan performa.</p>
+        <ul>
+          <li>Meningkatkan vitalitas dan stamina</li>
+          <li>Bahan alami tanpa efek samping</li>
+          <li>Cocok untuk kesehatan reproduksi pria</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-item">
+      <img src="https://i.imgur.com/DQ3JHxa.jpeg" alt="Evit Go">
+      <div class="product-info">
+        <h3>Evit Go</h3>
+        <p>Vitamin kompleks untuk kesehatan harian, melengkapi nutrisi yang dibutuhkan tubuh.</p>
+        <ul>
+          <li>Melengkapi vitamin harian</li>
+          <li>Meningkatkan daya tahan tubuh</li>
+          <li>Cocok untuk semua usia dan aktivitas</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+            <a href="https://wa.me/6283800889643" class="btn">Pesan Sekarang</a>
+  </section>
+
+  <!-- MAPS -->
+  <section class="maps-section" data-animate>
+    <h2>Lokasi Kami</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902!2d107.619!3d-6.917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b3b3b3b3b3%3A0x2e68e7b3b3b3b3b3!2sBandung%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Produk Lainnya | Dikelola oleh CV. Yogies</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll animation
+    const animElements = document.querySelectorAll("[data-animate]");
+    const onScroll = () => {
+      animElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+          el.classList.add("visible");
+        } else {
+          el.classList.remove("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Back button muncul animasi
+    window.addEventListener('load', () => {
+      const backBtn = document.querySelector('.back-home-btn');
+      setTimeout(() => {
+        backBtn.style.transition = 'all 0.8s ease';
+        backBtn.style.opacity = '1';
+        backBtn.style.transform = 'translateY(0)';
+      }, 600);
+    });
+  </script>
+</body>
+</html>

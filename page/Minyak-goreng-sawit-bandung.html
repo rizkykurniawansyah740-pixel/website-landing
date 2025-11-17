@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minyak Goreng Sawit Bandung - Yogies Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:"Outfit",sans-serif;}
+    body {background:#fffdf8; color:#333; overflow-x:hidden;}
+
+    /* ==== HERO ==== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(240,230,210,0.3), rgba(255,255,255,0.1)),
+                  url('https://i.imgur.com/LgMfaBp.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(40,30,0,0.35);
+      backdrop-filter: blur(1px);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 3.5rem;
+      color: #ffeaa7;
+      animation: fadeDown 1.5s ease;
+      z-index: 2;
+    }
+    .hero p {
+      position: relative;
+      font-size: 1.3rem;
+      margin-top: 10px;
+      color: #fffbe8;
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeUp 2s ease;
+    }
+    @keyframes fadeDown {from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeUp {from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ==== ABOUT ==== */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about {
+      background: linear-gradient(180deg,#fffaf2,#fff3dc);
+    }
+    .about h2 {
+      font-size: 2.4rem;
+      color: #9a6b00;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .about h2::after {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: #f0c343;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+    .about p {
+      color: #5c4300;
+      max-width: 750px;
+      margin: 20px auto 50px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* ==== FEATURES ==== */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .feature {
+      background: #fffef9;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      padding: 40px 25px;
+      transition: all 0.6s ease;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    .feature i {
+      font-size: 2.5rem;
+      color: #e0b326;
+      margin-bottom: 15px;
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+    .feature h3 {
+      color: #8a6400;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .feature p {
+      color: #5a4400;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .feature.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    @keyframes pulse {
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.1);}
+    }
+
+            /* === GALERI === */
+    /* === GALERI === */
+    .gallery-section {
+      text-align: center;
+      margin: 80px 0;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.4rem;
+      color: #a06b00;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .gallery-section h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #ffda7b;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* ==== PRODUCT INFO ==== */
+    .product-info {
+      background: linear-gradient(135deg,#fff7e5,#fbe3b0);
+    }
+    .product-info h2 {
+      color: #825a00;
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+    }
+    .product-info p {
+      color: #4f3700;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    .info-list {
+      list-style: none;
+      max-width: 750px;
+      margin: auto;
+      text-align: left;
+    }
+    .info-list li {
+      background: #fff7ce;
+      border-left: 6px solid #e0b326;
+      margin: 12px 0;
+      padding: 14px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .info-list li:hover {
+      background: #ffe88c;
+      transform: translateX(6px);
+    }
+
+    /* ==== BUTTON ==== */
+    .btn {
+      display:inline-block;
+      margin-top:40px;
+      background: linear-gradient(135deg,#f0c343,#e0a90a);
+      color:#fff;
+      padding:14px 36px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+      transition: all .4s ease;
+    }
+    .btn:hover {
+      transform:translateY(-4px) scale(1.03);
+      background: linear-gradient(135deg,#e3b029,#c79604);
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background:#1a1200;
+      color:#ffefc6;
+      text-align:center;
+      padding:25px;
+    }
+
+    /* ==== SCROLL ANIMATION ==== */
+    [data-scroll] {
+      opacity:0;
+      transform:translateY(50px);
+      transition:all 1s cubic-bezier(.17,.67,.83,.67);
+    }
+    [data-scroll].visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ==== BACK BUTTON ==== */
+    .back-home-btn {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      background: linear-gradient(135deg,#e0b326,#f5d86b);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.6s ease;
+    }
+    .back-home-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    @media (max-width:700px){
+      .hero h1{font-size:2.3rem;}
+      .hero p{font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Minyak Goreng Sawit Bandung - Yogies Indonesia</h1>
+    <p>Kelezatan alami dan kualitas tinggi dalam setiap tetes emas Nusantara.</p>
+  </section>
+
+  <!-- About -->
+  <section class="about" data-scroll>
+    <h2>Kelezatan dari Alam</h2>
+    <p>Minyak Goreng Nusantara diproses dari kelapa sawit pilihan dengan metode modern yang menjaga kemurnian alami. 
+      Setiap tetesnya menghadirkan kehangatan cita rasa Indonesia yang autentik, sehat, dan menggugah selera.</p>
+
+    <div class="features">
+      <div class="feature"><i class="fa-solid fa-droplet"></i><h3>Jernih & Berkualitas</h3><p>Disaring dengan teknologi canggih untuk hasil yang jernih, stabil, dan tahan panas.</p></div>
+      <div class="feature"><i class="fa-solid fa-seedling"></i><h3>Alami & Aman</h3><p>Tanpa pewarna dan pengawet buatan, ramah lingkungan dan keluarga.</p></div>
+      <div class="feature"><i class="fa-solid fa-fire-flame-curved"></i><h3>Tahan Suhu Tinggi</h3><p>Cocok untuk berbagai masakan, dari gorengan renyah hingga sajian nusantara.</p></div>
+      <div class="feature"><i class="fa-solid fa-heart"></i><h3>Sehat untuk Keluarga</h3><p>Kandungan vitamin E alami bantu menjaga kesehatan jantung dan kulit.</p></div>
+    </div>
+  </section>
+
+      <!-- GALERI -->
+  <section class="gallery-section" data-animate>
+    <h2>Kemasan 450 ML</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/qMvUEQ8.jpeg">
+        <div class="caption">450 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/P13tuZu.jpeg">
+        <div class="caption">450 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/CkABfI5.jpeg">
+        <div class="caption">450 ML</div>
+      </div>
+    </div>
+    <h2>Kemasan 800 ML</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/z96CAgj.jpeg">
+        <div class="caption">800 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/pZBfDBz.jpeg">
+        <div class="caption">800 ML</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/QQz09Tc.jpeg">
+        <div class="caption">800 ML</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Info -->
+  <section class="product-info" data-scroll>
+    <h2>Kenapa Pilih Minyak Ini?</h2>
+    <p>Minyak Goreng Nusantara menghadirkan keseimbangan sempurna antara cita rasa, kualitas, dan kealamian yang menjadikannya pilihan tepat di setiap dapur modern.</p>
+    <ul class="info-list">
+      <li><b>Murni Tanpa Campuran</b> – Proses penyaringan ganda menjaga kejernihan dan kestabilan minyak lebih lama.</li>
+      <li><b>Aroma Ringan</b> – Tidak mengubah rasa asli makanan, memberi hasil gorengan lebih renyah dan lezat.</li>
+      <li><b>Kemasan Modern</b> – Botol ergonomis dan elegan, mudah digunakan serta ramah lingkungan.</li>
+      <li><b>Premium Quality</b> – Teruji secara klinis dan memenuhi standar kesehatan internasional.</li>
+    </ul>
+    <a href="https://wa.me/6283800889643" class="btn">Pesan Sekarang</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Minyak Goreng Nusantara | Dikelola oleh CV. Yogies</p>
+  </footer>
+
+  <!-- Back Button -->
+  <a href="../index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll Animations
+    const scrollEls = document.querySelectorAll("[data-scroll], .feature");
+    const onScroll = () => {
+      scrollEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) el.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Back button animation
+    window.addEventListener("load", () => {
+      const btn = document.querySelector(".back-home-btn");
+      setTimeout(() => {
+        btn.style.opacity = "1";
+        btn.style.transform = "translateY(0)";
+      }, 600);
+    });
+  </script>
+</body>
+</html>

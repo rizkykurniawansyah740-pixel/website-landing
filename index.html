@@ -1,269 +1,1145 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-	
-<!--GSC-->
-<meta name="google-site-verification" content="kQR8baKggSFkp0jX6lH7MHKsL6zsJtNIpXtMjesxJus" />
-	
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV. YOGIES - Bandung</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV. YOGIES - Bandung | Melayani Konsumen Ke Seluruh Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    /* Style tambahan untuk testimoni dan maps */
-    .testimoni-section {
-      background-color: #f9fafb;
-      padding: 60px 20px;
-      text-align: center;
-    }
+        :root {
+            --cream: #F7F4EF;
+            --deep-charcoal: #2F2E41;
+            --lavender-grey: #9A8C98;
+            --rose-white: #F2E9E4;
+            --soft-orange: #FF8C42;
+        }
 
-    .testimoni-section h2 {
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #333;
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--deep-charcoal);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
 
-    .testimoni-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    .testimoni-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
+        ::-webkit-scrollbar-track {
+            background: var(--rose-white);
+        }
 
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-    }
+        ::-webkit-scrollbar-thumb {
+            background: var(--lavender-grey);
+            border-radius: 10px;
+        }
 
-    .testimoni-card img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--deep-charcoal);
+        }
 
-    .testimoni-card h3 {
-      margin-bottom: 5px;
-      color: #222;
-    }
+        /* Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-    .testimoni-card p {
-      font-style: italic;
-      color: #555;
-      font-size: 0.95rem;
-    }
+        .fade-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    /* Maps */
-    .maps-section {
-      padding: 50px 0;
-      text-align: center;
-    }
+        .blur-in {
+            opacity: 0;
+            filter: blur(10px);
+            transform: scale(0.95);
+            transition: all 0.8s ease-out;
+        }
 
-    .maps-section h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
+        .blur-in.animate {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
 
-    .maps-embed {
-      width: 90%;
-      max-width: 1000px;
-      height: 400px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+        .soft-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease-out;
+        }
 
-    /* Responsif */
-    @media (max-width: 600px) {
-      .testimoni-card {
-        padding: 20px;
-      }
-    }
-  </style>
+        .soft-scale.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('https://i.imgur.com/GPL4vlM.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(47, 46, 65, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: heroFadeIn 1.5s ease-out 0.5s forwards;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: heroFadeIn 1.5s ease-out 1s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--soft-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.3);
+            opacity: 0;
+            animation: heroFadeIn 1.5s ease-out 1.5s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 140, 66, 0.5);
+            background: #ff7a2e;
+        }
+
+        @keyframes heroFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                transform: translateY(30px);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--deep-charcoal);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--lavender-grey);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--rose-white);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--deep-charcoal);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(47, 46, 65, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(154, 140, 152, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(47, 46, 65, 0.15);
+            background: linear-gradient(135deg, white 0%, var(--rose-white) 100%);
+        }
+
+        .product-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--deep-charcoal);
+        }
+
+        .product-card p {
+            color: var(--lavender-grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--soft-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            align-self: center;
+            width: fit-content;
+        }
+
+        .product-link:hover {
+            background: #ff7a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials Carousel - IMPROVED */
+        .testimonials {
+            background: var(--deep-charcoal);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials .section-subtitle {
+            color: var(--lavender-grey);
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 500%; /* 5 slides × 100% */
+        }
+
+        .testimonial-slide {
+            display: flex;
+            gap: 30px;
+            width: 20%; /* Each slide takes 20% of container width (5 slides total) */
+            flex-shrink: 0;
+            padding: 0 15px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 1;
+            transform: translateY(0);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--soft-orange);
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-avatar {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 140, 66, 0.6);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--soft-orange);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Carousel Navigation - IMPROVED */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--soft-orange);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .carousel-nav.prev {
+            left: 20px;
+        }
+
+        .carousel-nav.next {
+            right: 20px;
+        }
+
+        .carousel-nav:hover {
+            background: #ff7a2e;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 35px rgba(255, 140, 66, 0.6);
+        }
+
+        .carousel-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        /* Carousel Indicators - IMPROVED */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator.active {
+            background: var(--soft-orange);
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(255, 140, 66, 0.5);
+        }
+
+        .indicator:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Maps Section */
+        .maps {
+            background: var(--rose-white);
+        }
+
+        .maps-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(47, 46, 65, 0.1);
+            height: 400px;
+        }
+
+        .maps-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-charcoal);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-year {
+            color: var(--soft-orange);
+            font-weight: 600;
+        }
+
+        /* Responsive Design - IMPROVED */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card {
+                padding: 25px;
+                min-height: 260px;
+            }
+
+            .testimonials-carousel {
+                margin: 2rem 10px 0;
+            }
+
+            .testimonial-slide {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .testimonial-card {
+                padding: 25px;
+                min-height: 250px;
+            }
+
+            .testimonial-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .testimonial-name {
+                font-size: 1.1rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.85rem;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .carousel-nav.prev {
+                left: 10px;
+            }
+
+            .carousel-nav.next {
+                right: 10px;
+            }
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.3s; }
+        .stagger-3 { animation-delay: 0.5s; }
+
+        /* Loading Animation for Testimonials */
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 0.6s ease-out forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInFromLeft 0.6s ease-out forwards;
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di CV. YOGIES</h1>
+            <p>Melayani Konsumen Ke Seluruh Indonesia</p>
+            <a href="https://wa.me/6281234567890" class="cta-button">Hubungi Sekarang</a>
+        </div>
+    </section>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="overlay"></div>
-	 <div class="hero-content">
-      <h1 class="fade-in">Selamat Datang di <span>CV. YOGIES</span></h1>
-      <p class="fade-in delay">Melayani Konsumen Ke Seluruh Indonesia</p>
-      <div class="buttons fade-in delay-2">
-        <a href="https://wa.me/6283800889643" class="btn primary">Hubungi Sekarang</a>
-      </div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section class="about section">
+        <div class="container">
+            <div class="about-content fade-up">
+                <h2 class="section-title">Tentang CV. YOGIES</h2>
+                <p class="section-subtitle">Perusahaan terpercaya yang melayani berbagai kebutuhan konsumen</p>
+                <p>CV. YOGIES adalah perusahaan yang berkomitmen untuk memberikan pelayanan terbaik kepada seluruh konsumen di Indonesia. Dengan pengalaman bertahun-tahun, kami menyediakan berbagai produk berkualitas tinggi mulai dari logam mulia, properti, kesehatan, elektronik, hingga produk makanan dan kesehatan alami.</p>
+                <p>Kepercayaan konsumen adalah prioritas utama kami. Kami selalu berusaha memberikan produk dan layanan yang memuaskan dengan standar kualitas tinggi dan harga yang kompetitif.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- DESKRIPSI SINGKAT -->
-  <section class="info-section">
-    <div class="info-text">
-      <div style="text-align: center;">
-        <h2>YOGIES</h2>
-        <p style="text-align: justify;">
-          YOGIES adalah perusahaan yang bergerak di bidang Digital Marketing dengan komitmen untuk membantu pelaku bisnis dalam membangun dan mengembangkan kehadiran mereka di dunia digital.
-          Kami percaya bahwa strategi pemasaran digital yang tepat dapat meningkatkan nilai dan daya saing sebuah brand di era modern. Dengan tim yang berpengalaman di bidang pemasaran online, desain, dan teknologi informasi, CV. YOGIES siap menjadi mitra terpercaya dalam menghadirkan solusi digital yang kreatif, efektif, dan berorientasi hasil.
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- GALERI KATEGORI -->
-  <section class="testimoni-section">
-    <h2>PRODUK & KATEGORI</h2>
+    <!-- Products Section -->
+    <section class="products section">
+        <div class="container">
+            <h2 class="section-title fade-up">Produk & Layanan Kami</h2>
+            <p class="section-subtitle fade-up">Beragam pilihan produk berkualitas untuk memenuhi kebutuhan Anda</p>
+            
+            <div class="products-grid">
+                <div class="product-card blur-in stagger-1">
+                    <div class="product-card-content">
+                        <h3>LOGAM MULIA</h3>
+                        <p>Yogies menyediakan Logam Mulia murni dan bersertifikat resmi. Setiap pembelian dijamin aman, transparan, dan bernilai tinggi.</p>
+                        <a href="Momapan.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-<div class="testimoni-container">
+                <div class="product-card blur-in stagger-2">
+                    <div class="product-card-content">
+                        <h3>PROPERTI</h3>
+                        <p>Yogies adalah mitra terpercaya dalam penyediaan properti legal, strategis, dan bernilai investasi tinggi.</p>
+                        <a href="page/Properti.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="page/jasa-pasang-bracket-tv-bandung.html">JASA PASANG BRACKET TV</a></h3>
-    <p><b>Yogies Bracket</b> melayani <b>jasa pasang bracket TV</b> profesional untuk ukuran 10–75 inch.  
-    Pemasangan rapi, kuat, dan aman oleh teknisi berpengalaman di Bandung dan sekitarnya.</p>
-  </div>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>COWAY</h3>
+                        <p>Yogies menghadirkan produk Coway asli bergaransi untuk rumah yang lebih sehat dengan air dan udara bersih.</p>
+                        <a href="Coway.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-<div class="testimoni-card">
-  <h3><a href="page/kopi-robusta-dan-arabika-bandung.html">KOPI ROBUSTA & ARABIKA</a></h3>
-  <p><b>Yogies</b> menghadirkan kopi Robusta dan Arabika asli Bandung dengan aroma kuat dan cita rasa khas Nusantara.</p>
-</div>
-	
-<div class="testimoni-card">
-  <h3><a href="page/madu-nusantara-murni-bandung.html">MADU NUSANTARA</a></h3>
-  <p><b>Yogies</b> mempersembahkan <b>Madu Nusantara</b> murni pilihan untuk menjaga stamina dan kesehatan tubuh secara alami.</p>
-</div>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>COWAY</h3>
+                        <p>Yogies menghadirkan produk Coway asli bergaransi untuk rumah yang lebih sehat dengan air dan udara bersih.</p>
+                        <a href="Coway.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="Momapan.html">LOGAM MULIA</a></h3>
-    <p><b>Yogies</b> menyediakan <b>Logam Mulia</b> murni dan bersertifikat resmi.  
-    Setiap pembelian dijamin aman, transparan, dan bernilai tinggi.</p>
-  </div>
-		
-  <div class="testimoni-card">
-    <h3><a href="page/Properti.html">PROPERTI</a></h3>
-    <p><b>Yogies</b> adalah mitra terpercaya dalam penyediaan properti legal, strategis, dan bernilai investasi tinggi.</p>
-  </div>
-		
-  <div class="testimoni-card">
-    <h3><a href="Coway.html">COWAY</a></h3>
-    <p><b>Yogies</b> menghadirkan produk <b>Coway</b> asli bergaransi untuk rumah yang lebih sehat dengan air dan udara bersih.</p>
-  </div>
-		
-  <div class="testimoni-card">
-    <h3><a href="phytofresh-aromaterapi-bandung.html">Aromaterapi Phyto Fresh</a></h3>
-    <p><b>Yogies</b> menyediakan produk kesehatan pilihan berkualitas untuk menjaga kebugaran dan kesejahteraan keluarga Anda.</p>
-  </div>
-				
-  <div class="testimoni-card">
-    <h3><a href="Elektronik.html">ELEKTRONIK</a></h3>
-    <p><b>Yogies</b> menghadirkan produk elektronik unggulan yang mengutamakan kualitas, inovasi, dan keandalan.</p>
-  </div>
-			
-  <div class="testimoni-card">
-    <h3><a href="Pendidikan.html">PENDIDIKAN</a></h3>
-    <p><b>Yogies</b> membuka kesempatan PKL bagi siswa SMK untuk mengasah keterampilan dan pengalaman kerja nyata.</p>
-  </div>
+                <div class="product-card blur-in stagger-1">
+                    <div class="product-card-content">
+                        <h3>AROMATERAPI PHYTO FRESH</h3>
+                        <p>Yogies menyediakan produk kesehatan pilihan berkualitas untuk menjaga kebugaran dan kesejahteraan keluarga Anda.</p>
+                        <a href="Kesehatan.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="page/Camilan.html">KERUPUK TELUR ASIN</a></h3>
-    <p><b>Yogies</b> mempersembahkan <b>Kerupuk Telur Asin</b> gurih khas dengan bahan pilihan, tanpa pengawet, dan cocok di segala suasana.</p>
-  </div>
+                <div class="product-card blur-in stagger-2">
+                    <div class="product-card-content">
+                        <h3>JASA PASANG BRACKET TV</h3>
+                        <p>Yogies Bracket melayani jasa pasang bracket TV profesional untuk ukuran 10–75 inch. Pemasangan rapi, kuat, dan aman oleh teknisi berpengalaman di Bandung dan sekitarnya.</p>
+                        <a href="Elektronik.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="page/Sticker.html">STICKER ANTI RADIASI</a></h3>
-    <p><b>Yogies</b> mempersembahkan <b>Sticker Anti Radiasi</b> pelindung tipis untuk mengurangi paparan radiasi dari perangkat elektronik Anda.</p>
-  </div>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>PENDIDIKAN</h3>
+                        <p>Yogies membuka kesempatan PKL bagi siswa SMK untuk mengasah keterampilan dan pengalaman kerja nyata.</p>
+                        <a href="Pendidikan.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="page/jahe-merah-amh-bandung.html">JAHE MERAH AMH</a></h3>
-    <p><b>Yogies</b> menghadirkan <b>Jahe Merah AMH</b> — minuman herbal alami untuk menjaga stamina dan daya tahan tubuh setiap hari.</p>
-  </div>
+                <div class="product-card blur-in stagger-1">
+                    <div class="product-card-content">
+                        <h3>KERUPUK TELUR ASIN</h3>
+                        <p>Yogies mempersembahkan Kerupuk Telur Asin gurih khas dengan bahan pilihan, tanpa pengawet, dan cocok di segala suasana.</p>
+                        <a href="page/Camilan.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-  <div class="testimoni-card">
-    <h3><a href="page/Basreng.html">BASRENG</a></h3>
-    <p><b>Yogies</b> mempersembahkan <b>Basreng Bandung</b> — camilan khas Sunda yang renyah, gurih, dan pedasnya pas di lidah.</p>
-  </div>
+                <div class="product-card blur-in stagger-2">
+                    <div class="product-card-content">
+                        <h3>STICKER ANTI RADIASI</h3>
+                        <p>Yogies mempersembahkan Sticker Anti Radiasi pelindung tipis untuk mengurangi paparan radiasi dari perangkat elektronik Anda.</p>
+                        <a href="page/Sticker.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-<div class="testimoni-card">
-  <h3><a href="page/Minyak-goreng-sawit-bandung.html">Minyak Goreng</a></h3>
-  <p><b>Yogies</b> menyediakan <b>Minyak Goreng Sawit Bandung</b> dengan kualitas terjamin, jernih, higienis, dan cocok untuk kebutuhan rumah tangga maupun usaha kuliner.</p>
-</div>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>JAHE MERAH AMH</h3>
+                        <p>Yogies menghadirkan Jahe Merah AMH  minuman herbal alami untuk menjaga stamina dan daya tahan tubuh setiap hari.</p>
+                        <a href="page/JAHE.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-<div class="testimoni-card">
-  <h3><a href="page/Produk-lainnya.html">Produk Lainnya</a></h3>
-  <p><b>Yogies</b> menyediakan berbagai pilihan <b>produk lainnya</b> dengan kualitas terbaik untuk memenuhi kebutuhan rumah tangga maupun bisnis Anda.</p>
-</div>
-		
-  </div>
-</section>
+             <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>MADU NUSANTARA</h3>
+                        <p>Yogies mempersembahkan Madu Nusantara murni pilihan untuk menjaga stamina dan kesehatan tubuh secara alami.</p>
+                        <a href="page/Madu-Nusantara.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>MINYAK GORENG</h3>
+                        <p>Yogies menyediakan Minyak Goreng Sawit Bandung dengan kualitas terjamin, jernih, higienis, dan cocok untuk kebutuhan rumah tangga maupun usaha kuliner.</p>
+                        <a href="page/Minyak-Goreng.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
+                
+                 <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>BASRENG</h3>
+                        <p>Yogies mempersembahkan Basreng Bandung camilan khas Sunda yang renyah, gurih, dan pedasnya pas di lidah.</p>
+                        <a href="page/Basreng.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-<!-- TESTIMONI KONSUMEN -->
-  <section class="testimoni-section">
-    <h2>Testimoni Konsumen</h2>
-    <div class="testimoni-container">
-      <div class="testimoni-card">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Konsumen 1">
-        <h3>Sinta Rahmawati</h3>
-        <p>"Pelayanannya cepat dan ramah! Produk yang saya pesan datang dalam kondisi sangat baik. Terima kasih CV. YOGIES!"</p>
-      </div>
-      <div class="testimoni-card">
-        <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Konsumen 2">
-        <h3>Adi Nugraha</h3>
-        <p>"Sudah beberapa kali order di sini, hasilnya selalu memuaskan. Kualitas produk sangat bagus!"</p>
-      </div>
-      <div class="testimoni-card">
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Konsumen 3">
-        <h3>Dewi Kartika</h3>
-        <p>"Sangat direkomendasikan! Tim CV. YOGIES sangat profesional dan membantu dalam setiap kebutuhan saya."</p>
-      </div>
-    </div>
-  </section>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>KOPI ROBUSTA ARABIKA</h3>
+                        <p>Yogies menghadirkan kopi Robusta dan Arabika asli Bandung dengan aroma kuat dan cita rasa khas Nusantara.</p>
+                        <a href="page/Kopi-Aroma.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
 
-	<!-- DESKRIPSI SINGKAT -->
-  <section class="info-section">
-    <div class="info-text">
-      <div style="text-align: center;">
-        <h2>About US</h2>
-        <p style="text-align: justify;">
-          CV Yogies. Berdiri Sejak Tahun 2013. Awal Mula Pada Tahun 2013 Masih Kita Masih Di Pemasaran Offline, Setelah 2015 Kita Mulai Menjelajah ke Online / Digital Marketing. 
-        </p>
-		   <a href="contact.html" class="btn primary">Hubungi Sekarang</a>
-      </div>
-    </div>
-  </section>
+                <div class="product-card blur-in stagger-3">
+                    <div class="product-card-content">
+                        <h3>PRODUK LAINNYA</h3>
+                        <p>Yogies menyediakan berbagai pilihan produk lainnya dengan kualitas terbaik untuk memenuhi kebutuhan rumah tangga maupun bisnis Anda.</p>
+                        <a href="page/Produk-Best.html" class="product-link">Lihat Produk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	
-  <!-- GOOGLE MAPS -->
-  <section class="maps-section">
-    <h2>Lokasi Kami</h2>
-    <iframe 
-      class="maps-embed"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.975931056642!2d107.60821997444464!3d-6.93704886795263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e8b99a32f15d%3A0xa8cb4a53b158f0d0!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Kec.%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1729400341234!5m2!1sid!2sid" 
-      allowfullscreen="" 
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-up">Testimoni Siswa/i Prakerin</h2>
+            <p class="section-subtitle fade-up">Kepercayaan konsumen adalah kebanggaan kami</p>
+            
+            <div class="testimonials-carousel soft-scale">
+                <div class="carousel-container" id="carouselContainer">
+                    <!-- Slide 1: Konsumen 1-3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/WaEJdlX.jpeg" alt="Mardi">
+                            </div>
+                            <h4 class="testimonial-name">Mardi</h4>
+                            <p class="testimonial-text">"Selama PKL, belajar membuat toko di Google dan Shopee, mengenal berbagai jenis properti, serta praktik packing produk. Awalnya tidak mengerti, tetapi perlahan mulai bisa. Pengalaman ini sangat bermanfaat."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/XHqJme1.jpeg" alt="Fajar">
+                            </div>
+                            <h4 class="testimonial-name">Fajar</h4>
+                            <p class="testimonial-text">"Mendapat ilmu digital marketing melalui WordPress, Jualaku, Carousel, serta e-commerce seperti Shopee dan Tokopedia. Lingkungan kerja terasa nyaman dan pembimbing sangat membantu. Pengalaman ini membuka wawasan baru tentang digital marketing."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/HsxsZ56.jpeg" alt="Fitri">
+                            </div>
+                            <h4 class="testimonial-name">Fitri</h4>
+                            <p class="testimonial-text">"Selama PKL di CV Yogies, mendapatkan banyak pengalaman digital marketing, mulai dari membuat konten, merancang promosi, hingga menganalisis hasilnya. Suasana kerja yang ramah membuat proses belajar lebih mudah dan meningkatkan rasa percaya diri."</p>
+                        </div>
+                    </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
-  </footer>
+                    <!-- Slide 2: Konsumen 4-6 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/s8WEaGU.jpeg" alt="Revalingga">
+                            </div>
+                            <h4 class="testimonial-name">Revalingga</h4>
+                            <p class="testimonial-text">"PKL memberikan kesempatan mempelajari banyak platform digital seperti Carousel, Quora, WordPress, dan Blogspot. Juga belajar pentingnya komunikasi dengan konsumen dan membuat konten menarik. Sangat bersyukur atas bimbingan yang diberikan."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/jnpY5yR.jpeg" alt="Niken">
+                            </div>
+                            <h4 class="testimonial-name">Niken</h4>
+                            <p class="testimonial-text">"PKL di CV Yogies memberikan pengalaman nyata tentang dunia kerja, disiplin, dan kerja sama tim. Awalnya merasa gugup dan kurang percaya diri, namun akhirnya bisa beradaptasi dan menikmati proses. Belajar strategi promosi, pelayanan konsumen, dan komunikasi yang efektif."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/rtAMWI0.jpeg" alt="Andi">
+                            </div>
+                            <h4 class="testimonial-name">Andi</h4>
+                            <p class="testimonial-text">"Belajar membuat dan memposting produk di berbagai platform seperti Carousel, Quora, WordPress, dan Blogspot. Mendapat banyak wawasan baru tentang digital marketing dan merasa sangat terbantu oleh bimbingan selama PKL."</p>
+                        </div>
+                    </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+                    <!-- Slide 3: Konsumen 7-9 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/4caXu3f.jpeg" alt="Soni">
+                            </div>
+                            <h4 class="testimonial-name">Soni</h4>
+                            <p class="testimonial-text">"Sticker anti radiasi sangat membantu melindungi keluarga dari bahaya radiasi gadget. Produk inovatif dan bermanfaat."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/9HyY1Ya.jpeg" alt="Ilham">
+                            </div>
+                            <h4 class="testimonial-name">Ilham</h4>
+                            <p class="testimonial-text">"Jahe merah AMH berkualitas premium. Membantu meningkatkan stamina dan kesehatan tubuh secara alami."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/0DKUMYP.png" alt="Bima">
+                            </div>
+                            <h4 class="testimonial-name">Bima</h4>
+                            <p class="testimonial-text">"Produk Coway yang saya gunakan memberikan hasil yang luar biasa untuk kesehatan dan kecantikan keluarga."</p>
+                        </div>
+                    </div>
 
+                    <!-- Slide 4: Konsumen 10-12 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/dZA0xKl.jpeg" alt="Tijar">
+                            </div>
+                            <h4 class="testimonial-name">Tijar</h4>
+                            <p class="testimonial-text">"Pelayanan yang ramah dan profesional. Semua produk yang dibeli sesuai dengan deskripsi dan kualitas terjamin."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/7O0bbDO.png" alt="Putra">
+                            </div>
+                            <h4 class="testimonial-name">Putra</h4>
+                            <p class="testimonial-text">"CV. YOGIES memberikan solusi terbaik untuk berbagai kebutuhan. Harga bersaing dengan kualitas yang tidak diragukan."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/FnStKYf.jpeg" alt="Herdi">
+                            </div>
+                            <h4 class="testimonial-name">Herdi</h4>
+                            <p class="testimonial-text">"Pengalaman berbelanja yang menyenangkan. Tim CV. YOGIES selalu siap membantu dan memberikan pelayanan terbaik."</p>
+                        </div>
+                    </div>
 
+                    <!-- Slide 5: Konsumen 13-15 (3 konsumen baru) -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/VgAqAQs.jpeg" alt="Wisnu">
+                            </div>
+                            <h4 class="testimonial-name">Wisnu</h4>
+                            <p class="testimonial-text">"Madu Nusantara yang saya beli murni dan berkualitas tinggi. Sangat membantu menjaga kesehatan keluarga setiap hari."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/XcjFnrP.jpeg" alt="Triangga">
+                            </div>
+                            <h4 class="testimonial-name">Triangga</h4>
+                            <p class="testimonial-text">"Selama PKL di CV Yogies, saya mendapat banyak pengalaman berharga. Saya belajar membuat dan mengelola toko di marketplace, mencoba berbagai platform website, serta menjadi lebih disiplin dan percaya diri. Terima kasih kepada CV Yogies atas bimbingannya. Pengalaman ini sangat bermakna sebagai langkah awal saya di dunia kerja."</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://i.imgur.com/jCeP9yp.jpeg" alt="Yalse">
+                            </div>
+                            <h4 class="testimonial-name">Yalse</h4>
+                            <p class="testimonial-text">"Selama PKL di CV Yogies, saya mendapat banyak pengalaman dan ilmu baru, terutama tentang digital marketing, membuat website, dan mengelola toko di marketplace. Saya juga menjadi lebih berani, disiplin, dan percaya diri. Terima kasih kepada seluruh tim CV Yogies dan teman-teman yang telah membimbing dan membantu. Pengalaman ini sangat berharga bagi saya."</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button class="carousel-nav prev" onclick="changeCarouselSlide(-1)" aria-label="Previous testimonials">‹</button>
+                <button class="carousel-nav next" onclick="changeCarouselSlide(1)" aria-label="Next testimonials">›</button>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)" aria-label="Go to slide 1"></span>
+                    <span class="indicator" onclick="goToSlide(1)" aria-label="Go to slide 2"></span>
+                    <span class="indicator" onclick="goToSlide(2)" aria-label="Go to slide 3"></span>
+                    <span class="indicator" onclick="goToSlide(3)" aria-label="Go to slide 4"></span>
+                    <span class="indicator" onclick="goToSlide(4)" aria-label="Go to slide 5"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about section">
+        <div class="container">
+            <div class="about-content fade-up">
+                <h2 class="section-title">Mengapa Memilih CV. YOGIES?</h2>
+                <p>Kami berkomitmen untuk memberikan yang terbaik bagi setiap konsumen. Dengan pengalaman, profesionalisme, dan dedikasi tinggi, CV. YOGIES siap melayani kebutuhan Anda dengan standar kualitas terbaik.</p>
+                <a href="https://wa.me/6281234567890" class="cta-button">Hubungi Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maps Section -->
+    <section class="maps section">
+        <div class="container">
+            <h2 class="section-title fade-up">Lokasi Kami</h2>
+            <p class="section-subtitle fade-up">Kunjungi kantor kami di Bandung</p>
+            
+            <div class="maps-container soft-scale">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d547.0859439235393!2d107.61481946740649!3d-6.936946096271903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9878a8b66a7%3A0xfd71658bb730a8e2!2sYogies%20Bracket!5e0!3m2!1sid!2sid!4v1764644261268!5m2!1sid!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span class="footer-year"></span> CV. YOGIES - Bandung. Semua hak dilindungi.</p>
+            <p>Melayani Konsumen Ke Seluruh Indonesia</p>
+        </div>
+    </footer>
+
+    <script>
+        // Testimonials Carousel - IMPROVED for 5 slides
+        let currentCarouselIndex = 0;
+        const totalSlides = 5; // Updated to 5 slides
+        let isTransitioning = false;
+
+        function changeCarouselSlide(direction) {
+            if (isTransitioning) return; // Prevent multiple clicks during transition
+            
+            isTransitioning = true;
+            currentCarouselIndex += direction;
+            
+            if (currentCarouselIndex >= totalSlides) {
+                currentCarouselIndex = 0;
+            } else if (currentCarouselIndex < 0) {
+                currentCarouselIndex = totalSlides - 1;
+            }
+            
+            updateCarousel();
+            
+            // Reset transition lock after animation completes
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 800); // Match CSS transition duration
+        }
+
+        function goToSlide(index) {
+            if (isTransitioning || index === currentCarouselIndex) return;
+            
+            isTransitioning = true;
+            currentCarouselIndex = index;
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 800);
+        }
+
+        function updateCarousel() {
+            const container = document.getElementById('carouselContainer');
+            const translateX = -currentCarouselIndex * 20; // Each slide is 20% width (5 slides total)
+            container.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators with smooth transition
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCarouselIndex);
+            });
+
+            // Add subtle animation to current slide cards
+            setTimeout(() => {
+                const currentSlide = document.querySelectorAll('.testimonial-slide')[currentCarouselIndex];
+                const cards = currentSlide.querySelectorAll('.testimonial-card');
+                
+                cards.forEach((card, index) => {
+                    card.style.animation = 'none';
+                    card.offsetHeight; // Trigger reflow
+                    card.style.animation = `slideInFromRight 0.6s ease-out ${index * 0.1}s forwards`;
+                });
+            }, 100);
+        }
+
+        // Auto-slide functionality with improved timing
+        function autoSlide() {
+            if (!isTransitioning) {
+                changeCarouselSlide(1);
+            }
+        }
+
+        // Start auto-slide every 5 seconds
+        let autoSlideInterval = setInterval(autoSlide, 5000);
+
+        // Pause auto-slide on hover with smooth transition
+        const carousel = document.querySelector('.testimonials-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(autoSlide, 5000);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-up, .blur-in, .soft-scale');
+            animatedElements.forEach(el => observer.observe(el));
+
+            // Set current year in footer
+            document.querySelector('.footer-year').textContent = new Date().getFullYear();
+
+            // Initialize carousel
+            updateCarousel();
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Enhanced hover effects for product cards
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add glow effect to CTA buttons on hover
+            const ctaButtons = document.querySelectorAll('.cta-button, .product-link');
+            ctaButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 15px 40px rgba(255, 140, 66, 0.6)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 10px 30px rgba(255, 140, 66, 0.3)';
+                });
+            });
+
+            // Keyboard navigation for carousel
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    changeCarouselSlide(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeCarouselSlide(1);
+                }
+            });
+
+            // Touch/swipe support for mobile with improved sensitivity
+            let startX = 0;
+            let endX = 0;
+            let startTime = 0;
+
+            carousel.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startTime = Date.now();
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', function(e) {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const threshold = 30; // Reduced threshold for better sensitivity
+                const timeThreshold = 300; // Maximum time for swipe
+                const diff = startX - endX;
+                const timeDiff = Date.now() - startTime;
+
+                if (Math.abs(diff) > threshold && timeDiff < timeThreshold) {
+                    if (diff > 0) {
+                        changeCarouselSlide(1); // Swipe left - next slide
+                    } else {
+                        changeCarouselSlide(-1); // Swipe right - previous slide
+                    }
+                }
+            }
+        });
+
+        // Add scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            let progressBar = document.querySelector('.scroll-progress');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'scroll-progress';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${scrolled}%;
+                    height: 4px;
+                    background: linear-gradient(90deg, var(--soft-orange), var(--lavender-grey));
+                    z-index: 9999;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+    </script>
 </body>
 </html>

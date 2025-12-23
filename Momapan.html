@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yogies Momapan - Logam Mulia</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
-
   <style>
     * {
       margin: 0;
@@ -15,352 +13,428 @@
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
     }
-
     body {
       background-color: #f9f9f9;
       color: #333;
-      padding: 40px 20px;
     }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      color: #222;
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px 20px;
     }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
+    .nav-container {
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #d4af37;
+    }
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.mobile { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.mobile a { margin: 15px 20px; }
+      .hamburger { display: block; cursor: pointer; }
+    }
+    .hamburger { display: none; font-size: 1.5rem; }
 
-    .gallery-item {
+    /* Hero Slider */
+    .hero-slider {
       position: relative;
+      height: 100vh;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      transition: transform 0.3s ease;
     }
-
-    .gallery-item:hover {
-      transform: scale(1.03);
+    .slider-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
-
-    .gallery-item img {
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .slide.active { opacity: 1; }
+    .slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 0.3s ease;
       pointer-events: none;
     }
-
-    .caption {
+    .hero-text {
       position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      font-size: 1.4rem;
     }
 
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 22px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/WSu113N.png" alt="1" />
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/iTUMAPi.png" alt="2" />
-      </div>
-    </div>
-    <div class="hero-text">
-      <h1>Yogies Momapan - Logam Mulia</h1>
-      <p>Investasi Aman, Nilai Nyata Sepanjang Waktu</p>
-    </div>
-	
-	<style>
-		.no-click {
-		pointer-events: none; /* gambar tidak bisa diklik */
-		}
-		</style>
-		
-	
-  </section>
-
-  <!-- INFO PRODUK -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Kenapa Memilih Logam Mulia?</h2>
-      <p>
-        Logam mulia adalah bentuk investasi yang <b>stabil, mudah dicairkan, dan diakui secara global</b>.
-        Yogies Momapan hadir untuk membantu Anda memiliki aset berharga yang nyata dan bernilai tinggi.
-      </p>
-
-      <ul class="program-list">
-        <li>1. <b>Nilai Stabil</b> – Harga logam mulia cenderung meningkat dari waktu ke waktu.</li>
-        <li>2. <b>Aset Nyata</b> – Dapat dipegang secara fisik, aman dan mudah diperjualbelikan.</li>
-        <li>3. <b>Likuiditas Tinggi</b> – Bisa dijual kembali kapan saja dengan harga kompetitif.</li>
-        <li>4. <b>Cocok untuk Tabungan Masa Depan</b> – Solusi cerdas untuk melindungi nilai kekayaan Anda.</li>
-        <li>5. <b>Legal & Terjamin</b> – Setiap produk memiliki sertifikat keaslian resmi.</li>
-      </ul>
-
-      <p>
-        Dengan Yogies Momapan, Anda dapat memulai langkah investasi cerdas untuk masa depan yang lebih tenang dan aman.
-      </p>
-
-      <br>
-      <a href="https://wa.me/6283800889643" class="btn primary">Konsultasi Sekarang</a>
-    </div>
-  </section>
-
-  <style>
-    .info-section {
-      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+    /* Section umum */
+    section {
       padding: 80px 20px;
-      text-align: center;
-      color: #222;
-    }
-
-    .info-text {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
     }
-
-    .info-text h2 {
-      font-size: 2.2rem;
-      color: #c8a600;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .program-list {
-      list-style: none;
-      padding: 0;
-      margin: 30px 0;
-      text-align: left;
-    }
-
-    .program-list li {
-      background: #fffbea;
-      border-left: 4px solid #d4af37;
-      padding: 12px 16px;
-      margin: 8px 0;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .btn.primary {
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: #d4af37;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn.primary:hover {
-      background-color: #b6952d;
-      transform: translateY(-2px);
-    }
-  </style>
-
-  <!-- GALERI -->
-  <h2>Galeri Kegiatan</h2>
-  <div class="gallery-container">
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/XWrGd1F.png" alt="Kegiatan 1">
-      <div class="caption">Logam Mulia</div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/0fNQlQ0.png" alt="Kegiatan 2">
-      <div class="caption">Banyak Variasi</div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/q0tgER9.png" alt="Kegiatan 3">
-      <div class="caption">Kemasant</div>
-    </div>
-  </div>
-
-  <!-- PRODUK -->
-  <section class="testimoni-section">
-    <h2>Produk Logam Mulia Yogies Momapan</h2>
-    <div class="testimoni-wrapper">
-      <div class="testimoni-card">
-        <span><b>1 Gram Logam Mulia</b> – Pilihan terbaik untuk mulai berinvestasi dengan modal ringan.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>5 Gram Logam Mulia</b> – Cocok untuk tabungan jangka menengah dan hadiah berharga.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>10 Gram Logam Mulia</b> – Ideal untuk diversifikasi aset dan proteksi nilai uang.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>25 Gram Logam Mulia</b> – Investasi bernilai tinggi untuk rencana masa depan Anda.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>50 Gram Logam Mulia</b> – Pilihan bagi investor serius yang ingin aset lebih besar.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>100 Gram Logam Mulia</b> – Simpanan bernilai besar untuk perlindungan jangka panjang.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Sertifikat Keaslian</b> – Setiap pembelian dilengkapi sertifikat resmi untuk menjamin keaslian produk.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Layanan Buyback</b> – Kemudahan jual kembali dengan harga bersaing.</span>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .testimoni-section {
-      background: linear-gradient(135deg, #fffdea, #ffffff);
-      padding: 80px 20px;
+    h2 {
       text-align: center;
-      color: #222;
-    }
-
-    .testimoni-section h2 {
       font-size: 2.2rem;
       color: #c8a600;
       margin-bottom: 40px;
       font-weight: 700;
     }
 
+    /* Update Terbaru */
+    .updates-section {
+      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+    }
+    .filter-controls {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .filter-controls select {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #d4af37;
+    }
+    .post {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: none; /* akan ditampilkan oleh JS */
+    }
+    .post.visible { display: block; }
+    .post-date {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    /* Info Produk */
+    .info-section { background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%); text-align: center; }
+    .program-list { list-style: none; text-align: left; max-width: 800px; margin: 30px auto; }
+    .program-list li {
+      background: #fffbea;
+      border-left: 4px solid #d4af37;
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 6px;
+    }
+    .btn.primary {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #d4af37;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn.primary:hover { background-color: #b6952d; transform: translateY(-3px); }
+
+    /* Galeri */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.05); }
+    .gallery-item img { width: 100%; height: 300px; object-fit: cover; }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .caption { opacity: 1; }
+
+    /* Produk */
+    .testimoni-section { background: linear-gradient(135deg, #fffdea, #ffffff); }
     .testimoni-wrapper {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
     }
-
     .testimoni-card {
-      background: #ffffff;
+      background: #fff;
       border: 1px solid #f6e9b5;
       border-left: 4px solid #d4af37;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s;
+    }
+    .testimoni-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+    /* Maps */
+    .maps-section { text-align: center; }
+    .maps-container iframe { width: 100%; max-width: 100%; height: 400px; border: 0; border-radius: 10px; }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
     }
 
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    /* Scroll to top */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #d4af37;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
 
-    .testimoni-card span {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-      display: block;
-      text-align: left;
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2.2rem; }
+      .hero-text p { font-size: 1.1rem; }
     }
   </style>
+</head>
+<body>
 
-  <!-- MAPS -->
-  <section class="maps-section">
-    <h2>CV. YOGIES</h2>
-    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
-    <div class="maps-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Yogies Momapan</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Beranda</a>
+        <a href="#updates">Update</a>
+        <a href="#info">Keunggulan</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#products">Produk</a>
+        <a href="#location">Lokasi</a>
+        <a href="https://wa.me/6283800889643" class="btn primary" style="padding:8px 20px; font-size:0.9rem;">WA Sekarang</a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+    </div>
+  </nav>
+
+  <!-- Hero Slider -->
+  <section class="hero-slider" id="home">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://i.imgur.com/WSu113N.png" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="https://i.imgur.com/iTUMAPi.png" alt="Slide 2">
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Yogies Momapan - Logam Mulia</h1>
+      <p>Investasi Aman, Nilai Nyata Sepanjang Waktu</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <!-- Update Terbaru -->
+  <section class="updates-section" id="updates">
+    <h2>Update & Postingan Terbaru</h2>
+    <div class="filter-controls">
+      <select id="sortFilter" onchange="filterPosts()">
+        <option value="latest">Postingan Terbaru</option>
+        <option value="all">Tampilkan Semua</option>
+      </select>
+    </div>
+
+    <div id="postsContainer">
+      <!-- Contoh postingan – tambahkan lebih banyak sesuai kebutuhan -->
+      <div class="post" data-date="2025-12-22">
+        <div class="post-date">22 Desember 2025</div>
+        <p>Harga emas hari ini naik lagi! Saat yang tepat untuk menambah investasi logam mulia Anda. Hubungi kami untuk info lebih lanjut.</p>
+      </div>
+      <div class="post" data-date="2025-12-15">
+        <div class="post-date">15 Desember 2025</div>
+        <p>Stok baru 1 gram dan 5 gram sudah tersedia dengan sertifikat Antam resmi.</p>
+      </div>
+      <div class="post" data-date="2025-12-01">
+        <div class="post-date">1 Desember 2025</div>
+        <p>Terima kasih kepada pelanggan setia yang sudah mempercayakan investasinya kepada Yogies Momapan.</p>
+      </div>
+      <!-- Tambahkan postingan lain di sini (yang lebih lama di bawah) -->
+    </div>
+  </section>
+
+  <!-- Info Produk -->
+  <section class="info-section" id="info">
+    <div class="info-text">
+      <h2>Kenapa Memilih Logam Mulia?</h2>
+      <p>Logam mulia adalah bentuk investasi yang <b>stabil, mudah dicairkan, dan diakui secara global</b>. Yogies Momapan hadir untuk membantu Anda memiliki aset berharga yang nyata dan bernilai tinggi.</p>
+      <ul class="program-list">
+        <li><b>Nilai Stabil</b> – Harga logam mulia cenderung meningkat dari waktu ke waktu.</li>
+        <li><b>Aset Nyata</b> – Dapat dipegang secara fisik, aman dan mudah diperjualbelikan.</li>
+        <li><b>Likuiditas Tinggi</b> – Bisa dijual kembali kapan saja dengan harga kompetitif.</li>
+        <li><b>Cocok untuk Tabungan Masa Depan</b> – Solusi cerdas untuk melindungi nilai kekayaan Anda.</li>
+        <li><b>Legal & Terjamin</b> – Setiap produk memiliki sertifikat keaslian resmi.</li>
+      </ul>
+      <p>Dengan Yogies Momapan, Anda dapat memulai langkah investasi cerdas untuk masa depan yang lebih tenang dan aman.</p>
+      <br>
+      <a href="https://wa.me/6283800889643" class="btn primary">Konsultasi Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section id="gallery">
+    <h2>Galeri Kegiatan</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/XWrGd1F.png" alt="Kegiatan 1">
+        <div class="caption">Logam Mulia</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/0fNQlQ0.png" alt="Kegiatan 2">
+        <div class="caption">Banyak Variasi</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/q0tgER9.png" alt="Kegiatan 3">
+        <div class="caption">Kemasan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section class="testimoni-section" id="products">
+    <h2>Produk Logam Mulia Yogies Momapan</h2>
+    <div class="testimoni-wrapper">
+      <div class="testimoni-card"><span><b>1 Gram Logam Mulia</b> – Pilihan terbaik untuk mulai berinvestasi dengan modal ringan.</span></div>
+      <div class="testimoni-card"><span><b>5 Gram Logam Mulia</b> – Cocok untuk tabungan jangka menengah dan hadiah berharga.</span></div>
+      <div class="testimoni-card"><span><b>10 Gram Logam Mulia</b> – Ideal untuk diversifikasi aset dan proteksi nilai uang.</span></div>
+      <div class="testimoni-card"><span><b>25 Gram Logam Mulia</b> – Investasi bernilai tinggi untuk rencana masa depan Anda.</span></div>
+      <div class="testimoni-card"><span><b>50 Gram Logam Mulia</b> – Pilihan bagi investor serius yang ingin aset lebih besar.</span></div>
+      <div class="testimoni-card"><span><b>100 Gram Logam Mulia</b> – Simpanan bernilai besar untuk perlindungan jangka panjang.</span></div>
+      <div class="testimoni-card"><span><b>Sertifikat Keaslian</b> – Setiap pembelian dilengkapi sertifikat resmi untuk menjamin keaslian produk.</span></div>
+      <div class="testimoni-card"><span><b>Layanan Buyback</b> – Kemudahan jual kembali dengan harga bersaing.</span></div>
+    </div>
+  </section>
+
+  <!-- Maps -->
+  <section class="maps-section" id="location">
+    <h2>CV. YOGIES MOMAPAN</h2>
+    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
+    <div class="maps-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
     <p>© <span id="year"></span> CV. YOGIES MOMAPAN. All rights reserved.</p>
   </footer>
 
+  <!-- Scroll to Top -->
+  <div id="scrollTop" onclick="scrollToTop()">↑</div>
+
   <script>
+    // Tahun otomatis
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Slider hero
     const slides = document.querySelectorAll(".slide");
     let index = 0;
     setInterval(() => {
-      slides.forEach(slide => slide.classList.remove("active"));
+      slides.forEach(s => s.classList.remove("active"));
       index = (index + 1) % slides.length;
       slides[index].classList.add("active");
-    }, 4000);
+    }, 5000);
+
+    // Filter postingan
+    function filterPosts() {
+      const select = document.getElementById("sortFilter").value;
+      const posts = document.querySelectorAll(".post");
+      posts.forEach(post => {
+        if (select === "all") {
+          post.classList.add("visible");
+        } else {
+          post.classList.add("visible"); // untuk demo semua ditampilkan, bisa dikembangkan lebih lanjut
+        }
+      });
+    }
+    // Tampilkan semua saat load
+    filterPosts();
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      const links = document.getElementById("navLinks");
+      links.classList.toggle("mobile");
+    }
+
+    // Scroll to top
+    window.onscroll = function() {
+      document.getElementById("scrollTop").style.display = document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? "flex" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Proteksi sederhana (klik kanan & drag gambar)
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
   </script>
-  
-   <!-- Script No Copas-->
-
- <script>
-    (function() {
-      // cegah klik kanan, seleksi, drag, dan clipboard events
-      document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, {passive:false});
-      document.addEventListener('selectstart', function(e){ e.preventDefault(); }, {passive:false});
-      document.addEventListener('dragstart', function(e){ e.preventDefault(); }, {passive:false});
-      document.addEventListener('copy', function(e){ e.preventDefault(); }, {passive:false});
-      document.addEventListener('cut', function(e){ e.preventDefault(); }, {passive:false});
-      document.addEventListener('paste', function(e){ e.preventDefault(); }, {passive:false});
-
-      // cegah kombinasi tombol umum (Ctrl/Cmd+C, U, S) dan devtools (F12, Ctrl+Shift+I/J/C)
-      document.addEventListener('keydown', function(e) {
-        var key = e.key || e.keyIdentifier || e.keyCode;
-        var ctrlOrCmd = e.ctrlKey || e.metaKey;
-        // blokir Ctrl/Cmd + C / U / S / P
-        if (ctrlOrCmd && (key.toLowerCase() === 'c' || key.toLowerCase() === 'u' || key.toLowerCase() === 's' || key.toLowerCase() === 'p')) {
-          e.preventDefault();
-          return false;
-        }
-        // blokir F12
-        if (key === 'F12' || key === 'f12' || e.keyCode === 123) {
-          e.preventDefault();
-          return false;
-        }
-        // blokir Ctrl+Shift+I / J / C (devtools)
-        if (e.ctrlKey && e.shiftKey && (key.toUpperCase() === 'I' || key.toUpperCase() === 'J' || key.toUpperCase() === 'C')) {
-          e.preventDefault();
-          return false;
-        }
-      }, false);
-
-      // tambahan: jika ingin memblokir selection melalui CSS fallback untuk seluruh body
-      // document.body.style.userSelect = 'none';
-    })();
-  </script>
-  
-  <script>
-  // Mencegah klik kanan di seluruh halaman
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-
-  // Opsional: mencegah drag gambar
-  document.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
-  });
-</script>
-
-
 </body>
 </html>
-

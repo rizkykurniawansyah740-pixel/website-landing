@@ -17,7 +17,6 @@
       background-color: #f9f9f9;
       color: #333;
     }
-
     /* Navbar */
     nav {
       position: fixed;
@@ -52,9 +51,9 @@
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-links.mobile { 
-        display: flex; 
-        flex-direction: column; 
+      .nav-links.mobile {
+        display: flex;
+        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
@@ -144,13 +143,43 @@
       padding: 20px;
       margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      display: none; /* akan ditampilkan oleh JS */
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
     }
-    .post.visible { display: block; }
+    .post.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
     .post-date {
       font-size: 0.9rem;
       color: #888;
       margin-bottom: 10px;
+    }
+    .load-more-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .load-more-btn {
+      padding: 12px 32px;
+      background: #d4af37;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .load-more-btn:hover {
+      background: #b6952d;
+      transform: translateY(-3px);
+    }
+    .load-more-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
 
     /* Info Produk */
@@ -251,7 +280,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-
     @media (max-width: 768px) {
       .hero-text h1 { font-size: 2.2rem; }
       .hero-text p { font-size: 1.1rem; }
@@ -259,7 +287,6 @@
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
@@ -302,25 +329,20 @@
         <option value="all">Tampilkan Semua</option>
       </select>
     </div>
-
     <div id="postsContainer">
-      <!-- Contoh postingan – tambahkan lebih banyak sesuai kebutuhan -->
-
-	<div class="post" data-date="2025-12-25">
+      <!-- Postingan (urut dari terbaru ke terlama) -->
+      <div class="post" data-date="2025-12-25">
         <div class="post-date">25 Desember 2025</div>
-        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.553.000 per gram!,Pergerakan harga logam mulia pada hari ini, 25 Desember 2025, menunjukkan dinamika yang menarik bagi para investor.</p></div>
-	  </div>
-		
-	  <div class="post" data-date="2025-12-24">
+        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.553.000 per gram! Pergerakan harga logam mulia pada hari ini menunjukkan dinamika yang menarik bagi para investor.</p>
+      </div>
+      <div class="post" data-date="2025-12-24">
         <div class="post-date">24 Desember 2025</div>
-        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.571.000 per gram, melanjutkan reli penguatan dan mencatat rekor tertinggi sepanjang masa!</p></div>
-	  </div>
-	  
-	  <div class="post" data-date="2025-12-23">
+        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.571.000 per gram, melanjutkan reli penguatan dan mencatat rekor tertinggi sepanjang masa!</p>
+      </div>
+      <div class="post" data-date="2025-12-23">
         <div class="post-date">23 Desember 2025</div>
-        <p>Emas Resmi tembus Rp 2.561.000 per gram (naik Rp 59.000 dari kemarin)</p></div>
-	  </div>
-	  
+        <p>Emas Resmi tembus Rp 2.561.000 per gram (naik Rp 59.000 dari kemarin)</p>
+      </div>
       <div class="post" data-date="2025-12-22">
         <div class="post-date">22 Desember 2025</div>
         <p>Harga emas hari ini naik lagi! Saat yang tepat untuk menambah investasi logam mulia Anda. Hubungi kami untuk info lebih lanjut.</p>
@@ -331,9 +353,14 @@
       </div>
       <div class="post" data-date="2025-12-01">
         <div class="post-date">1 Desember 2025</div>
-        <p>Terima kasih kepada pelanggan setia yang sudah mempercayakan investasinya kepada Yogies Momapan.</p>
+        <p>Terima kasih kepada pelanggan setia yang sudah mempercayakan investasinya kepada Yogies Emas.</p>
       </div>
-      <!-- Tambahkan postingan lain di sini (yang lebih lama di bawah) -->
+      <!-- Postingan lama lainnya bisa ditambahkan di sini -->
+    </div>
+
+    <!-- Tombol Load More -->
+    <div class="load-more-container">
+      <button id="loadMoreBtn" class="load-more-btn">Lihat Lebih Banyak</button>
     </div>
   </section>
 
@@ -341,7 +368,7 @@
   <section class="info-section" id="info">
     <div class="info-text">
       <h2>Kenapa Memilih Logam Mulia?</h2>
-      <p>Logam mulia adalah bentuk investasi yang <b>stabil, mudah dicairkan, dan diakui secara global</b>. Yogies Momapan hadir untuk membantu Anda memiliki aset berharga yang nyata dan bernilai tinggi.</p>
+      <p>Logam mulia adalah bentuk investasi yang <b>stabil, mudah dicairkan, dan diakui secara global</b>. Yogies Emas hadir untuk membantu Anda memiliki aset berharga yang nyata dan bernilai tinggi.</p>
       <ul class="program-list">
         <li><b>Nilai Stabil</b> – Harga logam mulia cenderung meningkat dari waktu ke waktu.</li>
         <li><b>Aset Nyata</b> – Dapat dipegang secara fisik, aman dan mudah diperjualbelikan.</li>
@@ -349,7 +376,7 @@
         <li><b>Cocok untuk Tabungan Masa Depan</b> – Solusi cerdas untuk melindungi nilai kekayaan Anda.</li>
         <li><b>Legal & Terjamin</b> – Setiap produk memiliki sertifikat keaslian resmi.</li>
       </ul>
-      <p>Dengan Yogies Momapan, Anda dapat memulai langkah investasi cerdas untuk masa depan yang lebih tenang dan aman.</p>
+      <p>Dengan Yogies Emas, Anda dapat memulai langkah investasi cerdas untuk masa depan yang lebih tenang dan aman.</p>
       <br>
       <a href="https://wa.me/6283800889643" class="btn primary">Konsultasi Sekarang</a>
     </div>
@@ -376,7 +403,7 @@
 
   <!-- Produk -->
   <section class="testimoni-section" id="products">
-    <h2>Produk Logam Mulia Yogies Momapan</h2>
+    <h2>Produk Logam Mulia Yogies Emas</h2>
     <div class="testimoni-wrapper">
       <div class="testimoni-card"><span><b>1 Gram Logam Mulia</b> – Pilihan terbaik untuk mulai berinvestasi dengan modal ringan.</span></div>
       <div class="testimoni-card"><span><b>5 Gram Logam Mulia</b> – Cocok untuk tabungan jangka menengah dan hadiah berharga.</span></div>
@@ -419,20 +446,47 @@
       slides[index].classList.add("active");
     }, 5000);
 
-    // Filter postingan
-    function filterPosts() {
-      const select = document.getElementById("sortFilter").value;
-      const posts = document.querySelectorAll(".post");
-      posts.forEach(post => {
-        if (select === "all") {
+    // Update Terbaru - Load 5 pertama + Load More
+    const posts = document.querySelectorAll(".post");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    let visibleCount = 5;
+    const increment = 5;
+
+    function showPosts() {
+      posts.forEach((post, i) => {
+        if (i < visibleCount) {
           post.classList.add("visible");
-        } else {
-          post.classList.add("visible"); // untuk demo semua ditampilkan, bisa dikembangkan lebih lanjut
         }
       });
+
+      // Sembunyikan tombol jika sudah tampil semua
+      if (visibleCount >= posts.length) {
+        loadMoreBtn.style.display = "none";
+      }
     }
-    // Tampilkan semua saat load
-    filterPosts();
+
+    // Klik Load More
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += increment;
+      showPosts();
+    });
+
+    // Tampilkan 5 pertama saat load
+    showPosts();
+
+    // Filter (latest / all)
+    function filterPosts() {
+      const select = document.getElementById("sortFilter").value;
+      if (select === "all") {
+        visibleCount = posts.length;
+        showPosts();
+        loadMoreBtn.style.display = "none";
+      } else {
+        visibleCount = 5;
+        showPosts();
+        if (posts.length > 5) loadMoreBtn.style.display = "block";
+      }
+    }
 
     // Mobile menu
     function toggleMobileMenu() {
@@ -442,17 +496,16 @@
 
     // Scroll to top
     window.onscroll = function() {
-      document.getElementById("scrollTop").style.display = document.body.scrollTop > 300 || document.documentElement.scrollTop > 300 ? "flex" : "none";
+      document.getElementById("scrollTop").style.display = 
+        (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
     };
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // Proteksi sederhana (klik kanan & drag gambar)
+    // Proteksi sederhana
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
   </script>
 </body>
 </html>
-
-

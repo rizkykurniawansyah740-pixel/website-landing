@@ -14,12 +14,13 @@ table.gold-price {
   margin: 20px auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
+  font-size: 15px;          /* ukuran font lebih nyaman di mobile */
 }
 
 table.gold-price th,
 table.gold-price td {
-  padding: 12px 16px;
+  padding: 10px 12px;       /* padding lebih kecil di mobile */
   border: 1px solid #d0d0d0;
 }
 
@@ -36,14 +37,14 @@ table.gold-price .subheader th {
   text-align: center;
 }
 
-/* Kolom pertama (Gramasi) rata kiri + background */
+/* Kolom pertama (Gramasi) rata kiri */
 table.gold-price td.left {
   text-align: left;
   background-color: #f5f7fa;
   font-weight: 600;
 }
 
-/* Kolom harga tetap rata kanan */
+/* Kolom harga rata kanan */
 table.gold-price td:not(.left) {
   text-align: right;
 }
@@ -62,10 +63,54 @@ table.gold-price .emaskku {
 
 .title {
   text-align: center;
-  font-size: 1.5em;
-  margin: 25px 0 10px;
+  font-size: 1.4em;
+  margin: 25px 0 12px;
   color: #0d47a1;
   font-weight: 600;
+}
+
+/* ── RESPONSIVE untuk HP & tablet ── */
+@media screen and (max-width: 768px) {
+  table.gold-price {
+    font-size: 13.5px;          /* sedikit lebih kecil agar muat */
+    box-shadow: none;           /* hilangkan shadow biar lebih ringan */
+  }
+
+  table.gold-price th,
+  table.gold-price td {
+    padding: 8px 10px;         /* padding lebih kecil */
+  }
+
+  .title {
+    font-size: 1.25em;
+    margin: 20px 0 10px;
+  }
+
+  /* Membuat tabel bisa di-scroll horizontal di HP */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll di iOS */
+  }
+
+  /* Opsional: header tetap terlihat saat scroll (sticky) */
+  table.gold-price thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #1a3c6d; /* pastikan background tetap */
+  }
+}
+
+/* Extra kecil untuk HP sangat kecil (misal < 400px) */
+@media screen and (max-width: 480px) {
+  table.gold-price {
+    font-size: 12.5px;
+  }
+
+  table.gold-price th,
+  table.gold-price td {
+    padding: 7px 8px;
+  }
 }
     
 
@@ -447,23 +492,27 @@ table.gold-price .emaskku {
       <p>Investasi Aman, Nilai Nyata Sepanjang Waktu</p>
     </div>
   </section>
+  <!-- Div Terbaru -->
 
+  
   <!-- Update Terbaru -->
- <div class="title">Harga Emas Antam & Emaskku - 31 Desember 2025</div>
+  <div class="title">Harga Emas Antam & Emaskku - 31 Desember 2025</div>
 
-<table class="gold-price">
-  <thead>
-    <tr class="header-row">
-      <th rowspan="2">Gramasi</th>
-      <th colspan="2">Antam</th>
-      <th colspan="2">Emaskku</th>
-    </tr>
-    <tr class="subheader">
-      <th>Basic Price</th>
-      <th>Buyback Price</th>
-      <th>Basic Price</th>
-      <th>Buyback Price</th>
-    </tr>
+<!-- Wrapper penting untuk scroll horizontal di mobile -->
+<div class="table-container">
+  <table class="gold-price">
+    <thead>
+      <tr class="header-row">
+        <th rowspan="2">Gramasi</th>
+        <th colspan="2">Antam</th>
+        <th colspan="2">Emaskku</th>
+      </tr>
+      <tr class="subheader">
+        <th>Basic Price</th>
+        <th>Buyback Price</th>
+        <th>Basic Price</th>
+        <th>Buyback Price</th>
+      </tr>
   </thead>
   <tbody>
     <tr>

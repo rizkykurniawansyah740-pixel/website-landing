@@ -7,6 +7,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
   <style>
+
+table.gold-price {
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+table.gold-price th,
+table.gold-price td {
+  padding: 12px 16px;
+  text-align: right;
+  border: 1px solid #d0d0d0;
+}
+
+table.gold-price th {
+  background-color: #1a3c6d;
+  color: white;
+  font-weight: bold;
+}
+
+table.gold-price .header-row th {
+  background-color: #0d47a1;
+}
+
+table.gold-price .subheader th {
+  background-color: #1565c0;
+  font-size: 0.95em;
+}
+
+table.gold-price .left {
+  text-align: left;
+  background-color: #f5f7fa;
+  font-weight: 600;
+}
+
+table.gold-price tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table.gold-price .antem {
+  background-color: #e3f2fd;
+}
+
+table.gold-price .emaskku {
+  background-color: #e8f5e9;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 25px 0 10px;
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+    
+
     
 /* Shorts Section - Side by Side */
 .shorts-section {
@@ -387,64 +447,81 @@
   </section>
 
   <!-- Update Terbaru -->
-  <section class="updates-section" id="updates">
-    <h2>Update & Postingan Terbaru</h2>
-    <div class="filter-controls">
-      <select id="sortFilter" onchange="filterPosts()">
-        <option value="latest">Postingan Terbaru</option>
-        <option value="all">Tampilkan Semua</option>
-      </select>
-    </div>
-    <div id="postsContainer">
-      <!-- Postingan (urut dari terbaru ke terlama) -->
-      <div class="post" data-date="2025-12-30">
-    <div class="post-date">30 Desember 2025</div>
-    <p>Harga Emas Antam kembali terkoreksi menjadi Rp 2.485.000 per gram. Waspada volatilitas menjelang pergantian tahun! </p>
-  </div>
-      <div class="post" data-date="2025-12-29">
-    <div class="post-date">29 Desember 2025</div>
-    <p>Harga Emas Antam turun ke Rp 2.575.000 per gram setelah mencapai level tinggi sebelumnya </p>
-  </div>
-      <div class="post" data-date="2025-12-27">
-    <div class="post-date">27 Desember 2025</div>
-    <p>Harga Emas Antam cetak rekor baru di Rp 2.585.000 per gram! momentum kuat menuju akhir tahun bagi para investor emas.</p>
-  </div>
-      <div class="post" data-date="2025-12-26">
-    <div class="post-date">26 Desember 2025</div>
-    <p>Harga Emas Antam resmi tembus Rp 2.576.000 per gram! Naik dari hari sebelumnya, menunjukkan tren penguatan pasca-libur Natal yang menarik perhatian investor logam mulia.</p>
-  </div>
-      <div class="post" data-date="2025-12-25">
-        <div class="post-date">25 Desember 2025</div>
-        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.553.000 per gram! Pergerakan harga logam mulia pada hari ini menunjukkan dinamika yang menarik bagi para investor.</p>
-      </div>
-      <div class="post" data-date="2025-12-24">
-        <div class="post-date">24 Desember 2025</div>
-        <p>Selamat Natal! Emas Antam resmi tembus Rp 2.571.000 per gram, melanjutkan reli penguatan dan mencatat rekor tertinggi sepanjang masa!</p>
-      </div>
-      <div class="post" data-date="2025-12-23">
-        <div class="post-date">23 Desember 2025</div>
-        <p>Emas Resmi tembus Rp 2.561.000 per gram (naik Rp 59.000 dari kemarin)</p>
-      </div>
-      <div class="post" data-date="2025-12-22">
-        <div class="post-date">22 Desember 2025</div>
-        <p>Harga emas hari ini naik lagi! Saat yang tepat untuk menambah investasi logam mulia Anda. Hubungi kami untuk info lebih lanjut.</p>
-      </div>
-      <div class="post" data-date="2025-12-15">
-        <div class="post-date">15 Desember 2025</div>
-        <p>Stok baru 1 gram dan 5 gram sudah tersedia dengan sertifikat Antam resmi.</p>
-      </div>
-      <div class="post" data-date="2025-12-01">
-        <div class="post-date">1 Desember 2025</div>
-        <p>Terima kasih kepada pelanggan setia yang sudah mempercayakan investasinya kepada Yogies Emas.</p>
-      </div>
-      <!-- Postingan lama lainnya bisa ditambahkan di sini -->
-    </div>
+ <div class="title">Harga Emas Antam & Emaskku - 31 Desember 2025</div>
 
-    <!-- Tombol Load More -->
-    <div class="load-more-container">
-      <button id="loadMoreBtn" class="load-more-btn">Lihat Lebih Banyak</button>
-    </div>
-  </section>
+<table class="gold-price">
+  <thead>
+    <tr class="header-row">
+      <th rowspan="2">Gramasi</th>
+      <th colspan="2">Antam</th>
+      <th colspan="2">Emaskku</th>
+    </tr>
+    <tr class="subheader">
+      <th>Basic Price</th>
+      <th>Buyback Price</th>
+      <th>Basic Price</th>
+      <th>Buyback Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">0.5 gr</td>
+      <td class="antem">-</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 313.000.000</td>
+      <td class="emaskku">Rp 236.200.000</td>
+    </tr>
+    <tr>
+      <td class="left">0.5 gr</td>
+      <td class="antem">Rp 1.300.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 1.296.000</td>
+      <td class="emaskku">Rp 1.181.000</td>
+    </tr>
+    <tr>
+      <td class="left">1 gr</td>
+      <td class="antem">Rp 2.501.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 2.482.000</td>
+      <td class="emaskku">Rp 2.362.000</td>
+    </tr>
+    <tr>
+      <td class="left">5 gr</td>
+      <td class="antem">Rp 12.320.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 12.230.000</td>
+      <td class="emaskku">Rp 11.810.000</td>
+    </tr>
+    <tr>
+      <td class="left">10 gr</td>
+      <td class="antem">Rp 24.556.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 24.410.000</td>
+      <td class="emaskku">Rp 23.620.000</td>
+    </tr>
+    <tr>
+      <td class="left">25 gr</td>
+      <td class="antem">Rp 61.223.500</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 60.925.000</td>
+      <td class="emaskku">Rp 59.050.000</td>
+    </tr>
+    <tr>
+      <td class="left">50 gr</td>
+      <td class="antem">Rp 122.305.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 121.800.000</td>
+      <td class="emaskku">Rp 118.100.000</td>
+    </tr>
+    <tr>
+      <td class="left">100 gr</td>
+      <td class="antem">Rp 244.460.000</td>
+      <td class="antem">-</td>
+      <td class="emaskku">Rp 243.500.000</td>
+      <td class="emaskku">Rp 236.200.000</td>
+    </tr>
+  </tbody>
+</table>
 
   <!-- Info Produk -->
   <section class="info-section" id="info">

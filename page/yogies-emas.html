@@ -736,37 +736,51 @@ table.gold-price .emaskku {
   <script>
   // Data harga per tanggal (format YYYY-MM-DD)
   // Kamu bisa tambah tanggal lain nanti di sini
-  const priceData = {
-    "2026-01-10": {  // Default: hari ini
-      display: "10 Januari 2026",
-      rows: [
-        { gram: "0.1 gr", antamBasic: " - ", antamBuy: "Rp - ", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
-        { gram: "0.5 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 1.350.000", emasBuy: "Rp 1.200.000" },
-        { gram: "1 gr", antamBasic: "Rp 3.090.000", antamBuy: "Rp 2.729.000", emasBasic: "Rp 2.580.000", emasBuy: "Rp 2.456.000" },
-        { gram: "5 gr", antamBasic: "Rp 14.859.000", antamBuy: "Rp 13.645.000", emasBasic: "Rp 12.772.000", emasBuy: "Rp 12.280.000" },
-        { gram: "10 gr", antamBasic: "Rp 28.295.000", antamBuy: "Rp 27.290.000", emasBasic: "Rp 25.772.000", emasBuy: "Rp 24.800.000" },
-        { gram: "25 gr", antamBasic: "Rp 72.074.000", antamBuy: "Rp 68.625.000", emasBasic: "Rp 63.375.000", emasBuy: "Rp 61.410.000" },
-        { gram: "50 gr", antamBasic: "Rp 143.748.000", antamBuy: "Rp 136.450.000", emasBasic: "Rp 126.000.000", emasBuy: "Rp 122.480.000" },
-        { gram: "100 gr", antamBasic: "Rp 287.000.000", antamBuy: "Rp 272.900.000", emasBasic: "Rp 253.300.000", emasBuy: "Rp 245.600.000" }
-      ]
-    },
+    
+ const priceData = {
+  "2026-01-12": {  // ← Tanggal HARI INI (default, akan tampil otomatis)
+    display: "12 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 330.500", emasBuy: "Rp 248.900" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.622.000", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.361.500", emasBuy: "Rp 1.244.500" },
+      { gram: "1 gr", antamBasic: "Rp 3.119.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.613.000", emasBuy: "Rp 2.489.000" },
+      { gram: "5 gr", antamBasic: "Rp 14.710.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.885.500", emasBuy: "Rp 12.445.000" },
+      { gram: "10 gr", antamBasic: "Rp 29.275.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.720.000", emasBuy: "Rp 24.890.000" },
+      { gram: "25 gr", antamBasic: "Rp 72.725.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.200.000", emasBuy: "Rp 62.225.000" },
+      { gram: "50 gr", antamBasic: "Rp 145.198.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 128.350.000", emasBuy: "Rp 124.450.000" },
+      { gram: "100 gr", antamBasic: "Rp 289.900.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 256.600.000", emasBuy: "Rp 248.900.000" }
+    ]
+  },
 
-    "2026-01-09": {  // Tanggal kemarin (hidden default, bisa dipilih)
-      display: "9 Januari 2026",
-      rows: [
-        { gram: "0.1 gr", antamBasic: " - ", antamBuy: " - ", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
-        { gram: "0.5 gr", antamBasic: "Rp 1.588.500", antamBuy: "Rp 1.353.000", emasBasic: "Rp 1.333.500", emasBuy: "Rp 1.216.500" },
-        { gram: "1 gr", antamBasic: "Rp 3.062.000", antamBuy: "Rp 2.706.000", emasBasic: "Rp 2.557.000", emasBuy: "Rp 2.433.000" },
-        { gram: "5 gr", antamBasic: "Rp 14.470.000", antamBuy: "Rp 13.530.000", emasBasic: "Rp 12.605.000", emasBuy: "Rp 12.165.000" },
-        { gram: "10 gr", antamBasic: "Rp 28.800.000", antamBuy: "Rp 27.060.000", emasBasic: "Rp 25.160.000", emasBuy: "Rp 24.330.000" },
-        { gram: "25 gr", antamBasic: "Rp 72.115.000", antamBuy: "Rp 67.650.000", emasBasic: "Rp 62.800.000", emasBuy: "Rp 60.825.000" },
-        { gram: "50 gr", antamBasic: "Rp 143.980.000", antamBuy: "Rp 135.300.000", emasBasic: "Rp 125.550.000", emasBuy: "Rp 121.650.000" },
-        { gram: "100 gr", antamBasic: "Rp 284.700.000", antamBuy: "Rp 270.600.000", emasBasic: "Rp 251.000.000", emasBuy: "Rp 243.300.000" }
-      ]
-    }
-    // Tambah tanggal lain nanti, contoh:
-    // "2026-01-08": { display: "8 Januari 2026", rows: [ ... ] }
-  };
+  "2026-01-10": {  // ← Data tanggal 10 Januari (tetap bisa dipilih)
+    display: "10 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 1.350.000", emasBuy: "Rp 1.200.000" },
+      { gram: "1 gr", antamBasic: "Rp 3.090.000", antamBuy: "Rp 2.729.000", emasBasic: "Rp 2.580.000", emasBuy: "Rp 2.456.000" },
+      { gram: "5 gr", antamBasic: "Rp 14.859.000", antamBuy: "Rp 13.645.000", emasBasic: "Rp 12.772.000", emasBuy: "Rp 12.280.000" },
+      { gram: "10 gr", antamBasic: "Rp 28.295.000", antamBuy: "Rp 27.290.000", emasBasic: "Rp 25.772.000", emasBuy: "Rp 24.800.000" },
+      { gram: "25 gr", antamBasic: "Rp 72.074.000", antamBuy: "Rp 68.625.000", emasBasic: "Rp 63.375.000", emasBuy: "Rp 61.410.000" },
+      { gram: "50 gr", antamBasic: "Rp 143.748.000", antamBuy: "Rp 136.450.000", emasBasic: "Rp 126.000.000", emasBuy: "Rp 122.480.000" },
+      { gram: "100 gr", antamBasic: "Rp 287.000.000", antamBuy: "Rp 272.900.000", emasBasic: "Rp 253.300.000", emasBuy: "Rp 245.600.000" }
+    ]
+  },
+
+  "2026-01-09": {  // ← Data tanggal 9 Januari (tetap bisa dipilih)
+    display: "9 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.588.500", antamBuy: "Rp 1.353.000", emasBasic: "Rp 1.333.500", emasBuy: "Rp 1.216.500" },
+      { gram: "1 gr", antamBasic: "Rp 3.062.000", antamBuy: "Rp 2.706.000", emasBasic: "Rp 2.557.000", emasBuy: "Rp 2.433.000" },
+      { gram: "5 gr", antamBasic: "Rp 14.470.000", antamBuy: "Rp 13.530.000", emasBasic: "Rp 12.605.000", emasBuy: "Rp 12.165.000" },
+      { gram: "10 gr", antamBasic: "Rp 28.800.000", antamBuy: "Rp 27.060.000", emasBasic: "Rp 25.160.000", emasBuy: "Rp 24.330.000" },
+      { gram: "25 gr", antamBasic: "Rp 72.115.000", antamBuy: "Rp 67.650.000", emasBasic: "Rp 62.800.000", emasBuy: "Rp 60.825.000" },
+      { gram: "50 gr", antamBasic: "Rp 143.980.000", antamBuy: "Rp 135.300.000", emasBasic: "Rp 125.550.000", emasBuy: "Rp 121.650.000" },
+      { gram: "100 gr", antamBasic: "Rp 284.700.000", antamBuy: "Rp 270.600.000", emasBasic: "Rp 251.000.000", emasBuy: "Rp 243.300.000" }
+    ]
+  }
+  // ← nanti tambahkan tanggal baru di sini (misal "2026-01-13", dst)
+};
 
   // Fungsi untuk update tabel berdasarkan tanggal
   function updateTable(dateKey) {

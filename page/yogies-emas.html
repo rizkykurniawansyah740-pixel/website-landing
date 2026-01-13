@@ -737,8 +737,22 @@ table.gold-price .emaskku {
   // Data harga per tanggal (format YYYY-MM-DD)
   // Kamu bisa tambah tanggal lain nanti di sini
     
- const priceData = {
-  "2026-01-12": {  // ← Tanggal HARI INI (default, akan tampil otomatis)
+const priceData = {
+  "2026-01-13": {  // ← Tanggal HARI INI (default, akan tampil otomatis saat buka halaman)
+    display: "13 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 332.000", emasBuy: "Rp 250.600" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.637.500", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.372.500", emasBuy: "Rp 1.253.000" },
+      { gram: "1 gr", antamBasic: "Rp 3.150.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.635.000", emasBuy: "Rp 2.506.000" },
+      { gram: "5 gr", antamBasic: "Rp 14.865.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.995.000", emasBuy: "Rp 12.530.000" },
+      { gram: "10 gr", antamBasic: "Rp 29.585.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.940.000", emasBuy: "Rp 25.060.000" },
+      { gram: "25 gr", antamBasic: "Rp 73.500.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.750.000", emasBuy: "Rp 62.650.000" },
+      { gram: "50 gr", antamBasic: "Rp 146.748.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 129.450.000", emasBuy: "Rp 125.300.000" },
+      { gram: "100 gr", antamBasic: "Rp 293.000.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 258.800.000", emasBuy: "Rp 250.600.000" }
+    ]
+  },
+
+  "2026-01-12": {  // ← Data 12 Januari (tetap ada untuk arsip)
     display: "12 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 330.500", emasBuy: "Rp 248.900" },
@@ -752,7 +766,7 @@ table.gold-price .emaskku {
     ]
   },
 
-  "2026-01-10": {  // ← Data tanggal 10 Januari (tetap bisa dipilih)
+  "2026-01-10": {  // ← Data 10 Januari (tetap ada)
     display: "10 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
@@ -766,7 +780,7 @@ table.gold-price .emaskku {
     ]
   },
 
-  "2026-01-09": {  // ← Data tanggal 9 Januari (tetap bisa dipilih)
+  "2026-01-09": {  // ← Data 9 Januari (tetap ada)
     display: "9 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
@@ -779,12 +793,11 @@ table.gold-price .emaskku {
       { gram: "100 gr", antamBasic: "Rp 284.700.000", antamBuy: "Rp 270.600.000", emasBasic: "Rp 251.000.000", emasBuy: "Rp 243.300.000" }
     ]
   }
-  // ← nanti tambahkan tanggal baru di sini (misal "2026-01-13", dst)
 };
 
   // Fungsi untuk update tabel berdasarkan tanggal
   function updateTable(dateKey) {
-    const data = priceData[dateKey] || priceData["2026-01-10"]; // fallback ke hari ini jika tidak ada
+    const data = priceData[dateKey] || priceData["2026-01-13"]; // fallback ke hari ini jika tidak ada
     document.getElementById("currentDate").textContent = data.display;
 
     const tbody = document.querySelector("#priceTable tbody");
@@ -804,7 +817,7 @@ table.gold-price .emaskku {
   }
 
   // Load default: tanggal 12 Januari (hari ini)
-  updateTable("2026-01-12");
+  updateTable("2026-01-13");
 
   // Tombol buka modal
   document.getElementById("archiveBtn").addEventListener("click", () => {

@@ -738,7 +738,21 @@ table.gold-price .emaskku {
   // Kamu bisa tambah tanggal lain nanti di sini
     
 const priceData = {
-  "2026-01-13": {  // ← Tanggal HARI INI (default, akan tampil otomatis saat buka halaman)
+  "2026-01-14": {  // Default hari ini
+    display: "14 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 334.000", emasBuy: "Rp 251.500" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.640.000", antamBuy: "Rp 1.400.000", emasBasic: "Rp 1.377.000", emasBuy: "Rp 1.257.500" },
+      { gram: "1 gr", antamBasic: "Rp 3.115.000", antamBuy: "Rp 2.800.000", emasBasic: "Rp 2.644.000", emasBuy: "Rp 2.515.000" },
+      { gram: "5 gr", antamBasic: "Rp 14.995.000", antamBuy: "Rp 14.000.000", emasBasic: "Rp 13.040.000", emasBuy: "Rp 12.575.000" },
+      { gram: "10 gr", antamBasic: "Rp 29.845.000", antamBuy: "Rp 28.000.000", emasBasic: "Rp 26.030.000", emasBuy: "Rp 25.150.000" },
+      { gram: "25 gr", antamBasic: "Rp 74.180.000", antamBuy: "Rp 70.000.000", emasBasic: "Rp 64.975.000", emasBuy: "Rp 62.875.000" },
+      { gram: "50 gr", antamBasic: "Rp 148.110.000", antamBuy: "Rp 140.000.000", emasBasic: "Rp 129.900.000", emasBuy: "Rp 125.750.000" },
+      { gram: "100 gr", antamBasic: "Rp 295.700.000", antamBuy: "Rp 280.000.000", emasBasic: "Rp 259.700.000", emasBuy: "Rp 251.500.000" }
+    ]
+  },
+
+  "2026-01-13": {
     display: "13 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 332.000", emasBuy: "Rp 250.600" },
@@ -752,7 +766,7 @@ const priceData = {
     ]
   },
 
-  "2026-01-12": {  // ← Data 12 Januari (tetap ada untuk arsip)
+  "2026-01-12": {
     display: "12 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 330.500", emasBuy: "Rp 248.900" },
@@ -766,7 +780,7 @@ const priceData = {
     ]
   },
 
-  "2026-01-10": {  // ← Data 10 Januari (tetap ada)
+  "2026-01-10": {
     display: "10 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
@@ -780,7 +794,7 @@ const priceData = {
     ]
   },
 
-  "2026-01-09": {  // ← Data 9 Januari (tetap ada)
+  "2026-01-09": {
     display: "9 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
@@ -794,7 +808,7 @@ const priceData = {
     ]
   }
 };
-
+    
   // Fungsi untuk update tabel berdasarkan tanggal
   function updateTable(dateKey) {
     const data = priceData[dateKey] || priceData["2026-01-13"]; // fallback ke hari ini jika tidak ada
@@ -816,8 +830,8 @@ const priceData = {
     });
   }
 
-  // Load default: tanggal 12 Januari (hari ini)
-  updateTable("2026-01-13");
+  // Load default: tanggal 14 Januari (hari ini)
+  updateTable("2026-01-14");
 
   // Tombol buka modal
   document.getElementById("archiveBtn").addEventListener("click", () => {

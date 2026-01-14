@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
-  <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://yogiesemas.com/" /> <!-- ganti dengan URL website asli kamu -->
-<meta property="og:title" content="Yogies Emas - Logam Mulia Antam & Emasku" />
-<meta property="og:description" content="Investasi aman dengan harga emas Antam & Emasku terupdate setiap hari. Beli & jual kembali mudah, sertifikat resmi. Konsultasi sekarang via WA!" />
-<meta property="og:image" content="https://i.imgur.com/WSu113N.png" /> <!-- ganti dengan gambar yang bagus, ukuran ideal 1200x630 px -->
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://yogiesemas.com/" />
-<meta name="twitter:title" content="Yogies Emas - Logam Mulia Antam & Emasku" />
-<meta name="twitter:description" content="Investasi aman dengan harga emas Antam & Emasku terupdate setiap hari. Beli & jual kembali mudah, sertifikat resmi." />
-<meta name="twitter:image" content="https://i.imgur.com/WSu113N.png" /> <!-- sama dengan og:image -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yogies Emas - Logam Mulia</title>
@@ -29,67 +12,356 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
-    body { background:#f9f9f9; color:#333; }
-
-    nav {
-      position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95);
-      box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:1000; padding:15px 20px;
-    }
-    .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-weight:700; font-size:1.4rem; color:#d4af37; }
-    .nav-links { display:flex; gap:25px; align-items:center; }
-    .nav-links a { text-decoration:none; color:#333; font-weight:500; transition:color 0.3s; }
-    .nav-links a:hover { color:#d4af37; }
-    .hamburger { display:none; font-size:1.6rem; cursor:pointer; }
-
-    .hero-slider { position:relative; height:90vh; min-height:500px; overflow:hidden; margin-top:70px; }
-    .slider-container { position:absolute; inset:0; }
-    .slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
-    .slide.active { opacity:1; }
-    .slide img { width:100%; height:100%; object-fit:cover; }
-    .hero-text {
-      position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
-      text-align:center; color:white; text-shadow:2px 2px 10px rgba(0,0,0,0.7); padding:20px;
-    }
-    .hero-text h1 { font-size:clamp(2.5rem,6vw,3.8rem); margin-bottom:10px; }
-    .hero-text p { font-size:clamp(1.2rem,4vw,1.6rem); }
-
-    .title { text-align:center; font-size:clamp(1.4rem,4vw,1.8rem); margin:100px 20px 30px; color:#0d47a1; font-weight:600; }
-
-    .table-container { overflow-x:auto; margin:0 auto 60px; max-width:1200px; padding:0 10px; -webkit-overflow-scrolling:touch; }
     table.gold-price {
-      border-collapse:collapse; width:100%; min-width:700px; font-size:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      border-collapse: collapse;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 960px;
+      font-size: 15px;
     }
-    table.gold-price th, table.gold-price td { padding:10px 12px; border:1px solid #d0d0d0; }
-    table.gold-price th { text-align:center; background:#1a3c6d; color:white; font-weight:bold; position:sticky; top:0; z-index:10; }
-    table.gold-price td.left { text-align:left; background:#f5f7fa; font-weight:600; }
-    table.gold-price td:not(.left) { text-align:right; }
-    table.gold-price tr:nth-child(even) { background:#f9f9f9; }
-    .antem { background:#e3f2fd; }
-    .emaskku { background:#e8f5e9; }
+    table.gold-price th,
+    table.gold-price td {
+      padding: 10px 12px;
+      border: 1px solid #d0d0d0;
+    }
+    table.gold-price th {
+      text-align: center;
+      background-color: #1a3c6d;
+      color: white;
+      font-weight: bold;
+    }
+    table.gold-price .header-row th,
+    table.gold-price .subheader th {
+      text-align: center;
+    }
+    table.gold-price td.left {
+      text-align: left;
+      background-color: #f5f7fa;
+      font-weight: 600;
+    }
+    table.gold-price td:not(.left) {
+      text-align: right;
+    }
+    table.gold-price tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    table.gold-price .antem {
+      background-color: #e3f2fd;
+    }
+    table.gold-price .emaskku {
+      background-color: #e8f5e9;
+    }
+    .title {
+      text-align: center;
+      font-size: 1.4em;
+      margin: 25px 0 12px;
+      color: #0d47a1;
+      font-weight: 600;
+    }
+    @media screen and (max-width: 768px) {
+      table.gold-price {
+        font-size: 13.5px;
+        box-shadow: none;
+      }
+      table.gold-price th,
+      table.gold-price td {
+        padding: 8px 10px;
+      }
+      .title {
+        font-size: 1.25em;
+        margin: 20px 0 10px;
+      }
+      .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table.gold-price thead th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #1a3c6d;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      table.gold-price {
+        font-size: 12.5px;
+      }
+      table.gold-price th,
+      table.gold-price td {
+        padding: 7px 8px;
+      }
+    }
 
-    /* Warna khusus untuk kolom harga */
-    .basic-price { color: #28a745 !important; font-weight:600; } /* Hijau untuk Basic Price */
-    .buyback-price { color: #dc3545 !important; font-weight:600; } /* Merah untuk Buyback Price */
+    /* Shorts Section */
+    .shorts-section {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .shorts-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .shorts-item {
+      width: 100%;
+      max-width: 360px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .shorts-item:hover {
+      transform: translateY(-8px);
+    }
+    .shorts-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #111;
+    }
+    .shorts-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .shorts-item .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .shorts-item:hover .caption {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .shorts-container {
+        grid-template-columns: 1fr;
+      }
+      .shorts-item {
+        max-width: 100%;
+      }
+    }
 
-    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
-    h2 { text-align:center; font-size:2.2rem; color:#c8a600; margin-bottom:40px; font-weight:700; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px 20px;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #d4af37;
+    }
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.mobile a { margin: 15px 20px; }
+      .hamburger { display: block; cursor: pointer; }
+    }
+    .hamburger { display: none; font-size: 1.5rem; }
+    .hero-slider {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slider-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .slide.active { opacity: 1; }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      font-size: 1.4rem;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #c8a600;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    .info-section { background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%); text-align: center; }
+    .program-list { list-style: none; text-align: left; max-width: 800px; margin: 30px auto; }
+    .program-list li {
+      background: #fffbea;
+      border-left: 4px solid #d4af37;
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 6px;
+    }
+    .btn.primary {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #d4af37;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn.primary:hover { background-color: #b6952d; transform: translateY(-3px); }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.05); }
+    .gallery-item img { width: 100%; height: 300px; object-fit: cover; }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .caption { opacity: 1; }
+    .testimoni-section { background: linear-gradient(135deg, #fffdea, #ffffff); }
+    .testimoni-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .testimoni-card {
+      background: #fff;
+      border: 1px solid #f6e9b5;
+      border-left: 4px solid #d4af37;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+    .testimoni-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    footer {
+      background: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+    }
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #d4af37;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2.2rem; }
+      .hero-text p { font-size: 1.1rem; }
+    }
 
-    .shorts-section, .gallery-container, .testimoni-wrapper { max-width:1200px; margin:0 auto; }
-
-    .btn.primary { display:inline-block; padding:14px 32px; background:#d4af37; color:#fff; text-decoration:none; border-radius:6px; font-weight:600; transition:all 0.3s; }
-    .btn.primary:hover { background:#b6952d; transform:translateY(-3px); }
-
-    footer { background:#222; color:#ddd; text-align:center; padding:30px; font-size:0.9rem; margin-top:60px; }
-
-    @media (max-width:768px) {
-      .nav-links { display:none; }
-      .nav-links.mobile { display:flex; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:white; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-      .hamburger { display:block; }
-      .hero-slider { height:70vh; min-height:420px; }
-      table.gold-price { font-size:13.5px; }
-      table.gold-price th, table.gold-price td { padding:8px 10px; }
+    /* Background kolom harga (hijau & merah) */
+    td.basic-price-bg {
+      background-color: #d4edda !important; /* hijau muda untuk Basic Price */
+    }
+    td.buyback-price-bg {
+      background-color: #f8d7da !important; /* merah muda untuk Buyback Price */
     }
   </style>
 </head>
@@ -115,8 +387,12 @@
   <!-- Hero Slider -->
   <section class="hero-slider" id="home">
     <div class="slider-container">
-      <div class="slide active"><img src="https://i.imgur.com/WSu113N.png" alt="Slide 1"></div>
-      <div class="slide"><img src="https://i.imgur.com/iTUMAPi.png" alt="Slide 2"></div>
+      <div class="slide active">
+        <img src="https://i.imgur.com/WSu113N.png" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="https://i.imgur.com/iTUMAPi.png" alt="Slide 2">
+      </div>
     </div>
     <div class="hero-text">
       <h1>Yogies Emas</h1>
@@ -268,7 +544,8 @@
 
     // Scroll to top
     window.onscroll = function() {
-      document.getElementById("scrollTop").style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
+      document.getElementById("scrollTop").style.display =
+        (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
     };
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
@@ -347,7 +624,7 @@
       }
     };
 
-    // Fungsi update tabel
+    // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
       const data = priceData[dateKey] || priceData["2026-01-14"];
       document.getElementById("currentDate").textContent = data.display;
@@ -359,10 +636,10 @@
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td class="left">${row.gram}</td>
-          <td class="antem basic-price">${row.antamBasic}</td>
-          <td class="antem buyback-price">${row.antamBuy}</td>
-          <td class="emaskku basic-price">${row.emasBasic}</td>
-          <td class="emaskku buyback-price">${row.emasBuy}</td>
+          <td class="antem basic-price-bg">${row.antamBasic}</td>
+          <td class="antem buyback-price-bg">${row.antamBuy}</td>
+          <td class="emaskku basic-price-bg">${row.emasBasic}</td>
+          <td class="emaskku buyback-price-bg">${row.emasBuy}</td>
         `;
         tbody.appendChild(tr);
       });

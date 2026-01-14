@@ -1,471 +1,100 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yogiesemas.com/" /> <!-- ganti dengan URL website asli kamu -->
+<meta property="og:title" content="Yogies Emas - Logam Mulia Antam & Emasku" />
+<meta property="og:description" content="Investasi aman dengan harga emas Antam & Emasku terupdate setiap hari. Beli & jual kembali mudah, sertifikat resmi. Konsultasi sekarang via WA!" />
+<meta property="og:image" content="https://i.imgur.com/WSu113N.png" /> <!-- ganti dengan gambar yang bagus, ukuran ideal 1200x630 px -->
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://yogiesemas.com/" />
+<meta name="twitter:title" content="Yogies Emas - Logam Mulia Antam & Emasku" />
+<meta name="twitter:description" content="Investasi aman dengan harga emas Antam & Emasku terupdate setiap hari. Beli & jual kembali mudah, sertifikat resmi." />
+<meta name="twitter:image" content="https://i.imgur.com/WSu113N.png" /> <!-- sama dengan og:image -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yogies Emas - Logam Mulia</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+  
+  <!-- Flatpickr untuk kalender popup -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
   <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
+    body { background:#f9f9f9; color:#333; }
 
-table.gold-price {
-  border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 20px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 960px;
-  font-size: 15px;          /* ukuran font lebih nyaman di mobile */
-}
-
-table.gold-price th,
-table.gold-price td {
-  padding: 10px 12px;       /* padding lebih kecil di mobile */
-  border: 1px solid #d0d0d0;
-}
-
-/* Semua header rata tengah */
-table.gold-price th {
-  text-align: center;
-  background-color: #1a3c6d;
-  color: white;
-  font-weight: bold;
-}
-
-table.gold-price .header-row th,
-table.gold-price .subheader th {
-  text-align: center;
-}
-
-/* Kolom pertama (Gramasi) rata kiri */
-table.gold-price td.left {
-  text-align: left;
-  background-color: #f5f7fa;
-  font-weight: 600;
-}
-
-/* Kolom harga rata kanan */
-table.gold-price td:not(.left) {
-  text-align: right;
-}
-
-table.gold-price tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-table.gold-price .antem {
-  background-color: #e3f2fd;
-}
-
-table.gold-price .emaskku {
-  background-color: #e8f5e9;
-}
-
-.title {
-  text-align: center;
-  font-size: 1.4em;
-  margin: 25px 0 12px;
-  color: #0d47a1;
-  font-weight: 600;
-}
-
-/* ── RESPONSIVE untuk HP & tablet ── */
-@media screen and (max-width: 768px) {
-  table.gold-price {
-    font-size: 13.5px;          /* sedikit lebih kecil agar muat */
-    box-shadow: none;           /* hilangkan shadow biar lebih ringan */
-  }
-
-  table.gold-price th,
-  table.gold-price td {
-    padding: 8px 10px;         /* padding lebih kecil */
-  }
-
-  .title {
-    font-size: 1.25em;
-    margin: 20px 0 10px;
-  }
-
-  /* Membuat tabel bisa di-scroll horizontal di HP */
-  .table-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* smooth scroll di iOS */
-  }
-
-  /* Opsional: header tetap terlihat saat scroll (sticky) */
-  table.gold-price thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: #1a3c6d; /* pastikan background tetap */
-  }
-}
-
-/* Extra kecil untuk HP sangat kecil (misal < 400px) */
-@media screen and (max-width: 480px) {
-  table.gold-price {
-    font-size: 12.5px;
-  }
-
-  table.gold-price th,
-  table.gold-price td {
-    padding: 7px 8px;
-  }
-}
-    
-
-    
-/* Shorts Section - Side by Side */
-.shorts-section {
-  margin-top: 60px;
-  text-align: center;
-}
-.shorts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.shorts-item {
-  width: 100%;
-  max-width: 360px; /* ukuran maksimal agar tidak terlalu besar */
-  background: #000;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
-}
-.shorts-item:hover {
-  transform: translateY(-8px);
-}
-.shorts-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16; /* rasio vertikal Shorts */
-  background: #111;
-}
-.shorts-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-/* Caption tetap seperti galeri */
-.shorts-item .caption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  padding: 12px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.shorts-item:hover .caption {
-  opacity: 1;
-}
-/* Responsif mobile */
-@media (max-width: 768px) {
-  .shorts-container {
-    grid-template-columns: 1fr;
-  }
-  .shorts-item {
-    max-width: 100%;
-  }
-}
-
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    /* Navbar */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 15px 20px;
+      position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95);
+      box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:1000; padding:15px 20px;
     }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #d4af37;
-    }
-    .nav-links a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #d4af37;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.mobile {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      }
-      .nav-links.mobile a { margin: 15px 20px; }
-      .hamburger { display: block; cursor: pointer; }
-    }
-    .hamburger { display: none; font-size: 1.5rem; }
+    .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-weight:700; font-size:1.4rem; color:#d4af37; }
+    .nav-links { display:flex; gap:25px; align-items:center; }
+    .nav-links a { text-decoration:none; color:#333; font-weight:500; transition:color 0.3s; }
+    .nav-links a:hover { color:#d4af37; }
+    .hamburger { display:none; font-size:1.6rem; cursor:pointer; }
 
-    /* Hero Slider */
-    .hero-slider {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .slider-container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .slide.active { opacity: 1; }
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
+    .hero-slider { position:relative; height:90vh; min-height:500px; overflow:hidden; margin-top:70px; }
+    .slider-container { position:absolute; inset:0; }
+    .slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
+    .slide.active { opacity:1; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
     .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-      z-index: 2;
+      position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color:white; text-shadow:2px 2px 10px rgba(0,0,0,0.7); padding:20px;
     }
-    .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    .hero-text p {
-      font-size: 1.4rem;
-    }
+    .hero-text h1 { font-size:clamp(2.5rem,6vw,3.8rem); margin-bottom:10px; }
+    .hero-text p { font-size:clamp(1.2rem,4vw,1.6rem); }
 
-    /* Section umum */
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      color: #c8a600;
-      margin-bottom: 40px;
-      font-weight: 700;
-    }
+    .title { text-align:center; font-size:clamp(1.4rem,4vw,1.8rem); margin:100px 20px 30px; color:#0d47a1; font-weight:600; }
 
-    /* Update Terbaru */
-    .updates-section {
-      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+    .table-container { overflow-x:auto; margin:0 auto 60px; max-width:1200px; padding:0 10px; -webkit-overflow-scrolling:touch; }
+    table.gold-price {
+      border-collapse:collapse; width:100%; min-width:700px; font-size:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
     }
-    .filter-controls {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .filter-controls select {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #d4af37;
-    }
-    .post {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-    .post.visible {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .post-date {
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 10px;
-    }
-    .load-more-container {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .load-more-btn {
-      padding: 12px 32px;
-      background: #d4af37;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .load-more-btn:hover {
-      background: #b6952d;
-      transform: translateY(-3px);
-    }
-    .load-more-btn:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
+    table.gold-price th, table.gold-price td { padding:10px 12px; border:1px solid #d0d0d0; }
+    table.gold-price th { text-align:center; background:#1a3c6d; color:white; font-weight:bold; position:sticky; top:0; z-index:10; }
+    table.gold-price td.left { text-align:left; background:#f5f7fa; font-weight:600; }
+    table.gold-price td:not(.left) { text-align:right; }
+    table.gold-price tr:nth-child(even) { background:#f9f9f9; }
+    .antem { background:#e3f2fd; }
+    .emaskku { background:#e8f5e9; }
 
-    /* Info Produk */
-    .info-section { background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%); text-align: center; }
-    .program-list { list-style: none; text-align: left; max-width: 800px; margin: 30px auto; }
-    .program-list li {
-      background: #fffbea;
-      border-left: 4px solid #d4af37;
-      padding: 12px 16px;
-      margin: 12px 0;
-      border-radius: 6px;
-    }
-    .btn.primary {
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #d4af37;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .btn.primary:hover { background-color: #b6952d; transform: translateY(-3px); }
+    /* Warna khusus untuk kolom harga */
+    .basic-price { color: #28a745 !important; font-weight:600; } /* Hijau untuk Basic Price */
+    .buyback-price { color: #dc3545 !important; font-weight:600; } /* Merah untuk Buyback Price */
 
-    /* Galeri */
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .gallery-item:hover { transform: scale(1.05); }
-    .gallery-item img { width: 100%; height: 300px; object-fit: cover; }
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      padding: 12px;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .caption { opacity: 1; }
+    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+    h2 { text-align:center; font-size:2.2rem; color:#c8a600; margin-bottom:40px; font-weight:700; }
 
-    /* Produk */
-    .testimoni-section { background: linear-gradient(135deg, #fffdea, #ffffff); }
-    .testimoni-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .testimoni-card {
-      background: #fff;
-      border: 1px solid #f6e9b5;
-      border-left: 4px solid #d4af37;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.3s;
-    }
-    .testimoni-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .shorts-section, .gallery-container, .testimoni-wrapper { max-width:1200px; margin:0 auto; }
 
-    /* Maps */
-    .maps-section { text-align: center; }
-    .maps-container iframe { width: 100%; max-width: 100%; height: 400px; border: 0; border-radius: 10px; }
+    .btn.primary { display:inline-block; padding:14px 32px; background:#d4af37; color:#fff; text-decoration:none; border-radius:6px; font-weight:600; transition:all 0.3s; }
+    .btn.primary:hover { background:#b6952d; transform:translateY(-3px); }
 
-    /* Footer */
-    footer {
-      background: #222;
-      color: #ddd;
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-    }
+    footer { background:#222; color:#ddd; text-align:center; padding:30px; font-size:0.9rem; margin-top:60px; }
 
-    /* Scroll to top */
-    #scrollTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #d4af37;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-    @media (max-width: 768px) {
-      .hero-text h1 { font-size: 2.2rem; }
-      .hero-text p { font-size: 1.1rem; }
+    @media (max-width:768px) {
+      .nav-links { display:none; }
+      .nav-links.mobile { display:flex; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:white; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+      .hamburger { display:block; }
+      .hero-slider { height:70vh; min-height:420px; }
+      table.gold-price { font-size:13.5px; }
+      table.gold-price th, table.gold-price td { padding:8px 10px; }
     }
   </style>
-
-  <!-- Popup Tanggal -->
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  
 </head>
 <body>
+
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
@@ -486,64 +115,53 @@ table.gold-price .emaskku {
   <!-- Hero Slider -->
   <section class="hero-slider" id="home">
     <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/WSu113N.png" alt="Slide 1">
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/iTUMAPi.png" alt="Slide 2">
-      </div>
+      <div class="slide active"><img src="https://i.imgur.com/WSu113N.png" alt="Slide 1"></div>
+      <div class="slide"><img src="https://i.imgur.com/iTUMAPi.png" alt="Slide 2"></div>
     </div>
     <div class="hero-text">
       <h1>Yogies Emas</h1>
       <p>Investasi Aman, Nilai Nyata Sepanjang Waktu</p>
     </div>
   </section>
-  <!-- Div Terbaru -->
 
-  
-  <!-- Update Terbaru -->
+  <!-- Harga Emas -->
+  <div class="title">
+    Harga Emas Antam & Emasku - <span id="currentDate">14 Januari 2026</span>
+    <button id="archiveBtn" style="margin-left:15px; padding:8px 16px; background:#d4af37; color:white; border:none; border-radius:6px; cursor:pointer; font-size:0.9rem;">
+      Lihat Harga Sebelumnya
+    </button>
+  </div>
 
-<!-- Judul + Tombol Arsip -->
-<div class="title">
-  Harga Emas Antam & Emasku - <span id="currentDate">10 Januari 2026</span>
-  <button id="archiveBtn" style="margin-left:15px; padding:8px 16px; background:#d4af37; color:white; border:none; border-radius:6px; cursor:pointer; font-size:0.9rem;">
-    Lihat Harga Sebelumnya
-  </button>
-</div>
+  <div class="table-container">
+    <table class="gold-price" id="priceTable">
+      <thead>
+        <tr class="header-row">
+          <th rowspan="2">Gramasi</th>
+          <th colspan="2">Antam</th>
+          <th colspan="2">Emaskku</th>
+        </tr>
+        <tr class="subheader">
+          <th>Basic Price</th>
+          <th>Buyback Price</th>
+          <th>Basic Price</th>
+          <th>Buyback Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
-<!-- Tabel Harga (kosong dulu, diisi JS) -->
-<div class="table-container">
-  <table class="gold-price" id="priceTable">
-    <thead>
-      <tr class="header-row">
-        <th rowspan="2">Gramasi</th>
-        <th colspan="2">Antam</th>
-        <th colspan="2">Emaskku</th>
-      </tr>
-      <tr class="subheader">
-        <th>Basic Price</th>
-        <th>Buyback Price</th>
-        <th>Basic Price</th>
-        <th>Buyback Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Data diisi otomatis oleh JavaScript -->
-    </tbody>
-  </table>
-</div>
-
-<!-- Popup Modal Kalender -->
-<div id="archiveModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; justify-content:center; align-items:center;">
-  <div style="background:white; padding:30px; border-radius:12px; max-width:380px; width:90%; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-    <h3 style="margin-bottom:20px;">Pilih Tanggal Arsip Harga</h3>
-    <input type="text" id="datePicker" placeholder="Pilih tanggal..." style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
-    <div>
-      <button id="loadDateBtn" style="padding:12px 30px; background:#d4af37; color:white; border:none; border-radius:6px; cursor:pointer; margin-right:10px;">Tampilkan</button>
-      <button id="closeModal" style="padding:12px 30px; background:#ccc; border:none; border-radius:6px; cursor:pointer;">Tutup</button>
+  <!-- Modal Kalender -->
+  <div id="archiveModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; justify-content:center; align-items:center;">
+    <div style="background:white; padding:30px; border-radius:12px; max-width:380px; width:90%; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+      <h3 style="margin-bottom:20px;">Pilih Tanggal Arsip Harga</h3>
+      <input type="text" id="datePicker" placeholder="Pilih tanggal..." style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
+      <div>
+        <button id="loadDateBtn" style="padding:12px 30px; background:#d4af37; color:white; border:none; border-radius:6px; cursor:pointer; margin-right:10px;">Tampilkan</button>
+        <button id="closeModal" style="padding:12px 30px; background:#ccc; border:none; border-radius:6px; cursor:pointer;">Tutup</button>
+      </div>
     </div>
   </div>
-</div>
 
   <!-- Info Produk -->
   <section class="info-section" id="info">
@@ -580,56 +198,32 @@ table.gold-price .emaskku {
         <div class="caption">Kemasan</div>
       </div>
     </div>
-    </secion>
-    
-  <!-- Bagian Video Shorts - Side by Side -->
-<div class="shorts-section">
-  <h2>Video Pengetahuan Emas </h2>
-  <div class="shorts-container">
-    <!-- Video 1 -->
-    <div class="shorts-item">
-      <div class="shorts-wrapper">
-        <iframe 
-          src="https://www.youtube.com/embed/Z8J6pg9tL90" 
-          title="YouTube Short 1" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="caption">Proses Pengemasan Emas</div>
-    </div>
+  </section>
 
-    <!-- Video 2 -->
-    <div class="shorts-item">
-      <div class="shorts-wrapper">
-        <iframe 
-          src="https://www.youtube.com/embed/4zdPdm2vBoM" 
-          title="YouTube Short 2" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+  <!-- Video Shorts -->
+  <div class="shorts-section">
+    <h2>Video Pengetahuan Emas</h2>
+    <div class="shorts-container">
+      <div class="shorts-item">
+        <div class="shorts-wrapper">
+          <iframe src="https://www.youtube.com/embed/Z8J6pg9tL90" title="YouTube Short 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="caption">Proses Pengemasan Emas</div>
       </div>
-      <div class="caption">Update Harga Emas Terbaru</div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="shorts-item">
-      <div class="shorts-wrapper">
-        <iframe 
-          src="https://www.youtube.com/embed/8LSEQDCfiJI" 
-          title="YouTube Short 3" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <div class="shorts-item">
+        <div class="shorts-wrapper">
+          <iframe src="https://www.youtube.com/embed/4zdPdm2vBoM" title="YouTube Short 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="caption">Update Harga Emas Terbaru</div>
       </div>
-      <div class="caption">Tips Investasi Emas Aman</div>
+      <div class="shorts-item">
+        <div class="shorts-wrapper">
+          <iframe src="https://www.youtube.com/embed/8LSEQDCfiJI" title="YouTube Short 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="caption">Tips Investasi Emas Aman</div>
+      </div>
     </div>
   </div>
-</div>
-  </section>
 
   <!-- Produk -->
   <section class="testimoni-section" id="products">
@@ -645,8 +239,6 @@ table.gold-price .emaskku {
       <div class="testimoni-card"><span><b>Layanan Buyback</b> – Kemudahan jual kembali dengan harga bersaing.</span></div>
     </div>
   </section>
-
-  
 
   <!-- Footer -->
   <footer>
@@ -669,58 +261,14 @@ table.gold-price .emaskku {
       slides[index].classList.add("active");
     }, 5000);
 
-    // Update Terbaru - Load 5 pertama + Load More
-    const posts = document.querySelectorAll(".post");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    let visibleCount = 5;
-    const increment = 5;
-
-    function showPosts() {
-      posts.forEach((post, i) => {
-        if (i < visibleCount) {
-          post.classList.add("visible");
-        }
-      });
-
-      // Sembunyikan tombol jika sudah tampil semua
-      if (visibleCount >= posts.length) {
-        loadMoreBtn.style.display = "none";
-      }
-    }
-
-    // Klik Load More
-    loadMoreBtn.addEventListener("click", () => {
-      visibleCount += increment;
-      showPosts();
-    });
-
-    // Tampilkan 5 pertama saat load
-    showPosts();
-
-    // Filter (latest / all)
-    function filterPosts() {
-      const select = document.getElementById("sortFilter").value;
-      if (select === "all") {
-        visibleCount = posts.length;
-        showPosts();
-        loadMoreBtn.style.display = "none";
-      } else {
-        visibleCount = 5;
-        showPosts();
-        if (posts.length > 5) loadMoreBtn.style.display = "block";
-      }
-    }
-
     // Mobile menu
     function toggleMobileMenu() {
-      const links = document.getElementById("navLinks");
-      links.classList.toggle("mobile");
+      document.getElementById("navLinks").classList.toggle("mobile");
     }
 
     // Scroll to top
     window.onscroll = function() {
-      document.getElementById("scrollTop").style.display = 
-        (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
+      document.getElementById("scrollTop").style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
     };
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
@@ -729,146 +277,131 @@ table.gold-price .emaskku {
     // Proteksi sederhana
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
-  </script>
 
-  <!-- Scrips Popup + tanggal -->
-
-  <script>
-  // Data harga per tanggal (format YYYY-MM-DD)
-  // Kamu bisa tambah tanggal lain nanti di sini
-    
-const priceData = {
-  "2026-01-14": {  // Default hari ini
-    display: "14 Januari 2026",
-    rows: [
-      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 334.000", emasBuy: "Rp 251.500" },
-      { gram: "0.5 gr", antamBasic: "Rp 1.640.000", antamBuy: "Rp 1.400.000", emasBasic: "Rp 1.377.000", emasBuy: "Rp 1.257.500" },
-      { gram: "1 gr", antamBasic: "Rp 3.115.000", antamBuy: "Rp 2.800.000", emasBasic: "Rp 2.644.000", emasBuy: "Rp 2.515.000" },
-      { gram: "5 gr", antamBasic: "Rp 14.995.000", antamBuy: "Rp 14.000.000", emasBasic: "Rp 13.040.000", emasBuy: "Rp 12.575.000" },
-      { gram: "10 gr", antamBasic: "Rp 29.845.000", antamBuy: "Rp 28.000.000", emasBasic: "Rp 26.030.000", emasBuy: "Rp 25.150.000" },
-      { gram: "25 gr", antamBasic: "Rp 74.180.000", antamBuy: "Rp 70.000.000", emasBasic: "Rp 64.975.000", emasBuy: "Rp 62.875.000" },
-      { gram: "50 gr", antamBasic: "Rp 148.110.000", antamBuy: "Rp 140.000.000", emasBasic: "Rp 129.900.000", emasBuy: "Rp 125.750.000" },
-      { gram: "100 gr", antamBasic: "Rp 295.700.000", antamBuy: "Rp 280.000.000", emasBasic: "Rp 259.700.000", emasBuy: "Rp 251.500.000" }
-    ]
-  },
-
-  "2026-01-13": {
-    display: "13 Januari 2026",
-    rows: [
-      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 332.000", emasBuy: "Rp 250.600" },
-      { gram: "0.5 gr", antamBasic: "Rp 1.637.500", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.372.500", emasBuy: "Rp 1.253.000" },
-      { gram: "1 gr", antamBasic: "Rp 3.150.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.635.000", emasBuy: "Rp 2.506.000" },
-      { gram: "5 gr", antamBasic: "Rp 14.865.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.995.000", emasBuy: "Rp 12.530.000" },
-      { gram: "10 gr", antamBasic: "Rp 29.585.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.940.000", emasBuy: "Rp 25.060.000" },
-      { gram: "25 gr", antamBasic: "Rp 73.500.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.750.000", emasBuy: "Rp 62.650.000" },
-      { gram: "50 gr", antamBasic: "Rp 146.748.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 129.450.000", emasBuy: "Rp 125.300.000" },
-      { gram: "100 gr", antamBasic: "Rp 293.000.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 258.800.000", emasBuy: "Rp 250.600.000" }
-    ]
-  },
-
-  "2026-01-12": {
-    display: "12 Januari 2026",
-    rows: [
-      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 330.500", emasBuy: "Rp 248.900" },
-      { gram: "0.5 gr", antamBasic: "Rp 1.622.000", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.361.500", emasBuy: "Rp 1.244.500" },
-      { gram: "1 gr", antamBasic: "Rp 3.119.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.613.000", emasBuy: "Rp 2.489.000" },
-      { gram: "5 gr", antamBasic: "Rp 14.710.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.885.500", emasBuy: "Rp 12.445.000" },
-      { gram: "10 gr", antamBasic: "Rp 29.275.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.720.000", emasBuy: "Rp 24.890.000" },
-      { gram: "25 gr", antamBasic: "Rp 72.725.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.200.000", emasBuy: "Rp 62.225.000" },
-      { gram: "50 gr", antamBasic: "Rp 145.198.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 128.350.000", emasBuy: "Rp 124.450.000" },
-      { gram: "100 gr", antamBasic: "Rp 289.900.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 256.600.000", emasBuy: "Rp 248.900.000" }
-    ]
-  },
-
-  "2026-01-10": {
-    display: "10 Januari 2026",
-    rows: [
-      { gram: "0.1 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
-      { gram: "0.5 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 1.350.000", emasBuy: "Rp 1.200.000" },
-      { gram: "1 gr", antamBasic: "Rp 3.090.000", antamBuy: "Rp 2.729.000", emasBasic: "Rp 2.580.000", emasBuy: "Rp 2.456.000" },
-      { gram: "5 gr", antamBasic: "Rp 14.859.000", antamBuy: "Rp 13.645.000", emasBasic: "Rp 12.772.000", emasBuy: "Rp 12.280.000" },
-      { gram: "10 gr", antamBasic: "Rp 28.295.000", antamBuy: "Rp 27.290.000", emasBasic: "Rp 25.772.000", emasBuy: "Rp 24.800.000" },
-      { gram: "25 gr", antamBasic: "Rp 72.074.000", antamBuy: "Rp 68.625.000", emasBasic: "Rp 63.375.000", emasBuy: "Rp 61.410.000" },
-      { gram: "50 gr", antamBasic: "Rp 143.748.000", antamBuy: "Rp 136.450.000", emasBasic: "Rp 126.000.000", emasBuy: "Rp 122.480.000" },
-      { gram: "100 gr", antamBasic: "Rp 287.000.000", antamBuy: "Rp 272.900.000", emasBasic: "Rp 253.300.000", emasBuy: "Rp 245.600.000" }
-    ]
-  },
-
-  "2026-01-09": {
-    display: "9 Januari 2026",
-    rows: [
-      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
-      { gram: "0.5 gr", antamBasic: "Rp 1.588.500", antamBuy: "Rp 1.353.000", emasBasic: "Rp 1.333.500", emasBuy: "Rp 1.216.500" },
-      { gram: "1 gr", antamBasic: "Rp 3.062.000", antamBuy: "Rp 2.706.000", emasBasic: "Rp 2.557.000", emasBuy: "Rp 2.433.000" },
-      { gram: "5 gr", antamBasic: "Rp 14.470.000", antamBuy: "Rp 13.530.000", emasBasic: "Rp 12.605.000", emasBuy: "Rp 12.165.000" },
-      { gram: "10 gr", antamBasic: "Rp 28.800.000", antamBuy: "Rp 27.060.000", emasBasic: "Rp 25.160.000", emasBuy: "Rp 24.330.000" },
-      { gram: "25 gr", antamBasic: "Rp 72.115.000", antamBuy: "Rp 67.650.000", emasBasic: "Rp 62.800.000", emasBuy: "Rp 60.825.000" },
-      { gram: "50 gr", antamBasic: "Rp 143.980.000", antamBuy: "Rp 135.300.000", emasBasic: "Rp 125.550.000", emasBuy: "Rp 121.650.000" },
-      { gram: "100 gr", antamBasic: "Rp 284.700.000", antamBuy: "Rp 270.600.000", emasBasic: "Rp 251.000.000", emasBuy: "Rp 243.300.000" }
-    ]
-  }
-};
-    
-  // Fungsi untuk update tabel berdasarkan tanggal
-  function updateTable(dateKey) {
-    const data = priceData[dateKey] || priceData["2026-01-13"]; // fallback ke hari ini jika tidak ada
-    document.getElementById("currentDate").textContent = data.display;
-
-    const tbody = document.querySelector("#priceTable tbody");
-    tbody.innerHTML = ''; // kosongkan tabel
-
-    data.rows.forEach(row => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td class="left">${row.gram}</td>
-        <td class="antem">${row.antamBasic}</td>
-        <td class="antem">${row.antamBuy}</td>
-        <td class="emaskku">${row.emasBasic}</td>
-        <td class="emaskku">${row.emasBuy}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  // Load default: tanggal 14 Januari (hari ini)
-  updateTable("2026-01-14");
-
-  // Tombol buka modal
-  document.getElementById("archiveBtn").addEventListener("click", () => {
-    document.getElementById("archiveModal").style.display = "flex";
-  });
-
-  // Tutup modal
-  document.getElementById("closeModal").addEventListener("click", () => {
-    document.getElementById("archiveModal").style.display = "none";
-  });
-
-  // Inisialisasi kalender Flatpickr
-  flatpickr("#datePicker", {
-    dateFormat: "Y-m-d",              // format internal YYYY-MM-DD
-    defaultDate: "2026-01-12",        // default hari ini
-    minDate: "2026-01-01",            // batasi minimal (sesuaikan)
-    maxDate: "2026-12-31",            // max hari ini
-    onChange: function(selectedDates, dateStr) {
-      // dateStr adalah "2026-01-09" dll
-      if (priceData[dateStr]) {
-        updateTable(dateStr);
-        document.getElementById("archiveModal").style.display = "none";
-      } else {
-        alert("Data untuk tanggal ini belum tersedia. Pilih tanggal lain.");
+    // Data harga lengkap dari 9 sampai 14 Januari 2026
+    const priceData = {
+      "2026-01-14": {
+        display: "14 Januari 2026",
+        rows: [
+          { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 334.000", emasBuy: "Rp 251.500" },
+          { gram: "0.5 gr", antamBasic: "Rp 1.640.000", antamBuy: "Rp 1.400.000", emasBasic: "Rp 1.377.000", emasBuy: "Rp 1.257.500" },
+          { gram: "1 gr", antamBasic: "Rp 3.115.000", antamBuy: "Rp 2.800.000", emasBasic: "Rp 2.644.000", emasBuy: "Rp 2.515.000" },
+          { gram: "5 gr", antamBasic: "Rp 14.995.000", antamBuy: "Rp 14.000.000", emasBasic: "Rp 13.040.000", emasBuy: "Rp 12.575.000" },
+          { gram: "10 gr", antamBasic: "Rp 29.845.000", antamBuy: "Rp 28.000.000", emasBasic: "Rp 26.030.000", emasBuy: "Rp 25.150.000" },
+          { gram: "25 gr", antamBasic: "Rp 74.180.000", antamBuy: "Rp 70.000.000", emasBasic: "Rp 64.975.000", emasBuy: "Rp 62.875.000" },
+          { gram: "50 gr", antamBasic: "Rp 148.110.000", antamBuy: "Rp 140.000.000", emasBasic: "Rp 129.900.000", emasBuy: "Rp 125.750.000" },
+          { gram: "100 gr", antamBasic: "Rp 295.700.000", antamBuy: "Rp 280.000.000", emasBasic: "Rp 259.700.000", emasBuy: "Rp 251.500.000" }
+        ]
+      },
+      "2026-01-13": {
+        display: "13 Januari 2026",
+        rows: [
+          { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 332.000", emasBuy: "Rp 250.600" },
+          { gram: "0.5 gr", antamBasic: "Rp 1.637.500", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.372.500", emasBuy: "Rp 1.253.000" },
+          { gram: "1 gr", antamBasic: "Rp 3.150.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.635.000", emasBuy: "Rp 2.506.000" },
+          { gram: "5 gr", antamBasic: "Rp 14.865.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.995.000", emasBuy: "Rp 12.530.000" },
+          { gram: "10 gr", antamBasic: "Rp 29.585.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.940.000", emasBuy: "Rp 25.060.000" },
+          { gram: "25 gr", antamBasic: "Rp 73.500.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.750.000", emasBuy: "Rp 62.650.000" },
+          { gram: "50 gr", antamBasic: "Rp 146.748.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 129.450.000", emasBuy: "Rp 125.300.000" },
+          { gram: "100 gr", antamBasic: "Rp 293.000.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 258.800.000", emasBuy: "Rp 250.600.000" }
+        ]
+      },
+      "2026-01-12": {
+        display: "12 Januari 2026",
+        rows: [
+          { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 330.500", emasBuy: "Rp 248.900" },
+          { gram: "0.5 gr", antamBasic: "Rp 1.622.000", antamBuy: "Rp 1.379.000", emasBasic: "Rp 1.361.500", emasBuy: "Rp 1.244.500" },
+          { gram: "1 gr", antamBasic: "Rp 3.119.000", antamBuy: "Rp 2.758.000", emasBasic: "Rp 2.613.000", emasBuy: "Rp 2.489.000" },
+          { gram: "5 gr", antamBasic: "Rp 14.710.000", antamBuy: "Rp 13.790.000", emasBasic: "Rp 12.885.500", emasBuy: "Rp 12.445.000" },
+          { gram: "10 gr", antamBasic: "Rp 29.275.000", antamBuy: "Rp 27.580.000", emasBasic: "Rp 25.720.000", emasBuy: "Rp 24.890.000" },
+          { gram: "25 gr", antamBasic: "Rp 72.725.000", antamBuy: "Rp 68.950.000", emasBasic: "Rp 64.200.000", emasBuy: "Rp 62.225.000" },
+          { gram: "50 gr", antamBasic: "Rp 145.198.000", antamBuy: "Rp 137.900.000", emasBasic: "Rp 128.350.000", emasBuy: "Rp 124.450.000" },
+          { gram: "100 gr", antamBasic: "Rp 289.900.000", antamBuy: "Rp 275.800.000", emasBasic: "Rp 256.600.000", emasBuy: "Rp 248.900.000" }
+        ]
+      },
+      "2026-01-10": {
+        display: "10 Januari 2026",
+        rows: [
+          { gram: "0.1 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 325.000", emasBuy: "Rp 245.000" },
+          { gram: "0.5 gr", antamBasic: "Rp 1.607.500", antamBuy: "Rp 1.364.500", emasBasic: "Rp 1.350.000", emasBuy: "Rp 1.200.000" },
+          { gram: "1 gr", antamBasic: "Rp 3.090.000", antamBuy: "Rp 2.729.000", emasBasic: "Rp 2.580.000", emasBuy: "Rp 2.456.000" },
+          { gram: "5 gr", antamBasic: "Rp 14.859.000", antamBuy: "Rp 13.645.000", emasBasic: "Rp 12.772.000", emasBuy: "Rp 12.280.000" },
+          { gram: "10 gr", antamBasic: "Rp 28.295.000", antamBuy: "Rp 27.290.000", emasBasic: "Rp 25.772.000", emasBuy: "Rp 24.800.000" },
+          { gram: "25 gr", antamBasic: "Rp 72.074.000", antamBuy: "Rp 68.625.000", emasBasic: "Rp 63.375.000", emasBuy: "Rp 61.410.000" },
+          { gram: "50 gr", antamBasic: "Rp 143.748.000", antamBuy: "Rp 136.450.000", emasBasic: "Rp 126.000.000", emasBuy: "Rp 122.480.000" },
+          { gram: "100 gr", antamBasic: "Rp 287.000.000", antamBuy: "Rp 272.900.000", emasBasic: "Rp 253.300.000", emasBuy: "Rp 245.600.000" }
+        ]
+      },
+      "2026-01-09": {
+        display: "9 Januari 2026",
+        rows: [
+          { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 321.700", emasBuy: "Rp 243.300" },
+          { gram: "0.5 gr", antamBasic: "Rp 1.588.500", antamBuy: "Rp 1.353.000", emasBasic: "Rp 1.333.500", emasBuy: "Rp 1.216.500" },
+          { gram: "1 gr", antamBasic: "Rp 3.062.000", antamBuy: "Rp 2.706.000", emasBasic: "Rp 2.557.000", emasBuy: "Rp 2.433.000" },
+          { gram: "5 gr", antamBasic: "Rp 14.470.000", antamBuy: "Rp 13.530.000", emasBasic: "Rp 12.605.000", emasBuy: "Rp 12.165.000" },
+          { gram: "10 gr", antamBasic: "Rp 28.800.000", antamBuy: "Rp 27.060.000", emasBasic: "Rp 25.160.000", emasBuy: "Rp 24.330.000" },
+          { gram: "25 gr", antamBasic: "Rp 72.115.000", antamBuy: "Rp 67.650.000", emasBasic: "Rp 62.800.000", emasBuy: "Rp 60.825.000" },
+          { gram: "50 gr", antamBasic: "Rp 143.980.000", antamBuy: "Rp 135.300.000", emasBasic: "Rp 125.550.000", emasBuy: "Rp 121.650.000" },
+          { gram: "100 gr", antamBasic: "Rp 284.700.000", antamBuy: "Rp 270.600.000", emasBasic: "Rp 251.000.000", emasBuy: "Rp 243.300.000" }
+        ]
       }
-    }
-  });
+    };
 
-  // Opsional: tombol "Tampilkan" jika ingin manual
-  document.getElementById("loadDateBtn").addEventListener("click", () => {
-    const selected = document.getElementById("datePicker").value;
-    if (selected && priceData[selected]) {
-      updateTable(selected);
-      document.getElementById("archiveModal").style.display = "none";
+    // Fungsi update tabel
+    function updateTable(dateKey) {
+      const data = priceData[dateKey] || priceData["2026-01-14"];
+      document.getElementById("currentDate").textContent = data.display;
+
+      const tbody = document.querySelector("#priceTable tbody");
+      tbody.innerHTML = '';
+
+      data.rows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="left">${row.gram}</td>
+          <td class="antem basic-price">${row.antamBasic}</td>
+          <td class="antem buyback-price">${row.antamBuy}</td>
+          <td class="emaskku basic-price">${row.emasBasic}</td>
+          <td class="emaskku buyback-price">${row.emasBuy}</td>
+        `;
+        tbody.appendChild(tr);
+      });
     }
-  });
-</script>
-  
+
+    // Load default hari ini
+    updateTable("2026-01-14");
+
+    // Modal & kalender
+    document.getElementById("archiveBtn").addEventListener("click", () => {
+      document.getElementById("archiveModal").style.display = "flex";
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => {
+      document.getElementById("archiveModal").style.display = "none";
+    });
+
+    flatpickr("#datePicker", {
+      dateFormat: "Y-m-d",
+      defaultDate: "2026-01-14",
+      minDate: "2026-01-01",
+      maxDate: "2026-01-14",
+      onChange: function(selectedDates, dateStr) {
+        if (priceData[dateStr]) {
+          updateTable(dateStr);
+          document.getElementById("archiveModal").style.display = "none";
+        } else {
+          alert("Data untuk tanggal ini belum tersedia.");
+        }
+      }
+    });
+
+    document.getElementById("loadDateBtn").addEventListener("click", () => {
+      const selected = document.getElementById("datePicker").value;
+      if (selected && priceData[selected]) {
+        updateTable(selected);
+        document.getElementById("archiveModal").style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>

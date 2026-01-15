@@ -555,8 +555,23 @@
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
 
-    // Data harga lengkap dari 9 sampai 14 Januari 2026
+    // Data harga lengkap Januari 2026
     const priceData = {
+      
+ "2026-01-15": {  // ← Tanggal HARI INI (default baru)
+  display: "15 Januari 2026",
+  rows: [
+    { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 334.000", emasBuy: "Rp 252.200" },
+    { gram: "0.5 gr", antamBasic: "Rp 1.650.000", antamBuy: "Rp 1.404.000", emasBasic: "Rp 1.377.000", emasBuy: "Rp 1.261.000" },
+    { gram: "1 gr", antamBasic: "Rp 3.150.000", antamBuy: "Rp 2.808.000", emasBasic: "Rp 2.644.000", emasBuy: "Rp 2.522.000" },
+    { gram: "5 gr", antamBasic: "Rp 15.095.000", antamBuy: "Rp 14.040.000", emasBasic: "Rp 13.040.000", emasBuy: "Rp 12.610.000" },
+    { gram: "10 gr", antamBasic: "Rp 30.045.000", antamBuy: "Rp 28.080.000", emasBasic: "Rp 26.030.000", emasBuy: "Rp 25.220.000" },
+    { gram: "25 gr", antamBasic: "Rp 74.680.000", antamBuy: "Rp 70.200.000", emasBasic: "Rp 64.975.000", emasBuy: "Rp 63.050.000" },
+    { gram: "50 gr", antamBasic: "Rp 149.110.000", antamBuy: "Rp 140.400.000", emasBasic: "Rp 129.900.000", emasBuy: "Rp 126.100.000" },
+    { gram: "100 gr", antamBasic: "Rp 297.700.000", antamBuy: "Rp 280.800.000", emasBasic: "Rp 259.700.000", emasBuy: "Rp 252.200.000" }
+  ]
+},
+      
       "2026-01-14": {
         display: "14 Januari 2026",
         rows: [
@@ -646,7 +661,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-01-14");
+    updateTable("2026-01-15");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -659,9 +674,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-01-14",
+      defaultDate: "2026-01-15",
       minDate: "2026-01-01",
-      maxDate: "2026-01-14",
+      maxDate: "2026-01-15",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

@@ -562,6 +562,20 @@
     // Data harga lengkap Januari 2026
     const priceData = {
 
+    "2026-01-27": { // ← Tanggal HARI INI (default, tampil otomatis)
+    display: "27 Januari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 364.500", emasBuy: "Rp 275.000" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.734.500", antamBuy: "Rp 1.478.000", emasBasic: "Rp 1.501.000", emasBuy: "Rp 1.375.000" },
+      { gram: "1 gr", antamBasic: "Rp 3.324.000", antamBuy: "Rp 2.956.000", emasBasic: "Rp 2.892.000", emasBuy: "Rp 2.750.000" },
+      { gram: "5 gr", antamBasic: "Rp 16.310.000", antamBuy: "Rp 14.780.000", emasBasic: "Rp 14.280.000", emasBuy: "Rp 13.750.000" },
+      { gram: "10 gr", antamBasic: "Rp 32.570.000", antamBuy: "Rp 29.560.000", emasBasic: "Rp 28.510.000", emasBuy: "Rp 27.500.000" },
+      { gram: "25 gr", antamBasic: "Rp 81.250.000", antamBuy: "Rp 73.900.000", emasBasic: "Rp 71.175.000", emasBuy: "Rp 68.750.000" },
+      { gram: "50 gr", antamBasic: "Rp 160.440.000", antamBuy: "Rp 147.800.000", emasBasic: "Rp 142.300.000", emasBuy: "Rp 137.500.000" },
+      { gram: "100 gr", antamBasic: "Rp 320.400.000", antamBuy: "Rp 295.600.000", emasBasic: "Rp 284.500.000", emasBuy: "Rp 275.000.000" }
+    ]
+  },
+
       "2026-01-26": { // ← Tanggal HARI INI (default, tampil otomatis)
     display: "26 Januari 2026",
     rows: [
@@ -754,7 +768,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-01-26"];
+      const data = priceData[dateKey] || priceData["2026-01-27"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -774,7 +788,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-01-26");
+    updateTable("2026-01-27");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -787,9 +801,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-01-26",
+      defaultDate: "2026-01-27",
       minDate: "2026-01-01",
-      maxDate: "2026-01-26",
+      maxDate: "2026-01-27",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

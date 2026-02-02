@@ -559,9 +559,10 @@
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
 
-    // Data harga lengkap Januari 2026
+    // Data harga lengkap Februari 2026
     const priceData = {
 
+      
       "2026-02-02": { // ← Tanggal HARI INI (default, tampil otomatis)
     display: "2 Februari 2026",
     rows: [
@@ -574,8 +575,7 @@
       { gram: "50 gr", antamBasic: "Rp 165.990.000", antamBuy: "Rp 137.200.000", emasBasic: "Rp 137.150.000", emasBuy: "Rp 131.150.000" },
       { gram: "100 gr", antamBasic: "Rp 331.500.000", antamBuy: "Rp 274.400.000", emasBasic: "Rp 274.200.000", emasBuy: "Rp 262.300.000" }
     ]
-  }
-},
+  },
       
   "2026-01-31": {
     display: "31 Januari 2026",

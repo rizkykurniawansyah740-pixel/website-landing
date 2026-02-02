@@ -561,8 +561,23 @@
 
     // Data harga lengkap Januari 2026
     const priceData = {
+
+      "2026-02-02": { // ← Tanggal HARI INI (default, tampil otomatis)
+    display: "2 Februari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 349.500", emasBuy: "Rp 262.300" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.790.000", antamBuy: "Rp 1.372.000", emasBasic: "Rp 1.448.500", emasBuy: "Rp 1.311.500" },
+      { gram: "1 gr", antamBasic: "Rp 3.435.000", antamBuy: "Rp 2.744.000", emasBasic: "Rp 2.789.000", emasBuy: "Rp 2.623.000" },
+      { gram: "5 gr", antamBasic: "Rp 16.865.000", antamBuy: "Rp 13.720.000", emasBasic: "Rp 13.786.500", emasBuy: "Rp 13.115.000" },
+      { gram: "10 gr", antamBasic: "Rp 33.680.000", antamBuy: "Rp 27.440.000", emasBasic: "Rp 27.480.000", emasBuy: "Rp 26.230.000" },
+      { gram: "25 gr", antamBasic: "Rp 84.025.000", antamBuy: "Rp 68.680.000", emasBasic: "Rp 68.800.000", emasBuy: "Rp 65.575.000" },
+      { gram: "50 gr", antamBasic: "Rp 165.990.000", antamBuy: "Rp 137.200.000", emasBasic: "Rp 137.150.000", emasBuy: "Rp 131.150.000" },
+      { gram: "100 gr", antamBasic: "Rp 331.500.000", antamBuy: "Rp 274.400.000", emasBasic: "Rp 274.200.000", emasBuy: "Rp 262.300.000" }
+    ]
+  }
+},
       
-  "2026-01-31": { // ← Tanggal HARI INI (default, tampil otomatis)
+  "2026-01-31": {
     display: "31 Januari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 353.000", emasBuy: "Rp 266.300" },
@@ -824,7 +839,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-01-30"];
+      const data = priceData[dateKey] || priceData["2026-02-02"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -857,9 +872,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-01-31",
+      defaultDate: "2026-02-02",
       minDate: "2026-01-01",
-      maxDate: "2026-01-31",
+      maxDate: "2026-02-02",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

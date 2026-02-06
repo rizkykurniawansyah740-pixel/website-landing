@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yogies Emas – Logam Mulia & Perhiasan Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a96e;
+      --dark: #111111;
+      --light: #faf9f6;
+      --gray: #888888;
+      --border: #e0d9c9;
+      --badge: #c0392b;
+      --toast-bg: rgba(201, 169, 110, 0.95);
+      --toast-text: #111;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.7; scroll-behavior: smooth; }
+
+    header { position: fixed; top:0; left:0; right:0; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); z-index:1000; border-bottom:1px solid var(--border); }
+
+    .navbar { max-width:1400px; margin:0 auto; padding:0.7rem 5%; display:flex; justify-content:space-between; align-items:center; }
+
+    .logo { font-family:'Cinzel',serif; font-size:clamp(1.6rem,4.2vw,2rem); font-weight:600; color:var(--dark); letter-spacing:1px; }
+
+    .logo span { color:var(--gold); }
+
+    .nav-links { display:flex; gap:2.2rem; }
+
+    .nav-links a { text-decoration:none; color:var(--dark); font-weight:400; font-size:clamp(0.9rem,2.6vw,1rem); transition:color 0.3s; cursor:pointer; }
+
+    .nav-links a:hover { color:var(--gold); }
+
+    main { max-width:1400px; margin:0 auto; padding:90px 5% 40px; }
+
+    .hero { text-align:center; margin-bottom:3rem; }
+
+    .hero h1 { font-family:'Cinzel',serif; font-size:clamp(2.4rem,7vw,3.6rem); margin-bottom:0.8rem; }
+
+    .hero p { font-size:clamp(1rem,3vw,1.15rem); color:var(--gray); max-width:720px; margin:0 auto; }
+
+    .section-about { padding:2.5rem 0; text-align:center; background:rgba(250,249,246,0.6); border-radius:12px; margin:2.5rem 0 1.5rem; scroll-margin-top:100px; }
+
+    .section-about h2 { font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:1rem; }
+
+    .section-about p { max-width:800px; margin:0 auto 1.2rem; font-size:1.05rem; color:var(--gray); }
+
+    .filters { text-align:center; margin-bottom:3rem; display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+
+    .filter-btn { background:none; border:none; font-size:clamp(0.9rem,2.6vw,1rem); color:var(--gray); padding:0.5rem 1rem; cursor:pointer; position:relative; }
+
+    .filter-btn.active, .filter-btn:hover { color:var(--dark); }
+
+    .filter-btn.active::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:60%; height:2px; background:var(--gold); }
+
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2.8rem 2.2rem; scroll-margin-top:100px; }
+
+    .product-card { background:white; border-radius:8px; overflow:hidden; transition:all 0.4s ease; box-shadow:0 4px 15px rgba(0,0,0,0.05); height:460px; display:flex; flex-direction:column; }
+
+    .product-card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+
+    .product-image { height:280px; overflow:hidden; }
+
+    .product-image img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+
+    .product-card:hover .product-image img { transform:scale(1.05); }
+
+    .product-info { padding:1.3rem; flex:1; display:flex; flex-direction:column; justify-content:space-between; text-align:center; }
+
+    .product-title { font-family:'Cinzel',serif; font-size:1.4rem; margin-bottom:0.6rem; }
+
+    .product-meta { color:var(--gray); font-size:0.92rem; margin-bottom:1rem; line-height:1.4; }
+
+    .actions { display:flex; gap:0.8rem; }
+
+    .btn { flex:1; padding:0.9rem; border:1px solid var(--gold); background:transparent; color:var(--dark); font-weight:500; cursor:pointer; transition:all 0.3s; border-radius:5px; font-size:0.9rem; }
+
+    .btn-primary { background:var(--gold); color:#111; }
+
+    .btn:hover { background:var(--gold); color:#111; }
+
+    .control-btn { display:block; margin:2.5rem auto 0; padding:1rem 2.5rem; background:var(--gold); color:#111; font-size:1.1rem; font-weight:600; border:none; border-radius:8px; cursor:pointer; transition:all 0.3s; box-shadow:0 4px 12px rgba(201,169,110,0.3); }
+
+    .control-btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(201,169,110,0.45); }
+
+    .section-share { text-align:center; padding:3rem 5%; background:rgba(201,169,110,0.08); border-radius:12px; margin:2rem 0 2rem; }
+
+    .section-share h2 { font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:1rem; color:var(--dark); }
+
+    .section-share p { max-width:800px; margin:0 auto 1.5rem; font-size:1.1rem; color:var(--gray); }
+
+    .share-btn { padding:1.1rem 2.8rem; background:linear-gradient(135deg,var(--gold),#b8975c); color:#111; font-size:1.15rem; font-weight:600; border:none; border-radius:10px; cursor:pointer; transition:all 0.35s ease; box-shadow:0 6px 20px rgba(201,169,110,0.3); }
+
+    .share-btn:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(201,169,110,0.45); }
+
+    #floating-cart { position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:var(--gold); border-radius:50%; box-shadow:0 5px 15px rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:999; transition:all 0.3s; }
+
+    #floating-cart:hover { transform:scale(1.1); }
+
+    #cart-icon svg { width:26px; height:26px; fill:#111; }
+
+    #cart-badge { position:absolute; top:-5px; right:-5px; background:var(--badge); color:white; font-size:0.7rem; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid white; }
+
+    #toast-container { position:fixed; top:20px; right:20px; z-index:2000; pointer-events:none; }
+
+    .toast { background:var(--toast-bg); color:var(--toast-text); padding:1rem 1.5rem; border-radius:10px; margin-bottom:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.25); font-weight:500; font-size:1rem; opacity:0; transform:translateX(120%); transition:all 0.4s ease; max-width:320px; backdrop-filter:blur(4px); }
+
+    .toast.show { opacity:1; transform:translateX(0); }
+
+    .toast.hide { opacity:0; transform:translateX(120%); }
+
+    #cart-modal { display:none; position:fixed; inset:0; background:rgba(17,17,17,0.82); backdrop-filter:blur(8px); z-index:1000; align-items:center; justify-content:center; opacity:0; transition:opacity 0.45s ease; }
+
+    #cart-modal.show { opacity:1; }
+
+    .modal-content { background:white; border-radius:16px; width:92%; max-width:640px; max-height:85vh; overflow-y:auto; padding:2.5rem 2.2rem; box-shadow:0 25px 70px rgba(0,0,0,0.4); border:1px solid rgba(201,169,110,0.25); transform:translateY(30px) scale(0.92); opacity:0; transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+
+    #cart-modal.show .modal-content { transform:translateY(0) scale(1); opacity:1; }
+
+    .close-modal { position:absolute; top:18px; right:22px; font-size:2.2rem; font-weight:300; cursor:pointer; color:var(--gray); transition:color 0.3s, transform 0.2s; }
+
+    .close-modal:hover { color:var(--gold); transform:rotate(90deg); }
+
+    .modal-content h2 { font-family:'Cinzel',serif; font-size:2.4rem; text-align:center; margin:0 0 1.8rem; color:var(--dark); letter-spacing:0.5px; }
+
+    #modal-cart-items { list-style:none; padding:0; margin:0 0 1.5rem; }
+
+    #modal-cart-items li { padding:1.2rem 0; border-bottom:1px solid rgba(201,169,110,0.18); font-size:1.1rem; color:var(--dark); text-align:center; }
+
+    #modal-cart-items li:last-child { border-bottom:none; }
+
+    #modal-checkout-btn { width:100%; padding:1.3rem; background:linear-gradient(135deg,var(--gold),#b8975c); color:#111; font-size:1.15rem; font-weight:600; border:none; border-radius:10px; cursor:pointer; transition:all 0.35s ease; box-shadow:0 6px 20px rgba(201,169,110,0.3); }
+
+    #modal-checkout-btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 12px 30px rgba(201,169,110,0.45); }
+
+    footer { background:var(--dark); color:white; text-align:center; padding:2.5rem 5%; margin-top:2rem; }
+
+    footer p { margin:0.6rem 0; font-size:1rem; }
+
+    footer a { color:var(--gold); text-decoration:none; }
+
+    footer a:hover { text-decoration:underline; }
+
+    @media (max-width:768px) {
+      .navbar { padding:0.6rem 4%; flex-wrap:wrap; justify-content:center; gap:1rem; }
+      .nav-links { gap:1.2rem; justify-content:center; width:100%; }
+      main { padding-top:100px; }
+      .section-about { padding:2rem 5%; margin:2rem 0 1rem; }
+      .section-share { padding:2rem 5%; margin:1.5rem 0 1rem; }
+      footer { padding:2rem 5%; margin-top:1.5rem; }
+      .product-grid { gap:2rem 1.5rem; }
+      .product-card { height:440px; }
+      .product-image { height:260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">Yogies<span>Emas</span></div>
+      <div class="nav-links">
+        <a onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'})">Beranda</a>
+        <a onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">Koleksi</a>
+        <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">Tentang Kami</a>
+        <a onclick="document.querySelector('footer').scrollIntoView({behavior:'smooth'})">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Yogies Emas</h1>
+      <p>Kemurnian & Keanggunan, logam mulia bersertifikat & perhiasan premium buatan tangan. Hubungi kami untuk info harga terkini.</p>
+    </section>
+
+    <div class="filters">
+      <button class="filter-btn active" data-cat="all">Semua</button>
+      <button class="filter-btn" data-cat="logam-mulia">Logam Mulia</button>
+      <button class="filter-btn" data-cat="perhiasan">Perhiasan</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div style="text-align:center; margin:2.5rem 0;">
+      <button class="control-btn" id="see-all-btn" style="display:none;">Lihat Semua Produk</button>
+      <button class="control-btn" id="show-less-btn" style="display:none;">Tampilkan Sedikit</button>
+    </div>
+
+    <section id="about-section" class="section-about">
+      <h2>Tentang Kami</h2>
+      <p>Yogies Emas adalah toko spesialis logam mulia dan perhiasan premium di Bandung. Kami menyediakan emas bersertifikat resmi serta perhiasan buatan tangan dengan kualitas terbaik dan desain elegan.</p>
+      <p>Kepuasan pelanggan adalah prioritas utama kami. Kami berkomitmen memberikan kemurnian terjamin dan pelayanan ramah serta profesional.</p>
+    </section>
+
+    <section class="section-share">
+      <h2>Yogies Emas</h2>
+      <p>Terima kasih sudah mempercayai Yogies Emas sebagai pilihan Anda untuk logam mulia dan perhiasan berkualitas. Jika Anda merasa puas dengan koleksi kami, yuk bantu sebarkan ke teman atau keluarga yang mungkin juga membutuhkan!</p>
+      <p>Bagikan website kami dengan sekali klik – setiap share berarti banyak orang bisa menemukan kemurnian dan keanggunan yang sama.</p>
+      <button class="share-btn" onclick="shareWebsite()">Bagikan Website Kami</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Yogies Emas – Kemurnian & Keanggunan</p>
+    <p>Kontak: <a href="tel:+628157109993">0815-7109-993</a></p>
+    <p>&copy; 2026 Yogies Emas. All rights reserved.</p>
+  </footer>
+
+  <div id="floating-cart">
+    <span id="cart-icon">
+      <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 13h10l3-8H5.82L7 13zM7 3v4H4V3H1v2h3v3h3V5h12l3.29 9H7v2h12.59L16 8h-9v2h7l-1.5 4H9v-2z"/></svg>
+    </span>
+    <span id="cart-badge">0</span>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <div id="cart-modal">
+    <div class="modal-content">
+      <span class="close-modal">×</span>
+      <h2>Keranjang Anda</h2>
+      <ul id="modal-cart-items"></ul>
+      <button id="modal-checkout-btn">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      // Logam Mulia - 15 produk (nama Emasku)
+      { id:1, name:"Emasku 0,1 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,1 gram", img:"https://i.imgur.com/MhhwvpR.png" },
+      { id:2, name:"Emasku 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", img:"https://i.imgur.com/UlKkt8v.png" },
+      { id:3, name:"Emasku 0,25 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,25 gram", img:"https://i.imgur.com/NoP1dbr.png" },
+      { id:4, name:"Emasku 0,5 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,5 gram", img:"https://i.imgur.com/LszCJ92.png" },
+      { id:5, name:"Emasku 1 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 1 gram", img:"https://i.imgur.com/uCF0vnE.png" },
+      { id:6, name:"Emasku 2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 2 gram", img:"https://i.imgur.com/06THSBB.png" },
+      { id:7, name:"Emasku 5 gr", cat:"logam-mulia", meta:"99.99% • Batangan Murni • 5 gram", img:"https://i.imgur.com/xTJVy6V.png" },
+      { id:8, name:"Emasku 10 gr", cat:"logam-mulia", meta:"99.99% • Investasi Premium • 10 gram", img:"https://i.imgur.com/45FkC9K.png" },
+      { id:9, name:"Emasku 25 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 25 gram", img:"https://i.imgur.com/jQ4yuth.png" },
+      { id:10, name:"Emasku 50 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 50 gram", img:"https://i.imgur.com/deiV3OM.png" },
+      { id:11, name:"Emasku 100 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 100 gram", img:"https://i.imgur.com/HNj2Jdm.png" },
+      { id:12, name:"Emasku 125 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 125 gram", img:"https://i.imgur.com/edwdpvd.png" },
+      { id:13, name:"Emasku 150 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 150 gram", img:"https://i.imgur.com/lyzGk0N.png" },
+      { id:14, name:"Emasku 175 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 175 gram", img:"https://i.imgur.com/ZkmFLiA.png" },
+      { id:15, name:"Emasku 200 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 200 gram", img:"https://i.imgur.com/PC8Uitr.png" },
+
+      // Perhiasan - 32 produk
+      { id:16, name:"Buddha Coin", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 0,42 gram Diameter : 1 cm", img:"https://i.imgur.com/wzNDJiG.png" },
+      { id:17, name:"Catholic Coin", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 0,42 gram Diameter : 1 cm", img:"https://i.imgur.com/ATjVIC1.png" },
+      { id:18, name:"Islamic Coin", cat:"perhiasan", meta:"Kadar : 12K Berat : 0,46 gram Diameter : 1 cm", img:"https://i.imgur.com/vRPQyuy.png" },
+      { id:19, name:"Christian Coin", cat:"perhiasan", meta:"Kadar : 12K Berat : 0,42 gram Diameter : 1 cm", img:"https://i.imgur.com/vh8bY3m.png" },
+      { id:20, name:"2 in 1 Earring", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 0,9 gram Diameter : 1,3 cm", img:"https://i.imgur.com/Pr9X4hz.png" },
+      { id:21, name:"White Rainbow Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.23 gram Dimensi : 1 cm", img:"https://i.imgur.com/ihL5Tll.png" },
+      { id:22, name:"Sunflower Earring", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.35 gram Diameter : 1 cm", img:"https://i.imgur.com/VjPZ6jP.png" },
+      { id:23, name:"Clover Earring", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.37 gram Diameter : 1 cm", img:"https://i.imgur.com/km13uGP.png" },
+      { id:24, name:"Eternal 2 in 1 ring", cat:"perhiasan", meta:"Kadar: 12K Ukuran : Terlampir dalam varian size 12,14,16,18 Estimasi Berat : 1.4 gram", img:"https://i.imgur.com/3wjjmWe.png" },
+      { id:25, name:"Infinity 2 in 1 ring", cat:"perhiasan", meta:"Kadar: 12K Ukuran : Terlampir dalam varian size 12,14,16,18 Estimasi Berat : 1.5 gram", img:"https://i.imgur.com/7M7JxRu.png" },
+      { id:26, name:"Cross Pendant", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.71 gram Dimensi : 2,1 x 1,4 cm", img:"https://i.imgur.com/6ifliMo.png" },
+      { id:27, name:"Jade Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.75 gram Dimensi: 1 cm", img:"https://i.imgur.com/ThTZouR.png" },
+      { id:28, name:"Red Flame Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.81 gram Dimensi : 1 cm", img:"https://i.imgur.com/1HhjOtK.png" },
+      { id:29, name:"(PRE-ORDER) Kaaba Pendant", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.8 gram Berat Dapat berubah-rubah dengan deviasi maksimal 0.1 gram Dimensi : 1,2 x 1,5 cm", img:"https://i.imgur.com/eDnThV6.png" },
+      { id:30, name:"Sunflower Ringr", cat:"perhiasan", meta:"Kadar : 12K Ukuran : Terlampir dalam varian size 12,14,16,18 Estimasi Berat : 1.92 gram", img:"https://i.imgur.com/uyXoai7.png" },
+      { id:31, name:"Purple Aqua Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 1.9 gram Dimensi : 1 cm", img:"https://i.imgur.com/iBfBhfC.png" },
+      { id:32, name:"Red Flame Pendant", cat:"perhiasan", meta:"Kadar: 12K Estimasi Berat : 2.16 gram Dimensi : 1,5 x 1,5 cm", img:"https://i.imgur.com/tHYHOMb.png" },
+      { id:33, name:"Purple Aqua Pendant", cat:"perhiasan", meta:"Kadar: 12K Estimasi Berat : 2.26 gram Dimensi : 1,7 x 1,7 cm", img:"https://i.imgur.com/RrlL1bB.png" },
+      { id:34, name:"White Rainbow Pendant", cat:"perhiasan", meta:"Kadar: 12K Berat : 2.35 gram Dimensi : 1,6 x 1,6 gram", img:"https://i.imgur.com/oGhmsJ4.png" },
+      { id:35, name:"Mother Mary Pendant", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 3.27 gram Dimensi : 2,2 x 1,5 cm", img:"https://i.imgur.com/lgrckz0.png" },
+      { id:36, name:"Circle Pendant", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 3.1 gram Diameter : 1,6 cm", img:"https://i.imgur.com/YQ7kjWJ.png" },
+      { id:37, name:"Women Necklace Chain", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 3.4 gram Diameter : 0,35 cm Panjang : 42 cm", img:"https://i.imgur.com/Q9nESIV.png" },
+      { id:38, name:"Buddha Pendant", cat:"perhiasan", meta:"Kadar : 12K Estimai Berat : 3.54 gram Dimensi : 2 x 2,12 cm", img:"https://i.imgur.com/xSk3oG1.png" },
+      { id:39, name:"Butterfly Brooch", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 3.55 gram Dimensi : 2 x 2,2 cm", img:"https://i.imgur.com/6i7rSwt.png" },
+      { id:40, name:"Square pendant", cat:"perhiasan", meta:"Kadar : 12K Berat : 4 gram Dimensi : 1,7 x 1,7 cm", img:"https://i.imgur.com/NU4kEnE.png" },
+      { id:41, name:"Jade Ring", cat:"perhiasan", meta:"Kadar : 12K Ukuran : Terlampir dalam varian size 10,12,14,16,18 Estimasi Berat : 4,05 gram Dimensi Pendant : 1,5 x 1,3 cm", img:"https://i.imgur.com/zU3jBlj.png" },
+      { id:42, name:"Swan Brooch", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 4.1 gram Dimensi : 2,2 x 2,3 cm", img:"https://i.imgur.com/3ZEcu94.png" },
+      { id:43, name:"Unisex Necklace Chain", cat:"perhiasan", meta:"Kadar: 12K Panjang: 50/56 cm Diameter: 0,45 cm Estimasi Berat: 4,4 gram", img:"https://i.imgur.com/VdWKa2x.png" },
+      { id:44, name:"Blue Bell Reverse Ring", cat:"perhiasan", meta:"Kadar : 12K Ukuran : Terlampir dalam varian size 12,14, 18 Estimasi Berat : 5,6 gram", img:"https://i.imgur.com/xQKd3yU.png" },
+      { id:45, name:"Peacock Brooch", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 6.19 gram Dimensi : 3,7 x 3,5 cm", img:"https://i.imgur.com/4xW88DO.png" },
+      { id:46, name:"String Bracelet", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 6.58 gram Panjang : 17 cm", img:"https://i.imgur.com/xLYm3hY.png" },
+      { id:47, name:"Bird of Paradise Brooch", cat:"perhiasan", meta:"Kadar : 12K Estimasi Berat : 7.1 gram Dimensi : 3,5 x 3,5 cm", img:"https://i.imgur.com/Ck6Vb6L.png" },
+      { id:48, name:"Mens Ring Size 22", cat:"perhiasan", meta:"Kadar : 12K Ukuran : Terlampir dalam varian size 22 Estimasi Berat : 8,08 gram", img:"https://i.imgur.com/D8ej7Sy.png" },
+      { id:49, name:"MOMAPAN STARTER KIT", cat:"perhiasan", meta:"Kit ini hadir dengan berbagai perlengkapan yang akan membantu kamu merasa lebih siap dan nyaman", img:"https://i.imgur.com/mlaahOJ.png" },
+    ];
+
+    let cart = [];
+    let allShown = false;
+
+    function renderProducts(cat = 'all', showAll = false) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      let filtered = cat === 'all' ? products : products.filter(p => p.cat === cat);
+
+      const seeAllBtn = document.getElementById('see-all-btn');
+      const showLessBtn = document.getElementById('show-less-btn');
+
+      if (cat === 'all') {
+        if (!showAll && !allShown) {
+          filtered = filtered.slice(0, 12);
+          seeAllBtn.style.display = 'block';
+          showLessBtn.style.display = 'none';
+        } else {
+          seeAllBtn.style.display = 'none';
+          showLessBtn.style.display = 'block';
+        }
+      } else {
+        seeAllBtn.style.display = 'none';
+        showLessBtn.style.display = 'none';
+      }
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="product-image">
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title">${p.name}</h3>
+              <div class="product-meta">${p.meta}</div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" onclick="addToCart(${p.id})">+ Keranjang</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function setActiveFilter(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.cat === cat));
+      allShown = false;
+      renderProducts(cat);
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => setActiveFilter(btn.dataset.cat));
+    });
+
+    // Tombol Lihat Semua & Tampilkan Sedikit
+    document.getElementById('see-all-btn').addEventListener('click', () => {
+      allShown = true;
+      renderProducts('all', true);
+    });
+
+    document.getElementById('show-less-btn').addEventListener('click', () => {
+      allShown = false;
+      renderProducts('all');
+    });
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+
+      setTimeout(() => toast.classList.add('show'), 100);
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 450);
+      }, 3000);
+    }
+
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      cart.push(item);
+      updateCart();
+      showToast(`${item.name} ditambahkan ke keranjang`);
+    }
+
+    function shareWebsite() {
+      const link = "https://yogies.my.id/page/yogies-emas-logam-mulia-dan-perhiasan";
+      navigator.clipboard.writeText(link).then(() => {
+        showToast("Link website berhasil disalin! Terima kasih sudah membagikan Yogies Emas ✨");
+      }).catch(() => {
+        showToast("Link berhasil dibagikan (copy manual)");
+      });
+
+      if (navigator.share) {
+        navigator.share({
+          title: "Yogies Emas – Logam Mulia & Perhiasan Premium",
+          text: "Temukan koleksi logam mulia bersertifikat dan perhiasan premium buatan tangan di Yogies Emas. Kemurnian & keanggunan dalam setiap karya.",
+          url: link
+        });
+      }
+    }
+
+    function updateCart() {
+      document.getElementById('cart-badge').textContent = cart.length;
+      const list = document.getElementById('modal-cart-items');
+      list.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${item.name}</span>`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('floating-cart').addEventListener('click', () => {
+      const modal = document.getElementById('cart-modal');
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('show'), 20);
+      updateCart();
+    });
+
+    function closeModal() {
+      const modal = document.getElementById('cart-modal');
+      modal.classList.remove('show');
+      setTimeout(() => modal.style.display = 'none', 450);
+    }
+
+    document.querySelector('.close-modal').addEventListener('click', closeModal);
+
+    document.getElementById('cart-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('cart-modal')) closeModal();
+    });
+
+    document.getElementById('modal-checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) return showToast('Keranjang masih kosong');
+      let msg = "Halo Yogies Emas,\nSaya ingin checkout:\n\n";
+      cart.forEach(i => msg += `• ${i.name}\n`);
+      msg += `\nTerima kasih! Silakan konfirmasi harga terkini.`;
+      window.open(`https://wa.me/628157109993?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // Init
+    setActiveFilter('all');
+  </script>
+</body>
+</html>

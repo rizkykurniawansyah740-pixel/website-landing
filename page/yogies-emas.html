@@ -562,7 +562,21 @@
     // Data harga lengkap Februari 2026
     const priceData = {
 
-      "2026-02-18": { // ← Tanggal HARI INI (default, tampil otomatis)
+      "2026-02-20": { // ← Tanggal HARI INI (default, tampil otomatis)
+    display: "20 Februari 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 365.000", emasBuy: "Rp 275.000" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.697.000", antamBuy: "Rp 1.465.500", emasBasic: "Rp 1.511.000", emasBuy: "Rp 1.375.000" },
+      { gram: "1 gr", antamBasic: "Rp 3.285.900", antamBuy: "Rp 2.931.000", emasBasic: "Rp 2.912.000", emasBuy: "Rp 2.750.000" },
+      { gram: "5 gr", antamBasic: "Rp 16.259.000", antamBuy: "Rp 14.931.000", emasBasic: "Rp 14.380.000", emasBuy: "Rp 13.750.000" },
+      { gram: "10 gr", antamBasic: "Rp 31.585.000", antamBuy: "Rp 29.310.000", emasBasic: "Rp 28.710.000", emasBuy: "Rp 27.500.000" },
+      { gram: "25 gr", antamBasic: "Rp 78.320.000", antamBuy: "Rp 73.275.000", emasBasic: "Rp 71.675.000", emasBuy: "Rp 68.750.000" },
+      { gram: "50 gr", antamBasic: "Rp 156.395.000", antamBuy: "Rp 146.550.000", emasBasic: "Rp 143.300.000", emasBuy: "Rp 137.500.000" },
+      { gram: "100 gr", antamBasic: "Rp 309.400.000", antamBuy: "Rp 293.100.000", emasBasic: "Rp 286.500.000", emasBuy: "Rp 275.000.000" }
+    ]
+  },
+
+      "2026-02-18": {
     display: "18 Februari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 354.000", emasBuy: "Rp 267.800" },
@@ -980,7 +994,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-02-18"];
+      const data = priceData[dateKey] || priceData["2026-02-20"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -1000,7 +1014,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-02-18");
+    updateTable("2026-02-20");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1013,9 +1027,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-02-18",
+      defaultDate: "2026-02-20",
       minDate: "2026-01-01",
-      maxDate: "2026-02-18",
+      maxDate: "2026-02-20",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

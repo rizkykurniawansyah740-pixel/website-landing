@@ -562,8 +562,21 @@
     // Data harga lengkap Februari 2026
     const priceData = {
 
-      const priceData = {
-  "2026-03-05": { // ← Tanggal HARI INI (default, tampil otomatis)
+      "2026-03-06": { // ← Tanggal HARI INI (default, tampil otomatis)
+    display: "6 Maret 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 369.500", emasBuy: "Rp 272.900" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.642.500", antamBuy: "Rp 1.415.000", emasBasic: "Rp 1.489.000", emasBuy: "Rp 1.364.500" },
+      { gram: "1 gr", antamBasic: "Rp 3.160.000", antamBuy: "Rp 2.830.000", emasBasic: "Rp 2.868.000", emasBuy: "Rp 2.729.000" },
+      { gram: "5 gr", antamBasic: "Rp 15.535.000", antamBuy: "Rp 14.150.000", emasBasic: "Rp 14.160.000", emasBuy: "Rp 13.645.000" },
+      { gram: "10 gr", antamBasic: "Rp 30.930.000", antamBuy: "Rp 28.300.000", emasBasic: "Rp 28.270.000", emasBuy: "Rp 27.290.000" },
+      { gram: "25 gr", antamBasic: "Rp 75.225.000", antamBuy: "Rp 70.750.000", emasBasic: "Rp 70.750.000", emasBuy: "Rp 68.225.000" },
+      { gram: "50 gr", antamBasic: "Rp 149.905.000", antamBuy: "Rp 141.500.000", emasBasic: "Rp 141.100.000", emasBuy: "Rp 136.450.000" },
+      { gram: "100 gr", antamBasic: "Rp 299.400.000", antamBuy: "Rp 283.000.000", emasBasic: "Rp 282.100.000", emasBuy: "Rp 272.900.000" }
+    ]
+  },
+      
+  "2026-03-05": {
     display: "5 Maret 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 375.000", emasBuy: "Rp 277.400" },
@@ -577,7 +590,7 @@
     ]
   },
 
-    "2026-02-28": { // ← Tanggal HARI INI (default, tampil otomatis)
+    "2026-02-28": {
     display: "28 Februari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 373.500", emasBuy: "Rp 285.000" },
@@ -591,7 +604,7 @@
     ]
   },
 
-      "2026-02-26": { // ← Tanggal HARI INI (default, tampil otomatis)
+      "2026-02-26": {
     display: "26 Februari 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 373.500", emasBuy: "Rp 280.000" },
@@ -1093,7 +1106,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-03-05"];
+      const data = priceData[dateKey] || priceData["2026-03-06"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -1113,7 +1126,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-03-05");
+    updateTable("2026-03-06");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1126,9 +1139,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-02-05",
+      defaultDate: "2026-02-06",
       minDate: "2026-01-01",
-      maxDate: "2026-02-05",
+      maxDate: "2026-02-06",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

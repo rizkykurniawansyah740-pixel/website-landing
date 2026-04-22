@@ -562,6 +562,21 @@
     // Data harga lengkap Februari 2026
     const priceData = {
 
+
+      "2026-04-14": { // ← Tanggal HARI INI (default, tampil otomatis)
+    display: "14 April 2026",
+    rows: [
+      { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 351.000", emasBuy: "Rp 263.300" },
+      { gram: "0.5 gr", antamBasic: "Rp 1.675.000", antamBuy: "Rp 1.375.000", emasBasic: "Rp 822.500", emasBuy: "Rp 658.250" },
+      { gram: "1 gr", antamBasic: "Rp 3.110.000", antamBuy: "Rp 2.750.000", emasBasic: "Rp 1.443.000", emasBuy: "Rp 1.316.500" },
+      { gram: "5 gr", antamBasic: "Rp 15.105.000", antamBuy: "Rp 13.750.000", emasBasic: "Rp 13.700.000", emasBuy: "Rp 13.165.000" },
+      { gram: "10 gr", antamBasic: "Rp 28.570.000", antamBuy: "Rp 27.500.000", emasBasic: "Rp 27.350.000", emasBuy: "Rp 26.330.000" },
+      { gram: "25 gr", antamBasic: "Rp 70.510.000", antamBuy: "Rp 68.750.000", emasBasic: "Rp 68.025.000", emasBuy: "Rp 65.825.000" },
+      { gram: "50 gr", antamBasic: "Rp 140.825.000", antamBuy: "Rp 137.500.000", emasBasic: "Rp 136.000.000", emasBuy: "Rp 131.650.000" },
+      { gram: "100 gr", antamBasic: "Rp 281.600.000", antamBuy: "Rp 275.000.000", emasBasic: "Rp 271.900.000", emasBuy: "Rp 263.300.000" }
+    ]
+  },
+
   "2026-04-14": {
     display: "14 April 2026",
     rows: [
@@ -575,7 +590,7 @@
       { gram: "100 gr", antamBasic: "Rp 281.600.000", antamBuy: "Rp 275.000.000", emasBasic: "Rp 271.900.000", emasBuy: "Rp 263.300.000" }
     ]
   },
-      "2026-03-25": { // ← Tanggal HARI INI (default, tampil otomatis)
+      "2026-03-25": {
     display: "25 Maret 2026",
     rows: [
       { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 331.000", emasBuy: "Rp 246.500" },
@@ -1246,7 +1261,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-04-14"];
+      const data = priceData[dateKey] || priceData["2026-04-22"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -1266,7 +1281,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-04-14");
+    updateTable("2026-04-22");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1279,9 +1294,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-04-14",
+      defaultDate: "2026-04-22",
       minDate: "2026-01-01",
-      maxDate: "2026-04-14",
+      maxDate: "2026-04-22",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

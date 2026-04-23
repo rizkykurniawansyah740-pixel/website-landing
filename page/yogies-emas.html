@@ -562,6 +562,20 @@
     // Data harga lengkap Februari 2026
     const priceData = {
 
+    "2026-04-23": {
+  display: "23 April 2026",
+  rows: [
+    { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 346.500", emasBuy: "Rp 259.400" },
+    { gram: "0.5 gr", antamBasic: "Rp 1.582.500", antamBuy: "Rp 1.335.000", emasBasic: "Rp 1.423.500", emasBuy: "Rp 1.297.000" },
+    { gram: "1 gr", antamBasic: "Rp 3.010.000", antamBuy: "Rp 2.670.000", emasBasic: "Rp 2.737.000", emasBuy: "Rp 2.594.000" },
+    { gram: "5 gr", antamBasic: "Rp 14.175.000", antamBuy: "Rp 13.350.000", emasBasic: "Rp 13.505.000", emasBuy: "Rp 12.970.000" },
+    { gram: "10 gr", antamBasic: "Rp 27.830.000", antamBuy: "Rp 26.700.000", emasBasic: "Rp 26.960.000", emasBuy: "Rp 25.940.000" },
+    { gram: "25 gr", antamBasic: "Rp 68.725.000", antamBuy: "Rp 66.750.000", emasBasic: "Rp 67.050.000", emasBuy: "Rp 64.850.000" },
+    { gram: "50 gr", antamBasic: "Rp 137.475.000", antamBuy: "Rp 133.500.000", emasBasic: "Rp 134.050.000", emasBuy: "Rp 129.700.000" },
+    { gram: "100 gr", antamBasic: "Rp 274.900.000", antamBuy: "Rp 267.000.000", emasBasic: "Rp 268.000.000", emasBuy: "Rp 259.400.000" }
+  ]
+},
+
 
       "2026-04-22": { // ← Tanggal HARI INI (default, tampil otomatis)
     display: "22 April 2026",
@@ -1281,7 +1295,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-04-22");
+    updateTable("2026-04-23");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1294,9 +1308,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-04-22",
+      defaultDate: "2026-04-23",
       minDate: "2026-01-01",
-      maxDate: "2026-04-22",
+      maxDate: "2026-04-23",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

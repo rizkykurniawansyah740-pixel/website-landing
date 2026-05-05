@@ -559,8 +559,22 @@
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', false));
 
-    // Data harga lengkap Februari 2026
+    // Data harga lengkap Mei 2026
     const priceData = {
+
+      "2026-05-05": {
+  display: "5 Mei 2026",
+  rows: [
+    { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 339.000", emasBuy: "Rp 250.000" },
+    { gram: "0.5 gr", antamBasic: "Rp 1.559.500", antamBuy: "Rp 1.315.000", emasBasic: "Rp 1.374.500", emasBuy: "Rp 1.250.000" },
+    { gram: "1 gr", antamBasic: "Rp 2.958.000", antamBuy: "Rp 2.630.000", emasBasic: "Rp 2.639.000", emasBuy: "Rp 2.500.000" },
+    { gram: "5 gr", antamBasic: "Rp 13.712.000", antamBuy: "Rp 13.150.000", emasBasic: "Rp 13.015.000", emasBuy: "Rp 12.500.000" },
+    { gram: "10 gr", antamBasic: "Rp 27.145.000", antamBuy: "Rp 26.300.000", emasBasic: "Rp 25.980.000", emasBuy: "Rp 25.000.000" },
+    { gram: "25 gr", antamBasic: "Rp 67.642.000", antamBuy: "Rp 65.750.000", emasBasic: "Rp 64.600.000", emasBuy: "Rp 62.500.000" },
+    { gram: "50 gr", antamBasic: "Rp 135.145.000", antamBuy: "Rp 131.500.000", emasBasic: "Rp 129.150.000", emasBuy: "Rp 125.000.000" },
+    { gram: "100 gr", antamBasic: "Rp 270.212.000", antamBuy: "Rp 263.000.000", emasBasic: "Rp 258.200.000", emasBuy: "Rp 250.000.000" }
+  ]
+},
 
       "2026-04-30": {
   display: "30 April 2026",
@@ -1331,7 +1345,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-04-30"];
+      const data = priceData[dateKey] || priceData["2026-05-05"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -1351,7 +1365,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-04-30");
+    updateTable("2026-05-05");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1364,9 +1378,9 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-04-30",
+      defaultDate: "2026-05-05",
       minDate: "2026-01-01",
-      maxDate: "2026-04-30",
+      maxDate: "2026-12-30",
       onChange: function(selectedDates, dateStr) {
         if (priceData[dateStr]) {
           updateTable(dateStr);

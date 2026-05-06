@@ -562,6 +562,20 @@
     // Data harga lengkap Mei 2026
     const priceData = {
 
+      "2026-05-06": {
+  display: "6 Mei 2026",
+  rows: [
+    { gram: "0.1 gr", antamBasic: "-", antamBuy: "-", emasBasic: "Rp 343.000", emasBuy: "Rp 253.500" },
+    { gram: "0.5 gr", antamBasic: "Rp 1.574.000", antamBuy: "Rp 1.332.500", emasBasic: "Rp 1.392.000", emasBuy: "Rp 1.267.500" },
+    { gram: "1 gr", antamBasic: "Rp 2.987.000", antamBuy: "Rp 2.665.000", emasBasic: "Rp 2.674.000", emasBuy: "Rp 2.535.000" },
+    { gram: "5 gr", antamBasic: "Rp 13.861.000", antamBuy: "Rp 13.325.000", emasBasic: "Rp 13.190.000", emasBuy: "Rp 12.675.000" },
+    { gram: "10 gr", antamBasic: "Rp 27.430.000", antamBuy: "Rp 26.650.000", emasBasic: "Rp 26.330.000", emasBuy: "Rp 25.350.000" },
+    { gram: "25 gr", antamBasic: "Rp 68.392.000", antamBuy: "Rp 66.625.000", emasBasic: "Rp 65.475.000", emasBuy: "Rp 63.375.000" },
+    { gram: "50 gr", antamBasic: "Rp 136.645.000", antamBuy: "Rp 133.250.000", emasBasic: "Rp 130.900.000", emasBuy: "Rp 126.750.000" },
+    { gram: "100 gr", antamBasic: "Rp 273.000.000", antamBuy: "Rp 266.500.000", emasBasic: "Rp 261.700.000", emasBuy: "Rp 253.500.000" }
+  ]
+},
+
       "2026-05-05": {
   display: "5 Mei 2026",
   rows: [
@@ -1345,7 +1359,7 @@
 
     // Fungsi update tabel dengan background hijau & merah
     function updateTable(dateKey) {
-      const data = priceData[dateKey] || priceData["2026-05-05"];
+      const data = priceData[dateKey] || priceData["2026-05-06"];
       document.getElementById("currentDate").textContent = data.display;
 
       const tbody = document.querySelector("#priceTable tbody");
@@ -1365,7 +1379,7 @@
     }
 
     // Load default hari ini
-    updateTable("2026-05-05");
+    updateTable("2026-05-06");
 
     // Modal & kalender
     document.getElementById("archiveBtn").addEventListener("click", () => {
@@ -1378,7 +1392,7 @@
 
     flatpickr("#datePicker", {
       dateFormat: "Y-m-d",
-      defaultDate: "2026-05-05",
+      defaultDate: "2026-05-06",
       minDate: "2026-01-01",
       maxDate: "2026-12-30",
       onChange: function(selectedDates, dateStr) {

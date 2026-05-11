@@ -150,6 +150,15 @@
     }
 
 }
+
+		@media (max-width:768px){
+
+    .table-container td,
+    .table-container th{
+        overflow:visible !important;
+    }
+
+}
 		
     </style>
 
@@ -407,7 +416,7 @@
                             <table className="w-full text-left">
                                 <thead className="bg-[#111] text-white">
                                     <tr>
-                                        <th className="px-8 py-8 text-xl font-black border-b border-white/5" rowSpan="2">Gramasi</th>
+                                        <th className="px-3 sm:px-8 py-4 sm:py-8 text-[11px] sm:text-xl font-black border-b border-white/5 whitespace-nowrap min-w-[70px]" rowSpan="2">Gramasi</th>
                                         <th className="px-6 py-4 text-center text-[10px] font-black uppercase tracking-widest border-l border-white/10" colSpan="2">ANTAM</th>
                                         <th className="px-6 py-4 text-center text-[10px] font-black uppercase tracking-widest border-l border-white/10" colSpan="2">EMASKU (HARTADINATA)</th>
                                     </tr>
@@ -421,7 +430,7 @@
                                 <tbody className="divide-y divide-neutral-100 italic">
                                     {activePrices.rows.length > 0 ? activePrices.rows.map((row, i) => (
                                         <tr key={i} className="hover:bg-amber-50/30 transition-all group">
-                                            <td className="px-8 py-6 font-black text-lg text-neutral-900 group-hover:text-amber-600 uppercase italic">{row.gram}</td>
+                                            <td className="px-3 sm:px-8 py-4 sm:py-6 font-black text-[11px] sm:text-lg text-neutral-900 group-hover:text-amber-600 uppercase italic whitespace-nowrap min-w-[70px]">{row.gram}</td>
                                             <td className="px-6 py-6 text-center text-emerald-700 bg-emerald-50/5 font-bold uppercase italic">{row.antamBasic}</td>
                                             <td className="px-6 py-6 text-center text-rose-700 bg-rose-50/5 font-bold uppercase italic">{row.antamBuy}</td>
                                             <td className="px-6 py-6 text-center text-emerald-700 border-l border-neutral-50 bg-emerald-50/5 font-bold uppercase italic">{row.emasBasic}</td>

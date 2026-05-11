@@ -261,8 +261,8 @@
 
                     const rows = data.map(row => ({
                         gram: String(
-   						 row['gram'] ?? row['Gramasi'] ?? ''
-						).replace(/\./g, ','),
+    					row['gram'] ?? row['Gramasi'] ?? ''
+						).trim(),
                         antamBasic: String(row['antam_basic'] || row['Antam Basic'] || '-'),
                         antamBuy: String(row['antam_buy'] || row['Antam Buyback'] || '-'),
                         emasBasic: String(row['emas_basic'] || row['Emasku Basic'] || '-'),

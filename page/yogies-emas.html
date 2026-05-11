@@ -159,6 +159,27 @@
     }
 
 }	
+
+		/* MOBILE TABLE FIX FINAL */
+@media (max-width:768px){
+
+    .table-container{
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .table-container table{
+        min-width:700px;
+    }
+
+    .table-container th,
+    .table-container td{
+        white-space:nowrap;
+        font-size:11px !important;
+        padding:12px 8px !important;
+    }
+
+}
     </style>
 
     <script>
@@ -259,9 +280,11 @@
                     const data = XLSX.utils.sheet_to_json(ws);
 
                     const rows = data.map(row => ({
-                        gram: String(
-    					row['gram'] ?? row['Gramasi'] ?? ''
-						).trim(),
+                        gram: (
+  						  row['gram'] ??
+  						  row['Gramasi'] ??
+   						 ''
+						).toString(),
                         antamBasic: String(row['antam_basic'] || row['Antam Basic'] || '-'),
                         antamBuy: String(row['antam_buy'] || row['Antam Buyback'] || '-'),
                         emasBasic: String(row['emas_basic'] || row['Emasku Basic'] || '-'),

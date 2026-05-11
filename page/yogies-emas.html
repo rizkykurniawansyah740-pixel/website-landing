@@ -220,7 +220,9 @@
                     const data = XLSX.utils.sheet_to_json(ws);
 
                     const rows = data.map(row => ({
-                        gram: `"${row['gram'] || row['Gramasi'] || ''}"`,
+                        gram: String(
+   						 row['gram'] ?? row['Gramasi'] ?? ''
+						).replace(/\./g, ','),
                         antamBasic: String(row['antam_basic'] || row['Antam Basic'] || '-'),
                         antamBuy: String(row['antam_buy'] || row['Antam Buyback'] || '-'),
                         emasBasic: String(row['emas_basic'] || row['Emasku Basic'] || '-'),

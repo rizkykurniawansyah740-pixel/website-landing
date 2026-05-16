@@ -1,369 +1,454 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yogies Emas – Logam Mulia & Perhiasan Premium</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #c9a96e;
-      --dark: #111111;
-      --light: #faf9f6;
-      --gray: #888888;
-      --border: #e0d9c9;
-      --badge: #c0392b;
-      --toast-bg: rgba(201, 169, 110, 0.95);
-      --toast-text: #111;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.7; scroll-behavior: smooth; }
-    header { position: fixed; top:0; left:0; right:0; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); z-index:1000; border-bottom:1px solid var(--border); }
-    .navbar { max-width:1400px; margin:0 auto; padding:0.7rem 5%; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-family:'Cinzel',serif; font-size:clamp(1.6rem,4.2vw,2rem); font-weight:600; color:var(--dark); letter-spacing:1px; }
-    .logo span { color:var(--gold); }
-    .nav-links { display:flex; gap:2.2rem; }
-    .nav-links a { text-decoration:none; color:var(--dark); font-weight:400; font-size:clamp(0.9rem,2.6vw,1rem); transition:color 0.3s; cursor:pointer; }
-    .nav-links a:hover { color:var(--gold); }
-    main { max-width:1400px; margin:0 auto; padding:90px 5% 40px; }
-    .hero { text-align:center; margin-bottom:3rem; }
-    .hero h1 { font-family:'Cinzel',serif; font-size:clamp(2.4rem,7vw,3.6rem); margin-bottom:0.8rem; }
-    .hero p { font-size:clamp(1rem,3vw,1.15rem); color:var(--gray); max-width:720px; margin:0 auto; }
-    .section-about { padding:2.5rem 0; text-align:center; background:rgba(250,249,246,0.6); border-radius:12px; margin:2.5rem 0 1.5rem; scroll-margin-top:100px; }
-    .section-about h2 { font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:1rem; }
-    .section-about p { max-width:800px; margin:0 auto 1.2rem; font-size:1.05rem; color:var(--gray); }
-    .filters { text-align:center; margin-bottom:3rem; display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
-    .filter-btn { background:none; border:none; font-size:clamp(0.9rem,2.6vw,1rem); color:var(--gray); padding:0.5rem 1rem; cursor:pointer; position:relative; }
-    .filter-btn.active, .filter-btn:hover { color:var(--dark); }
-    .filter-btn.active::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:60%; height:2px; background:var(--gold); }
-    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2.8rem 2.2rem; scroll-margin-top:100px; }
-    .product-card { background:white; border-radius:8px; overflow:hidden; transition:all 0.4s ease; box-shadow:0 4px 15px rgba(0,0,0,0.05); height:490px; display:flex; flex-direction:column; }
-    .product-card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
-    .product-image { height:280px; overflow:hidden; }
-    .product-image img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
-    .product-card:hover .product-image img { transform:scale(1.05); }
-    .product-info { padding:1.3rem; flex:1; display:flex; flex-direction:column; justify-content:space-between; text-align:center; }
-    .product-title { font-family:'Cinzel',serif; font-size:1.35rem; margin-bottom:0.4rem; }
-    .product-meta { color:var(--gray); font-size:0.9rem; margin-bottom:0.6rem; line-height:1.4; }
-    .product-price { font-size:1.25rem; font-weight:600; color:var(--gold); margin-bottom:1rem; }
-    .actions { display:flex; gap:0.8rem; }
-    .btn { flex:1; padding:0.9rem; border:1px solid var(--gold); background:transparent; color:var(--dark); font-weight:500; cursor:pointer; transition:all 0.3s; border-radius:5px; font-size:0.9rem; }
-    .btn-primary { background:var(--gold); color:#111; }
-    .btn:hover { background:var(--gold); color:#111; }
-    .control-btn { display:block; margin:2.5rem auto 0; padding:1rem 2.5rem; background:var(--gold); color:#111; font-size:1.1rem; font-weight:600; border:none; border-radius:8px; cursor:pointer; transition:all 0.3s; box-shadow:0 4px 12px rgba(201,169,110,0.3); }
-    .control-btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(201,169,110,0.45); }
-    .section-share { text-align:center; padding:3rem 5%; background:rgba(201,169,110,0.08); border-radius:12px; margin:2rem 0 2rem; }
-    .section-share h2 { font-family:'Cinzel',serif; font-size:2.2rem; margin-bottom:1rem; color:var(--dark); }
-    .section-share p { max-width:800px; margin:0 auto 1.5rem; font-size:1.1rem; color:var(--gray); }
-    .share-btn { padding:1.1rem 2.8rem; background:linear-gradient(135deg,var(--gold),#b8975c); color:#111; font-size:1.15rem; font-weight:600; border:none; border-radius:10px; cursor:pointer; transition:all 0.35s ease; box-shadow:0 6px 20px rgba(201,169,110,0.3); }
-    .share-btn:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(201,169,110,0.45); }
-    #floating-cart { position:fixed; bottom:20px; right:20px; width:55px; height:55px; background:var(--gold); border-radius:50%; box-shadow:0 5px 15px rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:999; transition:all 0.3s; }
-    #floating-cart:hover { transform:scale(1.1); }
-    #cart-icon svg { width:26px; height:26px; fill:#111; }
-    #cart-badge { position:absolute; top:-5px; right:-5px; background:var(--badge); color:white; font-size:0.7rem; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid white; }
-    #toast-container { position:fixed; top:20px; right:20px; z-index:2000; pointer-events:none; }
-    .toast { background:var(--toast-bg); color:var(--toast-text); padding:1rem 1.5rem; border-radius:10px; margin-bottom:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.25); font-weight:500; font-size:1rem; opacity:0; transform:translateX(120%); transition:all 0.4s ease; max-width:320px; backdrop-filter:blur(4px); }
-    .toast.show { opacity:1; transform:translateX(0); }
-    .toast.hide { opacity:0; transform:translateX(120%); }
-    #cart-modal { display:none; position:fixed; inset:0; background:rgba(17,17,17,0.82); backdrop-filter:blur(8px); z-index:1000; align-items:center; justify-content:center; opacity:0; transition:opacity 0.45s ease; }
-    #cart-modal.show { opacity:1; }
-    .modal-content { background:white; border-radius:16px; width:92%; max-width:640px; max-height:85vh; overflow-y:auto; padding:2.5rem 2.2rem; box-shadow:0 25px 70px rgba(0,0,0,0.4); border:1px solid rgba(201,169,110,0.25); transform:translateY(30px) scale(0.92); opacity:0; transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1); }
-    #cart-modal.show .modal-content { transform:translateY(0) scale(1); opacity:1; }
-    .close-modal { position:absolute; top:18px; right:22px; font-size:2.2rem; font-weight:300; cursor:pointer; color:var(--gray); transition:color 0.3s, transform 0.2s; }
-    .close-modal:hover { color:var(--gold); transform:rotate(90deg); }
-    .modal-content h2 { font-family:'Cinzel',serif; font-size:2.4rem; text-align:center; margin:0 0 1.8rem; color:var(--dark); letter-spacing:0.5px; }
-    #modal-cart-items { list-style:none; padding:0; margin:0 0 1.5rem; }
-    #modal-cart-items li { padding:1.2rem 0; border-bottom:1px solid rgba(201,169,110,0.18); font-size:1.1rem; color:var(--dark); }
-    #modal-checkout-btn { width:100%; padding:1.3rem; background:linear-gradient(135deg,var(--gold),#b8975c); color:#111; font-size:1.15rem; font-weight:600; border:none; border-radius:10px; cursor:pointer; transition:all 0.35s ease; box-shadow:0 6px 20px rgba(201,169,110,0.3); }
-    #modal-checkout-btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 12px 30px rgba(201,169,110,0.45); }
-    footer { background:var(--dark); color:white; text-align:center; padding:2.5rem 5%; margin-top:2rem; }
-    footer p { margin:0.6rem 0; font-size:1rem; }
-    footer a { color:var(--gold); text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    @media (max-width:768px) {
-      .navbar { padding:0.6rem 4%; flex-wrap:wrap; justify-content:center; gap:1rem; }
-      .nav-links { gap:1.2rem; justify-content:center; width:100%; }
-      main { padding-top:100px; }
-      .section-about { padding:2rem 5%; margin:2rem 0 1rem; }
-      .section-share { padding:2rem 5%; margin:1.5rem 0 1rem; }
-      footer { padding:2rem 5%; margin-top:1.5rem; }
-      .product-grid { gap:2rem 1.5rem; }
-      .product-card { height:480px; }
-      .product-image { height:260px; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Bagian HTML tetap sama seperti milikmu -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Yogies<span>Emas</span></div>
-      <div class="nav-links">
-        <a onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'})">Beranda</a>
-        <a onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">Koleksi</a>
-        <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">Tentang Kami</a>
-        <a onclick="document.querySelector('footer').scrollIntoView({behavior:'smooth'})">Kontak</a>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>Yogies Emas</h1>
-      <p>Kemurnian & Keanggunan, logam mulia bersertifikat & perhiasan premium buatan tangan. Harga di bawah adalah harga terkini per Mei 2026.</p>
-    </section>
-    <div class="filters">
-      <button class="filter-btn active" data-cat="all">Semua</button>
-      <button class="filter-btn" data-cat="logam-mulia">Logam Mulia</button>
-      <button class="filter-btn" data-cat="perhiasan">Perhiasan</button>
-    </div>
-    <div class="product-grid" id="productGrid"></div>
-    <div style="text-align:center; margin:2.5rem 0;">
-      <button class="control-btn" id="see-all-btn" style="display:none;">Lihat Semua Produk</button>
-      <button class="control-btn" id="show-less-btn" style="display:none;">Tampilkan Sedikit</button>
-    </div>
-    <section id="about-section" class="section-about">
-      <h2>Tentang Kami</h2>
-      <p>Yogies Emas adalah toko spesialis logam mulia dan perhiasan premium di Bandung. Kami menyediakan emas bersertifikat resmi serta perhiasan buatan tangan dengan kualitas terbaik dan desain elegan.</p>
-      <p>Kepuasan pelanggan adalah prioritas utama kami. Kami berkomitmen memberikan kemurnian terjamin dan pelayanan ramah serta profesional.</p>
-    </section>
-    <section class="section-share">
-      <h2>Yogies Emas</h2>
-      <p>Terima kasih sudah mempercayai Yogies Emas sebagai pilihan Anda untuk logam mulia dan perhiasan berkualitas. Jika Anda merasa puas dengan koleksi kami, yuk bantu sebarkan ke teman atau keluarga!</p>
-      <button class="share-btn" onclick="shareWebsite()">Bagikan Website Kami</button>
-    </section>
-  </main>
-  <footer>
-    <p>Yogies Emas – Kemurnian & Keanggunan</p>
-    <p>Customer Service & Marketing : <a href="https://wa.me/6283800889643">0838-0088-9643</a></p>
-    <p>&copy; 2026 Yogies Emas. All rights reserved.</p>
-  </footer>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogies Emas - Warisan Bernilai dari Bandung</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & Babel for JSX -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 
-  <div id="floating-cart">
-    <span id="cart-icon">
-      <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 13h10l3-8H5.82L7 13zM7 3v4H4V3H1v2h3v3h3V5h12l3.29 9H7v2h12.59L16 8h-9v2h7l-1.5 4H9v-2z"/></svg>
-    </span>
-    <span id="cart-badge">0</span>
-  </div>
-  <div id="toast-container"></div>
-  <div id="cart-modal">
-    <div class="modal-content">
-      <span class="close-modal">×</span>
-      <h2>Keranjang Anda</h2>
-      <ul id="modal-cart-items"></ul>
-      <button id="modal-checkout-btn">Checkout via WhatsApp</button>
-    </div>
-  </div>
-
-  <script>
-    const products = [
-      // Logam Mulia
-      { id:1, name:"Emasku 0,1 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,1 gram", price:348500, img:"https://i.imgur.com/MhhwvpR.png" },
-      { id:2, name:"Emasku Anabul Ragdoll 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/UlKkt8v.png" },
-	  { id:3, name:"Emasku Anabul Brtish 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/fgQ9YPV.jpeg" },
-      { id:4, name:"Emasku Anabul Maine 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/gevOXKP.jpeg" },
-	  { id:5, name:"Emasku Anabul Golden 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/B7zyDRG.jpeg" },
-	  { id:6, name:"Emasku Anabul Kintanami 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/orWw8wS.jpeg" },
-	  { id:7, name:"Emasku Anabul Poodle 0,2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,2 gram", price:799000, img:"https://i.imgur.com/Ab3JTL3.jpeg" },
-	  { id:8, name:"Emasku 0,25 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,25 gram", price:817000, img:"https://i.imgur.com/NoP1dbr.png" },
-      { id:9, name:"Emasku 0,5 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 0,5 gram", price:1415500, img:"https://i.imgur.com/LszCJ92.png" },
-      { id:10, name:"Emasku 1 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 1 gram", price:2721000, img:"https://i.imgur.com/uCF0vnE.png" },
-      { id:11, name:"Emasku 2 gr", cat:"logam-mulia", meta:"99.99% • Sertifikat Resmi • 2 gram", price:5402000, img:"https://i.imgur.com/06THSBB.png" },
-      { id:12, name:"Emasku 5 gr", cat:"logam-mulia", meta:"99.99% • Batangan Murni • 5 gram", price:13425000, img:"https://i.imgur.com/xTJVy6V.png" },
-      { id:13, name:"Emasku 10 gr", cat:"logam-mulia", meta:"99.99% • Investasi Premium • 10 gram", price:26800000, img:"https://i.imgur.com/45FkC9K.png" },
-
-      // Perhiasan
-      { id:14, name:"Buddha Coin", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 0,42 gram", price:1120000, img:"https://i.imgur.com/wzNDJiG.png" },
-      { id:15, name:"Catholic Coin", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 0,42 gram", price:1120000, img:"https://i.imgur.com/ATjVIC1.png" },
-      { id:16, name:"Islamic Coin", cat:"perhiasan", meta:"Kadar : 12K • Berat : 0,46 gram", price:1120000, img:"https://i.imgur.com/vRPQyuy.png" },
-      { id:17, name:"Christian Coin", cat:"perhiasan", meta:"Kadar : 12K • Berat : 0,42 gram", price:1120000, img:"https://i.imgur.com/vh8bY3m.png" },
-      { id:18, name:"2 in 1 Earring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 0,9 gram", price:2688000, img:"https://i.imgur.com/Pr9X4hz.png" },
-      { id:19, name:"White Rainbow Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.23 gram", price:3304000, img:"https://i.imgur.com/ihL5Tll.png" },
-      { id:20, name:"Sunflower Earring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.35 gram", price:4032000, img:"https://i.imgur.com/VjPZ6jP.png" },
-      { id:21, name:"Clover Earring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.37 gram", price:3920000, img:"https://i.imgur.com/km13uGP.png" },
-      { id:22, name:"Eternal 2 in 1 ring", cat:"perhiasan", meta:"Kadar: 12K • Estimasi Berat : 1.4 gram", price:3920000, img:"https://i.imgur.com/3wjjmWe.png" },
-      { id:23, name:"Infinity 2 in 1 ring", cat:"perhiasan", meta:"Kadar: 12K • Estimasi Berat : 1.5 gram", price:4032000, img:"https://i.imgur.com/7M7JxRu.png" },
-      { id:24, name:"Cross Pendant", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.71 gram", price:4704000, img:"https://i.imgur.com/6ifliMo.png" },
-      { id:25, name:"Jade Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.75 gram", price:4704000, img:"https://i.imgur.com/ThTZouR.png" },
-      { id:26, name:"Red Flame Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.81 gram", price:4838400, img:"https://i.imgur.com/1HhjOtK.png" },
-      { id:27, name:"(PRE-ORDER) Kaaba Pendant", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.8 gram", price:4838400, img:"https://i.imgur.com/eDnThV6.png" },
-      { id:28, name:"Sunflower Ring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.92 gram", price:5107200, img:"https://i.imgur.com/uyXoai7.png" },
-      { id:29, name:"Purple Aqua Earrings Charm", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 1.9 gram", price:5107200, img:"https://i.imgur.com/iBfBhfC.png" },
-      { id:30, name:"Red Flame Pendant", cat:"perhiasan", meta:"Kadar: 12K • Estimasi Berat : 2.16 gram", price:5913600, img:"https://i.imgur.com/tHYHOMb.png" },
-      { id:31, name:"Purple Aqua Pendant", cat:"perhiasan", meta:"Kadar: 12K • Estimasi Berat : 2.26 gram", price:6160000, img:"https://i.imgur.com/RrlL1bB.png" },
-      { id:32, name:"White Rainbow Pendant", cat:"perhiasan", meta:"Kadar: 12K • Berat : 2.35 gram", price:6344800, img:"https://i.imgur.com/oGhmsJ4.png" },
-      { id:33, name:"Mother Mary Pendant", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 3.27 gram", price:8736000, img:"https://i.imgur.com/lgrckz0.png" },
-      { id:34, name:"Circle Pendant", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 3.1 gram", price:8344000, img:"https://i.imgur.com/YQ7kjWJ.png" },
-      { id:35, name:"Women Necklace Chain", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 3.4 gram", price:9139200, img:"https://i.imgur.com/Q9nESIV.png" },
-      { id:36, name:"Buddha Pendant", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 3.54 gram", price:9408000, img:"https://i.imgur.com/xSk3oG1.png" },
-      { id:37, name:"Butterfly Brooch", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 3.55 gram", price:9676800, img:"https://i.imgur.com/6i7rSwt.png" },
-      { id:38, name:"Square pendant", cat:"perhiasan", meta:"Kadar : 12K • Berat : 4 gram", price:10752000, img:"https://i.imgur.com/NU4kEnE.png" },
-      { id:39, name:"Jade Ring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 4,05 gram", price:10752000, img:"https://i.imgur.com/zU3jBlj.png" },
-      { id:40, name:"Swan Brooch", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 4.1 gram", price:11020800, img:"https://i.imgur.com/3ZEcu94.png" },
-      { id:41, name:"Unisex Necklace Chain", cat:"perhiasan", meta:"Kadar: 12K • Estimasi Berat: 4,4 gram", price:12320000, img:"https://i.imgur.com/VdWKa2x.png" },
-      { id:42, name:"Blue Bell Reverse Ring", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 5,6 gram", price:14784000, img:"https://i.imgur.com/xQKd3yU.png" },
-      { id:43, name:"Peacock Brooch", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 6.19 gram", price:16665600, img:"https://i.imgur.com/4xW88DO.png" },
-      { id:44, name:"String Bracelet", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 6.58 gram", price:17696000, img:"https://i.imgur.com/xLYm3hY.png" },
-      { id:45, name:"Bird of Paradise Brooch", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 7.1 gram", price:19084800, img:"https://i.imgur.com/Ck6Vb6L.png" },
-      { id:46, name:"Mens Ring Size 22", cat:"perhiasan", meta:"Kadar : 12K • Estimasi Berat : 8,08 gram", price:20468000, img:"https://i.imgur.com/D8ej7Sy.png" },
-      { id:47, name:"MOMAPAN STARTER KIT", cat:"perhiasan", meta:"Kit lengkap perlengkapan", price:200000, img:"https://i.imgur.com/mlaahOJ.png" },
-    ];
-
-    let cart = [];
-    let allShown = false;
-
-    function formatRupiah(amount) {
-      return new Intl.NumberFormat('id-ID', { 
-        style: 'currency', 
-        currency: 'IDR', 
-        minimumFractionDigits: 0 
-      }).format(amount);
-    }
-
-    function renderProducts(cat = 'all', showAll = false) {
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = '';
-      
-      let filtered = cat === 'all' ? products : products.filter(p => p.cat === cat);
-
-      const seeAllBtn = document.getElementById('see-all-btn');
-      const showLessBtn = document.getElementById('show-less-btn');
-
-      if (cat === 'all') {
-        if (!showAll && !allShown) {
-          filtered = filtered.slice(0, 12);
-          seeAllBtn.style.display = 'block';
-          showLessBtn.style.display = 'none';
-        } else {
-          seeAllBtn.style.display = 'none';
-          showLessBtn.style.display = 'block';
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
         }
-      } else {
-        seeAllBtn.style.display = 'none';
-        showLessBtn.style.display = 'none';
-      }
+    </script>
 
-      filtered.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div class="product-image">
-            <img src="${p.img}" alt="${p.name}">
-          </div>
-          <div class="product-info">
-            <div>
-              <h3 class="product-title">${p.name}</h3>
-              <div class="product-meta">${p.meta}</div>
-              <div class="product-price">${formatRupiah(p.price)}</div>
-            </div>
-            <div class="actions">
-              <button class="btn btn-primary" onclick="addToCart(${p.id})">+ Keranjang</button>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c9a96e; border-radius: 20px; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fafbfc; color: #1a1a1a; overflow-x: hidden; }
+        .selection-gold::selection { background-color: rgba(201, 169, 110, 0.2); }
+    </style>
+</head>
+<body class="selection-gold min-h-screen">
+    <div id="root"></div>
 
-    // Fungsi lainnya tetap sama seperti kode kamu
-    function setActiveFilter(cat) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.cat === cat));
-      allShown = false;
-      renderProducts(cat);
-    }
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+        const { motion, AnimatePresence } = window.Motion;
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => setActiveFilter(btn.dataset.cat));
-    });
+        // Custom Hook for Lucide Icons in Standalone
+        const Icon = ({ name, className = "w-5 h-5" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
+            return <i data-lucide={name} className={className}></i>;
+        };
 
-    document.getElementById('see-all-btn').addEventListener('click', () => {
-      allShown = true;
-      renderProducts('all', true);
-    });
+        const INITIAL_PRODUCTS = [
+            { id: 1, name: "Emasku 0,1 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,1 gram", price: 348500, img: "https://i.imgur.com/MhhwvpR.png" },
+            { id: 2, name: "Emasku Anabul Ragdoll 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/UlKkt8v.png" },
+            { id: 3, name: "Emasku Anabul Brtish 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/fgQ9YPV.jpeg" },
+            { id: 4, name: "Emasku Anabul Maine 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/gevOXKP.jpeg" },
+            { id: 5, name: "Emasku Anabul Golden 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/B7zyDRG.jpeg" },
+            { id: 6, name: "Emasku Anabul Kintanami 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/orWw8wS.jpeg" },
+            { id: 7, name: "Emasku Anabul Poodle 0,2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,2 gram", price: 799000, img: "https://i.imgur.com/Ab3JTL3.jpeg" },
+            { id: 8, name: "Emasku 0,25 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,25 gram", price: 817000, img: "https://i.imgur.com/NoP1dbr.png" },
+            { id: 9, name: "Emasku 0,5 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 0,5 gram", price: 1415500, img: "https://i.imgur.com/LszCJ92.png" },
+            { id: 10, name: "Emasku 1 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 1 gram", price: 2721000, img: "https://i.imgur.com/uCF0vnE.png" },
+            { id: 11, name: "Emasku 2 gr", cat: "logam-mulia", meta: "99.99% • Sertifikat Resmi • 2 gram", price: 5402000, img: "https://i.imgur.com/06THSBB.png" },
+            { id: 12, name: "Emasku 5 gr", cat: "logam-mulia", meta: "99.99% • Batangan Murni • 5 gram", price: 13425000, img: "https://i.imgur.com/xTJVy6V.png" },
+            { id: 13, name: "Emasku 10 gr", cat: "logam-mulia", meta: "99.99% • Investasi Premium • 10 gram", price: 26800000, img: "https://i.imgur.com/45FkC9K.png" },
+            { id: 14, name: "Buddha Coin", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 0,42 gram", price: 1120000, img: "https://i.imgur.com/wzNDJiG.png" },
+            { id: 15, name: "Catholic Coin", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 0,42 gram", price: 1120000, img: "https://i.imgur.com/ATjVIC1.png" },
+            { id: 16, name: "Islamic Coin", cat: "perhiasan", meta: "Kadar : 12K • Berat : 0,46 gram", price: 1120000, img: "https://i.imgur.com/vRPQyuy.png" },
+            { id: 17, name: "Christian Coin", cat: "perhiasan", meta: "Kadar : 12K • Berat : 0,42 gram", price: 1120000, img: "https://i.imgur.com/vh8bY3m.png" },
+            { id: 18, name: "2 in 1 Earring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 0,9 gram", price: 2688000, img: "https://i.imgur.com/Pr9X4hz.png" },
+            { id: 19, name: "White Rainbow Earrings Charm", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.23 gram", price: 3304000, img: "https://i.imgur.com/ihL5Tll.png" },
+            { id: 20, name: "Sunflower Earring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.35 gram", price: 4032000, img: "https://i.imgur.com/VjPZ6jP.png" },
+            { id: 21, name: "Clover Earring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.37 gram", price: 3920000, img: "https://i.imgur.com/km13uGP.png" },
+            { id: 22, name: "Eternal 2 in 1 ring", cat: "perhiasan", meta: "Kadar: 12K • Estimasi Berat : 1.4 gram", price: 3920000, img: "https://i.imgur.com/3wjjmWe.png" },
+            { id: 23, name: "Infinity 2 in 1 ring", cat: "perhiasan", meta: "Kadar: 12K • Estimasi Berat : 1.5 gram", price: 4032000, img: "https://i.imgur.com/7M7JxRu.png" },
+            { id: 24, name: "Cross Pendant", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.71 gram", price: 4704000, img: "https://i.imgur.com/6ifliMo.png" },
+            { id: 25, name: "Jade Earrings Charm", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.75 gram", price: 4704000, img: "https://i.imgur.com/ThTZouR.png" },
+            { id: 26, name: "Red Flame Earrings Charm", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.81 gram", price: 4838400, img: "https://i.imgur.com/1HhjOtK.png" },
+            { id: 27, name: "Kaaba Pendant", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.8 gram", price: 4838400, img: "https://i.imgur.com/eDnThV6.png" },
+            { id: 28, name: "Sunflower Ring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.92 gram", price: 5107200, img: "https://i.imgur.com/uyXoai7.png" },
+            { id: 29, name: "Purple Aqua Earrings Charm", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 1.9 gram", price: 5107200, img: "https://i.imgur.com/iBfBhfC.png" },
+            { id: 30, name: "Red Flame Pendant", cat: "perhiasan", meta: "Kadar: 12K • Estimasi Berat : 2.16 gram", price: 5913600, img: "https://i.imgur.com/tHYHOMb.png" },
+            { id: 31, name: "Purple Aqua Pendant", cat: "perhiasan", meta: "Kadar: 12K • Estimasi Berat : 2.26 gram", price: 6160000, img: "https://i.imgur.com/RrlL1bB.png" },
+            { id: 32, name: "White Rainbow Pendant", cat: "perhiasan", meta: "Kadar: 12K • Berat : 2.35 gram", price: 6344800, img: "https://i.imgur.com/oGhmsJ4.png" },
+            { id: 33, name: "Mother Mary Pendant", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 3.27 gram", price: 8736000, img: "https://i.imgur.com/lgrckz0.png" },
+            { id: 34, name: "Circle Pendant", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 3.1 gram", price: 8344000, img: "https://i.imgur.com/YQ7kjWJ.png" },
+            { id: 35, name: "Women Necklace Chain", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 3.4 gram", price: 9139200, img: "https://i.imgur.com/Q9nESIV.png" },
+            { id: 36, name: "Buddha Pendant", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 3.54 gram", price: 9408000, img: "https://i.imgur.com/xSk3oG1.png" },
+            { id: 37, name: "Butterfly Brooch", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 3.55 gram", price: 9676800, img: "https://i.imgur.com/6i7rSwt.png" },
+            { id: 38, name: "Square pendant", cat: "perhiasan", meta: "Kadar : 12K • Berat : 4 gram", price: 10752000, img: "https://i.imgur.com/NU4kEnE.png" },
+            { id: 39, name: "Jade Ring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 4,05 gram", price: 10752000, img: "https://i.imgur.com/zU3jBlj.png" },
+            { id: 40, name: "Swan Brooch", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 4.1 gram", price: 11020800, img: "https://i.imgur.com/3ZEcu94.png" },
+            { id: 41, name: "Unisex Necklace Chain", cat: "perhiasan", meta: "Kadar: 12K • Estimasi Berat: 4,4 gram", price: 12320000, img: "https://i.imgur.com/VdWKa2x.png" },
+            { id: 42, name: "Blue Bell Reverse Ring", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 5,6 gram", price: 14784000, img: "https://i.imgur.com/xQKd3yU.png" },
+            { id: 43, name: "Peacock Brooch", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 6.19 gram", price: 16665600, img: "https://i.imgur.com/4xW88DO.png" },
+            { id: 44, name: "String Bracelet", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 6.58 gram", price: 17696000, img: "https://i.imgur.com/xLYm3yY.png" },
+            { id: 45, name: "Bird of Paradise Brooch", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 7.1 gram", price: 19084800, img: "https://i.imgur.com/Ck6Vb6L.png" },
+            { id: 46, name: "Mens Ring Size 22", cat: "perhiasan", meta: "Kadar : 12K • Estimasi Berat : 8,08 gram", price: 20468000, img: "https://i.imgur.com/D8ej7Sy.png" },
+            { id: 47, name: "MOMAPAN STARTER KIT", cat: "perhiasan", meta: "Kit lengkap perlengkapan", price: 200000, img: "https://i.imgur.com/mlaahOJ.png" },
+        ];
 
-    document.getElementById('show-less-btn').addEventListener('click', () => {
-      allShown = false;
-      renderProducts('all');
-    });
+        function App() {
+            const [products, setProducts] = useState(INITIAL_PRODUCTS);
+            const [cart, setCart] = useState([]);
+            const [filter, setFilter] = useState('all');
+            const [isAllShown, setIsAllShown] = useState(false);
+            const [isCartOpen, setIsCartOpen] = useState(false);
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [toast, setToast] = useState(null);
 
-    function showToast(message) {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.textContent = message;
-      container.appendChild(toast);
-      setTimeout(() => toast.classList.add('show'), 100);
-      setTimeout(() => {
-        toast.classList.remove('show');
-        toast.classList.add('hide');
-        setTimeout(() => toast.remove(), 450);
-      }, 3000);
-    }
+            const formatRupiah = (amount) => {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0,
+                }).format(amount);
+            };
 
-    function addToCart(id) {
-      const item = products.find(p => p.id === id);
-      if (item) {
-        cart.push(item);
-        updateCart();
-        showToast(`${item.name} ditambahkan ke keranjang`);
-      }
-    }
+            const syncPrices = async (isInitial = false) => {
+                try {
+                    const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQz64YJrJg0eXcH0ea0GfeUK0wZTIW_bMi15bjfCizDiHDm-ufHMigmu5OZbC001g/pub?output=csv';
+                    const res = await fetch(url);
+                    const csv = await res.text();
+                    const wb = XLSX.read(csv, { type: 'string' });
+                    const data = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
 
-    function updateCart() {
-      document.getElementById('cart-badge').textContent = cart.length;
-      const list = document.getElementById('modal-cart-items');
-      list.innerHTML = '';
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${item.name}</strong> - ${formatRupiah(item.price)}`;
-        list.appendChild(li);
-      });
-    }
+                    setProducts(prev => prev.map(p => {
+                        const match = data.find(d => Number(d.ID || d.id) === p.id);
+                        return match ? { ...p, price: Number(match.Price || match.price || match.Harga) || p.price } : p;
+                    }));
+                    if (isInitial) setToast({ message: "Sistem Harga Aktif & Sinkron", type: 'success' });
+                } catch (e) {
+                    console.error(e);
+                }
+            };
 
-    function shareWebsite() {
-      const link = "https://yogies.my.id/page/yogies-emas-logam-mulia-dan-perhiasan";
-      navigator.clipboard.writeText(link).then(() => {
-        showToast("Link website berhasil disalin! ✨");
-      });
-      if (navigator.share) {
-        navigator.share({
-          title: "Yogies Emas – Logam Mulia & Perhiasan Premium",
-          text: "Temukan koleksi logam mulia bersertifikat dan perhiasan premium di Yogies Emas.",
-          url: link
-        });
-      }
-    }
+            useEffect(() => {
+                syncPrices(true);
+                const timer = setInterval(() => syncPrices(false), 5000);
+                return () => clearInterval(timer);
+            }, []);
 
-    // Modal Cart
-    document.getElementById('floating-cart').addEventListener('click', () => {
-      const modal = document.getElementById('cart-modal');
-      modal.style.display = 'flex';
-      setTimeout(() => modal.classList.add('show'), 20);
-      updateCart();
-    });
+            useEffect(() => {
+                if (toast) {
+                    const t = setTimeout(() => setToast(null), 3000);
+                    return () => clearTimeout(t);
+                }
+            }, [toast]);
 
-    function closeModal() {
-      const modal = document.getElementById('cart-modal');
-      modal.classList.remove('show');
-      setTimeout(() => modal.style.display = 'none', 450);
-    }
+            const addToCart = (p) => {
+                setCart([...cart, { ...p, cartId: Date.now() }]);
+                setToast({ message: `${p.name} ditambahkan`, type: 'success' });
+            };
 
-    document.querySelector('.close-modal').addEventListener('click', closeModal);
-    document.getElementById('cart-modal').addEventListener('click', e => {
-      if (e.target === document.getElementById('cart-modal')) closeModal();
-    });
+            const filteredProducts = useMemo(() => {
+                const base = filter === 'all' ? products : products.filter(p => p.cat === filter);
+                return (filter === 'all' && !isAllShown) ? base.slice(0, 12) : base;
+            }, [products, filter, isAllShown]);
 
-    document.getElementById('modal-checkout-btn').addEventListener('click', () => {
-      if (cart.length === 0) return showToast('Keranjang masih kosong');
-      let msg = "Halo Yogies Emas,\nSaya ingin checkout:\n\n";
-      cart.forEach(i => msg += `• ${i.name} - ${formatRupiah(i.price)}\n`);
-      msg += `\nTotal: ${formatRupiah(cart.reduce((sum, item) => sum + item.price, 0))}\n\nTerima kasih!`;
-      window.open(`https://wa.me/6283172397127?text=${encodeURIComponent(msg)}`, '_blank');
-    });
+            const totalBelanja = cart.reduce((s, i) => s + i.price, 0);
 
-    // Initialize
-    setActiveFilter('all');
-  </script>
+            return (
+                <div className="font-sans antialiased text-[#1a1a1a]">
+                    {/* Header */}
+                    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-2xl z-[100] border-b border-gray-100 shadow-sm">
+                        <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-16 md:h-20">
+                            <a href="#beranda" className="font-serif text-xl md:text-2xl font-bold tracking-[0.1em] uppercase hover:opacity-80 transition-opacity">
+                                Yogies<span className="text-[#c9a96e]">Emas</span>
+                            </a>
+                            
+                            <div className="hidden lg:flex items-center gap-10">
+                                {['BERANDA', 'KOLEKSI', 'TENTANG', 'KONTAK'].map((label) => (
+                                    <a key={label} href={`#${label.toLowerCase().replace(' ', '-')}`} className="text-[10px] font-bold tracking-[0.22em] hover:text-[#c9a96e] transition-colors relative group">
+                                        {label}
+                                        <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-[#c9a96e] transition-all group-hover:w-full" />
+                                    </a>
+                                ))}
+                            </div>
+
+                            <div className="flex items-center gap-2 md:gap-4">
+                                <button onClick={() => setIsCartOpen(true)} className="relative p-2.5 hover:bg-gray-50 rounded-xl transition-all">
+                                    <Icon name="shopping-cart" />
+                                    {cart.length > 0 && (
+                                        <span className="absolute top-1 right-1 w-4 h-4 bg-[#c9a96e] text-white text-[8px] flex items-center justify-center rounded-full border-2 border-white font-bold">{cart.length}</span>
+                                    )}
+                                </button>
+                                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden p-2.5 hover:bg-gray-50 rounded-xl">
+                                    <Icon name="menu" className="w-6 h-6" />
+                                </button>
+                            </div>
+                        </nav>
+                    </header>
+
+                    {/* Hero */}
+                    <section id="beranda" className="pt-48 md:pt-64 pb-24 md:pb-32 bg-white text-center px-8">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="flex items-center gap-3 mb-8 justify-center opacity-80">
+                                <div className="h-[1px] w-8 md:w-16 bg-[#c9a96e]" />
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold text-[#c9a96e]">Warisan Bernilai dari Bandung</span>
+                                <div className="h-[1px] w-8 md:w-16 bg-[#c9a96e]" />
+                            </div>
+                            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl mb-12 uppercase leading-[1.1] tracking-tight">
+                                Simfoni Seni & <br />
+                                <span className="text-[#c9a96e] underline decoration-[#c9a96e]/20">Aset Masa Depan.</span>
+                            </h1>
+                            <p className="text-gray-500 text-base md:text-xl font-light mb-12 md:mb-16 max-w-3xl mx-auto leading-relaxed">
+                                Menghadirkan kurasi logam mulia murni dan perhiasan mahakarya artisan. Karena bagi kami, emas bukan sekadar perhiasan, melainkan janji keamanan finansial untuk generasi mendatang.
+                            </p>
+                            <div className="flex flex-col sm:row gap-8 justify-center items-center">
+                                <a href="#koleksi" className="w-full sm:w-auto px-12 py-5 bg-[#1a1a1a] text-white rounded-2xl font-bold tracking-[0.2em] text-xs uppercase hover:bg-[#c9a96e] transition-all shadow-2xl">Mulai Investasi Anda</a>
+                                <div className="flex items-center gap-4 text-gray-400">
+                                    <Icon name="shield-check" className="w-6 h-6 text-[#c9a96e]" />
+                                    <span className="text-[10px] md:text-sm font-bold uppercase tracking-widest italic">Kemurnian 99.99% Terjamin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Values */}
+                    <section className="py-24 bg-[#fafbfc] border-y border-gray-50">
+                        <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-16 md:gap-20">
+                            {[
+                                { icon: 'award', title: 'Integritas Sertifikasi', desc: 'Setiap gram emas Yogies Emas didampingi sertifikasi resmi untuk menjaga likuiditas investasi Anda.' },
+                                { icon: 'trending-up', title: 'Stabilitas Aset', desc: 'Lindungi kekayaan keluarga dari inflasi dengan aset nyata Safe Haven yang terus bertumbuh.' },
+                                { icon: 'gem', title: 'Dedikasi Artisan', desc: 'Perhiasan mahakarya teknik tradisional artisan dengan desain kontemporer paling elegan.' }
+                            ].map(v => (
+                                <div key={v.title} className="text-center group">
+                                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg group-hover:scale-110 transition-transform"><Icon name={v.icon} className="w-8 h-8 text-[#c9a96e]"/></div>
+                                    <h3 className="font-serif text-xl mb-4 tracking-widest uppercase">{v.title}</h3>
+                                    <p className="text-sm text-gray-500 font-light leading-relaxed">{v.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Catalog */}
+                    <main id="koleksi" className="py-32 px-8 max-w-7xl mx-auto">
+                        <div className="text-center mb-20">
+                            <h2 className="font-serif text-3xl md:text-5xl mb-6 uppercase tracking-[0.2em]">Kurasi Mahakarya</h2>
+                            <div className="w-20 h-1 bg-[#c9a96e] mx-auto mb-12"></div>
+                            <div className="flex justify-center gap-3 flex-wrap">
+                                {[
+                                    { id: 'all', label: 'Semua Koleksi' },
+                                    { id: 'logam-mulia', label: 'Aset Logam Mulia' },
+                                    { id: 'perhiasan', label: 'Mahakarya Perhiasan' }
+                                ].map(cat => (
+                                    <button key={cat.id} onClick={() => {setFilter(cat.id); setIsAllShown(false)}} className={`px-8 py-2 md:py-3 text-[9px] font-bold uppercase tracking-[0.2em] rounded-xl border transition-all ${filter === cat.id ? 'bg-[#1a1a1a] text-white border-black' : 'bg-white text-gray-400 border-gray-100 hover:border-[#c9a96e]'}`}>{cat.label}</button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+                            <AnimatePresence>
+                                {filteredProducts.map(p => (
+                                    <motion.div key={p.id} initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0,scale:0.95}} className="bg-white rounded-[2rem] overflow-hidden border border-gray-50 flex flex-col group shadow-sm hover:shadow-xl transition-shadow">
+                                        <div className="aspect-[4/5] relative overflow-hidden bg-gray-50">
+                                            <img src={p.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                            <button onClick={() => addToCart(p)} className="absolute bottom-6 left-6 right-6 py-4 bg-white/90 backdrop-blur font-bold uppercase tracking-widest text-[9px] rounded-2xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-xl">Miliki Sekarang</button>
+                                        </div>
+                                        <div className="p-8 text-center flex-1 flex flex-col">
+                                            <span className="text-[8px] uppercase tracking-[0.3em] text-[#c9a96e] font-black mb-3 block">{p.cat.replace('-', ' ')}</span>
+                                            <h3 className="font-serif text-xl mb-3 h-14 overflow-hidden flex items-center justify-center leading-tight">{p.name}</h3>
+                                            <p className="text-gray-400 text-[10px] mb-6 font-light line-clamp-2 h-10">{p.meta}</p>
+                                            <div className="text-2xl font-bold mt-auto">{formatRupiah(p.price)}</div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </motion.div>
+
+                        {filter === 'all' && (
+                            <div className="mt-20 text-center">
+                                <button onClick={() => setIsAllShown(!isAllShown)} className="px-12 py-4 bg-white border border-gray-200 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em] flex items-center gap-3 mx-auto hover:bg-gray-50 shadow-sm">
+                                    {isAllShown ? 'Perkecil Katalog' : 'Temukan 47 Koleksi Lengkap'}
+                                    <Icon name={isAllShown ? 'chevron-up' : 'chevron-down'} className="w-4 h-4 text-[#c9a96e]"/>
+                                </button>
+                            </div>
+                        )}
+                    </main>
+
+                    {/* About */}
+                    <section id="tentang-kami" className="py-32 md:py-40 bg-gray-900 text-white px-8">
+                        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-800">
+                                <img src="https://i.imgur.com/Ck6Vb6L.png" className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-[2s]"/>
+                            </div>
+                            <div className="space-y-10">
+                                <div className="flex items-center gap-3 opacity-80"><div className="h-px w-10 bg-[#c9a96e]"/><div className="text-[10px] uppercase tracking-[0.5em] font-bold text-[#c9a96e]">Integritas & Visi Kami</div></div>
+                                <h2 className="font-serif text-5xl md:text-6xl leading-tight">Yogies Emas: <br/><span className="text-[#c9a96e]">Membangun Nilai Abadi.</span></h2>
+                                <div className="space-y-8 text-gray-400 text-lg font-light leading-loose">
+                                    <p>Lahir dari dedikasi untuk menjembatani kemurnian aset dengan keindahan seni, Yogies Emas hadir di Bandung sebagai oase bagi mereka yang menghargai keberlanjutan nilai. Kami percaya bahwa emas adalah instrumen kejujuran yang tak lekang oleh waktu.</p>
+                                    <p>Bagi kami, setiap transaksi adalah proses membangun kepercayaan. Baik Anda mengumpulkan gramasi kecil untuk masa depan anak-anak, atau mencari perhiasan eksklusif untuk momen bersejarah, kami memastikan Anda mendapatkan transparansi harga dan kualitas tanpa kompromi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Brand Feedback Section */}
+                    <section className="py-24 px-8 bg-white">
+                        <div className="max-w-4xl mx-auto text-center mb-24">
+                            <h2 className="font-serif text-3xl md:text-4xl mb-12 tracking-widest uppercase">Tentang Kami</h2>
+                            <div className="space-y-8 text-gray-500 text-base md:text-lg font-light leading-relaxed">
+                                <p>Yogies Emas adalah toko spesialis logam mulia dan perhiasan premium di Bandung. Kami menyediakan emas bersertifikat resmi serta perhiasan buatan tangan dengan kualitas terbaik dan desain elegan.</p>
+                                <p>Kepuasan pelanggan adalah prioritas utama kami. Kami berkomitmen memberikan kemurnian terjamin dan pelayanan ramah serta profesional.</p>
+                            </div>
+                        </div>
+                        <div className="max-w-5xl mx-auto bg-[#f7f3ed] rounded-[2.5rem] p-12 md:p-20 text-center shadow-sm">
+                            <h2 className="font-serif text-3xl md:text-4xl mb-8 tracking-widest uppercase text-gray-900">Yogies Emas</h2>
+                            <p className="text-gray-600 text-lg md:text-xl font-light mb-12 max-w-3xl mx-auto">Terima kasih sudah mempercayai Yogies Emas sebagai pilihan Anda. Jika Anda merasa puas dengan koleksi kami, yuk bantu sebarkan ke teman atau keluarga!</p>
+                            <button onClick={() => {
+                                if (navigator.share) {
+                                    navigator.share({ title: 'Yogies Emas', url: window.location.href });
+                                } else {
+                                    navigator.clipboard.writeText(window.location.href);
+                                    setToast({ message: "Link disalin ke clipboard", type: 'info' });
+                                }
+                            }} className="px-12 py-5 bg-[#c9a96e] text-white rounded-2xl font-bold uppercase text-[10px] tracking-widest shadow-xl shadow-[#c9a96e]/20 hover:bg-gray-900 transition-colors">Bagikan Website Kami</button>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer id="kontak" className="pt-40 pb-20 px-8 border-t border-gray-50 text-center md:text-left">
+                        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-20 md:gap-24 mb-24">
+                            <div className="md:col-span-2">
+                                <div className="font-serif text-4xl font-bold tracking-[0.1em] mb-10">Yogies<span className="text-[#c9a96e]">Emas</span></div>
+                                <p className="text-gray-500 text-xl font-light leading-loose max-w-md">Terima kasih telah memilih Yogies Emas. Kami bangga bisa menjadi bagian dari strategi investasi hidup Anda.</p>
+                                <div className="flex gap-4 justify-center md:justify-start mt-10">
+                                    <button onClick={() => window.open('https://wa.me/6283800889643')} className="p-5 bg-gray-50 rounded-2xl hover:bg-[#c9a96e] hover:text-white transition-all"><Icon name="phone" /></button>
+                                    <button onClick={() => setToast({message: "Link disalin", type:'info'})} className="p-5 bg-gray-50 rounded-2xl hover:bg-[#c9a96e] hover:text-white transition-all"><Icon name="share-2" /></button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black mb-12 underline decoration-[#c9a96e] decoration-2 underline-offset-8">Navigasi</h4>
+                                <ul className="space-y-6 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+                                    <li><a href="#beranda" className="hover:text-[#c9a96e]">Beranda</a></li>
+                                    <li><a href="#koleksi" className="hover:text-[#c9a96e]">Katalog</a></li>
+                                    <li><a href="#tentang-kami" className="hover:text-[#c9a96e]">Tentang</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black mb-12 underline decoration-[#c9a96e] decoration-2 underline-offset-8">Lokasi & Jam</h4>
+                                <div className="text-sm font-light text-gray-500 space-y-4">
+                                    <p className="flex items-center gap-3 justify-center md:justify-start"><Icon name="shield-check" className="w-4 h-4 text-[#c9a96e]"/> Bandung, Jawa Barat</p>
+                                    <p className="flex items-center gap-3 justify-center md:justify-start"><Icon name="phone" className="w-4 h-4 text-[#c9a96e]"/> 0838-0088-9643</p>
+                                    <p className="flex items-center gap-3 justify-center md:justify-start"><Icon name="award" className="w-4 h-4 text-[#c9a96e]"/> 10:00 — 19:00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p className="text-[10px] uppercase font-black text-gray-300 tracking-[0.5em]">© 2026 Yogies Emas. Integritas Tanpa Batas.</p>
+                    </footer>
+
+                    {/* Cart Drawer */}
+                    <AnimatePresence>
+                        {isCartOpen && (
+                            <div className="fixed inset-0 z-[1000] flex justify-end">
+                                <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={() => setIsCartOpen(false)} className="absolute inset-0 bg-black/50 backdrop-blur-md"/>
+                                <motion.div initial={{x:'100%'}} animate={{x:0}} exit={{x:'100%'}} className="bg-white w-full sm:w-[500px] h-full relative z-10 shadow-2xl flex flex-col">
+                                    <div className="p-8 md:p-10 bg-[#fafbfc] border-b flex justify-between items-center">
+                                        <div>
+                                            <h2 className="font-serif text-2xl uppercase tracking-widest">Pilihan Saya</h2>
+                                            <div className="flex items-center gap-4 mt-2">
+                                                <p className="text-[8px] font-bold text-[#c9a96e] uppercase tracking-widest">Premium Reservation</p>
+                                                {cart.length > 0 && <button onClick={() => setCart([])} className="text-[8px] font-black text-red-400 py-1 px-2 border border-red-50 hover:bg-red-50 rounded-lg uppercase tracking-widest">[ BERSIHKAN ]</button>}
+                                            </div>
+                                        </div>
+                                        <button onClick={() => setIsCartOpen(false)} className="p-2 hover:bg-gray-100 rounded-full"><Icon name="x" className="w-8 h-8"/></button>
+                                    </div>
+                                    <div className="flex-1 overflow-y-auto px-10 py-10 space-y-10 custom-scrollbar">
+                                        {cart.length === 0 ? (
+                                            <div className="text-center py-40 opacity-20"><Icon name="shopping-cart" className="w-20 h-20 mx-auto mb-6"/><p className="text-[10px] font-bold uppercase tracking-[0.4em]">Kosong</p></div>
+                                        ) : (
+                                            cart.map((item, idx) => (
+                                                <div key={item.cartId} className="flex justify-between items-start gap-4">
+                                                    <div className="flex-1">
+                                                        <span className="text-[7px] font-black text-[#c9a96e] uppercase mb-1 block">Item Reservasi</span>
+                                                        <h4 className="font-serif text-xl leading-tight mb-2">{item.name}</h4>
+                                                        <p className="font-bold text-lg">{formatRupiah(item.price)}</p>
+                                                    </div>
+                                                    <button onClick={() => setCart(cart.filter(c => c.cartId !== item.cartId))} className="text-[8px] font-black text-red-500/50 hover:text-red-500 uppercase tracking-widest pt-2">Hapus</button>
+                                                </div>
+                                            ))
+                                        )}
+                                    </div>
+                                    {cart.length > 0 && (
+                                        <div className="p-10 bg-gray-50 border-t">
+                                            <div className="flex justify-between items-center mb-10"><span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Total Investasi</span><span className="text-3xl font-serif font-bold text-[#c9a96e]">{formatRupiah(totalBelanja)}</span></div>
+                                            <button onClick={() => {
+                                                let msg = "Halo Yogies Emas,\nsaya tertarik dengan produk berikut:\n\n";
+                                                cart.forEach(i => msg += `• ${i.name} - ${formatRupiah(i.price)}\n`);
+                                                msg += `\nTotal: ${formatRupiah(totalBelanja)}`;
+                                                window.open(`https://wa.me/6283800889643?text=${encodeURIComponent(msg)}`, '_blank');
+                                            }} className="w-full py-6 bg-gray-900 text-white rounded-2xl text-[12px] font-bold uppercase tracking-widest hover:bg-[#c9a96e] transition-all flex items-center justify-center gap-3"><Icon name="phone"/> Beli via WhatsApp</button>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            </div>
+                        )}
+                    </AnimatePresence>
+
+                    {/* Floating Cart Button */}
+                    <div className="fixed bottom-10 right-10 z-40">
+                         <button onClick={() => setIsCartOpen(true)} className="w-20 h-20 bg-gray-900 text-white rounded-3xl shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all outline-none relative">
+                            <Icon name="shopping-cart" className="w-8 h-8"/>
+                            {cart.length > 0 && <span className="absolute -top-2 -right-2 w-8 h-8 bg-[#c9a96e] rounded-full border-4 border-white text-[11px] font-black flex items-center justify-center">{cart.length}</span>}
+                         </button>
+                    </div>
+
+                    {/* Notification Toast */}
+                    <AnimatePresence>
+                        {toast && (
+                            <motion.div initial={{opacity:0,x:50}} animate={{opacity:1,x:0}} exit={{opacity:0, scale:0.9, x:20}} className="fixed top-24 right-8 z-[2000] bg-white px-6 py-4 rounded-2xl shadow-xl border border-gray-50 flex items-center gap-4 max-w-xs pointer-events-none">
+                                <div className="w-2 h-2 rounded-full bg-[#c9a96e] animate-pulse"></div>
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-900">{toast.message}</p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    {/* Mobile Menu */}
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                             <div className="fixed inset-0 z-[1000] flex justify-end">
+                                <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={() => setIsMenuOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm"/>
+                                <motion.div initial={{x:'100%'}} animate={{x:0}} exit={{x:'100%'}} className="bg-white w-[280px] h-full relative z-10 p-10 flex flex-col">
+                                    <div className="flex justify-between items-center mb-16"><div className="font-serif text-xl font-bold uppercase tracking-widest">Yogies<span className="text-[#c9a96e]">Emas</span></div><button onClick={() => setIsMenuOpen(false)}><Icon name="x" className="w-8 h-8"/></button></div>
+                                    <div className="flex flex-col gap-12">
+                                        {['BERANDA', 'KOLEKSI', 'TENTANG', 'KONTAK'].map(l => (
+                                            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="text-[11px] font-black uppercase tracking-[0.4em] border-b border-gray-50 pb-4">{l}</a>
+                                        ))}
+                                    </div>
+                                    <div className="mt-auto opacity-40 text-[9px] italic border-l-2 border-[#c9a96e] pl-4 uppercase font-bold tracking-widest">Bandung Premium Gallery</div>
+                                </motion.div>
+                             </div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>

@@ -1,309 +1,58 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Madu Nusantara Bandung - Yogies Indonesia</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madu Nusantara Premium - Kemurnian Alam di Setiap Tetes</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            honey: '#d4a017',
+            'honey-light': '#f6d465',
+            'honey-dark': '#b88c0a',
+            'warm-bg': '#fffaf3',
+            'warm-paper': '#fffef8',
+          },
+          fontFamily: {
+            serif: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
     }
+  </script>
 
+  <style>
     body {
       background-color: #fffaf3;
-      color: #333;
-      overflow-x: hidden;
+      color: #1c1917;
+      font-family: 'Inter', sans-serif;
     }
-
-    /* ==== HERO SECTION ==== */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hero-slider .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-
-    .hero-slider .slide.active {
-      opacity: 1;
-    }
-
-    .hero-slider img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(80%);
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fffbea;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-      animation: fadeInUp 1.5s ease;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
+    
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      color: #ffda7b;
+      letter-spacing: -0.02em;
     }
 
-    .hero-text p {
-      font-size: 1.2rem;
-      margin-top: 12px;
-      color: #fffbe9;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    /* === GALERI === */
-    .gallery-section {
-      text-align: center;
-      margin: 80px 0;
-    }
-
-    .gallery-section h2 {
-      font-size: 2.4rem;
-      color: #a06b00;
-      margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .gallery-section h2::after {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background: #ffda7b;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 20px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    /* ==== KEUNIKAN MADU ==== */
-    .honey-unique {
-      background: linear-gradient(180deg, #f9e0a6 0%, #fff7e1 100%);
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    .honey-unique h2 {
-      font-size: 2.4rem;
-      color: #a06b00;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .honey-unique h2::after {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background: #ffda7b;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    .honey-unique p.desc {
-      font-size: 1.1rem;
-      color: #6d4b00;
-      max-width: 700px;
-      margin: 20px auto 60px;
-      line-height: 1.7;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background: #fffef8;
-      border-radius: 12px;
-      padding: 30px 20px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      text-align: center; /* Menambahkan ini agar isi kartu rata tengah */
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(160, 107, 0, 0.2);
-    }
-
-    .card i {
-      font-size: 2.3rem;
-      color: #d4a017;
-      margin-bottom: 15px;
-      animation: floatIcon 2.5s ease-in-out infinite;
-    }
-
-    .card h3 {
-      color: #a06b00;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #6f4e0f;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    @keyframes floatIcon {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    /* ==== INFO PRODUK ==== */
-    .info-section {
-      background: linear-gradient(135deg, #fff9e6, #f1d590);
-      padding: 90px 25px;
-      text-align: center;
-    }
-
-    .info-section h2 {
-      font-size: 2.3rem;
-      color: #8a5500;
-      margin-bottom: 20px;
-    }
-
-    .info-section p {
-      color: #5c3a00;
-      max-width: 800px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .info-list {
-      list-style: none;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-      padding: 0;
-    }
-
-    .info-list li {
-      background: #ffeec4;
-      border-left: 5px solid #d4a017;
-      margin: 12px 0;
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-size: 1rem;
-      color: #4a3100;
-      transition: all 0.3s ease;
-    }
-
-    .info-list li:hover {
-      background: #ffdf90;
-      transform: translateX(5px);
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      background: #d4a017;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #b88c0a;
-      transform: translateY(-4px);
-    }
-
-    /* ==== ANIMASI MASUK ==== */
     [data-animate] {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-animate].visible {
@@ -311,194 +60,431 @@
       transform: translateY(0);
     }
 
-    /* ==== FOOTER ==== */
-    footer {
-      background: #1c1300;
-      color: #fff6d6;
-      text-align: center;
-      padding: 20px;
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Tombol Kembali */
-    .back-home-btn {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      background: linear-gradient(135deg, #d4a017, #f6d465);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease;
-      z-index: 1000;
-      opacity: 0;
-      transform: translateY(-10px);
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(28, 25, 23, 0.6), rgba(28, 25, 23, 0.2) 50%, rgba(28, 25, 23, 0.7));
     }
 
-    .back-home-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      background: linear-gradient(135deg, #b88c0a, #e8c55f);
+    .product-card-img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .back-home-btn i {
-      font-size: 18px;
-    }
-
-    @media (max-width: 600px) {
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-      .hero-text p {
-        font-size: 1rem;
-      }
+    .product-card:hover .product-card-img {
+      transform: scale(1.1);
     }
   </style>
 </head>
-
 <body>
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slide active">
-      <img src="https://i.imgur.com/5F1gbbh.jpeg" alt="Madu Nusantara 1">
-    </div>
-    <div class="slide">
-      <img src="https://i.imgur.com/BXYF3cv.jpeg" alt="Madu Nusantara 2">
-    </div>
-    <div class="hero-text">
-      <h1>Madu Nusantara Bandung - Yogies Indonesia</h1>
-      <p>Kelezatan alami dari hutan tropis Indonesia yang murni dan bernutrisi tinggi.</p>
-    </div>
-  </section>
 
-  <!-- KEUNIKAN MADU -->
-  <section class="honey-unique" data-animate>
-    <h2>Keajaiban Madu Nusantara</h2>
-    <p class="desc">Dipanen langsung dari hutan dan ladang bunga liar Nusantara, madu kami kaya manfaat, rasa, dan tradisi.</p>
-    <div class="features">
-      <div class="card">
-        <i class="fa-solid fa-leaf"></i>
-        <h3>Alami 100%</h3>
-        <p>Tanpa tambahan bahan kimia, dijaga murni sejak dari lebah hingga botol.</p>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-stone-100 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold text-stone-800 flex items-center gap-2">
+        <div class="w-8 h-8 bg-honey rounded-lg flex items-center justify-center">
+          <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="hidden sm:inline">Madu Nusantara</span>
       </div>
-      <div class="card">
-        <i class="fa-solid fa-bolt"></i>
-        <h3>Energi Alami</h3>
-        <p>Kaya glukosa dan mineral alami untuk mendukung stamina harian.</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-heart"></i>
-        <h3>Baik untuk Tubuh</h3>
-        <p>Antioksidan alami membantu menjaga daya tahan dan kesehatan kulit.</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-mountain-sun"></i>
-        <h3>Dari Alam Nusantara</h3>
-        <p>Dikumpulkan dari lebah yang hidup bebas di pegunungan dan hutan tropis.</p>
+      <div class="flex gap-4 sm:gap-8 items-center uppercase tracking-widest text-[10px] font-bold text-stone-500">
+        <a href="#" class="hover:text-honey transition-colors">Home</a>
+        <a href="#produk" class="hover:text-honey transition-colors">Produk</a>
+        <a href="#testimoni" class="hover:text-honey transition-colors">Testimoni</a>
+        <a href="https://wa.me/6283172397127" class="bg-honey text-white px-4 py-2 rounded-full hover:bg-honey-dark transition-all shadow-md">Order</a>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- GALERI -->
-  <section class="gallery-section" data-animate>
-    <h2>Madu Super Nusantara</h2>
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/v4kwDFl.jpeg">
-        <div class="caption">650 ML</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/XI9O2u8.jpeg">
-        <div class="caption">250 ML</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/Hy0uNKa.jpeg">
-        <div class="caption">100 ML</div>
+  <!-- Hero Section -->
+  <section class="relative h-screen overflow-hidden bg-stone-900">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 hero-gradient z-10"></div>
+      <img src="https://i.imgur.com/5F1gbbh.jpeg" class="w-full h-full object-cover" alt="Hero">
+    </div>
+
+    <div class="relative z-20 h-full flex flex-col justify-center items-center text-center px-6">
+      <div class="max-w-4xl" data-animate>
+        <span class="text-honey-light uppercase tracking-[0.4em] text-[10px] md:text-xs mb-6 block font-extrabold drop-shadow-md">Kemurnian Alam di Setiap Tetes</span>
+        <h1 class="text-5xl md:text-8xl text-white mb-8 leading-[1.1] drop-shadow-2xl">
+          Madu Nusantara <br class="hidden md:block"> <span class="text-honey-light">Premium</span>
+        </h1>
+        <p class="text-stone-100 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md opacity-90">
+          Menghadirkan kelezatan alami dari hutan tropis Indonesia yang murni, dipanen dengan tradisi dan pengawasan kualitas tinggi.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#produk" class="inline-flex items-center gap-2 bg-honey hover:bg-honey-dark text-white px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-honey/20">
+            Lihat Katalog <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://wa.me/6283172397127" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold transition-all hover:bg-white/20">
+            Pesan Sekarang
+          </a>
+        </div>
       </div>
     </div>
-    <h2>Madu Murni Nusantara</h2>
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/JIznFEv.jpeg">
-        <div class="caption">650 ML</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/JUHK3ca.jpeg">
-        <div class="caption">250 ML</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/Dg4kZGg.jpeg">
-        <div class="caption">100 ML</div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-50">
+      <div class="flex flex-col items-center gap-2">
+        <span class="text-[9px] text-white uppercase tracking-[0.3em]">Scroll</span>
+        <div class="w-px h-10 bg-gradient-to-b from-white to-transparent"></div>
       </div>
     </div>
   </section>
 
-  <!-- INFO PRODUK -->
-  <section class="info-section" data-animate>
-    <h2>Kenapa Pilih Madu Ini?</h2>
-    <p>Madu Nusantara adalah perpaduan cita rasa manis alami, aroma lembut bunga liar, dan manfaat kesehatan yang luar biasa.</p>
-    <ul class="info-list">
-      <li><b>Murni Tanpa Campuran</b> – Tidak melalui proses pemanasan yang merusak enzim alami madu.</li>
-      <li><b>Rasa Khas</b> – Setiap tetes membawa keunikan rasa bunga Nusantara yang kaya dan berlapis.</li>
-      <li><b>Kemasan Premium</b> – Botol kaca elegan menjaga kualitas dan tampil menawan di meja Anda.</li>
-      <li><b>Multi-Manfaat</b> – Baik untuk kesehatan, kecantikan, dan stamina alami keluarga.</li>
-    </ul>
-    <a href="https://wa.me/6283800889643" class="btn">Pesan Sekarang</a>
+  <!-- Features -->
+  <section class="py-24 px-6 bg-warm-paper">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <h2 class="text-4xl md:text-5xl text-stone-800 mb-4">Keajaiban Madu Nusantara</h2>
+        <div class="h-1 w-20 bg-honey mx-auto mb-6"></div>
+        <p class="text-stone-600 max-w-2xl mx-auto">
+          Dipanen langsung dari hutan dan ladang bunga liar Nusantara, madu kami kaya manfaat, rasa, dan tradisi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all text-center" data-animate>
+          <div class="w-14 h-14 bg-honey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="leaf" class="w-7 h-7 text-honey"></i>
+          </div>
+          <h3 class="text-xl text-stone-800 mb-3">Alami 100%</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Tanpa tambahan bahan kimia, dijaga murni sejak dari lebah hingga ke botol.</p>
+        </div>
+        <div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all text-center" data-animate>
+          <div class="w-14 h-14 bg-honey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="zap" class="w-7 h-7 text-honey"></i>
+          </div>
+          <h3 class="text-xl text-stone-800 mb-3">Energi Alami</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Kaya glukosa dan mineral alami untuk mendukung stamina harian Anda.</p>
+        </div>
+        <div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all text-center" data-animate>
+          <div class="w-14 h-14 bg-honey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="heart" class="w-7 h-7 text-honey"></i>
+          </div>
+          <h3 class="text-xl text-stone-800 mb-3">Baik untuk Tubuh</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Antioksidan alami membantu menjaga daya tahan tubuh secara optimal.</p>
+        </div>
+        <div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all text-center" data-animate>
+          <div class="w-14 h-14 bg-honey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="mountain" class="w-7 h-7 text-honey"></i>
+          </div>
+          <h3 class="text-xl text-stone-800 mb-3">Alam Nusantara</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Dikumpulkan dari lebah yang hidup bebas di pegunungan dan hutan tropis.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> Madu Nusantara Premium | Dikelola oleh CV. Yogies</p>
+  <!-- Products Gallery -->
+  <section id="produk" class="py-24 px-6 bg-warm-bg">
+    <div class="max-w-6xl mx-auto">
+      <!-- Madu Super -->
+      <div class="mb-24">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" data-animate>
+          <div>
+            <span class="text-honey font-bold tracking-widest text-xs uppercase block mb-2">Koleksi Utama</span>
+            <h2 class="text-4xl text-stone-800">Madu Super Nusantara</h2>
+          </div>
+          <p class="text-stone-500 max-w-sm">Kualitas grade tertinggi dengan konsentrasi nutrisi dan mineral paling optimal.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/v4kwDFl.jpeg" class="w-full h-full object-cover product-card-img" alt="650ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">650 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/XI9O2u8.jpeg" class="w-full h-full object-cover product-card-img" alt="250ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">250 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/Hy0uNKa.jpeg" class="w-full h-full object-cover product-card-img" alt="100ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">100 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Madu Murni -->
+      <div>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" data-animate>
+          <div>
+            <span class="text-honey font-bold tracking-widest text-xs uppercase block mb-2">Pilihan Klasik</span>
+            <h2 class="text-4xl text-stone-800">Madu Murni Nusantara</h2>
+          </div>
+          <p class="text-stone-500 max-w-sm">Kemurnian asli dari nektar bunga liar alam Indonesia tanpa pemrosesan berlebih.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/JIznFEv.jpeg" class="w-full h-full object-cover product-card-img" alt="650ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">650 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/JUHK3ca.jpeg" class="w-full h-full object-cover product-card-img" alt="250ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">250 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group product-card" data-animate>
+            <div class="relative aspect-square overflow-hidden rounded-[2.5rem] bg-white border border-stone-100 shadow-sm group-hover:shadow-2xl transition-all">
+              <img src="https://i.imgur.com/Dg4kZGg.jpeg" class="w-full h-full object-cover product-card-img" alt="100ml">
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl flex items-center justify-between shadow-lg">
+                  <span class="text-lg text-stone-800">100 ML</span>
+                  <div class="w-8 h-8 bg-honey rounded-full flex items-center justify-center text-white"><i data-lucide="package" class="w-4 h-4"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="py-24 px-6 bg-white overflow-hidden relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <span class="text-honey font-bold tracking-widest text-xs uppercase block mb-2">Panduan Produk</span>
+        <h2 class="text-4xl md:text-5xl text-stone-800 mb-6">Madu Murni vs Madu Super</h2>
+        <div class="h-1 w-20 bg-honey mx-auto mb-8"></div>
+        <p class="text-stone-500 max-w-2xl mx-auto">Pahami karakteristik untuk memilih yang paling sesuai kebutuhan Anda.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-0 border border-stone-100 rounded-[3rem] overflow-hidden shadow-2xl" data-animate>
+        <div class="p-10 md:p-16 bg-warm-paper lg:border-r border-stone-100">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center text-stone-600"><i data-lucide="leaf"></i></div>
+            <h3 class="text-2xl text-stone-800">Madu Murni Nusantara</h3>
+          </div>
+          <p class="text-stone-600 mb-8 leading-relaxed">Asli dari nektar bunga liar yang diproses secara minimal untuk menjaga keutuhan rasa bunga yang lembut.</p>
+          <div class="space-y-6 text-sm text-stone-600">
+            <h4 class="text-honey font-bold uppercase tracking-wider flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Kelebihan</h4>
+            <ul class="space-y-3 prose italic">
+              <li>• Rasa lebih ringan dan manis klasik.</li>
+              <li>• Cocok untuk pemanis alami harian.</li>
+              <li>• Lebih ekonomis dengan kualitas terjamin.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="p-10 md:p-16 bg-honey/5 border-t lg:border-t-0 border-honey/10">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-honey/20 rounded-full flex items-center justify-center text-honey"><i data-lucide="zap"></i></div>
+            <h3 class="text-2xl text-stone-800">Madu Super Nusantara</h3>
+          </div>
+          <p class="text-stone-600 mb-8 leading-relaxed">Kaya akan Bee Pollen dan Royal Jelly, menghasilkan konsentrasi nutrisi yang jauh lebih padat.</p>
+          <div class="space-y-6 text-sm text-stone-600">
+            <h4 class="text-honey font-bold uppercase tracking-wider flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Kelebihan</h4>
+            <ul class="space-y-3 prose italic">
+              <li>• Padat nutrisi untuk pemulihan stamina.</li>
+              <li>• Enzim aktif lebih tinggi untuk metabolisme.</li>
+              <li>• Tekstur pekat dan aroma yang kuat.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace -->
+  <section class="py-20 px-6 bg-warm-bg">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="text-3xl text-stone-800 mb-2">Bisa Dipesan Melalui</h2>
+        <p class="text-stone-500">Belanja di marketplace favorit Anda.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6" data-animate>
+        <a href="#" class="flex items-center gap-3 bg-white px-8 py-4 rounded-2xl border border-stone-100 shadow-sm hover:-translate-y-1 transition-all">
+          <div class="w-10 h-10 bg-[#ee4d2d] rounded-full flex items-center justify-center text-white"><i data-lucide="shopping-bag" class="w-5 h-5"></i></div>
+          <div><div class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">Shopee</div><div class="text-lg font-bold text-[#ee4d2d]">Official Store</div></div>
+        </a>
+        <a href="#" class="flex items-center gap-3 bg-white px-8 py-4 rounded-2xl border border-stone-100 shadow-sm hover:-translate-y-1 transition-all">
+          <div class="w-10 h-10 bg-[#42b549] rounded-full flex items-center justify-center text-white"><i data-lucide="shopping-bag" class="w-5 h-5"></i></div>
+          <div><div class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">Tokopedia</div><div class="text-lg font-bold text-[#42b549]">Official Store</div></div>
+        </a>
+        <a href="#" class="flex items-center gap-3 bg-white px-8 py-4 rounded-2xl border border-stone-100 shadow-sm hover:-translate-y-1 transition-all">
+          <div class="w-10 h-10 bg-[#0821ec] rounded-full flex items-center justify-center text-white"><i data-lucide="shopping-bag" class="w-5 h-5"></i></div>
+          <div><div class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">Lazada</div><div class="text-lg font-bold text-[#0821ec]">Official Store</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimoni" class="py-24 px-6 bg-warm-paper">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-animate>
+        <i data-lucide="message-square" class="w-10 h-10 text-honey/30 mx-auto mb-4"></i>
+        <h2 class="text-4xl md:text-5xl text-stone-800 mb-4">Suara Mereka yang Percaya</h2>
+        <p class="text-stone-500">Ribuan keluarga telah membuktikan sendiri kemurnian Madu Nusantara.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm relative" data-animate>
+          <div class="text-honey flex gap-1 mb-4 text-xs">★★★★★</div>
+          <p class="text-stone-600 italic mb-6">"Madu Supernya beneran kerasa bedanya. Badan jadi nggak gampang capek dan anak-anak juga suka rasanya yang pas."</p>
+          <div>
+            <div class="font-bold text-stone-800">Siska Amelia</div>
+            <div class="text-xs text-stone-400 font-medium">Ibu Rumah Tangga</div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm relative" data-animate>
+          <div class="text-honey flex gap-1 mb-4 text-xs">★★★★★</div>
+          <p class="text-stone-600 italic mb-6">"Selalu stok yang Super untuk stamina sebelum gowes. Kemasannya juga aman banget, botol kacanya tebal dan premium."</p>
+          <div>
+            <div class="font-bold text-stone-800">Budi Santoso</div>
+            <div class="text-xs text-stone-400 font-medium">Pegiat Olahraga</div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm relative" data-animate>
+          <div class="text-honey flex gap-1 mb-4 text-xs">★★★★★</div>
+          <p class="text-stone-600 italic mb-6">"Kemurnian madu ini sangat terjaga. Cocok sebagai pengganti gula pasir untuk gaya hidup sehat keluarga saya."</p>
+          <div>
+            <div class="font-bold text-stone-800">Dr. Linda</div>
+            <div class="text-xs text-stone-400 font-medium">Praktisi Kesehatan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 px-6 bg-white border-t border-stone-100">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-4 mb-12 justify-center" data-animate>
+        <i data-lucide="help-circle" class="w-8 h-8 text-honey"></i>
+        <h2 class="text-3xl md:text-4xl text-stone-800">Pertanyaan Umum</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="p-6 rounded-2xl bg-warm-bg border border-stone-100" data-animate>
+          <h4 class="text-lg font-bold text-stone-800 mb-3">Apakah madu ini benar-benar 100% murni?</h4>
+          <p class="text-stone-600 text-sm leading-relaxed">Ya, kami menjamin madu kami murni tanpa tambahan gula, air, atau zat kimia lainnya. Dipanen langsung dari hutan tanpa proses ekstraksi panas yang merusak enzim.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-warm-bg border border-stone-100" data-animate>
+          <h4 class="text-lg font-bold text-stone-800 mb-3">Bagaimana cara penyimpanan yang terbaik?</h4>
+          <p class="text-stone-600 text-sm leading-relaxed">Cukup simpan di suhu ruangan dan hindari paparan sinar matahari langsung. Tidak perlu dimasukkan ke kulkas agar tekstur alaminya tetap terjaga.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-warm-bg border border-stone-100" data-animate>
+          <h4 class="text-lg font-bold text-stone-800 mb-3">Apakah aman dikirim ke luar kota?</h4>
+          <p class="text-stone-600 text-sm leading-relaxed">Sangat aman. Kami menggunakan proteksi ekstra (bubble wrap tebal) untuk memastikan botol kaca sampai di tangan Anda tanpa retak sedikitpun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Copywriting Section -->
+  <section class="py-24 px-6 bg-warm-paper border-t border-stone-100">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl text-stone-800 mb-8" data-animate>Kesehatan Sejati dari Alam</h2>
+      <div class="space-y-6 text-stone-600 text-lg leading-relaxed max-w-3xl mx-auto mb-16" data-animate>
+        <p>Madu Nusantara Premium bukanlah sekadar produk, melainkan komitmen kami untuk menghadirkan kemurnian hutan Indonesia langsung ke meja Anda. Tanpa pemrosesan berlebih, setiap tetesnya mengandung enzim aktif dan mineral yang dibutuhkan tubuh.</p>
+        <p>Kami menjalin kemitraan erat dengan para peternak lokal yang memahami ritme alam, memastikan madu dipanen hanya saat mencapai kematangan sempurna demi menjaga standar kualitas yang tak tertandingi.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-y border-stone-200 mb-16" data-animate>
+        <div>
+          <div class="text-honey font-bold text-3xl mb-2">100%</div>
+          <div class="text-stone-400 uppercase tracking-widest text-[10px] font-bold">Murni Alam</div>
+        </div>
+        <div>
+          <div class="text-honey font-bold text-3xl mb-2">Higienis</div>
+          <div class="text-stone-400 uppercase tracking-widest text-[10px] font-bold">Proses Steril</div>
+        </div>
+        <div>
+          <div class="text-honey font-bold text-3xl mb-2">Premium</div>
+          <div class="text-stone-400 uppercase tracking-widest text-[10px] font-bold">Kualitas Ekspor</div>
+        </div>
+      </div>
+
+      <div class="bg-honey p-10 md:p-16 rounded-[4rem] text-white shadow-2xl shadow-honey/20" data-animate>
+        <h3 class="text-3xl md:text-4xl mb-6">Investasikan Kesehatan Anda Hari Ini</h3>
+        <p class="text-white/80 mb-10 max-w-xl mx-auto">Berikan yang terbaik untuk daya tahan tubuh keluarga. Madu Nusantara Premium adalah sahabat setia dalam menjaga stamina dan kebugaran setiap hari.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/6283172397127" class="bg-white text-stone-900 px-10 py-5 rounded-full font-bold hover:bg-stone-50 transition-all flex items-center justify-center gap-2">
+            Pesan Lewat WhatsApp <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#produk" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-full font-bold hover:bg-white/20 transition-all">
+            Lihat Katalog
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-white border-t border-stone-100">
+    <div class="max-w-6xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
+      <div>
+        <h3 class="text-2xl text-stone-800 mb-2">Madu Nusantara Premium</h3>
+        <p class="text-stone-500 text-sm italic">Warisan kemurnian dari alam Indonesia.</p>
+      </div>
+      <div class="flex gap-6 uppercase tracking-widest text-[10px] font-bold text-stone-400">
+        <a href="#" class="hover:text-honey transition-colors">Home</a>
+        <a href="#produk" class="hover:text-honey transition-colors">Produk</a>
+        <a href="https://wa.me/6283172397127" class="hover:text-honey transition-colors">Kontak</a>
+      </div>
+      <div class="text-stone-400 text-xs font-medium">© <span id="year"></span> Dikelola oleh CV. Yogies</div>
+    </div>
   </footer>
 
-  <!-- Tombol Kembali -->
-  <a href="../index.html" class="back-home-btn">
-    <i class="fas fa-arrow-left"></i> Kembali
-  </a>
-
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Initialize Icons
+    lucide.createIcons();
 
-    // Slider
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
-    setInterval(() => {
-      slides.forEach(slide => slide.classList.remove("active"));
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }, 5000);
+    // Set Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Scroll animation (muncul saat elemen masuk viewport dari bawah atau atas, dan hilang saat keluar)
-    const animElements = document.querySelectorAll("[data-animate]");
-    const onScroll = () => {
-      animElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        // Jika elemen di dalam viewport (dengan margin 100px), tambahkan kelas visible
-        if (rect.top < windowHeight - 100 && rect.bottom > 100) {
-          el.classList.add("visible");
-        } else {
-          // Jika keluar viewport, hapus kelas visible
-          el.classList.remove("visible");
+    // Reveal Animations on Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    };
-    window.addEventListener("scroll", onScroll);
-    onScroll(); // Jalankan sekali saat load
+    }, { threshold: 0.1 });
 
-    // Back button muncul animasi
-    window.addEventListener('load', () => {
-      const backBtn = document.querySelector('.back-home-btn');
-      setTimeout(() => {
-        backBtn.style.transition = 'all 0.8s ease';
-        backBtn.style.opacity = '1';
-        backBtn.style.transform = 'translateY(0)';
-      }, 600);
-    });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

@@ -1,322 +1,517 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Yogies - Kerupuk Telur Asin Bandung</title>
+    <meta name="title" content="Yogies - Kerupuk Telur Asin Bandung" />
+    <meta name="description" content="Nikmati sensasi kerenyahan premium Kerupuk Telur Asin Yogies. Gurih, higienis, dan tanpa pengawet. Oleh-oleh khas Bandung terbaik." />
 
-<!-- Hubungkan CSS di sini -->
-  <link rel="stylesheet" href="../style.css">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yogies-bandung.com/" />
+    <meta property="og:title" content="Yogies - Kerupuk Telur Asin Bandung" />
+    <meta property="og:description" content="Nikmati sensasi kerenyahan premium Kerupuk Telur Asin Yogies. Gurih, higienis, dan tanpa pengawet. Oleh-oleh khas Bandung terbaik." />
+    <meta property="og:image" content="https://i.imgur.com/9za6WOp.png" />
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yogies - Kerupuk Telur Asin</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yogies-bandung.com/" />
+    <meta property="twitter:title" content="Yogies - Kerupuk Telur Asin Bandung" />
+    <meta property="twitter:description" content="Nikmati sensasi kerenyahan premium Kerupuk Telur Asin Yogies. Gurih, higienis, dan tanpa pengawet. Oleh-oleh khas Bandung terbaik." />
+    <meta property="twitter:image" content="https://i.imgur.com/9za6WOp.png" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cream: '#FEF9F2',
+                            yellow: '#FFC107',
+                            gold: '#B8860B',
+                            paper: '#FDFBF7',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    body {
-      background-color: #fffdf5;
-      color: #333;
-      padding: 40px 20px;
-    }
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      color: #b87b00;
-    }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 22px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/9za6WOp.png" alt="1" />
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/yh5j1xy.png" alt="2" />
-      </div>
-    </div>
-    <div class="hero-text">
-      <h1>Yogies Kerupuk Telur Asin</h1>
-      <p>Renyah Gurihnya Bikin Ketagihan!</p>
-    </div>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-      .hero-text {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #fff;
-        background: rgba(0, 0, 0, 0.4);
-        padding: 20px 40px;
-        border-radius: 12px;
-      }
-      .hero-text h1 {
-        font-size: 2.2rem;
-        color: #ffde59;
-      }
-      .hero-text p {
-        font-size: 1.1rem;
-      }
+        [x-cloak] { display: none !important; }
+        .nav-blur { backdrop-filter: blur(8px); }
+        .aspect-square { aspect-ratio: 1 / 1; }
     </style>
-  </section>
+</head>
+<body class="font-sans text-slate-900 bg-brand-cream">
 
-  <!-- INFO PRODUK -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Kenapa Memilih Kerupuk Telur Asin Yogies?</h2>
-      <p>
-        Kerupuk Telur Asin <b>Yogies</b> dibuat dari bahan pilihan dengan cita rasa gurih khas telur asin.
-        Cocok dinikmati kapan saja — saat santai, kumpul keluarga, atau sebagai camilan teman makan.
-      </p>
+    <!-- Navbar -->
+    <nav x-data="{ open: false }" class="fixed w-full z-50 bg-brand-cream/80 nav-blur border-b border-brand-yellow/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="font-display text-2xl font-extrabold tracking-tighter text-brand-gold">
+                        YOGIES
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#produk" class="text-sm font-medium hover:text-brand-gold transition-colors">Produk</a>
+                    <a href="#tentang" class="text-sm font-medium hover:text-brand-gold transition-colors">Tentang Kami</a>
+                    <a href="#galeri" class="text-sm font-medium hover:text-brand-gold transition-colors">Galeri</a>
+                    <a href="https://wa.me/6283800889643" class="px-5 py-2.5 bg-brand-yellow hover:bg-brand-gold text-white rounded-full text-sm font-bold flex items-center space-x-2 transition-all hover:scale-105 active:scale-95 shadow-md shadow-brand-yellow/20">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Pesan WhatsApp</span>
+                    </a>
+                </div>
 
-      <ul class="program-list">
-        <li>1. <b>Rasa Gurih Khas</b> – Perpaduan sempurna antara gurihnya telur asin dan renyahnya kerupuk.</li>
-        <li>2. <b>Digoreng dengan Minyak Bersih</b> – Menjamin rasa lezat dan tekstur renyah setiap gigitan.</li>
-        <li>3. <b>Tanpa Pengawet</b> – Aman dikonsumsi oleh semua usia.</li>
-        <li>4. <b>Kemasan Higienis</b> – Dikemas rapat agar tetap renyah lebih lama.</li>
-        <li>5. <b>Produk Lokal Bandung</b> – Dibuat oleh CV. YOGIES dengan cinta dan kualitas tinggi.</li>
-      </ul>
+                <div class="md:hidden flex items-center">
+                    <button @click="open = !open" class="p-2 text-slate-600">
+                        <i x-show="!open" data-lucide="menu"></i>
+                        <i x-show="open" data-lucide="x" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-      <p>
-        Nikmati sensasi renyah dan gurih alami dari <b>Yogies Kerupuk Telur Asin</b> — oleh-oleh khas yang pasti disukai semua orang!
-      </p>
+        <!-- Mobile Menu -->
+        <div x-show="open" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-brand-cream border-b border-brand-yellow/20" x-cloak>
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#produk" @click="open = false" class="block px-3 py-4 text-base font-medium border-b border-brand-yellow/10">Produk</a>
+                <a href="#tentang" @click="open = false" class="block px-3 py-4 text-base font-medium border-b border-brand-yellow/10">Tentang Kami</a>
+                <a href="#galeri" @click="open = false" class="block px-3 py-4 text-base font-medium border-b border-brand-yellow/10">Galeri</a>
+                <a href="https://wa.me/6283800889643" class="mt-4 w-full px-5 py-4 bg-brand-yellow text-white rounded-xl text-center font-bold flex items-center justify-center space-x-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>Pesan WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-      <br>
-      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
-    </div>
-  </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-cream">
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-brand-yellow/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-brand-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-  <style>
-    .info-section {
-      background: linear-gradient(135deg, #fff7d1 0%, #fffbe9 100%);
-      padding: 80px 20px;
-      text-align: center;
-      color: #222;
-    }
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 bg-white/50 backdrop-blur-sm border border-brand-yellow/30 px-3 py-1 rounded-full w-fit mb-6">
+                            <i data-lucide="star" class="w-4 h-4 text-brand-yellow fill-brand-yellow"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-gold">Oleh-oleh Khas Bandung Premium</span>
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-8 text-slate-900">
+                            Sensasi <span class="text-amber-700 underline underline-offset-8 decoration-brand-yellow/50">Kemewahan</span> Telur Asin dalam Setiap Gigitan.
+                        </h1>
+                        <p class="text-lg text-slate-600 mb-10 leading-relaxed max-w-xl">
+                            Yogies menghadirkan perpaduan sempurna antara gurihnya telur asin asli dan renyahnya kerupuk pilihan. Dibuat dengan resep tradisional Bandung untuk menemani momen spesial Anda.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/6283800889643" class="group px-8 py-4 bg-brand-yellow hover:bg-brand-gold text-white rounded-2xl font-bold flex items-center justify-center space-x-3 transition-all hover:shadow-2xl hover:shadow-brand-yellow/40">
+                                <span>Pesan Sekarang</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#produk" class="px-8 py-4 bg-white border border-slate-200 hover:border-brand-gold text-slate-700 rounded-2xl font-bold flex items-center justify-center transition-all">
+                                Lihat Varian
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl skew-y-1 hover:skew-y-0 transition-transform duration-700">
+                            <img src="https://i.imgur.com/9za6WOp.png" alt="Yogies Kerupuk Telur Asin" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000" />
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 z-20 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden sm:block">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase font-bold">Kualitas</p>
+                                    <p class="font-bold text-slate-800">100% Bahan Alami</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    .info-text {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+        <!-- Marketplaces -->
+        <section class="py-12 bg-white border-y border-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="shrink-0 text-center lg:text-left">
+                        <p class="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Tersedia di</p>
+                        <h3 class="text-2xl font-extrabold text-slate-800">E-Commerce Favorit Anda</h3>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
+                        <a href="#" class="flex items-center justify-center space-x-3 p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:scale-105 transition-all">
+                            <div class="w-8 h-8 bg-[#EE4D2D] rounded-lg flex items-center justify-center text-white"><i data-lucide="store" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-slate-700">Shopee</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-center space-x-3 p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:scale-105 transition-all">
+                            <div class="w-8 h-8 bg-[#03AC0E] rounded-lg flex items-center justify-center text-white"><i data-lucide="store" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-slate-700">Tokopedia</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-center space-x-3 p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:scale-105 transition-all hover:border-slate-800">
+                            <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white"><i data-lucide="store" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-slate-700">TikTok Shop</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-center space-x-3 p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:scale-105 transition-all">
+                            <div class="w-8 h-8 bg-[#000083] rounded-lg flex items-center justify-center text-white"><i data-lucide="store" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-slate-700">Lazada</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    .info-text h2 {
-      font-size: 2.2rem;
-      color: #c79a00;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+        <!-- Values Section -->
+        <section id="tentang" class="py-24 bg-brand-paper relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
+                <h2 class="text-4xl font-extrabold mb-6">Mengapa Memilih Yogies?</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Kami bukan sekadar kerupuk biasa. Ada warisan cita rasa dan standar kualitas tinggi di setiap kepingnya.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group p-10 bg-white rounded-[2rem] border border-slate-100 hover:border-brand-yellow/50 transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-gold"><i data-lucide="zap"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Rasa Gurih Khas</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Perpaduan sempurna antara gurihnya telur asin asli dan tekstur kerupuk yang super renyah.</p>
+                </div>
+                <div class="group p-10 bg-white rounded-[2rem] border border-slate-100 hover:border-brand-yellow/50 transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-gold"><i data-lucide="shield-check"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Minyak Bersih & Higienis</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Proses penggorengan menggunakan minyak berkualitas tinggi untuk menjamin kesehatan Anda.</p>
+                </div>
+                <div class="group p-10 bg-white rounded-[2rem] border border-slate-100 hover:border-brand-yellow/50 transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-gold"><i data-lucide="leaf"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Bebas Pengawet</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Kami mengutamakan kesegaran bahan alami tanpa tambahan zat pengawet kimia berbahaya.</p>
+                </div>
+                <div class="group p-10 bg-white rounded-[2rem] border border-slate-100 hover:border-brand-yellow/50 transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-gold"><i data-lucide="heart"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Dikemas dengan Cinta</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Setiap kemasan diproses rapat secara higienis agar kerenyahan tetap terjaga hingga ke tangan Anda.</p>
+                </div>
+                <div class="group p-10 bg-white rounded-[2rem] border border-slate-100 hover:border-brand-yellow/50 transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-brand-yellow/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-gold"><i data-lucide="map-pin"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Asli Produk Bandung</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Kebanggaan lokal dari Yogies Bandung yang berkomitmen menghadirkan kualitas terbaik.</p>
+                </div>
+                <div class="p-10 bg-brand-yellow rounded-[2rem] flex flex-col justify-center items-center text-center text-white">
+                    <i data-lucide="heart" class="w-12 h-12 mb-6 animate-pulse"></i>
+                    <h3 class="text-2xl font-bold mb-4">Cita Rasa Keluarga</h3>
+                    <p class="text-white/80 text-sm mb-6">Nikmati kehangatan berkumpul bersama kerupuk telur asin terbaik.</p>
+                    <button class="px-6 py-2 bg-white text-brand-gold rounded-full font-bold text-xs uppercase">Pelajari Lebih</button>
+                </div>
+            </div>
+        </section>
 
-    .program-list {
-      list-style: none;
-      padding: 0;
-      margin: 30px 0;
-      text-align: left;
-    }
+        <!-- Products Detail Section -->
+        <section id="produk" class="py-24 overflow-hidden bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-8 leading-tight text-slate-900">
+                        Apa Itu <span class="text-brand-gold">Kerupuk Telur Asin</span> Yogies?
+                    </h2>
+                    <div class="space-y-6 text-slate-600 leading-relaxed italic">
+                        <p>Bukan sekadar kerupuk biasa dengan rasa sintetis. Kerupuk Telur Asin Yogies adalah inovasi kuliner khas Bandung yang memadukan teknik pembuatan kerupuk tradisional dengan kemewahan rasa telur asin asli yang melimpah.</p>
+                        <p>Setiap kepingnya dirancang untuk memberikan ledakan rasa gurih dan sedikit "masir" (tekstur khas telur asin) yang melekat sempurna di atas kerupuk yang super renyah. Kami menggunakan telur asin pilihan yang diproses secara khusus untuk mempertahankan aroma dan cita rasa autentiknya.</p>
+                    </div>
+                    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                        <div class="p-6 bg-brand-paper rounded-2xl border border-brand-yellow/20">
+                            <i data-lucide="utensils" class="w-8 h-8 text-brand-gold mb-4"></i>
+                            <h4 class="font-bold mb-2">Proses Pengecoran Rasa</h4>
+                            <p class="text-xs text-slate-500">Telur asin asli dileburkan ke dalam adonan, bukan sekadar taburan bubuk perasa.</p>
+                        </div>
+                        <div class="p-6 bg-brand-paper rounded-2xl border border-brand-yellow/20">
+                            <i data-lucide="zap" class="w-8 h-8 text-brand-gold mb-4"></i>
+                            <h4 class="font-bold mb-2">Double Crunch</h4>
+                            <p class="text-xs text-slate-500">Teknik penggorengan khusus yang menjamin kerenyahan maksimal namun ringan di mulut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative">
+                    <div class="aspect-square relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                        <img src="https://i.imgur.com/JxmVMNq.jpeg" alt="Yogies Detail" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-brand-gold/10 mix-blend-overlay"></div>
+                    </div>
+                    <div class="absolute bottom-10 right-10 z-20 bg-white p-4 rounded-2xl shadow-xl flex items-center space-x-3 border border-slate-100">
+                        <div class="w-10 h-10 bg-brand-yellow rounded-full flex items-center justify-center text-white"><i data-lucide="star" class="w-5 h-5 fill-current"></i></div>
+                        <div>
+                            <p class="text-[10px] uppercase font-black text-slate-400">Authentic</p>
+                            <p class="font-bold text-sm">Resep Turun Temurun</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    .program-list li {
-      background: #fffbea;
-      border-left: 4px solid #ffcc33;
-      padding: 12px 16px;
-      margin: 8px 0;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
+        <!-- Gallery -->
+        <section id="galeri" class="py-24 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Galeri Yogies</h2>
+                <p class="text-slate-500">Melihat lebih dekat proses dan dedikasi di balik kerenyahan Yogies.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group relative aspect-square rounded-[2rem] overflow-hidden shadow-lg border border-slate-100">
+                    <img src="https://i.imgur.com/VWLAMlj.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                        <h4 class="text-white font-bold text-xl mb-2">Proses Produksi</h4>
+                        <p class="text-white/70 text-sm">Bahan mentah pilihan berkualitas tinggi.</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-square rounded-[2rem] overflow-hidden shadow-lg border border-slate-100">
+                    <img src="https://i.imgur.com/gWQIKhn.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                        <h4 class="text-white font-bold text-xl mb-2">Kebersihan Terjamin</h4>
+                        <p class="text-white/70 text-sm">Diproses dalam lingkungan yang higienis.</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-square rounded-[2rem] overflow-hidden shadow-lg border border-slate-100">
+                    <img src="https://i.imgur.com/JxmVMNq.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                        <h4 class="text-white font-bold text-xl mb-2">Siap Dinikmati</h4>
+                        <p class="text-white/70 text-sm">Produk jadi yang siap menemani hari Anda.</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-square rounded-[2rem] overflow-hidden shadow-lg border border-slate-100">
+                    <img src="https://i.imgur.com/yh5j1xy.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-end">
+                        <h4 class="text-white font-bold text-xl mb-2">Packaging Premium</h4>
+                        <p class="text-white/70 text-sm">Kemasan eksklusif yang menjaga kualitas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    .btn.primary {
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: #f5b800;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+        <!-- Brand Story -->
+        <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow rounded-full blur-[120px]"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-gold rounded-full blur-[120px]"></div>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <i data-lucide="quote" class="w-12 h-12 text-brand-yellow mx-auto mb-8 opacity-50"></i>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-10 leading-tight text-white">
+                    Kemewahan Rasa <br />
+                    <span class="text-brand-yellow">Telur Asin Asli</span> dalam Balutan Kerenyahan.
+                </h2>
+                <div class="space-y-6 text-slate-300 text-lg leading-relaxed text-left md:text-center">
+                    <p>Berawal dari keinginan untuk menghadirkan camilan yang benar-benar berkualitas tinggi, Yogies mengabdikan diri untuk mengeksplorasi perpaduan bahan-bahan terbaik. Kami percaya bahwa setiap gigitan kerupuk harus menceritakan sebuah kisah kejujuran bahan dan ketulusan proses.</p>
+                    <p>Di workshop kami di kawasan Regol, Bandung, kami menjaga setiap detail. Mulai dari pemilihan telur asin yang memiliki tingkat kemasiran yang tepat, hingga penggunaan bumbu rahasia yang telah kami sempurnakan selama bertahun-tahun. Inilah yang menjadikan Yogies bukan hanya favorit warga lokal, tapi juga pilihan utama untuk buah tangan bagi siapa saja yang berkunjung ke Kota Kembang.</p>
+                    <p class="font-bold text-white text-xl pt-4">"Kerenyahan yang Tak Pernah Berbohong."</p>
+                </div>
+                <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <span class="text-4xl font-black text-brand-yellow mb-2">100%</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-slate-400">Bahan Alami</span>
+                    </div>
+                    <div class="hidden sm:block w-px h-12 bg-slate-800"></div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-4xl font-black text-brand-yellow mb-2">HALAL</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-slate-400">Bersertifikasi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    .btn.primary:hover {
-      background-color: #e0a400;
-      transform: translateY(-2px);
-    }
-  </style>
+        <!-- Testimonials -->
+        <section class="py-24 bg-brand-cream relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Apa Kata Mereka?</h2>
+                <p class="text-slate-500">Ribuan orang sudah merasakan keajaiban rasa Yogies.</p>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="flex space-x-1 mb-4 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"Beneran renyah banget! Rasa telur asinnya kerasa premium, bukan cuma bubuk tabur biasa. Nagih parah!"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-gold font-bold">R</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm">Rina S.</h4><p class="text-slate-400 text-xs">Bandung</p></div>
+                    </div>
+                </div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="flex space-x-1 mb-4 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"Oleh-oleh wajib kalau lagi ke Bandung. Packagingnya rapi, sampai di Jakarta masih utuh nggak hancur."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-gold font-bold">A</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm">Andi Wijaya</h4><p class="text-slate-400 text-xs">Jakarta</p></div>
+                    </div>
+                </div>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+                    <div class="flex space-x-1 mb-4 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 italic mb-6 leading-relaxed">"Pas banget buat temen makan nasi anget. Gurihnya pas, nggak bikin seret di tenggorokan."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center text-brand-gold font-bold">S</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm">Siska Amelia</h4><p class="text-slate-400 text-xs">Surabaya</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- GALERI -->
-  <h2>Galeri Produk</h2>
-  <div class="gallery-container">
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/VWLAMlj.jpeg" alt="1">
-      <div class="caption">Kerupuk Mentah</div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/gWQIKhn.jpeg" alt="2">
-      <div class="caption">Pengemasan Higienis</div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/JxmVMNq.jpeg" alt="3">
-      <div class="caption">Kerupuk Telur Asin Siap Jual</div>
-    </div>
-  </div>
+        <!-- FAQ -->
+        <section class="py-24 bg-white" x-data="{ active: null }">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Pertanyaan Umum</h2>
+                <p class="text-slate-500">Punya pertanyaan? Mungkin sudah kami jawab di bawah ini.</p>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+                <div class="border border-slate-100 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 0 ? null : 0" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-800">Berapa lama daya tahan Kerupuk Telur Asin Yogies?</span>
+                        <i x-show="active !== 0" data-lucide="plus" class="w-5 h-5 text-slate-400"></i>
+                        <i x-show="active === 0" data-lucide="minus" class="w-5 h-5 text-brand-gold" x-cloak></i>
+                    </button>
+                    <div x-show="active === 0" x-transition class="p-6 pt-0 text-slate-500 text-sm leading-relaxed" x-cloak>Produk kami dapat bertahan hingga 3-4 bulan jika disimpan dalam wadah tertutup rapat dan terhindar dari sinar matahari langsung untuk menjaga kerenyahannya.</div>
+                </div>
+                <div class="border border-slate-100 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 1 ? null : 1" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-800">Apakah produk Yogies menggunakan pengawet?</span>
+                        <i x-show="active !== 1" data-lucide="plus" class="w-5 h-5 text-slate-400"></i>
+                        <i x-show="active === 1" data-lucide="minus" class="w-5 h-5 text-brand-gold" x-cloak></i>
+                    </button>
+                    <div x-show="active === 1" x-transition class="p-6 pt-0 text-slate-500 text-sm leading-relaxed" x-cloak>Tidak. Kami berkomitmen menggunakan bahan alami pilihan dan teknik penggorengan yang tepat untuk menjaga keawetan produk tanpa bahan kimia berbahaya.</div>
+                </div>
+                <div class="border border-slate-100 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 2 ? null : 2" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-800">Bisa kirim ke luar kota? Apakah rentan hancur?</span>
+                        <i x-show="active !== 2" data-lucide="plus" class="w-5 h-5 text-slate-400"></i>
+                        <i x-show="active === 2" data-lucide="minus" class="w-5 h-5 text-brand-gold" x-cloak></i>
+                    </button>
+                    <div x-show="active === 2" x-transition class="p-6 pt-0 text-slate-500 text-sm leading-relaxed" x-cloak>Bisa! Kami melayani pengiriman ke seluruh Indonesia. Kami menggunakan bubble wrap tebal dan kardus pelindung khusus untuk meminimalkan risiko produk hancur di perjalanan.</div>
+                </div>
+                <div class="border border-slate-100 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 3 ? null : 3" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-800">Bagaimana cara menjadi reseller Yogies?</span>
+                        <i x-show="active !== 3" data-lucide="plus" class="w-5 h-5 text-slate-400"></i>
+                        <i x-show="active === 3" data-lucide="minus" class="w-5 h-5 text-brand-gold" x-cloak></i>
+                    </button>
+                    <div x-show="active === 3" x-transition class="p-6 pt-0 text-slate-500 text-sm leading-relaxed" x-cloak>Sangat mudah! Anda bisa langsung menghubungi WhatsApp admin kami untuk mendapatkan penawaran harga khusus reseller dan dropshipper.</div>
+                </div>
+            </div>
+        </section>
 
-  <!-- PRODUK -->
-  <section class="testimoni-section">
-    <h2>Varian Yogies Kerupuk Telur Asin</h2>
-    <div class="testimoni-wrapper">
-      <div class="testimoni-card">
-        <span><b>Ukuran Kecil (50 Gram)</b> – Cocok untuk camilan ringan sehari-hari.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Ukuran Besar (100gr)</b> – Pas untuk berbagi dengan keluarga.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Ukuran Besar Mentah (500gr)</b> – Hemat untuk stok di rumah atau acara besar.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Varian Original</b> – Gurih alami tanpa tambahan rasa.</span>
-      </div>
-      <div class="testimoni-card">
-        <span><b>Bahan Utama</b> – Tentu saja, Telur Asin.</span>
-      </div>
-    </div>
-  </section>
+        <!-- Map & Contact -->
+        <section class="py-24 bg-brand-paper">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100 grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-12 lg:p-20">
+                        <h2 class="text-4xl font-extrabold mb-8 text-slate-800">Kunjungi Workshop Kami</h2>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-brand-yellow/10 rounded-2xl flex items-center justify-center shrink-0 text-brand-gold"><i data-lucide="map-pin"></i></div>
+                                <div><h4 class="font-bold text-slate-800 mb-1">Lokasi Utama</h4><p class="text-slate-500 leading-relaxed">Jalan Srimahi Dalam No.2A, Ancol, Regol,<br />Kota Bandung, Jawa Barat.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center shrink-0 text-green-600"><i data-lucide="phone"></i></div>
+                                <div><h4 class="font-bold text-slate-800 mb-1">Hubungi Kami</h4><p class="text-slate-500">+62 838 0088 9643</p><p class="text-slate-400 text-xs mt-1">Chat Aktif: 08:00 - 20:00 WIB</p></div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 text-blue-600"><i data-lucide="clock"></i></div>
+                                <div><h4 class="font-bold text-slate-800 mb-1">Jam Operasional</h4><p class="text-slate-500">Senin - Sabtu: 08:00 - 17:00</p><p class="text-slate-500 text-sm">Minggu & Tgl Merah: Tutup</p></div>
+                            </div>
+                        </div>
+                        <div class="mt-12 pt-12 border-t border-slate-100">
+                            <a href="https://wa.me/6283800889643" class="inline-flex items-center space-x-3 text-brand-gold font-bold hover:translate-x-2 transition-transform">
+                                <span>Dapatkan Petunjuk Arah via WhatsApp</span>
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="h-[500px] lg:h-auto min-h-[400px]">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <style>
-    .testimoni-section {
-      background: linear-gradient(135deg, #fffbe2, #ffffff);
-      padding: 80px 20px;
-      text-align: center;
-      color: #222;
-    }
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div>
+                <span class="font-display text-xl font-black tracking-tighter mb-6 block">YOGIES</span>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">Pelopor kerupuk telur asin premium dari Bandung. Menghadirkan kemewahan rasa dalam setiap kerenyahan.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-brand-yellow transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-brand-yellow transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-brand-yellow transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-slate-200">Belanja Online</h4>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Shopee Official</a></li>
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Tokopedia</a></li>
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">TikTok Shop</a></li>
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Lazada</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-slate-200">Navigasi</h4>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Beranda</a></li>
+                    <li><a href="#produk" class="hover:text-brand-yellow transition-colors">Produk Kami</a></li>
+                    <li><a href="#tentang" class="hover:text-brand-yellow transition-colors">Tentang Yogies</a></li>
+                    <li><a href="#galeri" class="hover:text-brand-yellow transition-colors">Galeri Foto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 text-slate-200">Bantuan</h4>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Sertifikasi Halal</a></li>
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">PIRT Yogies</a></li>
+                    <li><a href="#" class="hover:text-brand-yellow transition-colors">Kontak Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p class="text-slate-500 text-xs">© 2026 Yogies. All rights reserved.</p>
+            <div class="flex items-center space-x-2 text-slate-500 text-xs"><span>Made with Love in Bandung</span></div>
+        </div>
+    </footer>
 
-    .testimoni-section h2 {
-      font-size: 2.2rem;
-      color: #c79a00;
-      margin-bottom: 40px;
-      font-weight: 700;
-    }
+    <!-- Floating WA -->
+    <a href="https://wa.me/6283800889643" class="fixed bottom-8 right-8 z-[100] flex items-center space-x-3 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 pr-6 rounded-full shadow-2xl transition-all group hover:scale-110 active:scale-95">
+        <div class="relative">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+            <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 border-2 border-white rounded-full animate-ping"></span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-[10px] uppercase font-black leading-none opacity-70">Order Now</span>
+            <span class="font-bold text-sm leading-tight">WhatsApp Admin</span>
+        </div>
+    </a>
 
-    .testimoni-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .testimoni-card {
-      background: #ffffff;
-      border: 1px solid #ffe88b;
-      border-left: 4px solid #f5b800;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .testimoni-card span {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-      display: block;
-      text-align: left;
-    }
-  </style>
-
-  <!-- MAPS -->
-  <section class="maps-section">
-    <h2>CV. YOGIES</h2>
-    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
-    <div class="maps-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
-    setInterval(() => {
-      slides.forEach(slide => slide.classList.remove("active"));
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }, 4000);
-  </script>
-
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>

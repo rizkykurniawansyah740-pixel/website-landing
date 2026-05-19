@@ -1,500 +1,1018 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kopi Robusta Dan Arabika Bandung - Yogies Indonesia</title>
-  
-  <!-- Meta Deskripsi -->
-  <meta name="description" content="Nikmati cita rasa khas Kopi Robusta dan Arabika dari Bandung bersama Yogies Indonesia. Kopi pilihan berkualitas dengan aroma kuat dan rasa khas Nusantara.">
-
-  <!-- Kata Kunci -->
-  <meta name="keywords" content="kopi robusta bandung, kopi arabika bandung, kopi nusantara, kopi yogies indonesia, kopi asli bandung">
-
-  <!-- Penulis -->
-  <meta name="author" content="CV. Yogies Indonesia">
-
-  <!-- Robots (biarkan Google index dan follow link) -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-
-  <!-- Open Graph untuk tampilan di media sosial -->
-  <meta property="og:title" content="Kopi Robusta Dan Arabika Bandung - Yogies Indonesia">
-  <meta property="og:description" content="Kopi Robusta dan Arabika terbaik dari Bandung. Nikmati rasa khas Nusantara hanya di Yogies Indonesia.">
-  <meta property="og:image" content="https://yogies.my.id/images/kopi-bandung.jpg">
-  <meta property="og:url" content="https://yogies.my.id/page/Kopi.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kopi Robusta Dan Arabika Bandung - Yogies Indonesia">
-  <meta name="twitter:description" content="Cita rasa kopi Robusta dan Arabika khas Bandung dari Yogies Indonesia.">
-  <meta name="twitter:image" content="https://yogies.my.id/images/kopi-bandung.jpg">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://yogies.my.id/page/Kopi.html">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://yogies.my.id/images/favicon.png">
-
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="../style.css">
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
-
-
-
-  <link rel="stylesheet" href="../style.css">
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    /* === HERO SECTION === */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hero-slider .slider-container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-
-    .hero-slider .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .hero-slider .slide.active {
-      opacity: 1;
-    }
-
-    .hero-slider .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(65%);
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-      max-width: 800px;
-      padding: 0 20px;
-      animation: fadeInUp 1.5s ease;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-      color: #f5d28c;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      line-height: 1.7;
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translate(-50%, -40%);}
-      to {opacity: 1; transform: translate(-50%, -50%);}
-    }
-
-    /* === KEUNIKAN KOPI === */
-    .coffee-unique {
-      background: linear-gradient(180deg, #4b2e1e 0%, #6f4e37 100%);
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .coffee-unique h2 {
-      font-size: 2.5rem;
-      color: #f5d28c;
-      margin-bottom: 20px;
-    }
-
-    .coffee-unique p.desc {
-      max-width: 700px;
-      margin: 0 auto 60px;
-      line-height: 1.8;
-      color: #f8f5ef;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      margin-bottom: 50px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 30px 20px;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    .card i {
-      font-size: 2rem;
-      color: #d4af37;
-      margin-bottom: 12px;
-      animation: floatIcon 2.5s ease-in-out infinite;
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      color: #f7e1a3;
-      margin-bottom: 8px;
-    }
-
-    .btn-discover {
-      display: inline-block;
-      background: #d4af37;
-      color: #fff;
-      padding: 14px 36px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-    }
-
-    .btn-discover:hover {
-      background-color: #b9952b;
-      transform: translateY(-3px);
-    }
-
-    @keyframes floatIcon {
-      0%, 100% {transform: translateY(0);}
-      50% {transform: translateY(-6px);}
-    }
-
-    /* === INFO PRODUK === */
-    .info-section {
-      background: linear-gradient(135deg, #a1827e 0%, #ffffff 100%);
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .info-text {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .info-text h2 {
-      font-size: 2.3rem;
-      color: #662e1d;
-      margin-bottom: 25px;
-    }
-
-    .program-list {
-      list-style: none;
-      padding: 0;
-      margin: 30px 0;
-      text-align: left;
-    }
-
-    .program-list li {
-      background: #a1827e;
-      border-left: 5px solid #662e1d;
-      padding: 14px 18px;
-      margin: 10px 0;
-      border-radius: 8px;
-      color: #fff;
-    }
-
-    .btn.primary {
-      display: inline-block;
-      background: #662e1d;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s ease;
-      font-weight: 600;
-    }
-
-    .btn.primary:hover {
-      background: #a1827e;
-      transform: translateY(-3px);
-    }
-
-    /* === GALERI === */
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    /* === TESTIMONI === */
-    .testimoni-section {
-      background: linear-gradient(135deg, #a1827e, #ffffff);
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .testimoni-section h2 {
-      font-size: 2.3rem;
-      color: #662e1d;
-      margin-bottom: 40px;
-    }
-
-    .testimoni-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .testimoni-card {
-      background: #ffffff;
-      border-left: 5px solid #662e1d;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .maps-section {
-      padding: 80px 20px;
-      text-align: center;
-      background: #fdfdfd;
-    }
-
-    .maps-section h2 {
-      color: #662e1d;
-      font-size: 2rem;
-    }
-
-    .maps-section p {
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    /* === BACK HOME BUTTON === */
-    .back-home-btn {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      background: #6f4e37;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease;
-      z-index: 1000;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-
-    .back-home-btn:hover {
-      background: #5b3b28;
-      transform: translateY(-4px) scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogies Indonesia - Premium Coffee Roasting House</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fdfbf7',
+                            100: '#f6f1e5',
+                            200: '#eddcc5',
+                            300: '#dcbf9e',
+                            400: '#c59b73',
+                            500: '#b07f57',
+                            600: '#9d674b',
+                            700: '#82513f',
+                            800: '#694136',
+                            900: '#4c2e28',
+                            950: '#2d1a16',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;750&display=swap" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col font-sans bg-coffee-50 antialiased overflow-x-hidden selection:bg-coffee-200 selection:text-coffee-950">
 
-<body>
+    <!-- Floating WhatsApp Link Utility -->
+    <div class="fixed bottom-6 left-6 z-50 hidden sm:flex items-center gap-2">
+        <a 
+            href="https://wa.me/6283800889643" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1 text-xs"
+        >
+            <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+            WhatsApp Admin (Yogies)
+        </a>
+    </div>
 
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/fAaAbOi.jpeg" alt="1" />
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/5gzU4zh.jpeg" alt="2" />
-      </div>
+    <!-- Floating Notification Box -->
+    <div id="toast-notif" class="fixed bottom-6 right-6 z-50 hidden bg-coffee-950 text-white p-5 rounded-2xl shadow-2xl flex items-start gap-3.5 max-w-sm ring-1 ring-amber-500/30 border-l-4 border-amber-500 animate-fade-in">
+        <div class="p-1 bg-amber-500/20 text-amber-400 rounded-lg shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <div>
+            <h5 class="font-semibold text-sm">Formulir Pesan Dialihkan!</h5>
+            <p class="text-xs text-coffee-300 mt-1 leading-relaxed">
+                Detail permohonan Anda dikemas dengan rapi dan dialihkan ke layanan pelanggan WhatsApp Yogies Indonesia sekarang.
+            </p>
+        </div>
+        <button onclick="hideToast()" class="text-coffee-400 hover:text-white transition-colors text-xs self-start ml-2">
+            ✕
+        </button>
     </div>
-    <div class="hero-text">
-      <h2>Kopi Robusta Dan Arabika Bandung - Yogies Indonesia</h2>
-      <p>Hangat, harum, dan autentik setiap tegukan membawa cerita dari tanah Nusantara.</p>
-    </div>
-  </section>
 
-  <!-- KEUNIKAN -->
-  <section class="coffee-unique">
-    <h2>Keunikan Kopi Indonesia</h2>
-    <p class="desc">Dari biji pilihan, disangrai alami dengan rasa dan aroma yang menghadirkan tradisi dan kehangatan.</p>
-    <div class="features">
-      <div class="card"><i class="fas fa-seedling"></i><h3>Ragam Rasa</h3><p>Setiap daerah punya cita rasa unik, dari fruity hingga earthy.</p></div>
-      <div class="card"><i class="fas fa-fire"></i><h3>Proses Tradisional</h3><p>Disangrai perlahan dengan metode alami.</p></div>
-      <div class="card"><i class="fas fa-mug-hot"></i><h3>Aroma Memikat</h3><p>Kombinasi cokelat, rempah, dan karamel.</p></div>
-      <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>Budaya Kopi</h3><p>Simbol kebersamaan dan cerita rakyat.</p></div>
-    </div>
-    <a href="https://wa.me/6283800889643" class="btn-discover">Nikmati Sekarang</a>
-  </section>
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-coffee-950/95 backdrop-blur-md border-b border-coffee-900/50">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2 group">
+                <div>
+                    <span class="font-serif font-bold text-coffee-100 tracking-wide text-lg sm:text-xl block group-hover:text-amber-400 transition-colors">
+                        YOGIES INDONESIA
+                    </span>
+                    <span class="text-[9px] text-coffee-400 tracking-widest block uppercase font-mono -mt-1">
+                        Kopi Premium Bandung
+                    </span>
+                </div>
+            </a>
 
-  <!-- INFO -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Kenapa Memilih Kopi Tradisional Premium?</h2>
-      <ul class="program-list">
-        <li><b>Aroma Unik & Hangat</b> – Proses sangrai kayu alami menghadirkan aroma lembut namun kuat.</li>
-        <li><b>Biji Pilihan</b> – Dari dataran tinggi terbaik Nusantara.</li>
-        <li><b>Pematangan Alami</b> – Menyempurnakan keseimbangan rasa.</li>
-        <li><b>Varian Seimbang</b> – Arabika lembut & Robusta kuat.</li>
-      </ul>
-      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
-    </div>
-  </section>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-coffee-300 uppercase">
+                <a href="#about" class="hover:text-amber-400 transition-colors py-1">Tentang Kami</a>
+                <a href="#quiz" class="hover:text-amber-400 transition-colors py-1 flex items-center gap-1">
+                    <span class="text-amber-400">✦</span> Pencari Rasa
+                </a>
+                <a href="#produk" class="hover:text-amber-400 transition-colors py-1">Katalog Kopi</a>
+                <a href="#manfaat" class="hover:text-amber-400 transition-colors py-1">Khasiat Sehat</a>
+                <a href="#lokasi" class="hover:text-amber-400 transition-colors py-1">Lokasi</a>
+            </nav>
 
-  <!-- GALERI -->
-  <h2 style="text-align:center; margin-top:80px;">Foto Produk</h2>
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="https://i.imgur.com/cleaF1Z.jpeg"><div class="caption">Kemasan Premium</div></div>
-    <div class="gallery-item"><img src="https://i.imgur.com/qwMMkGD.jpeg"><div class="caption">Suasana Kedai</div></div>
-    <div class="gallery-item"><img src="https://i.imgur.com/4VeNMRf.jpeg"><div class="caption">Proses Sangrai</div></div>
-  </div>
+            <div class="hidden md:block">
+                <a href="https://wa.me/6283800889643?text=Halo%20Yogies%20Indonesia%21" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-amber-500 hover:bg-amber-450 text-coffee-950 shadow-md transition-all duration-305 hover:-translate-y-0.5">
+                    Order Cepat
+                </a>
+            </div>
 
-  <!-- TESTIMONI -->
-  <section class="testimoni-section">
-  <h2>Manfaatnya Apa Sih?</h2>
-  <div class="testimoni-wrapper">
-    <div class="testimoni-card">
-      <span><b>Meningkatkan Fokus dan Konsentrasi</b> – Kandungan kafein membantu otak tetap segar dan fokus lebih lama.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Menambah Energi Tubuh</b> – Cocok diminum saat pagi atau menjelang aktivitas untuk semangat maksimal.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Meningkatkan Mood</b> – Aroma dan rasa khas kopi membantu mengurangi stres dan membuat pikiran lebih rileks.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Mengandung Antioksidan</b> – Melindungi tubuh dari radikal bebas dan membantu menjaga kesehatan sel.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Meningkatkan Metabolisme</b> – Membantu pembakaran kalori lebih cepat dan menjaga berat badan ideal.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Menjaga Kesehatan Jantung</b> – Konsumsi kopi dalam takaran wajar dapat mendukung fungsi jantung yang sehat.</span>
-    </div>
-  </div>
-</section>
+            <!-- Mobile menu button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-coffee-100 hover:text-amber-400 transition-colors" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path class="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
 
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-coffee-950 border-b border-coffee-900 px-4 py-6 space-y-4">
+            <a href="#about" onclick="closeMobileMenu()" class="block text-coffee-200 hover:text-amber-400 transition-colors font-medium">Tentang Kami</a>
+            <a href="#quiz" onclick="closeMobileMenu()" class="block text-coffee-200 hover:text-amber-400 transition-colors font-medium flex items-center gap-1">✦ Pencari Rasa</a>
+            <a href="#produk" onclick="closeMobileMenu()" class="block text-coffee-200 hover:text-amber-400 transition-colors font-medium">Katalog Kopi</a>
+            <a href="#manfaat" onclick="closeMobileMenu()" class="block text-coffee-200 hover:text-amber-400 transition-colors font-medium">Khasiat Sehat</a>
+            <a href="#lokasi" onclick="closeMobileMenu()" class="block text-coffee-200 hover:text-amber-400 transition-colors font-medium">Lokasi</a>
+            <a href="https://wa.me/6283800889643?text=Halo%20Yogies%20Indonesia%21" target="_blank" class="block text-center py-2.5 rounded-xl bg-amber-500 text-coffee-950 font-bold uppercase tracking-wider text-xs">Pesan via WhatsApp</a>
+        </div>
+    </header>
 
-<!-- MAPS -->
-  <section class="maps-section">
-    <h2>CV. YOGIES</h2>
-    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
-    <div class="maps-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
-  </footer>
+    <!-- Hero Slider Section -->
+    <section id="home" class="relative w-full h-[85vh] overflow-hidden bg-coffee-950">
+        <!-- Slides -->
+        <div id="slider-container" class="relative w-full h-full">
+            <!-- Slide 1 -->
+            <div class="slide absolute inset-0 transition-all duration-1000 opacity-100 z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-coffee-950/95 via-coffee-950/70 to-coffee-950/50 z-10"></div>
+                <img src="https://i.imgur.com/qwMMkGD.jpeg" alt="Yogies Coffee" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 z-20 flex items-center">
+                    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase rounded-full mb-4">
+                            ✦ Cita Rasa Luhur Nusantara
+                        </span>
+                        <div class="space-y-3">
+                            <span class="block text-sm sm:text-base text-coffee-300 font-mono tracking-widest uppercase">
+                                KAWASAN BANDUNG
+                            </span>
+                            <h1 class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] max-w-3xl">
+                                Kopi Aroma Klasik Legendaris
+                            </h1>
+                        </div>
+                        <p class="text-coffee-200 text-sm sm:text-lg max-w-2xl mt-4 leading-relaxed font-light">
+                            Menghadirkan kenikmatan murni Kopi Aroma dengan variasi istimewa Robusta yang mantap kuat dan Mokka Arabika yang harum lembut.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="#produk" class="px-6 py-3.5 bg-amber-500 hover:bg-amber-600 text-coffee-950 font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+                                Jelajahi Produk Pilihan &rarr;
+                            </a>
+                            <a href="#quiz" class="px-6 py-3.5 bg-coffee-900 hover:bg-coffee-850 text-coffee-101 text-white font-semibold text-sm rounded-xl border border-coffee-800 transition-colors">
+                                Pilih Karakter Kopi Saya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- SCRIPT -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const slides = document.querySelectorAll(".slide");
-    let i = 0;
-    setInterval(() => {
-      slides.forEach(s => s.classList.remove("active"));
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-    }, 4000);
+            <!-- Slide 2 -->
+            <div class="slide absolute inset-0 transition-all duration-1000 opacity-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-coffee-950/95 via-coffee-950/70 to-coffee-950/50 z-10"></div>
+                <img src="https://i.imgur.com/5gzU4zh.jpeg" alt="Yogies Coffee Second Slide" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 z-20 flex items-center">
+                    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase rounded-full mb-4">
+                            ✦ Pilihan Penikmat Kopi Murni
+                        </span>
+                        <div class="space-y-3">
+                            <span class="block text-sm sm:text-base text-coffee-300 font-mono tracking-widest uppercase">
+                                KAWASAN BANDUNG
+                            </span>
+                            <h1 class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] max-w-3xl">
+                                Kenikmatan Autentik Setiap Hari
+                            </h1>
+                        </div>
+                        <p class="text-coffee-200 text-sm sm:text-lg max-w-2xl mt-4 leading-relaxed font-light">
+                            Dua varian istimewa dikemas dengan baik dengan aromatik murni guna melestarikan keaslian bodi cita rasa lokal yang abadi.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="#produk" class="px-6 py-3.5 bg-amber-500 hover:bg-amber-600 text-coffee-950 font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all duration-300">
+                                Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    window.addEventListener('load', () => {
-      const btn = document.querySelector('.back-home-btn');
-      setTimeout(() => {
-        btn.style.opacity = '1';
-        btn.style.transform = 'translateY(0)';
-      }, 500);
-    });
-  </script>
+        <!-- Custom Slide Indicators -->
+        <div class="absolute right-4 bottom-8 z-30 flex gap-2.5">
+            <button onclick="changeSlide(0)" class="slide-indicator w-12 h-1.5 rounded-full transition-all duration-500 hover:cursor-pointer bg-amber-500" aria-label="Slide 1"></button>
+            <button onclick="changeSlide(1)" class="slide-indicator w-12 h-1.5 rounded-full transition-all duration-500 hover:cursor-pointer bg-coffee-900/60" aria-label="Slide 2"></button>
+        </div>
+    </section>
 
-  <!-- BACK BUTTON -->
-  <a href="../index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i><span>Kembali</span></a>
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-28 bg-gradient-to-b from-coffee-100 to-coffee-50 relative">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Story Text Column -->
+                <div class="lg:col-span-7 space-y-7">
+                    <div class="space-y-2 text-left">
+                        <span class="text-xs text-amber-600 font-bold uppercase tracking-widest font-mono">
+                            ✦ filosofi yogies indonesia
+                        </span>
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold text-coffee-950 tracking-tight leading-tight">
+                            Dari Biji Pilihan, Merawat Tradisi Rasa Nusantara
+                        </h2>
+                    </div>
+                    <div class="h-0.5 w-20 bg-amber-500"></div>
+                    <p class="text-coffee-800 text-sm md:text-base leading-relaxed text-left">
+                        Yogies Indonesia berkomitmen menghadirkan produk kopi legendaris berkualitas tinggi langsung ke cangkir Anda. Kami memahami cita rasa sejati penikmat kopi murni yang menghargai cita rasa autentik dan warisan resep turun-temurun Nusantara.
+                    </p>
+                    <p class="text-coffee-700 text-sm leading-relaxed text-left">
+                        Nikmati perpaduan rasa klasik legendaris dari <strong>Kopi Aroma Robusta</strong> yang mantap berkarakter cokelat alami, serta <strong>Kopi Aroma Mokka Arabika</strong> yang harum dengan keasaman minim yang lembut dan bersahabat.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-left">
+                        <div class="flex items-start gap-3">
+                            <div class="shrink-0 p-2 bg-amber-500/10 text-amber-600 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-sm text-coffee-950">100% Pilihan Tunggal</h5>
+                                <p class="text-xs text-coffee-500 mt-0.5">Hanya ceri merah berkualitas prima tanpa cacat rasa.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="shrink-0 p-2 bg-amber-500/10 text-amber-600 rounded-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-sm text-coffee-950">Sangrai Lambat Konsisten</h5>
+                                <p class="text-xs text-coffee-500 mt-0.5">Menjamin kelancaran pelepasan lipid & rasa manis alami.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Gallery Column -->
+                <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute -bottom-10 -right-4 w-40 h-40 bg-coffee-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative bg-white p-4 sm:p-6 rounded-3xl shadow-xl ring-1 ring-coffee-200/50">
+                        <div class="relative rounded-2xl overflow-hidden aspect-square bg-coffee-100">
+                            <img src="https://i.imgur.com/cleaF1Z.jpeg" alt="Yogies Coffee Bag Signature" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/80 via-transparent to-transparent flex items-end p-6">
+                                <div>
+                                    <span class="text-xs text-amber-400 font-mono font-bold tracking-widest uppercase block">Katalog Fotografi</span>
+                                    <h4 class="text-lg font-serif font-bold text-white mt-0.5">Produk Kemasan Premium</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Highlights -->
+    <section class="py-12 bg-coffee-950 text-coffee-100">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-coffee-800">
+                <div class="pt-6 md:pt-0 md:px-6 space-y-2 text-center md:text-left">
+                    <span class="text-2xl">🌍</span>
+                    <h4 class="font-serif font-bold text-coffee-200 text-lg">Single Origin Parahyangan</h4>
+                    <p class="text-xs text-coffee-400 leading-relaxed font-light">Dipanen dari dataran vulkanis terbaik Bandung yang diberkahi iklim mikro pegunungan optimal.</p>
+                </div>
+                <div class="pt-6 md:pt-0 md:px-6 space-y-2 text-center md:text-left">
+                    <span class="text-2xl">🔥</span>
+                    <h4 class="font-serif font-bold text-coffee-200 text-lg">Sangrai Kayu Autentik</h4>
+                    <p class="text-xs text-coffee-400 leading-relaxed font-light">Kombinasi energi terkontrol dan pemanasan alami kayu pohon buah kering guna mengekstrak keharuman khas pedesaan.</p>
+                </div>
+                <div class="pt-6 md:pt-0 md:px-6 space-y-2 text-center md:text-left">
+                    <span class="text-2xl">📦</span>
+                    <h4 class="font-serif font-bold text-coffee-200 text-lg">Kemasan Kedap Aroma</h4>
+                    <p class="text-xs text-coffee-400 leading-relaxed font-light">Setiap kemasan dilengkapi dengan one-way valve kedap gas khusus untuk melestarikan keaslian bodi molekuler rasa.</p>
+                </div>
+                <div class="pt-6 md:pt-0 md:px-6 space-y-2 text-center md:text-left">
+                    <span class="text-2xl">☕</span>
+                    <h4 class="font-serif font-bold text-coffee-200 text-lg">Pesan Sesuai Profil Kehendak</h4>
+                    <p class="text-xs text-coffee-400 leading-relaxed font-light">Kami mengutamakan kesesuaian selera dengan menyediakan layanan panduan takaran & konsultasi manual gratis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Selector Section -->
+    <section id="quiz" class="py-20 md:py-28 bg-coffee-100/30">
+        <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-coffee-250/30 shadow-xl text-center space-y-8">
+                <div class="space-y-3">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-700 text-xs font-semibold tracking-wider uppercase rounded-full">
+                        ✨ Interactive Blend Selector
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-serif font-bold text-coffee-950">
+                        Cari Karakter Kopi Aroma Terfavorit Anda
+                    </h2>
+                    <p class="text-xs sm:text-base text-coffee-600 max-w-xl mx-auto">
+                        Jawab 3 pertanyaan sensorik sederhana untuk memetakan spesifikasi biji kopi Yogies terbaik untuk menyemangati produktivitas harian Anda.
+                    </p>
+                </div>
+
+                <!-- Quiz Steps Container -->
+                <div id="quiz-box" class="bg-coffee-50/50 border border-coffee-100 p-6 md:p-8 rounded-2xl max-w-2xl mx-auto text-left">
+                    <!-- Q1 -->
+                    <div id="q1-step" class="space-y-5">
+                        <div class="text-xs text-coffee-400 uppercase tracking-widest font-mono">Pertanyaan 1 dari 3</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-coffee-900">Bagaimana metode penyeduhan kopi favorit Anda?</h3>
+                        <div class="space-y-3">
+                            <button onclick="saveAnswer('method', 'filter')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">☕</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Seduh Manual / Saring</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Menggunakan kertas saring (V65, French Press) untuk hasil murni jernih.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('method', 'espresso')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">⚡</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Espresso / Kopi Susu Creamy</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Menggunakan mesin kental atau moka pot untuk kombinasi susu gurih.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('method', 'tubruk')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">🪵</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Tubruk Nusantara Tradisional</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Klasik dengan menyeduh bubuk halus langsung bersama ampas tebal.</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div id="q2-step" class="hidden space-y-5">
+                        <div class="text-xs text-coffee-400 uppercase tracking-widest font-mono">Pertanyaan 2 dari 3</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-coffee-900">Karakter cita rasa apa yang paling Anda inginkan?</h3>
+                        <div class="space-y-3">
+                            <button onclick="saveAnswer('profile', 'fruity')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">🍋</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Aromatik Harum & Sedikit Asam Lembut</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Sentuhan wangi floral dan buah mokka ringan yang segar anggun.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('profile', 'balanced')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">🍫</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Seimbang, Manis Karamel & Gurih</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Sentuhan manis kacang panggang alami tanpa rasa asam dominan.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('profile', 'bold')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">🔥</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Pahit Mantap, Pekat & Bold Sejati</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Rasa murni panggangan gelap cokelat pekat klasik berkepanjangan.</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div id="q3-step" class="hidden space-y-5">
+                        <div class="text-xs text-coffee-400 uppercase tracking-widest font-mono">Pertanyaan 3 dari 3</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-coffee-900">Bagaimana tingkat kafein & ketebalan bodi yang Anda dambakan?</h3>
+                        <div class="space-y-3">
+                            <button onclick="saveAnswer('intensity', 'light')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">🍃</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Halus, Ringan & Nyaman</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Rasa yang tenang di lambung, cocok dinikmati sore hari.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('intensity', 'medium')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">☀️</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Sedang & Bertekstur Mantap</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Keseimbangan bodi seimbang, pas untuk produktivitas siang hari.</p>
+                                </div>
+                            </button>
+                            <button onclick="saveAnswer('intensity', 'intense')" class="w-full text-left p-4 rounded-xl bg-white border border-coffee-200 hover:border-amber-500 hover:bg-amber-50/10 flex items-start gap-4 transition-all">
+                                <span class="text-2xl">💥</span>
+                                <div>
+                                    <h4 class="font-bold text-coffee-950 text-sm">Body Sangat Tebal & Kafein Kuat</h4>
+                                    <p class="text-xs text-coffee-500 mt-1">Pekat menggigit untuk dorongan energi fokus luar biasa.</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Step -->
+                    <div id="result-step" class="hidden space-y-6 text-center py-4">
+                        <div class="w-16 h-16 rounded-full bg-amber-550/10 bg-amber-100 flex items-center justify-center text-amber-600 text-2xl mx-auto">☕</div>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider font-mono">Rekomendasi Eksklusif Selera Anda</span>
+                            <h3 id="result-title" class="text-xl sm:text-2xl font-serif font-bold text-coffee-950">Kopi Aroma Mokka Arabika</h3>
+                        </div>
+                        <p id="result-desc" class="text-xs sm:text-sm text-coffee-600 leading-relaxed max-w-md mx-auto">
+                            Berdasarkan preferensi rasa dan metode seduh Anda, Anda sangat cocok dengan tipe rasa kopi murni legendaris ini.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-3 pt-3">
+                            <button onclick="resetQuiz()" class="px-5 py-2.5 rounded-xl border border-coffee-250 text-coffee-700 hover:bg-coffee-100 text-xs font-semibold tracking-wide uppercase transition-colors">
+                                Coba Kembali
+                            </button>
+                            <a id="result-wa-btn" href="#" target="_blank" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-coffee-950 font-bold text-xs tracking-wide uppercase rounded-xl shadow-md transition-transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-1.5">
+                                Pesan Rekomendasi Ini
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogue Section -->
+    <section id="produk" class="py-20 md:py-28 bg-white relative">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+                <div class="space-y-2 text-left">
+                    <span class="text-xs text-amber-600 font-bold uppercase tracking-widest font-mono">
+                        ✦ kurasi produk unggulan
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-coffee-950 tracking-tight leading-none">
+                        Biji Kopi Pilihan Yogies
+                    </h2>
+                    <p class="text-sm text-coffee-500 max-w-md">
+                        Disajikan dalam bentuk kemasan kopi istimewa pilihan Anda yang diproses segar.
+                    </p>
+                </div>
+
+                <!-- Custom Filter Tabs -->
+                <div class="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider">
+                    <button onclick="filterType('all')" id="tab-all" class="px-4.5 py-2.5 rounded-full transition-all duration-300 border bg-coffee-950 text-white border-coffee-950 shadow-md">
+                        Tampilkan Semua
+                    </button>
+                    <button onclick="filterType('Mokka')" id="tab-Mokka" class="px-4.5 py-2.5 rounded-full transition-all duration-300 border bg-coffee-50 text-coffee-700 hover:text-coffee-950 border-coffee-200">
+                        Mokka Arabika
+                    </button>
+                    <button onclick="filterType('Robusta')" id="tab-Robusta" class="px-4.5 py-2.5 rounded-full transition-all duration-300 border bg-coffee-50 text-coffee-700 hover:text-coffee-950 border-coffee-200">
+                        Robusta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products List -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto" id="products-list">
+                
+                <!-- Product Card 1 -->
+                <div class="product-card group bg-coffee-100/30 rounded-[30px] border border-coffee-205/40 hover:border-amber-500/25 overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300 text-left h-full" data-type="Robusta">
+                    <div>
+                        <div class="relative overflow-hidden aspect-[16/10] bg-coffee-100 shrink-0">
+                            <span class="absolute top-4.5 left-4.5 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-coffee-950/80 backdrop-blur-md text-amber-400 text-[10px] font-bold tracking-widest uppercase rounded-full">
+                                ☕ Robusta
+                            </span>
+                            <img src="https://i.imgur.com/4VeNMRf.jpeg" alt="Kopi Aroma Robusta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 sm:p-8 space-y-4">
+                            <h3 class="text-xl sm:text-2xl font-serif font-bold text-coffee-950 group-hover:text-amber-700 transition-colors">Kopi Aroma Robusta</h3>
+                            <div class="flex flex-wrap gap-2 text-[10px] font-mono font-bold text-coffee-500">
+                                <span class="px-2.5 py-1 bg-white border border-coffee-200/50 rounded-lg">☕ Medium to Dark</span>
+                                <span class="px-2.5 py-1 bg-white border border-coffee-200/50 rounded-lg">⚙️ Classic Aged Process</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-coffee-650 leading-relaxed font-light">
+                                Kopi Aroma varian Robusta legendaris. Menawarkan rasa yang pekat nan mantap, bodi yang tebal dengan aroma panggangan cokelat manis murni alami yang khas tanpa rasa pahit gosong buatan.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Cokelat Klasik</span>
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Bodi Sangat Tebal</span>
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Alpukat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0 sm:px-8 sm:pb-8 flex items-center justify-between border-t border-coffee-200/20 mt-4">
+                        <span class="text-[10px] font-mono text-coffee-400 uppercase">Aman Siap Kirim</span>
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Coffee%2521%2520Saya%2520tertarik%2520memesan%2520Kopi%2520Aroma%2520Robusta." target="_blank" class="px-4.5 py-2.5 bg-coffee-950 hover:bg-black text-white hover:text-amber-400 font-bold text-xs tracking-wider uppercase rounded-xl shadow-md transition-all">
+                            Pesan Sekarang &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card group bg-coffee-100/30 rounded-[30px] border border-coffee-205/40 hover:border-amber-500/25 overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300 text-left h-full" data-type="Mokka">
+                    <div>
+                        <div class="relative overflow-hidden aspect-[16/10] bg-coffee-100 shrink-0">
+                            <span class="absolute top-4.5 left-4.5 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-coffee-950/80 backdrop-blur-md text-amber-400 text-[10px] font-bold tracking-widest uppercase rounded-full">
+                                ☕ Mokka Arabika
+                            </span>
+                            <img src="https://i.imgur.com/cleaF1Z.jpeg" alt="Kopi Aroma Mokka Arabika" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 sm:p-8 space-y-4">
+                            <h3 class="text-xl sm:text-2xl font-serif font-bold text-coffee-950 group-hover:text-amber-700 transition-colors">Kopi Aroma Mokka Arabika</h3>
+                            <div class="flex flex-wrap gap-2 text-[10px] font-mono font-bold text-coffee-500">
+                                <span class="px-2.5 py-1 bg-white border border-coffee-200/50 rounded-lg">☕ Medium</span>
+                                <span class="px-2.5 py-1 bg-white border border-coffee-200/50 rounded-lg">⚙️ Aged Custom Process</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-coffee-650 leading-relaxed font-light">
+                                Kopi Aroma varian Mokka Arabika pilihan. Dibuat dengan biji kopi premium yang disimpan bertahun-tahun untuk menurunkan tingkat keasaman, menghasilkan paduan rasa mokka alami yang harum lembut dan ramah di lambung.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Cokelat Moka</span>
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Asam Buah Lembut</span>
+                                <span class="px-2.5 py-1 bg-amber-500/5 hover:bg-amber-500/10 text-amber-900 border border-amber-500/10 text-[10px] font-semibold rounded-lg transition-colors">✓ Karamel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0 sm:px-8 sm:pb-8 flex items-center justify-between border-t border-coffee-200/20 mt-4">
+                        <span class="text-[10px] font-mono text-coffee-400 uppercase">Aman Siap Kirim</span>
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Coffee%2521%2520Saya%2520tertarik%2520memesan%2520Kopi%2520Aroma%2520Mokka%2520Arabika." target="_blank" class="px-4.5 py-2.5 bg-coffee-950 hover:bg-black text-white hover:text-amber-400 font-bold text-xs tracking-wider uppercase rounded-xl shadow-md transition-all">
+                            Pesan Sekarang &rarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pasokan Grosir Info -->
+            <div class="mt-16 bg-gradient-to-br from-coffee-100 to-coffee-100 p-8 rounded-3xl border border-coffee-200/40 text-center max-w-3xl mx-auto space-y-4">
+                <h4 class="text-lg font-serif font-bold text-coffee-900">🎁 Butuh Pasokan Kopi Jumlah Besar?</h4>
+                <p class="text-xs md:text-sm text-coffee-600 leading-relaxed max-w-xl mx-auto">
+                    Yogies Indonesia menyuplai Kopi Aroma segar untuk kebutuhan kantor, cafe, hospitality, maupun reseller di Indonesia dengan layanan prima.
+                </p>
+                <div class="pt-2">
+                    <a href="https://wa.me/6283800889643?text=Halo%20Yogies%20Coffee!%20Saya%20tertarik%20dengan%20pembelian%20grosir%20kopi%20Aroma" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-coffee-950 hover:bg-black text-white text-xs font-semibold rounded-xl tracking-wider uppercase transition-colors">
+                        Hubungi Divisi Pemesanan (WhatsApp)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gallery section -->
+    <section class="py-20 bg-coffee-50 border-t border-b border-coffee-200/30">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs text-amber-600 font-bold uppercase tracking-widest font-mono">✦ galeri visual</span>
+                <h3 class="text-2xl sm:text-4xl font-serif font-bold text-coffee-950 mt-1">Dedikasi di dalam Setiap Proses</h3>
+                <p class="text-xs sm:text-sm text-coffee-500 max-w-lg mx-auto mt-2">Menangkap keindahan aroma hangat dan proses autentik di Yogies</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-coffee-200/30 transition-all duration-300">
+                    <div class="aspect-[4/3] overflow-hidden bg-coffee-100">
+                        <img src="https://i.imgur.com/cleaF1Z.jpeg" alt="Kemasan Kopi Aroma Mokka Arabika" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                    </div>
+                    <div class="p-5 text-left">
+                        <h4 class="font-serif font-bold text-coffee-900 text-sm md:text-base">Kopi Aroma Mokka Arabika</h4>
+                        <p class="text-xs text-coffee-500 mt-1.5 leading-relaxed">Kemasan premium menjaga kualitas aroma murni legendaris.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-coffee-200/30 transition-all duration-300">
+                    <div class="aspect-[4/3] overflow-hidden bg-coffee-100">
+                        <img src="https://i.imgur.com/4VeNMRf.jpeg" alt="Kopi Aroma Robusta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                    </div>
+                    <div class="p-5 text-left">
+                        <h4 class="font-serif font-bold text-coffee-900 text-sm md:text-base">Kopi Aroma Robusta</h4>
+                        <p class="text-xs text-coffee-500 mt-1.5 leading-relaxed">Aroma kopi klasik dengan karakter bodi mantap yang tak tergantikan.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-coffee-200/30 transition-all duration-300">
+                    <div class="aspect-[4/3] overflow-hidden bg-coffee-100">
+                        <img src="https://i.imgur.com/qwMMkGD.jpeg" alt="Suasana Roastery Yogies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                    </div>
+                    <div class="p-5 text-left">
+                        <h4 class="font-serif font-bold text-coffee-900 text-sm md:text-base">Roastery Yogies</h4>
+                        <p class="text-xs text-coffee-500 mt-1.5 leading-relaxed">Menghadirkan kenikmatan kopi legendaris langsung ke genggaman Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Benefits Bento Grid -->
+    <section id="manfaat" class="py-20 md:py-28 bg-white relative">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                <span class="text-xs text-amber-600 font-bold uppercase tracking-widest font-mono">✦ khasiat sehat</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-coffee-950 tracking-tight leading-tight">
+                    Manfaat Kopi Premium Bagi Tubuh
+                </h2>
+                <p class="text-xs sm:text-sm text-coffee-500 leading-relaxed">
+                    Meminum kopi murni grade komersial terkontrol tanpa pemanis berlebih bukan sekadar tentang penahan kantuk, tetapi juga tentang memberikan asupan nutrisi yang kaya bagi kebaikan tubuh Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Benefit 1 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-yellow-500 font-bold text-xl">⚡</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Meningkatkan Fokus & Konsentrasi</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Kandungan kafein alami yang bersih membantu sirkulasi darah ke otak, menjaga tingkat kesadaran, serta merangsang produktivitas kognitif tanpa rasa cemas.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Membantu neurotransmitter memicu energi fokus secara stabil.</span>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-red-500 font-bold text-xl">🔥</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Menambah Energi & Vitalitas</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Sangat ideal diminum 30 menit sebelum memulai aktivitas harian Anda, bertindak sebagai stimulan pembakar kalori alami dan penyedia tenaga instan.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Kafein memicu metabolisme epinefrin dengan sehat.</span>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-green-500 font-bold text-xl">😊</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Meningkatkan Mood & Pikiran Rileks</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Aroma senyawa volatilitas tinggi saat kopi diseduh terbukti memicu sekresi hormon dopamin, mengurangi indikator stres emosional secara instan.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Menenangkan saraf pusat melalui terapi sensorik murni.</span>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-blue-500 font-bold text-xl">🛡️</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Kaya Kandungan Antioksidan Alami</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Biji kopi mentah Yogies kaya akan asam klorogenat—pelindung sel organ tubuh dari radikal bebas berlebih dan membantu ketahanan imunitas tubuh.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Melindungi degradasi sel akibat penuaan dini.</span>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-purple-500 font-bold text-xl">✨</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Akselerasi Metabolisme Alami</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Membantu pembakaran lipid (lemak) lebih efisien serta menjaga vitalitas berat badan ideal bila diminum tanpa campuran pemanis buatan berlebih.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Meningkatkan laju pembakaran kalori harian hingga 11%.</span>
+                    </div>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-coffee-100/40 p-6 sm:p-8 rounded-3xl border border-coffee-200/30 hover:bg-coffee-100 transition-colors duration-300 text-left flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm text-pink-500 font-bold text-xl">❤️</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-coffee-950 text-base sm:text-lg mb-2">Menjaga Kebugaran Pembuluh Darah</h4>
+                            <p class="text-xs sm:text-sm text-coffee-600 leading-relaxed font-light">Mengonsumsi kopi premium dalam jumlah wajar membantu melatih elastisitas otot jantung dan pembuluh darah agar berfungsi optimal jangka panjang.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-coffee-200/30">
+                        <span class="block text-[10px] text-coffee-400 font-bold uppercase tracking-wider font-mono">Penjelasan Medis:</span>
+                        <span class="block text-xs text-amber-900 font-semibold mt-0.5">Didukung oleh riset medis modern terhadap kopi murni.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick interactive quote -->
+            <div class="mt-16 text-center">
+                <span class="inline-block p-2 bg-yellow-50 text-yellow-800 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 font-mono">💡 Tips Sehat Barista Yogies </span>
+                <p class="text-xs text-coffee-500 italic max-w-2xl mx-auto leading-relaxed">
+                    &ldquo;Untuk khasiat antioksidan terbaik, nikmatilah secangkir kopi hitam tanpa gula di pagi hari (pukul 09.30 - 11.30) saat hormon kortisol tubuh melandai secara alami.&rdquo;
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-coffee-950 text-coffee-100">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-lg mx-auto mb-12">
+                <span class="text-xs text-amber-400 uppercase tracking-widest font-mono font-bold block">✦ apresiasi pelanggan</span>
+                <h3 class="text-2xl sm:text-4xl font-serif font-semibold text-white mt-1">Mereka yang Setia Bersama Kami</h3>
+                <p class="text-xs text-coffee-300 mt-2 leading-relaxed">Kepuasan murni penikmat rumahan hingga pemilik coffee shop modern</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-coffee-900/50 p-6 rounded-2xl border border-coffee-800 relative flex flex-col justify-between">
+                    <span class="text-3xl text-amber-500 absolute top-4 right-4 font-serif">&ldquo;</span>
+                    <p class="text-xs sm:text-sm text-coffee-200 leading-relaxed italic z-10 font-light text-left">
+                        &ldquo;Penikmat berat espresso, dan saya kaget dengan Yogies Priangan Gold. Crema-nya sangat tebal dengan keasaman segar yang ramah di lambung. Biji kopinya beraroma segar saat baru dibuka kemasannya.&rdquo;
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-coffee-800 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-semibold text-sm text-coffee-100">Bambang Gunawan</h5>
+                            <p class="text-[10px] text-coffee-400">Penikmat Rumahan - Soreang</p>
+                        </div>
+                        <div class="text-yellow-500 font-bold text-xs">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-coffee-900/50 p-6 rounded-2xl border border-coffee-800 relative flex flex-col justify-between">
+                    <span class="text-3xl text-amber-500 absolute top-4 right-4 font-serif">&ldquo;</span>
+                    <p class="text-xs sm:text-sm text-coffee-200 leading-relaxed italic z-10 font-light text-left">
+                        &ldquo;Robusta Srimahi-nya juara! Harum cokelatnya tercium dari proses penyeduhan tubruk. Sangat cocok disandingkan dengan pisang goreng pagi-pagi, rasa pahitnya sangat natural bukan ampas gosong.&rdquo;
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-coffee-800 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-semibold text-sm text-coffee-100">Agus Salim</h5>
+                            <p class="text-[10px] text-coffee-400">Pecandu Kopi Seduh - Kopo</p>
+                        </div>
+                        <div class="text-yellow-500 font-bold text-xs">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-coffee-900/50 p-6 rounded-2xl border border-coffee-800 relative flex flex-col justify-between">
+                    <span class="text-3xl text-amber-500 absolute top-4 right-4 font-serif">&ldquo;</span>
+                    <p class="text-xs sm:text-sm text-coffee-200 leading-relaxed italic z-10 font-light text-left">
+                        &ldquo;Kemasan premium sangat profesional. Desain cantik, lengkap dengan degassing valve satu arah. Menjadi alternatif kado kopi istimewa untuk kolega luar kota. Sukses terus Yogies!&rdquo;
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-coffee-800 flex items-center justify-between">
+                        <div>
+                            <h5 class="font-semibold text-sm text-coffee-100">Dina Mariana</h5>
+                            <p class="text-[10px] text-coffee-400">Corporate Secretary - Buah Batu</p>
+                        </div>
+                        <div class="text-yellow-500 font-bold text-xs">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Google Maps -->
+    <section id="lokasi" class="py-20 md:py-28 bg-coffee-100/30 relative">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-5 space-y-6 text-left">
+                    <div class="space-y-2">
+                        <span class="text-xs text-amber-600 font-bold uppercase tracking-widest font-mono block">
+                            ✦ lokasi & pemesanan langsung
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-coffee-950 tracking-tight leading-tight">
+                            Kunjungi Roastery Kami di Bandung
+                        </h2>
+                        <p class="text-sm text-coffee-500 font-light leading-relaxed">
+                            Ingin berdiskusi mendalam atau membeli langsung di tempat? Kami menyambut hangat kehadiran Anda bersama aroma sangrai yang membahagiakan.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm">
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-coffee-200/40">
+                            <span class="text-xl">📍</span>
+                            <div>
+                                <h4 class="font-bold text-coffee-950">YOGIES INDONESIA</h4>
+                                <p class="text-coffee-600 text-xs mt-1 leading-relaxed">Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung, Jawa Barat 40254</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-coffee-200/40">
+                            <span class="text-xl">⏰</span>
+                            <div>
+                                <h4 class="font-bold text-coffee-950">Jam Operasional Pelanggan</h4>
+                                <p class="text-coffee-600 text-xs mt-1">Setiap Hari (Senin - Minggu): 09:00 - 18:00 WIB</p>
+                                <p class="text-[10px] text-amber-600 font-bold mt-1">*Tutup pada hari Libur Nasional Keagamaan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 bg-white rounded-2xl border border-coffee-200/40">
+                            <span class="text-xl">📞</span>
+                            <div>
+                                <h4 class="font-bold text-coffee-950">Kontak WhatsApp Hubungan</h4>
+                                <p class="text-coffee-600 text-xs mt-1 font-mono">+62 838-0088-9643 (Administrasi)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embed Map Frame -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-3 rounded-3xl shadow-xl border border-coffee-200/40 overflow-hidden relative">
+                        <div class="absolute top-4 left-4 z-10 bg-coffee-950 text-white px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-widest uppercase">peta digital resmi</div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+                            width="100%" 
+                            height="380" 
+                            style="border: 0;" 
+                            class="rounded-2xl"
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-950 text-coffee-200 border-t border-coffee-900 pt-16 pb-8">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 pb-12 border-b border-coffee-900 text-left">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <h4 class="font-serif font-bold text-white tracking-wide text-lg">YOGIES INDONESIA</h4>
+                    <span class="text-[9px] text-coffee-400 tracking-widest block uppercase font-mono -mt-1">Premium Coffee Roasting House</span>
+                    <p class="text-xs text-coffee-400 font-light leading-relaxed max-w-sm">
+                        Diproses dengan ketelitian mutlak, merawat dedikasi untuk melestarikan rasa murni kopi tradisional terbaik tanah Parahyangan Nusantara.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3.5">
+                    <h5 class="text-[11px] font-bold text-amber-500 uppercase tracking-widest font-mono">Tautan Cepat</h5>
+                    <ul class="text-xs space-y-2 text-coffee-300">
+                        <li><a href="#about" class="hover:text-amber-400 transition-colors">Tentang Kami</a></li>
+                        <li><a href="#quiz" class="hover:text-amber-400 transition-colors">Cari Karakter Kopi</a></li>
+                        <li><a href="#produk" class="hover:text-amber-400 transition-colors">Katalog & Kemitraan</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3.5">
+                    <h5 class="text-[11px] font-bold text-amber-500 uppercase tracking-widest font-mono">Hubungi Layanan</h5>
+                    <div class="text-xs space-y-2 text-coffee-350 font-light">
+                        <p>📍 Jln. Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung, Jawa Barat, Indonesia</p>
+                        <p>📞 +62 838-0088-9643</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-coffee-500 font-light font-mono">
+                <p>© 2026 YOGIES INDONESIA. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex gap-4">
+                    <span>🇮🇩 Kopi Asli Bandung</span>
+                    <span>✦ Premium Grade</span>
+                    <span>✓ Slow Roasting</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dedicated Custom Native JS -->
+    <script>
+        // Custom Drawer Panel Toggle Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden');
+        }
+
+        // Hero Sliding Controller
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.slide-indicator');
+
+        function changeSlide(idx) {
+            currentSlide = idx;
+            slides.forEach((slide, itemIdx) => {
+                if (itemIdx === currentSlide) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            indicators.forEach((indicator, itemIdx) => {
+                if (itemIdx === currentSlide) {
+                    indicator.className = "slide-indicator w-12 h-1.5 rounded-full transition-all duration-500 hover:cursor-pointer bg-amber-500";
+                } else {
+                    indicator.className = "slide-indicator w-12 h-1.5 rounded-full transition-all duration-500 hover:cursor-pointer bg-coffee-900/60";
+                }
+            });
+        }
+
+        // Rotate automatically every 6 seconds
+        setInterval(() => {
+            let next = (currentSlide + 1) % slides.length;
+            changeSlide(next);
+        }, 6000);
+
+        // Filter system for list
+        function filterType(type) {
+            const cards = document.querySelectorAll('.product-card');
+            const btns = ['all', 'Mokka', 'Robusta'];
+
+            btns.forEach(btnId => {
+                const btn = document.getElementById('tab-' + btnId);
+                if (btnId === type) {
+                    btn.className = "px-4.5 py-2.5 rounded-full transition-all duration-300 border bg-coffee-950 text-white border-coffee-950 shadow-md";
+                } else {
+                    btn.className = "px-4.5 py-2.5 rounded-full transition-all duration-300 border bg-coffee-50 text-coffee-700 hover:text-coffee-950 border-coffee-200";
+                }
+            });
+
+            cards.forEach(card => {
+                const cardType = card.getAttribute('data-type');
+                if (type === 'all') {
+                    card.style.display = 'flex';
+                } else if (type === 'Mokka' && cardType === 'Mokka') {
+                    card.style.display = 'flex';
+                } else if (type === 'Robusta' && cardType === 'Robusta') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Quiz sensory calculations
+        let quizAnswers = {
+            method: '',
+            profile: '',
+            intensity: ''
+        };
+
+        function saveAnswer(questionKey, val) {
+            quizAnswers[questionKey] = val;
+
+            if (questionKey === 'method') {
+                document.getElementById('q1-step').classList.add('hidden');
+                document.getElementById('q2-step').classList.remove('hidden');
+                document.getElementById('q2-step').classList.add('block', 'animate-fade-in');
+            } else if (questionKey === 'profile') {
+                document.getElementById('q2-step').classList.add('hidden');
+                document.getElementById('q3-step').classList.remove('hidden');
+                document.getElementById('q3-step').classList.add('block', 'animate-fade-in');
+            } else if (questionKey === 'intensity') {
+                document.getElementById('q3-step').classList.add('hidden');
+                document.getElementById('result-step').classList.remove('hidden');
+                document.getElementById('result-step').classList.add('block', 'animate-fade-in');
+                calculateResult();
+            }
+        }
+
+        function calculateResult() {
+            let title = "Kopi Aroma Robusta";
+            let desc = "Biji kopi Robusta klasik dengan umur simpan matang prima. Menawarkan keharuman panggangan dark roasting nan istimewa, bodi sangat kental bebas kafein tinggi berlebih nyaman dinikmati murni.";
+            let textParam = "Halo Yogies Coffee! Saya mencoba Interactive Selector dan mendapatkan rekomendasi Kopi Aroma Robusta.";
+
+            if (quizAnswers.profile === 'fruity' || quizAnswers.method === 'filter') {
+                title = "Kopi Aroma Mokka Arabika";
+                desc = "Butiran Arabika matang premium yang diproses simpan lama guna meredam keasaman berlebih. Menyuguhkan paduan aroma moka alami yang harum, ringan, dan rasa aromatik yang memanjakan pencernaan lambung.";
+                textParam = "Halo Yogies Coffee! Saya mencoba Interactive Selector dan mendapatkan rekomendasi Kopi Aroma Mokka Arabika.";
+            }
+
+            document.getElementById('result-title').innerText = title;
+            document.getElementById('result-desc').innerText = desc;
+            document.getElementById('result-wa-btn').setAttribute('href', 'https://wa.me/6283800889643?text=' + encodeURIComponent(textParam));
+        }
+
+        function resetQuiz() {
+            quizAnswers = { method: '', profile: '', intensity: '' };
+            document.getElementById('result-step').classList.add('hidden');
+            document.getElementById('q1-step').classList.remove('hidden');
+            document.getElementById('q1-step').classList.add('block', 'animate-fade-in');
+        }
+
+        // Show toast animation helper
+        function showToast() {
+            const toast = document.getElementById('toast-notif');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                hideToast();
+            }, 6000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toast-notif');
+            toast.classList.add('hidden');
+        }
+    </script>
 </body>
 </html>

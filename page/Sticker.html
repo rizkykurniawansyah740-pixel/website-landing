@@ -1,321 +1,921 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOGIES INDONESIA - Stiker Anti Radiasi HP</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-<!-- Hubungkan CSS di sini -->
-  <link rel="stylesheet" href="../style.css">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sticker Anti Radiasi HP Di Bandung - Yogies Indonesia</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
-
-   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background-color: #f0f6ff; /* biru muda lembut */
-      color: #111;
-      padding: 40px 20px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      color: #0047ab; /* biru gelap */
-    }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      background-color: #ffffff;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 64, 128, 0.6);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 22px;
+  <!-- Tailwind Configuration to match Google Fonts and customized utilities -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Inter', 'sans-serif'],
+          }
+        }
       }
+    }
+  </script>
+
+  <style>
+    /* smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* custom background gradient animations or tweaks */
+    @keyframes pulseSlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.05); }
+    }
+    .bg-pulse-slow {
+      animation: pulseSlow 8s ease-in-out infinite;
     }
   </style>
 </head>
-<body>
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/Jteglnw.png" alt="1" />
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/qSsm2CH.png" alt="2" />
-      </div>
-    </div>
-    <div class="hero-text">
-      <h1>Sticker Anti Radiasi HP Di Bandung - Yogies Indonesia</h1>
-      <p>Lindungi Perangkat & Diri dari Radiasi Berlebih!</p>
-    </div>
+<body class="min-h-screen bg-slate-50 flex flex-col overflow-x-hidden selection:bg-sky-200 selection:text-sky-900">
 
-    <style>
-      .hero-text {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #fff;
-        background: rgba(0, 0, 64, 0.5);
-        padding: 20px 40px;
-        border-radius: 12px;
-      }
-      .hero-text h1 {
-        font-size: 2.2rem;
-        color: #66b3ff; /* biru cerah */
-      }
-      .hero-text p {
-        font-size: 1.1rem;
-      }
-    </style>
+  <!-- GLOWING AMBIENT FIELD BACKGROUND -->
+  <div class="absolute top-0 left-0 w-full h-[600px] pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-tr from-sky-400 to-blue-200 opacity-25 blur-3xl bg-pulse-slow"></div>
+    <div class="absolute top-[200px] -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-indigo-300 to-sky-100 opacity-20 blur-3xl bg-pulse-slow animate-pulse" style="animation-duration: 6s;"></div>
+  </div>
+
+  <!-- HEADER NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-sky-100/60 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-sky-400 flex items-center justify-center text-white shadow-md shadow-blue-200/50">
+          <i data-lucide="shield" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg sm:text-xl tracking-tight text-slate-900 block leading-tight">YOGIES</span>
+          <span class="text-[10px] font-bold tracking-widest text-blue-600 uppercase block">INDONESIA</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#manfaat" class="hover:text-blue-600 transition-colors">Manfaat Medis</a>
+        <a href="#galeri" class="hover:text-blue-600 transition-colors">Galeri Fisik</a>
+        <a href="https://wa.me/6283800889643?text=Halo%20Admin%20Yogies%20Indonesia%2C%20saya%20ingin%20memesan%20Sticker%20Anti%20Radiasi%20Yogies%3A%0A%0A%E2%80%A2%20Produk%3A%20*Sticker%20Anti%20Radiasi%20Premium%20Yogies*%0A%E2%80%A2%20Harga%3A%20*Rp%2045.000%20%2F%20Pcs*%0A%E2%80%A2%20Lokasi%20Pengiriman%3A%20Bandung%20%2F%20Kirim%20Luar%20Kota%0A%0AMohon%20info%20ketersediaan%20stok%20%26%20cara%20pemesanan%20lengkap%20ya%20min.%20Terima%20kasih!" target="_blank" class="hover:text-blue-600 transition-colors text-blue-600">Pesan Sekarang</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+        <a href="#lokasi" class="hover:text-blue-600 transition-colors">Kontak</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+          Stok Bandung Tersedia
+        </span>
+        <a 
+          href="https://wa.me/6283800889643?text=Halo%20Admin%20Yogies%20Indonesia%2C%20saya%20tertarik%20dengan%20Sticker%20Anti%20Radiasi%20HP%20Yogies%20di%20Bandung.%20Boleh%20minta%20info%20produknya%3F" 
+          target="_blank" 
+          class="px-4.5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-all shadow-md shadow-blue-200/50 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+        >
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Chat Admin</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-8 sm:py-16 md:py-20 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Hero text -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-100/60 w-fit">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-600"></i>
+          <span>Stiker Anti Radiasi HP Di Bandung - Yogies Indonesia</span>
+        </div>
+
+        <h1 class="font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight text-slate-900 tracking-tight">
+          Lindungi Kesehatan Otak & Diri dari <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-600 font-extrabold">Radiasi Gadget Berlebih!</span>
+        </h1>
+
+        <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+          Apakah Anda sering merasa sakit kepala, mata lelah, atau insomnia saat terlalu lama menggunakan smartphone & laptop? Itu tanda paparan radiasi berlebih.
+        </p>
+
+        <p class="text-sky-900 border-l-4 border-sky-500 pl-4 py-1.5 font-semibold text-xs sm:text-sm bg-sky-50/70 rounded-r-xl max-w-2xl hidden sm:block">
+          "Lindungi Keluarga Anda Dari Radiasi, Dengan Sticker Antiradiasi"
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+          <a 
+            href="https://wa.me/6283800889643?text=Halo%20Admin%20Yogies%20Indonesia%2C%20saya%20ingin%20memesan%20Sticker%20Anti%20Radiasi%20Yogies%3A%0A%0A%E2%80%A2%20Produk%3A%20*Sticker%20Anti%20Radiasi%20Premium%20Yogies*%0A%E2%80%A2%20Harga%3A%20*Rp%2045.000%20%2F%20Pcs*%0A%E2%80%A2%20Lokasi%20Pengiriman%3A%20Bandung%20%2F%20Kirim%20Luar%20Kota%0A%0AMohon%20info%20ketersediaan%20stok%20%26%20cara%20pemesanan%20lengkap%20ya%20min.%20Terima%20kasih!" 
+            target="_blank"
+            class="px-7 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-center rounded-2xl transition-all shadow-xl shadow-blue-100 border border-blue-400/10 hover:shadow-2xl hover:-translate-y-0.5 flex items-center justify-center gap-2"
+          >
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span>Pesan Sekarang</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Upgraded Image Carousel Frame - forced 1:1 aspect-square ratio -->
+      <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+        <div class="relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-2xl p-4 md:p-5">
+          
+          <!-- Slider Image Shell - aspect-square instagram box -->
+          <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-100">
+            <img 
+              id="heroSliderImage"
+              src="https://i.imgur.com/Jteglnw.png" 
+              alt="Proteksi Maksimal Setiap Detik" 
+              class="w-full h-full object-cover transition-all duration-700 ease-in-out hover:scale-105"
+            />
+            
+            <!-- Image overlay caption -->
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent p-5 text-white flex flex-col pt-12">
+              <span id="sliderTitle" class="font-bold text-base sm:text-lg text-yellow-300 drop-shadow-md">
+                Proteksi Maksimal Setiap Detik
+              </span>
+              <span id="sliderDesc" class="text-xs text-slate-200/95 leading-relaxed mt-1">
+                Teknologi absorpsi radiasi militer untuk perlindungan kesehatan Anda & keluarga.
+              </span>
+            </div>
+          </div>
+
+          <!-- Slider Manual Controllers -->
+          <div class="flex items-center justify-between mt-4 px-1">
+            <div class="flex gap-1.5" id="sliderDotsContainer">
+              <!-- Dot indicators will be loaded here dynamically -->
+            </div>
+            <div class="flex gap-1.5 text-slate-700">
+              <button 
+                onclick="prevSlide()"
+                class="p-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+              >
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button 
+                onclick="nextSlide()"
+                class="p-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+              >
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- INFO PRODUK -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Apa Itu Sticker Anti Radiasi ?</h2>
-      <p>
-        Sticker Anti Radiasi, berfungsi untuk membantu mengurangi paparan radiasi elektromagnetik dari perangkat elektronik.
-        Desain elegan, mudah dipasang, dan cocok untuk semua jenis gadget.
-      </p>
+  <!-- BENEFITS GRID SECTION -- "MANFAAT MEDIS & TEKNOLOGI" -->
+  <section id="manfaat" class="py-16 sm:py-24 bg-white border-y border-slate-200/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full">
+          Sains & Keunggulan Produk
+        </span>
+        <h2 class="font-bold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-4 tracking-tight leading-tight">
+          Mengapa Sticker Anti Radiasi Yogies Adalah Investasi Wajib Untuk Gadget Anda?
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-4 leading-relaxed">
+          Didesain berdasarkan formulasi fisika material mutakhir untuk menyerap gelombang elektromagnetik secara pasif, menjadikan keseharian Anda bersama teknologi jauh lebih sehat dan nyaman.
+        </p>
+      </div>
 
-      <ul class="program-list">
-			<li>1. <b>Menetralkan Radiasi</b> – Membantu menyeimbangkan gelombang elektromagnetik dari perangkat agar tidak berbahaya bagi tubuh.</li>
-			<li>2. <b>Menjaga Kesehatan Tubuh</b> – Mengurangi kelelahan, sakit kepala, dan gangguan tidur akibat paparan radiasi berlebih.</li>
-			<li>3. <b>Meningkatkan Energi Positif</b> – Membantu menjaga kestabilan energi dan konsentrasi saat menggunakan perangkat elektronik.</li>
-			<li>4. <b>Aman untuk Semua Perangkat</b> – Dapat digunakan pada HP, laptop, router Wi-Fi, dan alat elektronik lainnya tanpa gangguan sinyal.</li>
-			<li>5. <b>Desain Elegan & Tahan Lama</b> – Berbentuk tipis, stylish, dan tidak mudah rusak, menempel kuat di permukaan perangkat.</li>
-		</ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+        <!-- Benefit Card 1 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="cpu" class="w-6 h-6 text-blue-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            Reduksi Radiasi Elektromagnetik
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Membantu menetralkan & menyerap gelombang elektromagnetik ekstrim (EMF) dari HP, laptop, router, dan tablet hingga 97.5%.
+          </p>
+        </div>
 
+        <!-- Benefit Card 2 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="alert-triangle" class="w-6 h-6 text-indigo-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            Mengurangi Kelelahan & Sakit Kepala
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Bekerja meminimalkan pemicu sakit kepala, ketegangan mata, stress biologis, serta sulit tidur akibat berada dekat gadget terlalu lama.
+          </p>
+        </div>
 
-      <p>
-        Gunakan <b>Sticker Anti Radiasi Yogies</b> untuk perlindungan maksimal setiap hari — solusi sederhana untuk gaya hidup sehat dan aman!
-      </p>
+        <!-- Benefit Card 3 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="heart" class="w-6 h-6 text-pink-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            Menjaga Keseimbangan Energi Tubuh
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Mendukung vitalitas tubuh agar tidak mudah lesu dan tetap fokus saat bekerja di depan layar monitor sepanjang hari.
+          </p>
+        </div>
 
-      <br>
-      <a href="https://wa.me/6283800889643" class="btn primary">Pesan Sekarang</a>
+        <!-- Benefit Card 4 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="wifi" class="w-6 h-6 text-emerald-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            100% Sinyal Tetap Aman & Stabil
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Teknologi khusus yang didesain secara presisi agar hanya menyaring frekuensi radiasi berbahaya tanpa mengganggu transmisi sinyal gadget Anda.
+          </p>
+        </div>
+
+        <!-- Benefit Card 5 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="sparkles" class="w-6 h-6 text-amber-500"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            Desain Tipis & Material Premium
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Berbalut stiker tipis berlapis metal khusus bermotif elegan yang tahan lama, tidak mudah pudar, dan sangat presisi di permukaan gadget.
+          </p>
+        </div>
+
+        <!-- Benefit Card 6 -->
+        <div class="group p-6 sm:p-8 bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 bg-transparent group-hover:bg-blue-600 h-full transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <i data-lucide="smartphone" class="w-6 h-6 text-cyan-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+            Aman Untuk Segala Macam Gadget
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Sangat fleksibel ditempel di bagian belakang Smartphone, tablet, Smart TV, Laptop, microwave, konsol game, maupun Router Wi-Fi.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <style>
-    .info-section {
-      background: linear-gradient(135deg, #e6f3ff 0%, #ffffff 100%);
-      padding: 80px 20px;
-      text-align: center;
-      color: #111;
-    }
+  <!-- GALERI PREMIUM - PHOTO SHOWCASE WITH LIGHTBOX - 1:1 Aspect Ratio instagram box -->
+  <section id="galeri" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full">
+          Dokumentasi Fisik Produk
+        </span>
+        <h2 class="font-bold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-4 tracking-tight">
+          Galeri Produk
+        </h2>
+      </div>
 
-    .info-text {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Galeri item 1 -->
+        <div 
+          onclick="openLightbox('https://i.imgur.com/3tvRDfx.jpeg', 'Sticker Anti Radiasi Yogies Kan Premium - Unit Sticker Yogies Berlapis  Mewah')"
+          class="group cursor-pointer bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+          <div class="relative overflow-hidden aspect-square pointer-events-none bg-slate-200">
+            <img 
+              src="https://i.imgur.com/3tvRDfx.jpeg" 
+              alt="Sticker Anti Radiasi Yogies Kan Premium" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    .info-text h2 {
-      font-size: 2.2rem;
-      color: #0047ab;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+        <!-- Galeri item 2 -->
+        <div 
+          onclick="openLightbox('https://i.imgur.com/V9j6vEP.jpeg', 'Pangan Rapi & Aman di Belakang Handphone - Pangan Presisi, Tipis, Tanpa Mengganjal Casing')"
+          class="group cursor-pointer bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+          <div class="relative overflow-hidden aspect-square pointer-events-none bg-slate-200">
+            <img 
+              src="https://i.imgur.com/V9j6vEP.jpeg" 
+              alt="Pangan Rapi & Aman di Belakang Handphone" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    .program-list {
-      list-style: none;
-      padding: 0;
-      margin: 30px 0;
-      text-align: left;
-    }
+        <!-- Galeri item 3 -->
+        <div 
+          onclick="openLightbox('https://i.imgur.com/3tSVf4I.jpeg', 'Kan Ritel Resmi Yogies - Kan Sealed Original Yogies Indonesia')"
+          class="group cursor-pointer bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+          <div class="relative overflow-hidden aspect-square pointer-events-none bg-slate-200">
+            <img 
+              src="https://i.imgur.com/3tSVf4I.jpeg" 
+              alt="Kan Ritel Resmi Yogies" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    .program-list li {
-      background: #f0f8ff;
-      border-left: 4px solid #007bff;
-      padding: 12px 16px;
-      margin: 8px 0;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .btn.primary {
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: #0047ab;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn.primary:hover {
-      background-color: #0066cc;
-      transform: translateY(-2px);
-    }
-  </style>
-
-  <!-- GALERI -->
-  <h2>Galeri Produk</h2>
-  <div class="gallery-container">
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/3tvRDfx.jpeg" alt="1">
-      <div class="caption">Sticker</div>
     </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/V9j6vEP.jpeg" alt="2">
-      <div class="caption">Pemasangan Rapi & Aman</div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://i.imgur.com/3tSVf4I.jpeg" alt="3">
-      <div class="caption">Kemasan Sticker</div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="fixed inset-0 z-55 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 z-[99]">
+    <div class="relative max-w-2xl w-full bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+      <button 
+        onclick="closeLightbox()"
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white/80 hover:text-white border border-white/10 transition-colors"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      
+      <div class="aspect-square w-full overflow-hidden bg-slate-950 flex items-center justify-center">
+        <img 
+          id="lightboxImage"
+          src="" 
+          alt="" 
+          class="h-full w-full object-cover"
+        />
+      </div>
+      
+      <div class="p-6 bg-slate-900 border-t border-white/10 text-white">
+        <p id="lightboxCaption" class="text-sm text-slate-300 leading-relaxed font-semibold">
+          Caption gambar
+        </p>
+      </div>
     </div>
   </div>
 
-  <!-- PRODUK -->
-<section class="testimoni-section">
-  <h2>Manfaat Sticker Anti Radiasi</h2>
-  <div class="testimoni-wrapper">
-    <div class="testimoni-card">
-      <span><b>Reduksi Radiasi</b> – Membantu menetralkan gelombang elektromagnetik dari ponsel, laptop, dan perangkat elektronik lainnya.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Perlindungan Tubuh</b> – Mengurangi potensi dampak negatif radiasi terhadap kepala, mata, dan sistem saraf.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Peningkatan Energi Positif</b> – Membantu menjaga keseimbangan energi tubuh agar tetap stabil selama penggunaan perangkat.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Stabilitas Sinyal</b> – Tidak mengganggu kualitas jaringan atau koneksi, tetap aman digunakan di berbagai jenis perangkat.</span>
-    </div>
-    <div class="testimoni-card">
-      <span><b>Desain Stylish & Praktis</b> – Tipis, ringan, dan mudah dipasang tanpa mengubah tampilan perangkat kamu.</span>
-    </div>
-  </div>
-</section>
+  <!-- TESTIMONIALS SECTION -->
+  <section class="py-16 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-indigo-600 text-xs font-bold tracking-widest uppercase bg-indigo-50 px-3 py-1 rounded-full">
+          Kisah & Testimonial Pengguna
+        </span>
+        <h2 class="font-bold text-2xl sm:text-3xl md:text-4xl text-slate-900 mt-4 tracking-tight">
+          Dipercaya Lebih Dari Ratusan Pelanggan Setia
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+          Inilah penuturan tulus dari orang-orang yang peduli kesehatan dan telah mang stiker anti radiasi Yogies di Bandung.
+        </p>
+      </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testi 1 -->
+        <div class="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+            </div>
+            
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "Biasanya kepala saya sering kliyengan kalau coding lebih dari 8 jam sehari dekat laptop & router. Setelah pasang stiker ini di belakang laptop dan HP, mata & kepala terasa jauh lebih enteng. Sinyal internal kantor pun ngga ada masalah sama sekali!"
+            </p>
+          </div>
 
-  <style>
-    .testimoni-section {
-      background: linear-gradient(135deg, #e6f2ff, #ffffff);
-      padding: 80px 20px;
-      text-align: center;
-      color: #111;
-    }
+          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100 mt-auto">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" 
+              alt="Hendra Wijaya" 
+              class="w-10 h-10 rounded-full object-cover border border-indigo-100"
+            />
+            <div>
+              <span class="block font-bold text-sm text-slate-900 leading-tight">
+                Hendra Wijaya
+              </span>
+              <span class="block text-[10px] text-indigo-600 font-bold uppercase tracking-wider mt-0.5">
+                Software Engineer / Work From Home
+              </span>
+              <span class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+                <span>Dago, Bandung</span>
+              </span>
+            </div>
+          </div>
+        </div>
 
-    .testimoni-section h2 {
-      font-size: 2.2rem;
-      color: #003366;
-      margin-bottom: 40px;
-      font-weight: 700;
-    }
+        <!-- Testi 2 -->
+        <div class="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+            </div>
+            
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "Khawatir banget sama anak balita saya yang suka main video call sama neneknya di HP. Iseng beli pasang stiker anti-radiasi Yogies ini di HP anak & tablet belajar. Rasanya tenang karena ada proteksi tambahan. Kualitas fisiknya juga premium banget berwarna  mengkilap."
+            </p>
+          </div>
 
-    .testimoni-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100 mt-auto">
+            <img 
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" 
+              alt="Siti Rahmawati" 
+              class="w-10 h-10 rounded-full object-cover border border-indigo-100"
+            />
+            <div>
+              <span class="block font-bold text-sm text-slate-900 leading-tight">
+                Siti Rahmawati
+              </span>
+              <span class="block text-[10px] text-indigo-600 font-bold uppercase tracking-wider mt-0.5">
+                Ibu Rumah Tangga / Online Shop Owner
+              </span>
+              <span class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+                <span>Cileunyi, Bandung</span>
+              </span>
+            </div>
+          </div>
+        </div>
 
-    .testimoni-card {
-      background: #ffffff;
-      border: 1px solid #cce0ff;
-      border-left: 4px solid #007bff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        <!-- Testi 3 -->
+        <div class="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+            </div>
+            
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "HP nyala terus seharian ditaruh di stang motor kena panas dan dekat tubuh. Sebelumnya HP gampang sekali panas, kerasa banget pas digenggam. Setelah nempel stiker Yogies di balik casing, HP kerasa lebih dingin stabil dan badan saya ga gampang pegal-pegal."
+            </p>
+          </div>
 
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
+          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100 mt-auto">
+            <img 
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150" 
+              alt="Faisal Pratama" 
+              class="w-10 h-10 rounded-full object-cover border border-indigo-100"
+            />
+            <div>
+              <span class="block font-bold text-sm text-slate-900 leading-tight">
+                Faisal Pratama
+              </span>
+              <span class="block text-[10px] text-indigo-600 font-bold uppercase tracking-wider mt-0.5">
+                Driver Ojek Online
+              </span>
+              <span class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+                <span>Regol, Bandung</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    .testimoni-card span {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #111;
-      display: block;
-      text-align: left;
-    }
-  </style>
-
-  <!-- MAPS -->
-  <section class="maps-section">
-    <h2>CV. YOGIES</h2>
-    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
-    <div class="maps-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </section>
+
+  <!-- FAQS SECTION -->
+  <section id="faq" class="py-16 sm:py-24 bg-white border-b border-slate-200/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full">
+          Pusat Jawaban & Edukasi
+        </span>
+        <h2 class="font-bold text-2xl sm:text-3xl md:text-3xl text-slate-900 mt-4 tracking-tight">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+          Ingin tahu lebih banyak mengenai cara kerja, validasi ilmiah, orisinalitas produk, atau pengiriman? Temukan jawabannya di bawah ini.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3.5">
+        <!-- FAQ 1 -->
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-300">
+          <button
+            onclick="toggleFaq(0)"
+            class="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 focus:outline-none hover:bg-slate-100/60"
+          >
+            <span class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+              Bagaimana cara kerja Sticker Anti Radiasi Yogies?
+            </span>
+            <i data-lucide="chevron-down" id="faq-icon-0" class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          
+          <div id="faq-answer-0" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="p-5 sm:p-6 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+              Stiker ini menggunakan lapisan material khusus berteknologi tinggi nanokristal  dan serat logam mikro yang menyerap gelombang elektromagnetik berlebih. Ia meredam dan mengubah radiasi panas EMF tersebut menjadi energi termal mikro yang tersebar aman ke udara tanpa mengganggu sirkulasi sinyal nirkabel utama (4G/5G/Wi-Fi) perangkat Anda.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-300">
+          <button
+            onclick="toggleFaq(1)"
+            class="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 focus:outline-none hover:bg-slate-100/60"
+          >
+            <span class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+              Apakah pangannya akan mengganggu kestabilan sinyal internet?
+            </span>
+            <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          
+          <div id="faq-answer-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="p-5 sm:p-6 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+              Sama sekali tidak. Desain frekuensi stiker anti radiasi Yogies telah dirancang khusus (tuned absorption) agar menyaring gelombang non-transmisional (radiasi liar) dan tidak memblokir gelombang telekomunikasi utama. Sinyal telepon, paket data, dan Wi-Fi Anda akan tetap berfungsi 100% prima.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-300">
+          <button
+            onclick="toggleFaq(2)"
+            class="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 focus:outline-none hover:bg-slate-100/60"
+          >
+            <span class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+              Berapa lama masa pakai (lifetime) perlindungan stiker anti radiasi ini?
+            </span>
+            <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          
+          <div id="faq-answer-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="p-5 sm:p-6 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+              Masa efektif penyerapan radiasi aktif stiker Yogies adalah permanen selama lapisan stiker fisik tidak robek, hancur, atau mengelupas seluruhnya. Kami menyarankan untuk menggantinya saat Anda berganti HP/perangkat baru agar stiker merekat dengan prima.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-300">
+          <button
+            onclick="toggleFaq(3)"
+            class="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 focus:outline-none hover:bg-slate-100/60"
+          >
+            <span class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+              Di bagian mana stiker ini harus ditempel?
+            </span>
+            <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          
+          <div id="faq-answer-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="p-5 sm:p-6 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+              Sangat mudah! Cukup lepas perekat di bagian belakang stiker, lalu tempelkan pada area permukaan luar bagian belakang smartphone (bisa di bawah casing pelindung), dekat baterai HP, atau pada permukaan bagian luar laptop, layar monitor, microwave, kulkas, dan pemancar router Wi-Fi Anda.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-300">
+          <button
+            onclick="toggleFaq(4)"
+            class="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 focus:outline-none hover:bg-slate-100/60"
+          >
+            <span class="font-bold text-slate-900 text-sm sm:text-base leading-tight">
+              Apakah bisa dipesan dengan COD atau langsung datang ke toko Bandung?
+            </span>
+            <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300"></i>
+          </button>
+          
+          <div id="faq-answer-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="p-5 sm:p-6 text-sm text-slate-600 leading-relaxed bg-white border-t border-slate-100">
+              Sangat bisa! Kantor kami berada di Jalan Srimahi Dalam No.2A, Ancol, Regol, Bandung. Anda bisa berkunjung langsung ke kantor Yogies untuk pembelian di tempat, atau menghubungi WhatsApp admin kami di 0838-0088-9643 untuk pengiriman cepat ke seluruh Indonesia (pilihan COD / Kirim Instan Gojek/Grab).
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAPS & CORPORATE LOCATION SECTION -->
+  <section id="lokasi" class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Map description -->
+        <div class="lg:col-span-5 text-left flex flex-col gap-6">
+          <div>
+            <span class="text-xs font-bold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">
+              Lokasi Resmi Yogies
+            </span>
+            <h2 class="font-bold text-2xl sm:text-3xl text-slate-900 mt-4 tracking-tight leading-tight">
+              Kunjungi Kantor Pelayanan & Showroom Kami
+            </h2>
+            <p class="text-slate-650 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Kami berlokasi di lokasi prima kota Bandung. Anda dapat berkunjung langsung untuk berkonsultasi mengenai radiasi elektromagnetik gratis, mengambil stiker orisinil, maupun membuat janji pengiriman.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-4 text-sm text-slate-700">
+            
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-slate-900">Alamat Lengkap:</span>
+                <span class="text-xs text-slate-600 mt-0.5 block leading-normal text-left">
+                  Jalan Srimahi Dalam No.2A, Kel. Ancol, Kec. Regol, Kota Bandung, Jawa Barat 40254
+                </span>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-slate-900">Jam Operasional Kantor:</span>
+                <span class="text-xs text-slate-600 mt-0.5 block text-left">
+                  Senin - Sabtu: 08:30 - 17:30 WIB (Minggu Libur)
+                </span>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-slate-900">Kontak WhatsApp Hub:</span>
+                <a 
+                  href="https://wa.me/6283800889643" 
+                  target="_blank" 
+                  class="text-xs text-blue-600 hover:underline inline-flex items-center gap-1 mt-0.5"
+                >
+                  <span>0838-0088-9643 (Respon Cepat)</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <a 
+              href="https://maps.google.com/?q=Jl.+Srimahi+Dalam+No.2A,+Ancol,+Regol,+Kota+Bandung" 
+              target="_blank" 
+              class="px-5 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm rounded-xl transition-all inline-flex items-center gap-2 border border-slate-200"
+            >
+              <span>Buka di Google Maps</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Google Maps iFrame -->
+        <div class="lg:col-span-7">
+          <div class="bg-white border border-slate-200 rounded-3xl p-3 sm:p-4 shadow-xl overflow-hidden aspect-video relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+              width="100%" 
+              height="100%" 
+              style="border: 0; border-radius: 1.25rem;" 
+              allowfullscreen="" 
+              loading="lazy"
+              title="Peta Lokasi Yogies"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- FOOTER -->
-  <footer class="footer" style="background:#001f3f; color:white; text-align:center; padding:20px;">
-    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
+  <footer class="mt-auto bg-slate-900 border-t border-slate-800 text-white pt-14 pb-8 relative overflow-hidden">
+    
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/5">
+      
+      <div class="md:col-span-12 lg:col-span-5 flex flex-col gap-4">
+        <div class="flex items-center gap-3 text-white">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-slate-950 shadow-md">
+            <i data-lucide="shield" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="font-extrabold text-lg tracking-tight">
+            YOGIES INDONESIA
+          </span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed max-w-sm text-left">
+          Kami memandu masyarakat Indonesia menciptakan ekosistem hidup sehat, bersinergi bersama perkembangan teknologi tanpa dibayangi bahaya radiasi mikro.
+        </p>
+      </div>
+
+      <div class="md:col-span-6 lg:col-span-4 flex flex-col gap-3 text-left">
+        <span class="font-bold text-xs uppercase tracking-widest text-sky-400 block">
+          Alamat Resmi
+        </span>
+        <span class="text-xs text-slate-300 leading-normal block">
+          Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung, Jawa Barat 40254, Indonesia.
+        </span>
+      </div>
+
+      <div class="md:col-span-6 lg:col-span-3 flex flex-col gap-3 text-left">
+        <span class="font-bold text-xs uppercase tracking-widest text-sky-400 block">
+          Direct Admin
+        </span>
+        <a 
+          href="https://wa.me/6283800889643" 
+          target="_blank" 
+          class="text-xs text-slate-300 hover:text-white transition-colors block"
+        >
+          WhatsApp: 0838-0088-9643
+        </a>
+        <span class="text-xs text-slate-400 block mt-1">
+          Hubungi kami untuk kolaborasi agen, dropshipper, & grosir resmi.
+        </span>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <span>
+        © <span id="year">2026</span> YOGIES. Seluruh Hak Cipta Dilindungi Undang-Undang.
+      </span>
+      <div class="flex gap-4">
+        <span class="hover:text-slate-300 cursor-pointer">Syarat & Ketentuan</span>
+        <span>&middot;</span>
+        <span class="hover:text-slate-300 cursor-pointer">Kebijakan Privasi</span>
+      </div>
+    </div>
+
   </footer>
 
+  <!-- Page Interactivity Scripts -->
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Initialize Lucide Icons
+    lucide.createIcons();
 
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
-    setInterval(() => {
-      slides.forEach(slide => slide.classList.remove("active"));
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }, 4000);
+    // Set Dynamic Year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Slider State & Actions
+    const slides = [
+      {
+        url: "https://i.imgur.com/Jteglnw.png",
+        title: "Proteksi Maksimal Setiap Detik",
+        desc: "Teknologi absorpsi radiasi militer untuk perlindungan kesehatan Anda & keluarga."
+      },
+      {
+        url: "https://i.imgur.com/qSsm2CH.png",
+        title: "Desain Tipis & Elegan",
+        desc: "Berlapis  24k motif eksklusif yang sangat mewah saat ditempel pada casing HP."
+      }
+    ];
+    let activeSlide = 0;
+
+    function renderDots() {
+      const container = document.getElementById('sliderDotsContainer');
+      container.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => setSlide(idx);
+        btn.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+        btn.className = `h-2 rounded-full transition-all duration-300 ${idx === activeSlide ? 'w-6 bg-blue-600' : 'w-2 bg-slate-300'}`;
+        container.appendChild(btn);
+      });
+    }
+
+    function updateSlider() {
+      const img = document.getElementById('heroSliderImage');
+      const title = document.getElementById('sliderTitle');
+      const desc = document.getElementById('sliderDesc');
+      
+      // fade out effect then change src
+      img.style.opacity = '0.3';
+      setTimeout(() => {
+        img.src = slides[activeSlide].url;
+        img.alt = slides[activeSlide].title;
+        title.innerText = slides[activeSlide].title;
+        desc.innerText = slides[activeSlide].desc;
+        img.style.opacity = '1';
+        renderDots();
+      }, 200);
+    }
+
+    function setSlide(idx) {
+      activeSlide = idx;
+      updateSlider();
+    }
+
+    function nextSlide() {
+      activeSlide = (activeSlide + 1) % slides.length;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      activeSlide = (activeSlide - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    // Auto rotate slides
+    let slideTimer = setInterval(nextSlide, 5000);
+    function resetSlideTimer() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, 5000);
+    }
+    document.getElementById('sliderDotsContainer').addEventListener('click', resetSlideTimer);
+
+    // Initial dot render
+    renderDots();
+
+    // Lightbox Modal functions
+    function openLightbox(url, captionText) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImage');
+      const cap = document.getElementById('lightboxCaption');
+      
+      img.src = url;
+      cap.innerText = captionText;
+      
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    }
+
+    // FAQ Accordion logic
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      
+      // Check if already open
+      if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+        answer.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+        icon.classList.remove('text-blue-600');
+      } else {
+        // Close others first for a clean behavior
+        for (let i = 0; i < 5; i++) {
+          const ans = document.getElementById(`faq-answer-${i}`);
+          const ic = document.getElementById(`faq-icon-${i}`);
+          if (ans) {
+            ans.style.maxHeight = '0px';
+            ic.style.transform = 'rotate(0deg)';
+            ic.classList.remove('text-blue-600');
+          }
+        }
+        // Open selected
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+        icon.classList.add('text-blue-600');
+      }
+    }
   </script>
-  
 </body>
 </html>

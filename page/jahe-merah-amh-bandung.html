@@ -1,394 +1,1183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jahe Merah AMH - Yogies Indonesia</title>
-  
-  <!-- 🔹 SEO BASIC TAGS -->
-  <title>Jahe Merah AMH - Minuman Herbal Hangat & Sehat | CV. Yogies Indonesia</title>
-  <meta name="description" content="Jahe Merah AMH adalah minuman herbal alami dari jahe merah pilihan yang membantu menjaga daya tahan tubuh, menambah energi, dan memperlancar peredaran darah." />
-  <meta name="keywords" content="Jahe Merah AMH, minuman herbal, jahe merah Bandung, minuman sehat alami, Yogies Indonesia" />
-  <meta name="author" content="Yogies Indonesia" 
-  
-  <!-- 🔹 OPEN GRAPH (UNTUK SOSIAL MEDIA: FACEBOOK, WHATSAPP, DLL) -->
-  <meta property="og:title" content="Jahe Merah AMH - Minuman Herbal Hangat & Sehat" />
-  <meta property="og:description" content="Minuman herbal alami dari jahe merah pilihan untuk menjaga daya tahan tubuh dan meningkatkan energi." />
-  <meta property="og:image" content="https://i.imgur.com/OPzyo8f.png" />
-  <meta property="og:url" content="https://yogiesindonesia.co.id/produk/jahe-merah-amh.html" />
-  <meta property="og:type" content="website" />
-  
-  <!-- 🔹 TWITTER CARD (JIKA DISHARE DI TWITTER / X) -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jahe Merah AMH - Minuman Herbal Hangat & Sehat" />
-  <meta name="twitter:description" content="Minuman herbal alami dari jahe merah pilihan yang membantu menjaga stamina dan imunitas tubuh." />
-  <meta name="twitter:image" content="https://i.imgur.com/OPzyo8f.png" />
-  <link rel="stylesheet" href="../style.css">
-  <script defer src="script.js"></script>
-  <script src="https://kit.fontawesome.com/6b8d56b7a1.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🔹 SEO BASIC TAGS -->
+    <title>Jahe Merah AMH - Minuman Herbal Hangat & Sehat | Yogies Indonesia</title>
+    <meta name="description" content="Jahe Merah AMH adalah minuman herbal alami dari jahe merah pilihan yang membantu menjaga daya tahan tubuh, menambah energi, dan memperlancar peredaran darah. Hubungi Yogies Indonesia Bandung untuk grosir dan agen." />
+    <meta name="keywords" content="Jahe Merah AMH, grosir jahe merah amh, minuman herbal, jahe merah Bandung, Yogies Indonesia, reseller jahe merah, agen amh" />
+    <meta name="author" content="Yogies Indonesia" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    /* === HERO === */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hero-slider .slider-container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(65%);
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      text-align: center;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-      max-width: 800px;
-      padding: 0 20px;
-      animation: fadeInUp 1.5s ease;
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-      color: #f5d28c;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translate(-50%, -40%);}
-      to {opacity: 1; transform: translate(-50%, -50%);}
-    }
-
-    /* === INFO PRODUK === */
-    .info-section {
-      background: linear-gradient(135deg, #a1827e 0%, #ffffff 100%);
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .info-text {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .info-text h2 {
-      font-size: 2.3rem;
-      color: #662e1d;
-      margin-bottom: 25px;
-    }
-
-    .program-list {
-      list-style: none;
-      padding: 0;
-      margin: 30px 0;
-      text-align: left;
-    }
-
-    .program-list li {
-      background: #a1827e;
-      border-left: 5px solid #662e1d;
-      padding: 14px 18px;
-      margin: 10px 0;
-      border-radius: 8px;
-      color: #fff;
-    }
-
-    /* === GALERI === */
-    h2 {
-      text-align: center;
-      margin: 80px 0 40px;
-      color: #662e1d;
-      font-size: 2.3rem;
-    }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto 100px;
-      padding: 0 20px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
-    /* === TESTIMONI === */
-    .testimoni-section {
-      background: linear-gradient(135deg, #a1827e, #ffffff);
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .testimoni-section h2 {
-      font-size: 2.3rem;
-      color: #662e1d;
-      margin-bottom: 40px;
-    }
-
-    .testimoni-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .testimoni-card {
-      background: #ffffff;
-      border-left: 5px solid #662e1d;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-      text-align: left;
-    }
-
-    .testimoni-card:hover {
-      transform: translateY(-5px);
-    }
-
-    /* === BUTTON === */
-    .btn.primary {
-      display: inline-block;
-      background: #662e1d;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s ease;
-      font-weight: 600;
-    }
-
-    .btn.primary:hover {
-      background: #a1827e;
-      transform: translateY(-3px);
-    }
-
-    /* === MAPS & FOOTER === */
-    .maps-section {
-      padding: 80px 20px;
-      text-align: center;
-      background: #fdfdfd;
-    }
-
-    .maps-section h2 {
-      color: #662e1d;
-      font-size: 2rem;
-    }
-
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    /* === BACK BUTTON === */
-    .back-home-btn {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      background: #6f4e37;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease;
-      z-index: 1000;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-
-    .back-home-btn:hover {
-      background: #5b3b28;
-      transform: translateY(-4px) scale(1.05);
-    }
-  </style>
+    <!-- 🔹 OPEN GRAPH -->
+    <meta property="og:title" content="Jahe Merah AMH - Minuman Herbal Hangat & Sehat | Yogies Indonesia" />
+    <meta property="og:description" content="Minuman herbal alami dari jahe merah pilihan untuk menjaga daya tahan tubuh dan meningkatkan energi. Hubungi grosir Yogies Indonesia Bandung." />
+    <meta property="og:image" content="https://i.imgur.com/OPzyo8f.png" />
+    <meta property="og:url" content="https://yogiesindonesia.co.id/produk/jahe-merah-amh.html" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['"Space Grotesk"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              stone: {
+                50: '#f5f5f4',
+                100: '#e7e5e4',
+                200: '#d6d3d1',
+                300: '#a8a29e',
+                400: '#78716c',
+                500: '#57534e',
+                600: '#44403c',
+                700: '#292524',
+                800: '#1c1917',
+                900: '#0c0a09',
+                950: '#030202',
+              },
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Smooth transitions */
+      .fade-enter {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .fade-enter-active {
+        opacity: 1;
+      }
+    </style>
 </head>
+<body class="min-h-screen bg-stone-50 text-gray-800 font-sans antialiased selection:bg-red-700 selection:text-white">
 
-<body>
+    <!-- GLOBAL NAVBAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-red-700 p-2.5 rounded-full text-amber-100 flex items-center justify-center shadow-md">
+                        <i data-lucide="leaf" class="h-6 w-6 animate-pulse"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-lg tracking-tight text-red-950 block leading-none">
+                            JAHE MERAH AMH
+                        </span>
+                        <span class="text-xs text-amber-800 font-sans tracking-widest font-medium block mt-1 uppercase">
+                            Yogies Indonesia
+                        </span>
+                    </div>
+                </div>
 
-  <!-- HERO -->
-  <section class="hero-slider">
-    <div class="slider-container">
-      <div class="slide active">
-        <img src="https://i.imgur.com/r3VWfC8.jpeg" alt="1" />
-      </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#katalog" class="text-gray-700 hover:text-red-700 font-medium text-sm transition-colors">Katalog Produk</a>
+                    <a href="#khasiat" class="text-gray-700 hover:text-red-700 font-medium text-sm transition-colors">Khasiat AMH</a>
+                    <a href="#lokasi" class="text-gray-700 hover:text-red-700 font-medium text-sm transition-colors">Hubungi Kami</a>
+                    <a href="#faq" class="text-gray-700 hover:text-red-700 font-medium text-sm transition-colors">FAQ</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://wa.me/6283800889643?text=Halo%20Yogies%20Indonesia,%20saya%2520tertarik%2520dengan%2520produk%252520Jahe%252520Merah%252520AMH%252520untuk%252520pemesanan."
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-semibold text-sm py-2.5 px-5 rounded-full shadow-md transition-all hover:-translate-y-0.5">
+                        <i data-lucide="phone" class="h-4 w-4"></i>
+                        <span>Pesan Sekarang</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger toggle -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" type="button" class="p-2 text-gray-700 hover:text-red-700 focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-rose-50 px-4 py-4 space-y-3 shadow-lg absolute w-full left-0">
+            <a href="#katalog" class="mobile-nav-link block text-gray-700 hover:text-red-700 font-semibold py-2 border-b border-rose-50">Katalog Produk</a>
+            <a href="#khasiat" class="mobile-nav-link block text-gray-700 hover:text-red-700 font-semibold py-2 border-b border-rose-50">Manfaat & Khasiat AMH</a>
+            <a href="#lokasi" class="mobile-nav-link block text-gray-700 hover:text-red-700 font-medium py-2 border-b border-rose-50">Hubungi Yogies</a>
+            <a href="#faq" class="mobile-nav-link block text-gray-700 hover:text-red-700 font-medium py-2 pb-3 border-b border-rose-50">FAQ Tanya Jawab</a>
+            <a href="https://wa.me/6283800889643?text=Halo%20Yogies%20Indonesia,%20saya%20tertarik%20dengan%20produk%20Jahe%20Merah%20AMH%20untuk%20pemesanan."
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full text-center flex items-center justify-center space-x-2 bg-emerald-600 text-white font-sans font-semibold py-3 px-4 rounded-xl shadow">
+                <i data-lucide="phone" class="h-4 w-4"></i>
+                <span>Pesan Langsung via WhatsApp</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION WITH SLIDER -->
+    <section class="relative bg-gradient-to-r from-stone-950 via-red-950 to-stone-900 text-white min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/30 via-transparent to-transparent pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-red-950/75 border border-red-800/60 px-4 py-2 rounded-full text-xs font-semibold text-amber-200 shadow-md">
+                        <i data-lucide="sparkles" class="h-4.5 w-4.5 text-amber-500 animate-bounce"></i>
+                        <span>Distributor Utama YOGIES INDONESIA - Bandung</span>
+                    </div>
+
+                    <h1 class="font-display font-bold text-4xl sm:text-6xl text-white tracking-tight leading-tight">
+                        Kemurnian Hangat <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-350 to-amber-200">
+                          Jahe Merah AMH
+                        </span>
+                    </h1>
+
+                    <p class="max-w-xl mx-auto lg:mx-0 text-base sm:text-lg text-stone-300 leading-relaxed font-sans">
+                        Solusi kesehatan herbal legendaris keluarga terbuat dari ekstrak jahe merah murni unggulan, madu hutan hitam alami, habbatussauda premium, dan ekstrak tanaman herbal berkhasiat. Menghasilkan kehangatan seketika untuk meredakan masuk angin dan menjaga stamina tubuh Anda tetap prima.
+                    </p>
+
+                    <!-- USP Badges -->
+                    <div class="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mx-auto lg:mx-0 text-left pt-2">
+                        <div class="bg-stone-900/40 p-3.5 rounded-2xl border border-stone-800 flex flex-col justify-between">
+                            <div class="bg-red-950 p-2 rounded-lg text-amber-400 w-fit mb-2">
+                                <i data-lucide="award" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-sans font-bold text-white uppercase tracking-wider block">100% Asli</h3>
+                                <span class="text-[10px] text-stone-400 font-mono">Pabrik PT. AMH</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-900/40 p-3.5 rounded-2xl border border-stone-800 flex flex-col justify-between">
+                            <div class="bg-red-950 p-2 rounded-lg text-amber-400 w-fit mb-2">
+                                <i data-lucide="truck" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-sans font-bold text-white uppercase tracking-wider block">Grosir Cepat</h3>
+                                <span class="text-[10px] text-stone-400 font-mono font-sans">Siap Kirim Bandung</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-900/40 p-3.5 rounded-2xl border border-stone-800 flex flex-col justify-between">
+                            <div class="bg-red-950 p-2 rounded-lg text-amber-400 w-fit mb-2">
+                                <i data-lucide="shield-check" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-sans font-bold text-white uppercase tracking-wider block">Higienis & Sehat</h3>
+                                <span class="text-[10px] text-stone-400 font-mono">Tanpa Pengawet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                        <a href="#katalog" class="bg-red-700 hover:bg-red-800 text-white font-sans font-bold px-8 py-4 rounded-xl shadow-lg transition-all hover:translate-y-[-2px] active:translate-y-0 text-center text-sm">
+                            Belanja Jahe Merah AMH
+                        </a>
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Indonesia.%2520Saya%2520ingin%2520konsultasi%2520order%2520grosir%2520Jahe%2520Merah%2520AMH."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="bg-stone-900 hover:bg-stone-800 text-amber-200 border border-stone-800 font-sans font-semibold px-8 py-4 rounded-xl transition-all hover:translate-y-[-2px] text-center text-sm flex items-center justify-center space-x-2">
+                            <span>Info Kemitraan via WA</span>
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-amber-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Interaction Image Container -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-red-600/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative bg-stone-900/60 border border-stone-800 p-6 sm:p-8 rounded-[40px] shadow-2xl backdrop-blur-md max-w-sm w-full">
+                        
+                        <!-- Slide Frame -->
+                        <div class="h-72 w-full rounded-2xl overflow-hidden bg-amber-50 relative border-2 border-stone-800">
+                            <img id="hero-carousel-img"
+                                 src="https://i.imgur.com/7fZp8dj.jpeg"
+                                 alt="Hero Slide Product"
+                                 class="w-full h-full object-contain mix-blend-multiply p-4 transition-all duration-500">
+                            <div id="hero-carousel-badge" class="absolute bottom-3 left-3 bg-black/75 px-3 py-1.5 rounded-full text-[10px] font-mono text-amber-200">
+                                Varian AMH Original
+                            </div>
+                        </div>
+
+                        <!-- Data Row Summary -->
+                        <div class="mt-5 space-y-3">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-stone-400">Distribusi Sektor</span>
+                                <span class="text-amber-200 font-semibold font-sans">Retail & Grosir Nasional</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-stone-400">Penawaran Harga</span>
+                                <span class="text-emerald-400 font-bold font-sans">Hubungi WA Terbuka</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-stone-400">Mutu & Kemurnian</span>
+                                <span class="text-white font-semibold">100% Khasiat Alami</span>
+                            </div>
+
+                            <!-- Carousel dots -->
+                            <div class="pt-3 border-t border-stone-800 flex justify-center gap-1.5">
+                                <button id="dot-0" onclick="setHeroImage(0)" class="h-2.5 w-8 bg-amber-400 rounded-full transition-all duration-300 pointer-events-auto"></button>
+                                <button id="dot-1" onclick="setHeroImage(1)" class="h-2.5 w-2.5 bg-stone-700 hover:bg-stone-600 rounded-full transition-all duration-300 pointer-events-auto"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MENGAPA MEMILIH KAMI SECTION -->
+    <section class="py-20 bg-stone-100 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block mb-2">
+                    MENGAPA MEMILIH KAMI?
+                </span>
+                <h2 class="font-display font-bold text-3xl sm:text-5xl text-red-950 tracking-tight leading-tight">
+                    Kualitas Distribusi Terbaik Dari Yogies Indonesia
+                </h2>
+                <p class="mt-3 text-stone-600 text-sm sm:text-base">
+                    Kami menjembatani langsung pasokan pabrik utama ke gudang toko Anda tanpa perantara mahal dengan kemudahan pesan via WhatsApp.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Point 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200/60 shadow-sm space-y-4">
+                    <div class="p-3 bg-red-100 text-red-800 rounded-2xl w-fit">
+                        <i data-lucide="shield-check" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-red-950">
+                        Keaslian Terjamin 100%
+                    </h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Kami adalah badan usaha resmi berizin (Yogies Indonesia). Setiap sachet dan karton yang Anda peroleh memiliki nomor seri produk resmi, kemasan tersegel, dan jaminan expired terpanjang langsung dari pabrik utama.
+                    </p>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200/60 shadow-sm space-y-4">
+                    <div class="p-3 bg-red-100 text-red-800 rounded-2xl w-fit">
+                        <i data-lucide="trending-up" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-red-950">
+                        Peluang Keuntungan Tinggi
+                    </h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Produk minuman hangat herbal jahe merah AMH memiliki repeat order yang sangat tinggi. Sangat laris dihidangkan di warmindo, warung angkringan malam, toko ritel kecil, kelontong, dan apotek obat tradisional seluruh nusantara.
+                    </p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200/60 shadow-sm space-y-4">
+                    <div class="p-3 bg-red-100 text-red-800 rounded-2xl w-fit">
+                        <i data-lucide="truck" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-red-950">
+                        Pengiriman Murah & Cepat
+                    </h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        Berlokasi strategis di Regol, Kota Bandung. Kami siap mengirim barang ke ekspedisi kargo kereta, truk lintas kota, maupun ojek online instan untuk pengantaran cepat sesama wilayah Bandung Raya.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATALOG -->
+    <section id="katalog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block mb-2">
+                    KATALOG KHUSUS PEMESANAN WHATSAPP
+                </span>
+                <h2 class="font-display font-bold text-3xl sm:text-5xl text-red-950 tracking-tight">
+                    Pilih Varian Jahe Merah AMH Anda
+                </h2>
+                <p class="mt-3 text-stone-600 text-sm sm:text-base">
+                    Klik tombol hubungi sales di bawah produk yang Anda minati untuk menanyakan info stok, promo terbaru, serta konsultasi pemesanan langsung melalui WhatsApp.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                
+                <!-- Product 1 Card -->
+                <div class="bg-stone-50 border border-stone-200/80 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-amber-300 transition-all shadow-sm">
+                    <div class="p-6 sm:p-8 space-y-6">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-amber-100 text-amber-900 border border-amber-200/60 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Terlaris (Best Seller)
+                            </span>
+                            <div class="flex items-center space-x-1 text-amber-500">
+                                <i data-lucide="star" class="h-4 w-4 fill-amber-500"></i>
+                                <span class="text-xs font-bold text-stone-800">4.9</span>
+                                <span class="text-[10px] text-stone-500">(342 ulasan)</span>
+                            </div>
+                        </div>
+
+                        <div class="h-56 flex items-center justify-center bg-white rounded-2xl p-4 border border-stone-100 relative">
+                            <img src="https://i.imgur.com/7fZp8dj.jpeg" alt="Jahe Merah AMH Original" class="h-full object-contain">
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-2xl text-red-950 leading-tight">Jahe Merah AMH Original</h3>
+                            <p class="text-amber-800 text-[11px] font-semibold tracking-wider uppercase">Sensasi Hangat Mantap Jahe Merah Murni</p>
+                            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed pt-1">
+                                Nikmati kemurnian jahe merah instan legendaris berkhasiat tinggi. Diramu dari ekstrak jahe merah pilihan, diperkaya dengan ramuan herbal khas seperti ginseng, Habbatussauda, secang, dan madu murni. Memberikan kehangatan instan yang mendalam, meringankan gejala masuk angin, kembung, serta mengembalikan vitalitas tubuh secara natural setelah beraktivitas seharian.
+                            </p>
+                        </div>
+
+                        <!-- Ingredients breakdown and benefits -->
+                        <div class="border-t border-stone-200/85 pt-4 space-y-4">
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-800 uppercase tracking-widest mb-2 flex items-center space-x-1">
+                                    <i data-lucide="leaf" class="h-3.5 w-3.5 text-emerald-600"></i>
+                                    <span>Komposisi Alami</span>
+                                </h4>
+                                <ul class="grid grid-cols-2 gap-1.5 text-stone-600 text-xxs">
+                                    <li>• Ekstrak Jahe Merah murni</li>
+                                    <li>• Mahkota Dewa</li>
+                                    <li>• Gula Aren Organik</li>
+                                    <li>• Ginseng</li>
+                                    <li>• Habbatussauda</li>
+                                    <li>• Madu Murni</li>
+                                    <li>• Kayu Secang</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-800 uppercase tracking-widest mb-2 flex items-center space-x-1">
+                                    <i data-lucide="shield-check" class="h-3.5 w-3.5 text-blue-600"></i>
+                                    <span>Manfaat Utama</span>
+                                </h4>
+                                <ul class="space-y-1 text-stone-600 text-xxs">
+                                    <li><strong>• Menghangatkan Tubuh:</strong> Membantu menaikkan suhu tubuh di kala cuaca dingin.</li>
+                                    <li><strong>• Meredakan Masuk Angin:</strong> Mengatasi perut kembung, begah, mual-mual, serta pusing.</li>
+                                    <li><strong>• Meningkatkan Imunitas:</strong> Kandungan gingerol alami tinggi kaya antioksidan.</li>
+                                    <li><strong>• Vitalitas & Stamina:</strong> Ginseng memulihkan energi tubuh yang lelah.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-100 p-6 sm:p-8 border-t border-stone-200/80 space-y-4">
+                       
+
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Indonesia!%250ASaya%2520tertarik%2520dengan%2520produk%2520*Jahe%2520Merah%2520AMH%2520Original*%2520dari%2520website.%250ASaya%2520menginginkan%2520info%2520ketersediaan%2520stok%2520dan%2520order.%2520Terima%2520kasih!"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+                            <i data-lucide="phone" class="h-4.5 w-4.5"></i>
+                            <span>Pesan Jahe Original via WA</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 Card -->
+                <div class="bg-stone-50 border border-stone-200/80 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-red-300 transition-all shadow-sm">
+                    <div class="p-6 sm:p-8 space-y-6">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-red-100 text-red-900 border border-red-200/60 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Rekomendasi Utama
+                            </span>
+                            <div class="flex items-center space-x-1 text-amber-500">
+                                <i data-lucide="star" class="h-4 w-4 fill-amber-500"></i>
+                                <span class="text-xs font-bold text-stone-800">4.8</span>
+                                <span class="text-[10px] text-stone-500">(218 ulasan)</span>
+                            </div>
+                        </div>
+
+                        <div class="h-56 flex items-center justify-center bg-white rounded-2xl p-4 border border-stone-100 relative">
+                            <img src="https://i.imgur.com/IhO7a5Y.jpeg" alt="Jahe Merah AMH Plus Madu" class="h-full object-contain">
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="font-display font-bold text-2xl text-red-950 leading-tight">Jahe Merah AMH Plus Madu & Habbatussauda</h3>
+                            <p class="text-red-800 text-[11px] font-semibold tracking-wider uppercase">Rasa Lembut, Khasiat Ganda Nutrisi Alami</p>
+                            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed pt-1">
+                                Varian premium dengan formula lembut yang sangat ramah di tenggorokan. Mengombinasikan kebaikan jahe merah pedas segar dengan rasa manis alami madu hitam serta jintan hitam pilihan (Habbatussauda). Menjadi andalan tepercaya untuk melancarkan pernapasan, meredakan batuk ringan, mengencerkan dahak, serta menjaga kesehatan sistem pencernaan seluruh anggota keluarga.
+                            </p>
+                        </div>
+
+                        <!-- Ingredients breakdown and benefits -->
+                        <div class="border-t border-stone-200/85 pt-4 space-y-4">
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-800 uppercase tracking-widest mb-2 flex items-center space-x-1">
+                                    <i data-lucide="leaf" class="h-3.5 w-3.5 text-emerald-600"></i>
+                                    <span>Komposisi Alami</span>
+                                </h4>
+                                <ul class="grid grid-cols-2 gap-1.5 text-stone-600 text-xxs">
+                                    <li>• Ekstrak Jahe Merah unggul</li>
+                                    <li>• Madu Hutan Hitam alami</li>
+                                    <li>• Habbatussauda Premium</li>
+                                    <li>• Ekstrak Ginseng Korea</li>
+                                    <li>• Gula Tebu pilihan</li>
+                                    <li>• Kayu Manis</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-800 uppercase tracking-widest mb-2 flex items-center space-x-1">
+                                    <i data-lucide="shield-check" class="h-3.5 w-3.5 text-blue-600"></i>
+                                    <span>Manfaat Utama</span>
+                                </h4>
+                                <ul class="space-y-1 text-stone-600 text-xxs">
+                                    <li><strong>• Melegakan Tenggorokan:</strong> Madu membantu meredakan gatal tenggorokan & batuk.</li>
+                                    <li><strong>• Melancarkan Aliran Darah:</strong> Membantu menstabilkan kesehatan fungsi jantung.</li>
+                                    <li><strong>• Anti-Inflamasi Hebat:</strong> Jintan hitam mengurangi nyeri sendi & pegal otot linu.</li>
+                                    <li><strong>• Bersahabat bagi Lambung:</strong> Kombinasi madu manis melarutkan rasa kembung & mual lambung.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-100 p-6 sm:p-8 border-t border-stone-200/80 space-y-4">
+                       
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Indonesia!%250ASaya%2520tertarik%2520dengan%2520produk%2520*Jahe%2520Merah%2520AMH%2520Plus%2520Madu%2520%2526%2520Habbatussauda*%2520dari%2520website.%250ASaya%2520menginginkan%2520info%2520ketersediaan%2520stok%2520dan%2520order.%2520Terima%2520kasih!"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+                            <i data-lucide="phone" class="h-4.5 w-4.5"></i>
+                            <span>Pesan Jahe Plus Madu via WA</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- DETAILED INGREDIENT EXPLANATION SECTION -->
+    <section id="khasiat" class="py-20 bg-stone-50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block mb-2">
+                    KHASIAT FORMULA UTAMA
+                </span>
+                <h2 class="font-display font-bold text-3xl sm:text-5xl text-red-955 tracking-tight">
+                    Bahan Aktif Premium Jahe Merah AMH
+                </h2>
+                <p class="mt-3 text-stone-600 text-sm sm:text-base">
+                    Setiap sachet Jahe Merah AMH diproduksi dengan standard sterilisasi modern untuk mengunci gizi dari lima elemen bahan aktif natural terbaik:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                <!-- Left column elements -->
+                <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xs flex items-start space-x-4">
+                        <div class="p-3 bg-rose-50 text-red-700 rounded-xl shrink-0">
+                            <i data-lucide="flame" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-base text-red-950 block">1. Ekstrak Jahe Merah Murni (Zingiber officinale var. rubrum)</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                                Lebih pedas, lebih hangat, dan memiliki kadar zat aktif Gingerol serta Shogaol jauh lebih tinggi daripada jahe putih biasa. Bekerja instan memperlancar sirkulasi darah, meningkatkan metabolit pemanas tubuh, dan melegakan otot pernapasan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xs flex items-start space-x-4">
+                        <div class="p-3 bg-amber-50 text-amber-700 rounded-xl shrink-0">
+                            <i data-lucide="droplet" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-base text-red-950 block">2. Madu Hutan Hitam Alami</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                                Sumber energi alami terbaik yang kaya akan enzim antiseptik alami, vitamin, dan zat besi. Memberi rasa manis yang halus, melapisi lambung agar nyaman, serta menyejukkan tenggorokan kering dari batuk berdahak.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xs flex items-start space-x-4">
+                        <div class="p-3 bg-stone-100 text-stone-800 rounded-xl shrink-0">
+                            <i data-lucide="shield-alert" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-base text-red-950 block">3. Habbatussauda (Jintan Black Premium)</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                                Mengandung senyawa antioksidan Thymoquinone yang diakui medis mampu menangkal radikal bebas, memperkuat produksi sel imun tubuh (sel T), dan membantu melancarkan detoksifikasi zat racun dalam tubuh.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right column elements -->
+                <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xs flex items-start space-x-4">
+                        <div class="p-3 bg-emerald-50 text-emerald-800 rounded-xl shrink-0">
+                            <i data-lucide="heart" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-base text-red-950 block">4. Ekstrak Ginseng Korea</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                                Bahan herbal tonikum legendaris yang mengembalikan kesegaran badan yang lesu, meredakan stres oksidatif, dan merevitalisasi stamina pria & wanita agar kembali bersemangat bekerja keras seharian.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xs flex items-start space-x-4">
+                        <div class="p-3 bg-orange-50 text-orange-800 rounded-xl shrink-0">
+                            <i data-lucide="check" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-sans font-bold text-base text-red-950 block">5. Kayu Secang Merah Alami</h4>
+                            <p class="text-stone-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                                Menyediakan kandungan zat aktif brazilin yang bersifat anti-inflamasi (anti radang) untuk meredakan pegal linu, sekaligus memberi warna kuah wedang kemerahan alami yang khas tanpa pewarna kimia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-900 text-amber-100 p-6 rounded-2xl border-2 border-red-800 flex flex-col justify-center">
+                        <div class="flex items-center space-x-1.5 mb-2">
+                            <span class="text-amber-300 font-bold font-sans text-xs uppercase bg-red-950 px-2.5 py-1 rounded">Saran Penyajian AMH</span>
+                        </div>
+                        <p class="text-xs sm:text-sm leading-relaxed text-amber-50">
+                            Cukup seduh 1 sachet Jahe Merah AMH instan murni (20g) ke dalam cangkir berisi 150ml air hangat mendidih. Aduk rata tanpa perlu tambahan gula, dan rasakan kehangatan yang langsung mengalir melegakan tenggorokan hingga ke perut Anda.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- clinical indicators -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                <div class="bg-amber-100/50 border border-amber-200 p-6 rounded-2xl text-center">
+                    <span class="font-sans font-bold block text-sm text-amber-900 uppercase">100% HIGIENIS TANPA PENGAWET</span>
+                    <span class="text-stone-500 text-xs mt-0.5 block">Diolah murni dengan standarisasi pabrik nasional PT. AMH</span>
+                </div>
+                <div class="bg-green-100/30 border border-green-200 p-6 rounded-2xl text-center">
+                    <span class="font-sans font-bold block text-sm text-green-900 uppercase">MERESAP SEGERA DALAM 15 MENIT</span>
+                    <span class="text-stone-500 text-xs mt-0.5 block">Menghilangkan dingin badai, flu, pusing, meriang seketika</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block mb-2">
+                    TESTIMONI
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-red-950 tracking-tight">
+                    Testimoni
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-stone-50 border border-stone-200 p-6 sm:p-8 rounded-3xl space-y-4 flex flex-col justify-between hover:border-red-200 transition-colors">
+                    <p class="text-stone-600 text-sm leading-relaxed italic">
+                        "Sejak menjadi reseller grosir Jahe Merah AMH dari Yogies, omzet herbal kami melesat pesat. Produk ini sangat disukai ibu-ibu karena langsung terasa hangatnya di tubuh. Pengiriman Bandung cepat sekali!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-stone-200/60">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
+                             alt="Ibu Sumiati"
+                             class="h-11 w-11 rounded-full object-cover ring-2 ring-red-100">
+                        <div>
+                            <h4 class="font-sans font-bold text-xs text-red-950 block">Ibu Sumiati</h4>
+                            <span class="text-stone-500 text-[11px] block">Pemilik Toko Herbal Berkah, Ujung Berung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-stone-50 border border-stone-200 p-6 sm:p-8 rounded-3xl space-y-4 flex flex-col justify-between hover:border-red-200 transition-colors">
+                    <p class="text-stone-600 text-sm leading-relaxed italic">
+                        "Kami selalu memesan isi karton/dus untuk didistribusikan kembali ke warung-warung. Margin untung per sachet tinggi, apalagi kalau order di atas 5 karton dapat harga diskon tier distributor. Mantap pelayanannya!"
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-stone-200/60">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+                             alt="Pak Budi Sentosa"
+                             class="h-11 w-11 rounded-full object-cover ring-2 ring-red-100">
+                        <div>
+                            <h4 class="font-sans font-bold text-xs text-red-950 block">Pak Budi Sentosa</h4>
+                            <span class="text-stone-500 text-[11px] block">Agen Grosir Kelontong, Regol Bandung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-stone-50 border border-stone-200 p-6 sm:p-8 rounded-3xl space-y-4 flex flex-col justify-between hover:border-red-200 transition-colors">
+                    <p class="text-stone-600 text-sm leading-relaxed italic">
+                        "Saya pakai Jahe Merah AMH Plus Madu sebagai menu minuman kesehatan di warung wedang jahe saya. Rasanya bersahabat di lidah pelanggan anak muda, tidak terlalu membakar tapi khasiatnya juara."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-stone-200/60">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
+                             alt="Rian Hendrawan"
+                             class="h-11 w-11 rounded-full object-cover ring-2 ring-red-100">
+                        <div>
+                            <h4 class="font-sans font-bold text-xs text-red-950 block">Rian Hendrawan</h4>
+                            <span class="text-stone-500 text-[11px] block">Pengelola Kedai Minuman Hangat, Antapani</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPS & CONTACT SECTION -->
+    <section id="lokasi" class="py-20 bg-stone-50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block">
+                        KANTOR DISTRIBUTOR BANDUNG
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-stone-900 tracking-tight leading-tight">
+                        Hubungi Yogies Indonesia
+                    </h2>
+                    <p class="text-stone-500 text-xs sm:text-sm">
+                        Hubungi sales representatif kami untuk pendaftaran pembelian di atas 50 dus (partai besar), info kemitraan reseller resmi bebas franchise fee, atau survey langsung ke gudang kami di tengah kota Bandung.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-red-100 text-red-800 rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="map-pin" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 text-sm block">Alamat Gudang Utama:</strong>
+                                <span class="text-stone-500 text-xs">
+                                    Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung, Jawa Barat (Kode Pos: 40254)
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-red-100 text-red-800 rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="clock" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 text-sm block">Jam Operasional Kantor:</strong>
+                                <span class="text-stone-500 text-xs">
+                                    Senin - Sabtu: 08.00 s/d 17.00 WIB (Hari Minggu / Libur Nasional Tutup)
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-red-100 text-red-800 rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="phone" class="h-5 w-5"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-800 text-sm block">WhatsApp Hotline (Retail & Grosir):</strong>
+                                <span class="text-stone-500 text-xs font-mono font-medium">
+                                    +62 838-0088-9643
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Row Buttons -->
+                    <div class="pt-4 flex flex-wrap gap-2">
+                        <a href="https://wa.me/6283800889643?text=Halo%2520Yogies%2520Indonesia.%2520Saya%2520tertarik%2520untuk%2520membeli%2520produk%2520Jahe%2520Merah%2520AMH%2520Grosir."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-xs px-5 py-3 rounded-xl shadow-md transition-colors inline-flex items-center space-x-2">
+                            <i data-lucide="phone" class="h-4 w-4"></i>
+                            <span>Hubungi Sales WhatsApp</span>
+                        </a>
+                        <a href="#katalog" class="bg-white hover:bg-stone-100 text-gray-700 border border-stone-300 font-sans font-semibold text-xs px-5 py-3 rounded-xl transition-colors inline-flex items-center">
+                            Lihat Katalog Produk
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed responsive Frame -->
+                <div class="lg:col-span-7">
+                    <div class="w-full h-[400px] rounded-3xl overflow-hidden border-2 border-stone-200/80 shadow-md relative">
+                        <iframe 
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+                          width="100%" 
+                          height="100%" 
+                          style="border: 0;" 
+                          allowfullscreen="" 
+                          loading="lazy"
+                          title="Peta Lokasi Yogies Indonesia">
+                        </iframe>
+                    </div>
+                    <span class="text-[10px] text-center block text-stone-400 mt-2 italic">
+                        *Toko kelontong & agen dipersilakan melakukan pengambilan barang langsung setelah pembuatan janji dengan sales via WhatsApp.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION INTERACTIVE -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="text-red-800 font-sans text-xs font-bold uppercase tracking-widest block mb-2">
+                    TANYA JAWAB UMUM
+                </span>
+                <h2 class="font-display font-extrabold text-3xl text-red-955 tracking-tight">
+                    Pertanyaan yang Sering Diajukan
+                </h2>
+                <p class="mt-2 text-stone-500 text-xs sm:text-sm">
+                    Temukan jawaban cepat seputar legalitas, jatah kirim, program reseller, hingga ketahanan produk.
+                </p>
+            </div>
+
+            <!-- Accordion container -->
+            <div class="space-y-4">
+                
+                <!-- FAQ 1 -->
+                <div class="border border-stone-200 rounded-2xl overflow-hidden transition-all bg-stone-50">
+                    <button type="button" onclick="toggleFaq(0)" class="faq-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-sm sm:text-base text-red-950 focus:outline-none hover:bg-stone-100/55 transition-colors cursor-pointer">
+                        <span>Apakah Yogies Indonesia merupakan distributor resmi?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron h-4.5 w-4.5 text-red-850 shrink-0 transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-0" class="faq-answer hidden p-5 border-t border-stone-200 bg-white text-stone-600 text-xs sm:text-sm leading-relaxed">
+                        Ya, Yogies Indonesia adalah agen distributor resmi untuk produk Jahe Merah AMH di wilayah Bandung dan sekitarnya. Semua produk kami dijamin 100% asli langsung dari pabrik PT. AMH dengan mutu dan khasiat tepercaya.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-stone-200 rounded-2xl overflow-hidden transition-all bg-stone-50">
+                    <button type="button" onclick="toggleFaq(1)" class="faq-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-sm sm:text-base text-red-950 focus:outline-none hover:bg-stone-100/55 transition-colors cursor-pointer">
+                        <span>Bagaimana sistem harga Grosir/Dus untuk Reseller?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron h-4.5 w-4.5 text-red-850 shrink-0 transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer hidden p-5 border-t border-stone-200 bg-white text-stone-600 text-xs sm:text-sm leading-relaxed">
+                        Untuk pembelian grosir, kami menyediakan dua tingkatan diskon eksklusif: Tier 1 (1-4 Karton/Dus) seharga Rp 380.000 per dus, dan Tier 2 (minimal 5 Karton/Dus) seharga Rp 360.000 per dus. Satu karton berisi 40 bag (480 sachet total).
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-stone-200 rounded-2xl overflow-hidden transition-all bg-stone-50">
+                    <button type="button" onclick="toggleFaq(2)" class="faq-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-sm sm:text-base text-red-950 focus:outline-none hover:bg-stone-100/55 transition-colors cursor-pointer">
+                        <span>Apakah produk ini bisa dikirim ke luar kota atau luar pulau?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron h-4.5 w-4.5 text-red-850 shrink-0 transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer hidden p-5 border-t border-stone-200 bg-white text-stone-600 text-xs sm:text-sm leading-relaxed">
+                        Tentu saja! Kantor pusat kami berada di Regol, Bandung. Kami melayani pengiriman retail maupun grosir partai besar ke seluruh penjuru Nusantara menggunakan jasa ekspedisi cargo darat/laut tepercaya dengan tarif termurah.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-stone-200 rounded-2xl overflow-hidden transition-all bg-stone-50">
+                    <button type="button" onclick="toggleFaq(3)" class="faq-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-sm sm:text-base text-red-950 focus:outline-none hover:bg-stone-100/55 transition-colors cursor-pointer">
+                        <span>Berapa lama masa kadaluarsa (Expired Date) produk AMH?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron h-4.5 w-4.5 text-red-850 shrink-0 transform transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer hidden p-5 border-t border-stone-200 bg-white text-stone-600 text-xs sm:text-sm leading-relaxed">
+                        Semua stok jahe merah AMH yang dikirim oleh Yogies adalah stok terbaru dengan masa kedaluwarsa panjang (sekitar 1.5 hingga 2 tahun) karena perputaran stok gudang kami sangat cepat setiap harinya.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-950 text-white border-t border-stone-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-stone-900">
+            
+            <!-- Brand block footer -->
+            <div class="md:col-span-5 space-y-4">
+                <h4 class="font-display font-extrabold text-amber-100 tracking-wider text-lg">
+                    YOGIES INDONESIA
+                </h4>
+                <p class="text-stone-400 text-xs sm:text-sm max-w-sm leading-relaxed">
+                    Distributor Tepercaya & Agen Penjualan Resmi Jahe Merah AMH Bandung. Menyediakan kemudahan suplai bahan konsumsi jamu tradisional termurah sejak bertahun-tahun.
+                </p>
+                <p class="text-[11px] text-stone-500 font-mono">
+                    Registrasi Usaha Resmi • Regol Kota Bandung
+                </p>
+            </div>
+
+            <!-- Quick navigational lists -->
+            <div class="md:col-span-3 space-y-3 text-xs">
+                <strong class="text-amber-100 uppercase tracking-widest font-sans block">SITUS HUB</strong>
+                <ul class="space-y-1.5 text-stone-400">
+                    <li><a href="#katalog" class="hover:text-amber-300">Katalog Produk</a></li>
+                    <li><a href="#khasiat" class="hover:text-amber-300 font-semibold">Khasiat AMH</a></li>
+                    <li><a href="#lokasi" class="hover:text-amber-300">Hubungi Kami</a></li>
+                    <li><a href="#faq" class="hover:text-amber-300">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact column -->
+            <div class="md:col-span-4 space-y-3 text-xs">
+                <strong class="text-amber-100 uppercase tracking-widest font-sans block">HUBUNGI SALES REPRESENTATIF</strong>
+                <ul class="space-y-1.5 text-stone-400">
+                    <li class="flex items-center space-x-2">
+                        <i data-lucide="map-pin" class="h-4 w-4 text-amber-400 shrink-0"></i>
+                        <span>Regol, Kota Bandung, Jawa Barat</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i data-lucide="phone" class="h-4 w-4 text-emerald-400 shrink-0"></i>
+                        <span>+62 838-0088-9643</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i data-lucide="mail" class="h-4 w-4 text-stone-400 shrink-0"></i>
+                        <span>sales@yogiesindonesia.co.id</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Disclaimer terms and copyrights -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col md:flex-row justify-between items-center text-stone-500 text-[11px] space-y-4 md:space-y-0 text-center">
+            <div>
+                <p>© 2026 Yogies Indonesia. Hak cipta dilindungi undang-undang.</p>
+                <p class="mt-1">Jahe Merah AMH adalah produk resmi PT. AMH dan dipasarkan oleh Yogies Indonesia sebagai distributor resmi tepercaya wilayah Bandung.</p>
+            </div>
+            <div class="flex space-x-4">
+                <span class="hover:text-stone-300">Disclaimer Mutu</span>
+                <span>•</span>
+                <span class="hover:text-stone-300">Kebijakan Privasi Agen</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT AI CHATBOT KURNIA -->
+    <div class="fixed bottom-6 right-6 z-50 font-sans" id="chat-widget-container">
+        <!-- Toggle chat button -->
+        <button id="chat-toggle-btn" onclick="toggleChatWindow(true)" class="bg-red-700 hover:bg-red-800 text-white rounded-full p-4 shadow-2xl flex items-center justify-center cursor-pointer transition-all hover:scale-110 active:scale-90 group relative border border-red-600/30" title="Chat dengan Kurnia AI">
+            <span class="absolute -inset-1.5 rounded-full bg-red-600/30 animate-ping pointer-events-none opacity-75"></span>
+            <i data-lucide="message-square" class="h-6 w-6 relative"></i>
+        </button>
+
+        <!-- Chat box dialog -->
+        <div id="chat-window" class="hidden w-[300px] sm:w-[360px] h-[450px] bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden flex flex-col transition-all">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-red-950 via-red-900 to-stone-900 text-white p-4 flex items-center justify-between border-b border-rose-100">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-red-850 p-2 rounded-full border border-red-700/60 flex items-center justify-center">
+                        <i data-lucide="bot" class="h-5 w-5 text-amber-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold font-display uppercase tracking-wide leading-none flex items-center space-x-1.5">
+                            <span>Kurnia (AMH AI)</span>
+                            <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </h4>
+                        <span class="text-[10px] text-amber-200 block mt-1 font-sans">Yogies Indonesia Consultant</span>
+                    </div>
+                </div>
+                <button onclick="toggleChatWindow(false)" class="text-stone-300 hover:text-white transition-colors cursor-pointer p-1">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages-container" class="flex-1 overflow-y-auto p-4 space-y-3 bg-stone-50/50">
+                <div class="flex justify-start">
+                    <div class="max-w-[85%] rounded-2xl p-3 text-xs leading-relaxed bg-white text-stone-700 border border-stone-200 shadow-xs rounded-tl-none whitespace-pre-wrap">Halo! Saya <strong>Kurnia</strong>, Spesialis & Asisten Virtual resmi dari <strong>Yogies Indonesia</strong>.<br><br>Ada yang bisa saya bantu hari ini mengenai khasiat <strong>Jahe Merah AMH</strong>, rincian harga grosir, atau tata cara pemesanan ke daerah Anda?</div>
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-3 bg-white border-t border-stone-200 flex items-center space-x-2">
+                <input id="chat-input-field" type="text" placeholder="Tanyakan khasiat, brosur, grosir..." class="flex-1 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-red-500 font-sans">
+                <button type="submit" class="bg-red-700 hover:bg-red-800 text-white rounded-xl p-2 cursor-pointer transition-colors flex items-center justify-center shrink-0">
+                    <i data-lucide="send" class="h-4 w-4"></i>
+                </button>
+            </form>
+        </div>
     </div>
-    <div class="hero-text">
-      <h1>Jahe Merah AMH Bandung</h1>
-      <p>Minuman Herbal Sehat Untuk Keluarga Anda</p>
-    </div>
-  </section>
 
-  <!-- INFO PRODUK -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Apa Itu Jahe Merah AMH?</h2>
-      <p>
-        <b>Jahe Merah AMH</b> adalah minuman herbal alami yang terbuat dari ekstrak jahe merah pilihan, 
-        dikenal memiliki rasa hangat khas serta aroma menenangkan. 
-        Membantu menjaga daya tahan tubuh, meningkatkan energi, dan memperlancar peredaran darah.
-      </p>
-    </div>
-  </section>
+    <!-- INTERACTIVIES SCRIPTS -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
 
-  <!-- VARIAN -->
-  <section class="info-section">
-    <div class="info-text">
-      <h2>Varian Jahe Merah AMH</h2>
-      <ul class="program-list">
-        <li><b>Jahe Merah Original</b> – Sensasi hangat alami dari jahe merah murni, cocok untuk menjaga stamina.</li>
-        <li><b>Jahe Merah Plus Madu</b> – Perpaduan jahe merah dan madu alami untuk rasa lembut dan menutrisi tubuh.</li>
-        <li><b>Perbedaan</b> – Original lebih kuat jahenya, Plus Madu lebih manis dan lembut.</li>
-        <li><b>Proses Pembuatan</b> – Higienis dengan teknologi modern tanpa kehilangan nutrisi alami.</li>
-        <li><b>Kemasan</b> – Praktis dalam sachet dan botol eksklusif, mudah dinikmati kapan pun.</li>
-      </ul>
-      <a href="https://wa.me/6283800889643" class="btn primary">Hubungi Sekarang</a>
-    </div>
-  </section>
+      // Mobile Menu functionality
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+      });
 
-  <!-- GALERI -->
-  <h2>Galeri Jahe Merah AMH</h2>
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="https://i.imgur.com/7fZp8dj.jpeg" alt="1"><div class="caption">Jahe Merah AMH Original</div></div>
-    <div class="gallery-item"><img src="https://i.imgur.com/IhO7a5Y.jpeg" alt="2"><div class="caption">Jahe Merah AMH Plus Madu</div></div>
-    <div class="gallery-item"><img src="https://i.imgur.com/RD9wYOm.jpeg" alt="3"><div class="caption">Kemasan Produk</div></div>
-  </div>
+      // Close mobile menu on click nav links
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      mobileNavLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+          });
+      });
 
-  <!-- MANFAAT -->
-  <section class="testimoni-section">
-    <h2>Manfaat Jahe Merah AMH</h2>
-    <div class="testimoni-wrapper">
-      <div class="testimoni-card"><span><b>Meningkatkan Daya Tahan Tubuh</b> – Membantu sistem imun tetap kuat menghadapi aktivitas padat.</span></div>
-      <div class="testimoni-card"><span><b>Melancarkan Peredaran Darah</b> – Jahe merah membantu menurunkan tekanan darah dan menghangatkan tubuh.</span></div>
-      <div class="testimoni-card"><span><b>Meredakan Masuk Angin & Batuk</b> – Efektif membantu tenggorokan gatal dan perut kembung secara alami.</span></div>
-      <div class="testimoni-card"><span><b>Mengurangi Nyeri Otot & Sendi</b> – Gingerol berfungsi sebagai antiinflamasi alami.</span></div>
-      <div class="testimoni-card"><span><b>Menambah Stamina</b> – Menjaga energi dan kebugaran tubuh sepanjang hari.</span></div>
-      <div class="testimoni-card"><span><b>Menjaga Pencernaan</b> – Membantu metabolisme dan meredakan mual.</span></div>
-    </div>
-  </section>
+      // Carousel images
+      const heroImages = [
+          "https://i.imgur.com/7fZp8dj.jpeg", // Original
+          "https://i.imgur.com/IhO7a5Y.jpeg"  // Plus Madu
+      ];
+      const heroLabels = [
+          "Varian AMH Original",
+          "Varian AMH Plus Madu"
+      ];
+      
+      let currentHeroImageIdx = 0;
+      const heroImgElem = document.getElementById('hero-carousel-img');
+      const heroBadgeElem = document.getElementById('hero-carousel-badge');
+      
+      function setHeroImage(idx) {
+          currentHeroImageIdx = idx;
+          heroImgElem.src = heroImages[currentHeroImageIdx];
+          heroBadgeElem.innerText = heroLabels[currentHeroImageIdx];
+          
+          // class active changes
+          const dot0 = document.getElementById('dot-0');
+          const dot1 = document.getElementById('dot-1');
+          
+          if(currentHeroImageIdx === 0) {
+              dot0.className = "h-2.5 w-8 bg-amber-400 rounded-full transition-all duration-300 pointer-events-auto";
+              dot1.className = "h-2.5 w-2.5 bg-stone-700 hover:bg-stone-600 rounded-full transition-all duration-300 pointer-events-auto";
+          } else {
+              dot1.className = "h-2.5 w-8 bg-amber-400 rounded-full transition-all duration-300 pointer-events-auto";
+              dot0.className = "h-2.5 w-2.5 bg-stone-700 hover:bg-stone-600 rounded-full transition-all duration-300 pointer-events-auto";
+          }
+      }
 
-  <!-- MAPS -->
-  <section class="maps-section">
-    <h2>CV. YOGIES</h2>
-    <p>Jalan Srimahi Dalam No.2A, Ancol, Regol, Kota Bandung</p>
-    <div class="maps-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
+      // Auto rotation for carousel
+      setInterval(() => {
+          let nextIdx = (currentHeroImageIdx + 1) % heroImages.length;
+          setHeroImage(nextIdx);
+      }, 5000);
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> CV. YOGIES. All rights reserved.</p>
-  </footer>
+      // Accordion FAQ toggle
+      let activeFaqIdx = null;
+      function toggleFaq(index) {
+          const faqAnswers = document.querySelectorAll('.faq-answer');
+          const chevrons = document.querySelectorAll('.faq-chevron');
+          
+          if (activeFaqIdx === index) {
+              faqAnswers[index].classList.add('hidden');
+              chevrons[index].classList.remove('rotate-180');
+              activeFaqIdx = null;
+          } else {
+              // Hide previous active answer if exists
+              if (activeFaqIdx !== null) {
+                  faqAnswers[activeFaqIdx].classList.add('hidden');
+                  chevrons[activeFaqIdx].classList.remove('rotate-180');
+              }
+              faqAnswers[index].classList.remove('hidden');
+              chevrons[index].classList.add('rotate-180');
+              activeFaqIdx = index;
+          }
+      }
 
-  <!-- SCRIPT -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const slides = document.querySelectorAll(".slide");
-    let i = 0;
-    setInterval(() => {
-      slides.forEach(s => s.classList.remove("active"));
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-    }, 4000);
+      // Order calculator logic
+      function calculateOrder() {
+          const productSelect = document.getElementById('calc-product');
+          const sizeSelect = document.getElementById('calc-size');
+          const qtyInput = document.getElementById('calc-qty');
+          
+          const product = productSelect.value;
+          const size = sizeSelect.value;
+          let qty = parseInt(qtyInput.value) || 1;
+          
+          if(qty < 1) {
+              qty = 1;
+              qtyInput.value = 1;
+          }
+          
+          let unitName = "";
+          let pricePerUnit = 0;
+          let total = 0;
+          
+          const productName = product === 'amh-original' 
+            ? 'Jahe Merah AMH Original' 
+            : 'Jahe Merah AMH Plus Madu & Habbatussauda';
+            
+          if (size === 'sachet') {
+              unitName = "Sachet";
+              pricePerUnit = 1500;
+              total = pricePerUnit * qty;
+          } else if (size === 'bag') {
+              unitName = "Bag (Isi 12 Sachet)";
+              pricePerUnit = 18000;
+              total = pricePerUnit * qty;
+          } else if (size === 'carton') {
+              unitName = "Karton/Dus (Isi 480 Sachet)";
+              if (qty >= 5) {
+                  pricePerUnit = 360000;
+              } else {
+                  pricePerUnit = 380000;
+              }
+              total = pricePerUnit * qty;
+          }
+          
+          document.getElementById('calc-unit-price').innerText = "Rp " + pricePerUnit.toLocaleString('id-ID');
+          document.getElementById('calc-total').innerText = "Rp " + total.toLocaleString('id-ID');
+          
+          // WA link preparation
+          const waBtn = document.getElementById('calc-wa-btn');
+          const greeting = "Halo Yogies Indonesia, saya tertarik dengan pemesanan:";
+          const details = `\n- Produk: *${productName}*\n- Ukuran Kemasan: *${unitName}*\n- Jumlah Pesanan: *${qty} ${size === 'carton' ? 'Dus' : size === 'bag' ? 'Bag' : 'Sachet'}*\n- Estimasi Harga: *Rp ${total.toLocaleString('id-ID')}*`;
+          const closure = `\n\nMohon info ketersediaan stok, daftar harga grosir partai terbaru, dan estimasi ongkos kirim ke wilayah kami. Terima kasih!`;
+          
+          const encodedText = encodeURIComponent(greeting + details + closure);
+          waBtn.href = `https://wa.me/6283800889643?text=${encodedText}`;
+      }
 
-    window.addEventListener('load', () => {
-      const btn = document.querySelector('.back-home-btn');
-      setTimeout(() => {
-        btn.style.opacity = '1';
-        btn.style.transform = 'translateY(0)';
-      }, 500);
-    });
-  </script>
+      // Run initial calculation on load
+      calculateOrder();
 
-  <!-- BACK BUTTON -->
-  <a href="../index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i><span>Kembali</span></a>
+      // AI Chatbot logic
+      let chatHistory = [
+          {
+              role: "model",
+              text: "Halo! Saya **Kurnia**, Spesialis & Asisten Virtual resmi dari **Yogies Indonesia**.\n\nAda yang bisa saya bantu hari ini mengenai khasiat **Jahe Merah AMH**, rincian harga grosir, atau tata cara pemesanan ke daerah Anda?"
+          }
+      ];
+      let isChatLoading = false;
 
+      function toggleChatWindow(isOpen) {
+          const chatToggleBtn = document.getElementById('chat-toggle-btn');
+          const chatWindow = document.getElementById('chat-window');
+          
+          if (isOpen) {
+              chatWindow.classList.remove('hidden');
+              chatToggleBtn.classList.add('hidden');
+              scrollToBottomChat();
+          } else {
+              chatWindow.classList.add('hidden');
+              chatToggleBtn.classList.remove('hidden');
+          }
+      }
+
+      function scrollToBottomChat() {
+          const container = document.getElementById('chat-messages-container');
+          container.scrollTop = container.scrollHeight;
+      }
+
+      async function handleChatSubmit(event) {
+          event.preventDefault();
+          if (isChatLoading) return;
+
+          const inputField = document.getElementById('chat-input-field');
+          const messageText = inputField.value.trim();
+          if (!messageText) return;
+
+          inputField.value = "";
+          
+          appendMessage("user", messageText);
+          chatHistory.push({ role: "user", text: messageText });
+          
+          showChatLoader();
+          isChatLoading = true;
+
+          try {
+              const response = await fetch("/api/chat", {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                      message: messageText,
+                      history: chatHistory
+                  }),
+              });
+
+              removeChatLoader();
+
+              if (!response.ok) {
+                  throw new Error("Failed to consult AI");
+              }
+
+              const data = await response.json();
+              appendMessage("model", data.text);
+              chatHistory.push({ role: "model", text: data.text });
+          } catch (err) {
+              console.error(err);
+              removeChatLoader();
+              appendMessage("model", "Maaf, sistem konsultasi AI sedang sedikit sibuk. Silakan hubungi langsung Customer Service kami via WhatsApp di nomor **+62 838-0088-9643** untuk konsultasi instan.");
+          } finally {
+              isChatLoading = false;
+          }
+      }
+
+      function appendMessage(role, text) {
+          const container = document.getElementById('chat-messages-container');
+          const flexWrapper = document.createElement('div');
+          flexWrapper.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+
+          const msgBubble = document.createElement('div');
+          msgBubble.className = `max-w-[85%] rounded-2xl p-3 text-xs leading-relaxed ${
+              role === 'user'
+                  ? 'bg-red-700 text-white rounded-tr-none'
+                  : 'bg-white text-stone-700 border border-stone-200 shadow-xs rounded-tl-none whitespace-pre-wrap'
+          }`;
+          
+          // Simple bold formatting replacement for **text**
+          let processedText = text
+              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+              .replace(/\*(.*?)\*/g, '<em>$1</em>');
+          msgBubble.innerHTML = processedText;
+
+          flexWrapper.appendChild(msgBubble);
+          container.appendChild(flexWrapper);
+          scrollToBottomChat();
+      }
+
+      function showChatLoader() {
+          const container = document.getElementById('chat-messages-container');
+          const flexWrapper = document.createElement('div');
+          flexWrapper.id = "chat-loader-bubble";
+          flexWrapper.className = "flex justify-start";
+
+          flexWrapper.innerHTML = `
+              <div class="bg-white border border-stone-200 rounded-2xl rounded-tl-none p-3 shadow-xs space-y-1.5 shrink-0">
+                  <span class="text-[9px] uppercase font-bold text-stone-400 block tracking-wider animate-pulse">
+                      Kurnia sedang mengetik...
+                  </span>
+                  <div class="flex space-x-1 justify-center items-center py-1">
+                      <div class="h-1.5 w-1.5 bg-red-600 rounded-full animate-bounce" style="animation-delay: -0.3s"></div>
+                      <div class="h-1.5 w-1.5 bg-red-600 rounded-full animate-bounce" style="animation-delay: -0.15s"></div>
+                      <div class="h-1.5 w-1.5 bg-red-600 rounded-full animate-bounce"></div>
+                  </div>
+              </div>
+          `;
+          container.appendChild(flexWrapper);
+          scrollToBottomChat();
+      }
+
+      function removeChatLoader() {
+          const loader = document.getElementById('chat-loader-bubble');
+          if (loader) {
+              loader.remove();
+          }
+      }
+    </script>
 </body>
 </html>

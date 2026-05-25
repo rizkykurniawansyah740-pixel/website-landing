@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,9 +16,18 @@
       tailwind.config = {
         theme: {
           extend: {
+            colors: {
+              brand: {
+                50: '#f0f7ff',
+                100: '#e0effe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                950: '#030712'
+              }
+            },
             fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
-              mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+              sans: ["Inter", "-apple-system", "sans-serif"],
               display: ["Space Grotesk", "sans-serif"],
             },
           },
@@ -26,7 +35,7 @@
       }
     </script>
 
-    <!-- AlpineJS for instant clean interactive states -->
+    <!-- AlpineJS for instant light reactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Lucide Icons -->
@@ -34,26 +43,13 @@
 
     <style>
       [x-cloak] { display: none !important; }
-      .select-none {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Clean, modern, unified transition style */
-      .smooth-transition {
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      body {
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       }
     </style>
   </head>
   <body 
     x-data="{
-      securityActive: true,
-      logs: [],
-      activeToast: null,
       openFaqId: 'faq-1',
       searchQuery: '',
       showRequestForm: false,
@@ -61,36 +57,13 @@
       formSchool: '',
       formSubmitted: false,
       
-      // Lightbox variables
+      // Lightbox index
       lightboxIndex: null,
-      // Hero image active slide
+      
+      // Core active hero slide
       heroSlide: 0,
       
-      // Document Security Logger
-      addLog(action, message) {
-        if (!this.securityActive) return;
-        const now = new Date();
-        const timeString = now.toTimeString().split(' ')[0];
-        const newLog = {
-          id: Math.random().toString(36).substring(2, 9),
-          time: timeString,
-          action: action,
-          message: message
-        };
-        this.logs = [newLog, ...this.logs.slice(0, 14)];
-        this.activeToast = {
-          action: action,
-          message: message
-        };
-        // Auto dismiss warning toasts in 4 seconds
-        setTimeout(() => {
-          if (this.activeToast && this.activeToast.action === action) {
-            this.activeToast = null;
-          }
-        }, 4000);
-      },
-      
-      // Smooth Scroll Assist
+      // Smooth navigation helper
       scrollTo(id) {
         const el = document.getElementById(id);
         if (el) {
@@ -98,150 +71,72 @@
         }
       }
     }"
-    x-init="
-      // Automatic non-intrusive hero crossfade slider interval
-      setInterval(() => {
-        heroSlide = (heroSlide + 1) % 2;
-      }, 5500);
-
-      // Secure content safety event listeners
-      document.addEventListener('contextmenu', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('KLIK KANAN', 'Mencegah akses inspeksi gambar & kode sumber.');
-        }
-      });
-      document.addEventListener('selectstart', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('SELEKSI TEKS', 'Seleksi teks dinonaktifkan untuk melindung aset orisinal.');
-        }
-      });
-      document.addEventListener('dragstart', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('DRAG GAMBAR', 'Penyalinan seret-dan-lepas gambar dibatasi.');
-        }
-      });
-      document.addEventListener('copy', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('COPY (SALIN)', 'Penyalinan konten digital CV. YOGIES dilindungi.');
-        }
-      });
-      document.addEventListener('cut', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('CUT (POTONG)', 'Tindakan potong konten tidak diizinkan.');
-        }
-      });
-      document.addEventListener('paste', (e) => {
-        if (securityActive) {
-          e.preventDefault();
-          addLog('PASTE (TEMPEL)', 'Penempelan teks pada beranda umum dibatasi.');
-        }
-      });
-      document.addEventListener('keydown', (e) => {
-        if (!securityActive) return;
-        const key = (e.key || '').toLowerCase();
-        const ctrlOrCmd = e.ctrlKey || e.metaKey;
-
-        if (ctrlOrCmd && (key === 'c' || key === 'u' || key === 's' || key === 'p')) {
-          e.preventDefault();
-          addLog('SHORTCUT', 'Kombinasi tombol untuk menyimpan/melihat sumber kode dinonaktifkan.');
-        }
-        if (e.key === 'F12' || e.keyCode === 123) {
-          e.preventDefault();
-          addLog('F12 KEY', 'Akses cepat ke Konsol Pengembang (DevTools) diblokir.');
-        }
-        if (e.ctrlKey && e.shiftKey && (key === 'i' || key === 'j' || key === 'c')) {
-          e.preventDefault();
-          addLog('DEVTOOLS', 'Akses panel inspeksi dilarang.');
-        }
-      });
-    "
-    class="relative min-h-screen bg-slate-50 text-slate-800 antialiased font-sans overflow-x-hidden"
-    :class="securityActive ? 'select-none' : ''"
+    class="bg-white text-slate-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-700"
   >
 
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md" x-data="{ mobileMenuOpen: false }">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5">
+    <!-- Clean Sticky Header -->
+    <header class="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/90 backdrop-blur-md" x-data="{ mobileMenuOpen: false }">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-4">
         
-        <!-- Brand Logo -->
-        <div @click="scrollTo('hero')" class="flex cursor-pointer items-center gap-2.5 transition-opacity hover:opacity-90">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/10">
+        <!-- Interactive Brand Logo -->
+        <a href="#hero" @click.prevent="scrollTo('hero')" class="flex items-center gap-2.5 transition-opacity hover:opacity-90">
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white shadow-xs">
             <i data-lucide="graduation-cap" class="h-5 w-5"></i>
           </div>
-          <div>
+          <div class="text-left">
             <div class="flex items-center gap-1.5 leading-none">
-              <span class="font-display text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
+              <span class="font-display text-base font-bold tracking-tight text-slate-900">
                 CV. YOGIES
               </span>
-              <span class="rounded bg-indigo-50 px-1.5 py-0.5 text-[9px] font-bold text-indigo-600 uppercase tracking-widest border border-indigo-100">
-                BANDUNG
+              <span class="rounded bg-brand-50 px-1.5 py-0.5 text-[9px] font-bold text-brand-600 border border-brand-100 uppercase tracking-wider">
+                Bandung
               </span>
             </div>
-            <p class="mt-0.5 text-[10px] font-medium text-slate-500 tracking-wide font-sans">
-              Tempat PKL & Prakerin Resmi
-            </p>
+            <p class="text-[9px] text-slate-400 mt-0.5 font-medium tracking-wide">Tempat PKL SMK & Mahasiswa</p>
           </div>
-        </div>
+        </a>
 
-        <!-- Desktop Navigation links -->
-        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-          <button @click="scrollTo('hero')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Beranda</button>
-          <button @click="scrollTo('programs')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Program Unggulan</button>
-          <button @click="scrollTo('timeline')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Alur Pendaftaran</button>
-          <button @click="scrollTo('gallery')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Galeri Siswa</button>
-          <button @click="scrollTo('schools')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Daftar Sekolah</button>
-          <button @click="scrollTo('faq')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">FAQ</button>
-          <button @click="scrollTo('contact')" class="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-blue-600">Hubungi Kami</button>
+        <!-- Menu Navigation (Desktop) -->
+        <nav class="hidden md:flex items-center gap-1" id="nav-desktop">
+          <button @click="scrollTo('hero')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Beranda</button>
+          <button @click="scrollTo('programs')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Jurusan</button>
+          <button @click="scrollTo('timeline')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Alur</button>
+          <button @click="scrollTo('gallery')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Galeri</button>
+          <button @click="scrollTo('schools')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Mitra Sekolah</button>
+          <button @click="scrollTo('faq')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">FAQ</button>
+          <button @click="scrollTo('contact')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Kontak</button>
         </nav>
 
-        <!-- Header Actions -->
-        <div class="hidden md:flex items-center gap-3">
-          <template x-if="securityActive">
-            <div class="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700 border border-emerald-100">
-              <i data-lucide="shield" class="h-3 w-3"></i>
-              <span>Anti-Plagiat ON</span>
-            </div>
-          </template>
-          <button @click="scrollTo('contact')" class="flex items-center gap-1.5 rounded-full bg-blue-600 px-4.5 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/10 hover:bg-blue-700 transition">
-            <span>Daftar PKL</span>
+        <!-- CTA Action -->
+        <div class="hidden md:block">
+          <button @click="scrollTo('contact')" class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-brand-700 transition">
+            <span>Daftar Sekarang</span>
             <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
           </button>
         </div>
 
-        <!-- Mobile Menu Trigger -->
-        <div class="flex md:hidden items-center gap-2">
-          <template x-if="securityActive">
-            <span class="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.7)]"></span>
-          </template>
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="rounded-lg p-1.5 text-slate-600 hover:bg-slate-100">
+        <!-- Mobile Menu BTN -->
+        <div class="flex md:hidden">
+          <button @click="mobileMenuOpen = !mobileMenuOpen" class="rounded-md p-1.5 text-slate-500 hover:bg-slate-50">
             <i :data-lucide="mobileMenuOpen ? 'x' : 'menu'" class="h-5 w-5"></i>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Dropdown Navigation -->
-      <div 
-        x-show="mobileMenuOpen" 
-        class="md:hidden border-t border-slate-100 bg-white"
-        x-cloak
-      >
-        <div class="space-y-1.5 px-4 py-4">
-          <button @click="mobileMenuOpen = false; scrollTo('hero')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Beranda</button>
-          <button @click="mobileMenuOpen = false; scrollTo('programs')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Program Unggulan</button>
-          <button @click="mobileMenuOpen = false; scrollTo('timeline')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Alur Pendaftaran</button>
-          <button @click="mobileMenuOpen = false; scrollTo('gallery')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Galeri Siswa</button>
-          <button @click="mobileMenuOpen = false; scrollTo('schools')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Daftar Sekolah</button>
-          <button @click="mobileMenuOpen = false; scrollTo('faq')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">FAQ</button>
-          <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600">Hubungi Kami</button>
+      <!-- Mobile Dropdown -->
+      <div x-show="mobileMenuOpen" class="md:hidden border-t border-slate-100 bg-white" x-cloak>
+        <div class="space-y-1 px-4 py-3">
+          <button @click="mobileMenuOpen = false; scrollTo('hero')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Beranda</button>
+          <button @click="mobileMenuOpen = false; scrollTo('programs')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Jurusan</button>
+          <button @click="mobileMenuOpen = false; scrollTo('timeline')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Alur Pendaftaran</button>
+          <button @click="mobileMenuOpen = false; scrollTo('gallery')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Galeri</button>
+          <button @click="mobileMenuOpen = false; scrollTo('schools')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Mitra Sekolah</button>
+          <button @click="mobileMenuOpen = false; scrollTo('faq')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Pusat FAQ</button>
+          <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Hubungi Kami</button>
           <div class="pt-3 border-t border-slate-100">
-            <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/10 hover:bg-blue-700">
+            <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 py-2.5 text-xs font-bold text-white hover:bg-brand-700">
               <i data-lucide="message-square" class="h-4 w-4"></i>
-              <span>Daftar via WhatsApp</span>
+              <span>Hubungi WA</span>
             </button>
           </div>
         </div>
@@ -249,361 +144,378 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
-      <section id="hero" class="relative overflow-hidden bg-slate-950 text-white py-12 md:py-20 lg:py-24">
-        <!-- Background Slider -->
-        <div class="absolute inset-0 z-0">
-          <div 
-            class="absolute inset-0 bg-cover bg-center smooth-transition opacity-30 select-none pointer-events-none"
-            :style="heroSlide === 0 ? 'background-image: url(\'https://i.imgur.com/tJuwrm1.jpeg\')' : 'background-image: url(\'https://i.imgur.com/2S5y0Jg.jpeg\')'"
-          ></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-900/40"></div>
-        </div>
-
-        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Optimized Light Hero Section -->
+      <section id="hero" class="relative overflow-hidden bg-slate-50/70 border-b border-slate-100 py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            <div class="lg:col-span-7 space-y-6">
-              <div class="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-400 border border-blue-500/20">
-                <i data-lucide="sparkles" class="h-3 w-3"></i>
-                <span>Penerimaan PKL Periode Terbaru 2026</span>
+            <div class="lg:col-span-7 space-y-6 text-left">
+              <div class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600 border border-brand-100">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Penerimaan PKL Terbuka Periode Terbaru 2026</span>
               </div>
 
-              <h1 class="font-sans text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl leading-tight">
-                Tempat PKL SMK & Mahasiswa Terbaik di 
-                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">
-                  Kota Bandung
-                </span>
+              <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl leading-tight">
+                Tempat PKL & Prakerin Resmi SMK / Mahasiswa di <span class="text-brand-600">Bandung</span>
               </h1>
 
-              <p class="text-base text-slate-300 sm:text-lg max-w-2xl font-light leading-relaxed">
-                Tingkatkan keahlian praktismu di <strong>CV. YOGIES BANDUNG</strong>. Kami berkomitmen melatih keterampilan nyata, melengkapi berkas prakerin secara resmi, serta melahirkan generasi siap industri.
+              <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed max-w-2xl">
+                Tingkatkan keahlian praktismu di <strong>CV. YOGIES BANDUNG</strong>. Kami berkomitmen memberikan bimbingan industri terarah, merapikan berkas administrasi pemenuhan nilai, serta membina kompetensi dunia kerja digital yang nyata.
               </p>
 
-              <!-- Focusing Guide Indicator -->
-              <div class="hidden sm:flex items-center gap-4 w-fit rounded-xl p-3 bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400">
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
+              <!-- Focusing Badge -->
+              <div class="flex items-center gap-3 rounded-lg p-2.5 bg-white border border-slate-100 max-w-md">
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600">
+                  <i data-lucide="info" class="h-4.5 w-4.5"></i>
                 </div>
                 <div class="text-left">
-                  <p class="text-xs font-bold text-slate-200">Fokus Bimbingan Saat Ini:</p>
-                  <p class="text-xs text-indigo-300 font-medium" x-text="heroSlide === 0 ? 'Praktek Kerja Nyata & Terarah' : 'Kolaborasi Antar Siswa SMK'"></p>
+                  <p class="text-[11px] font-bold text-slate-900">Bimbingan Terarah:</p>
+                  <p class="text-xs text-slate-500 font-light leading-normal">Membangun keahlian Digital Marketing, Admin Online, dan Project Riil secara kondusif.</p>
                 </div>
               </div>
 
               <!-- CTA Links -->
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4.5">
-                <button @click="scrollTo('contact')" class="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition">
-                  <i data-lucide="message-square" class="h-4.5 w-4.5"></i>
-                  <span>Konsultasi Slot Kuota (WA)</span>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <button @click="scrollTo('contact')" class="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-brand-700 transition">
+                  <i data-lucide="message-square" class="h-4 w-4"></i>
+                  <span>Hubungi Kuota Slot via WA</span>
                 </button>
-                <button @click="scrollTo('programs')" class="flex items-center justify-center gap-2 rounded-xl bg-slate-800 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:bg-slate-700 border border-slate-700 hover:text-white transition">
-                  <span>Lihat Pilihan Jurusan</span>
+                <button @click="scrollTo('programs')" class="flex items-center justify-center gap-1.5 rounded-lg bg-white px-5 py-3 text-xs font-semibold text-slate-700 hover:bg-slate-50 border border-slate-200 transition">
+                  <span>Lihat Peluang Jurusan</span>
                 </button>
               </div>
             </div>
 
-            <!-- Visual Slider Graphical Box -->
-            <div class="lg:col-span-5 relative">
-              <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-2 shadow-2xl shadow-indigo-500/5 aspect-[4/3] group text-left">
-                <img 
-                  :src="heroSlide === 0 ? 'https://i.imgur.com/tJuwrm1.jpeg' : 'https://i.imgur.com/2S5y0Jg.jpeg'" 
-                  alt="PKL Bandung" 
-                  class="h-full w-full object-cover rounded-2xl select-none smooth-transition pointer-events-none" 
-                  draggable="false"
-                  referrerpolicy="no-referrer"
-                />
-
-                <div class="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-3.5 rounded-xl border border-white/5 space-y-1">
-                  <p class="text-[10px] uppercase font-bold text-blue-400 tracking-wider">Aktivitas Siswa</p>
-                  <p class="text-xs text-slate-300 font-light leading-relaxed" x-text="heroSlide === 0 ? 'Bimbingan intensif untuk menyelesaikan laporan prakerin dan menguasai kompetensi industri.' : 'Bergabung bersama puluhan siswa dari berbagai daerah untuk belajar, membangun tim, dan networking.'"></p>
+            <!-- Light Side Carousel Image -->
+            <div class="lg:col-span-5 relative" x-data="{
+              slides: [
+                'https://i.imgur.com/tJuwrm1.jpeg',
+                'https://i.imgur.com/2S5y0Jg.jpeg'
+              ]
+            }">
+              <div class="relative overflow-hidden rounded-2xl bg-white border border-slate-100 p-1.5 shadow-sm aspect-video sm:aspect-[4/3] text-left">
+                <div class="w-full h-full relative overflow-hidden rounded-xl bg-slate-100">
+                  <img 
+                    :src="slides[heroSlide]" 
+                    alt="Aktivitas PKL Siswa CV YOGIES" 
+                    class="h-full w-full object-cover transition-opacity duration-500" 
+                    referrerpolicy="no-referrer"
+                  />
+                  <!-- Gradient overlay for legibility -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
+                  
+                  <div class="absolute bottom-3 left-3 right-3 text-white">
+                    <p class="text-[10px] uppercase font-mono font-bold text-brand-300">Dokumentasi Nyata</p>
+                    <p class="text-xs text-slate-100 font-light mt-0.5 leading-relaxed">Persiapan pengerjaan laporan & bimbingan kerja harian siswa.</p>
+                  </div>
                 </div>
 
-                <!-- Controls -->
-                <button @click="heroSlide = heroSlide === 0 ? 1 : 0" class="absolute left-4 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-slate-950/60 backdrop-blur-sm text-white hover:bg-slate-900 transition border border-white/10 opacity-0 group-hover:opacity-100">
-                  <i data-lucide="chevron-left" class="h-4 w-4"></i>
-                </button>
-                <button @click="heroSlide = heroSlide === 0 ? 1 : 0" class="absolute right-4 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-slate-950/60 backdrop-blur-sm text-white hover:bg-slate-900 transition border border-white/10 opacity-0 group-hover:opacity-100">
-                  <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                </button>
+                <!-- Slider Indicators -->
+                <div class="absolute top-4 right-4 flex gap-1">
+                  <button @click="heroSlide = 0" class="h-1.5 w-4 rounded-full transition-colors" :class="heroSlide === 0 ? 'bg-brand-500' : 'bg-white/50'"></button>
+                  <button @click="heroSlide = 1" class="h-1.5 w-4 rounded-full transition-colors" :class="heroSlide === 1 ? 'bg-brand-500' : 'bg-white/50'"></button>
+                </div>
               </div>
 
-              <!-- Floating Location Pill -->
-              <div class="absolute -top-4 -right-4 flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 px-4 py-2 text-xs font-bold shadow-lg border border-emerald-400/20">
-                <i data-lucide="map-pin" class="h-4 w-4 text-emerald-100"></i>
-                <div class="text-left">
-                  <p class="text-[9px] text-emerald-100 font-medium leading-none">Lokasi Bandung</p>
-                  <p class="text-[11px] text-white">Regol, Srimahi</p>
-                </div>
+              <!-- Subtle Floating Location Pill -->
+              <div class="absolute -bottom-3 -right-2 flex items-center gap-1.5 rounded-lg bg-white p-2 text-[11px] font-semibold text-slate-800 border border-slate-100 shadow-xs">
+                <i data-lucide="map-pin" class="h-3.5 w-3.5 text-red-500"></i>
+                <span>Regol, Srimahi Bandung</span>
               </div>
             </div>
 
           </div>
 
-          <!-- Stats Grid -->
-          <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 border-t border-slate-800/80 pt-12">
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">15+</p>
-              <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Sekolah & Kampus Mitra</p>
-              <p class="text-[11px] text-slate-400 font-light mt-0.5">Dari berbagai kota di Jawa Barat</p>
+          <!-- Concise Clean Stats -->
+          <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-slate-200/50">
+            <div class="text-left py-2">
+              <span class="block text-2xl font-bold tracking-tight text-brand-600">15+</span>
+              <span class="block text-xs font-semibold text-slate-700 mt-1">Sekolah & Kampus Mitra</span>
+              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Dari berbagai kab/kota di Jawa Barat.</span>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">5+</p>
-              <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Pilihan Jurusan</p>
-              <p class="text-[11px] text-slate-400 font-light mt-0.5">RPL, DKV, TKJ, Pemasaran, Bisnis</p>
+            <div class="text-left py-2">
+              <span class="block text-2xl font-bold tracking-tight text-brand-600">5+</span>
+              <span class="block text-xs font-semibold text-slate-700 mt-1">Kompetensi Terbuka</span>
+              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">RPL, DKV, MM, TKJ, Pemasaran, dsb.</span>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">100%</p>
-              <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Bimbingan Ahli</p>
-              <p class="text-[11px] text-slate-400 font-light mt-0.5">Mentor berpengalaman di industri</p>
+            <div class="text-left py-2">
+              <span class="block text-2xl font-bold tracking-tight text-brand-600">100%</span>
+              <span class="block text-xs font-semibold text-slate-700 mt-1">Pembimbingan Praktikal</span>
+              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Disertai pembekalan materi kerja nyata.</span>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Lancar</p>
-              <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Laporan & Dokumen</p>
-              <p class="text-[11px] text-slate-400 font-light mt-0.5">Dibantu tanda tangan & nilai resmi</p>
+            <div class="text-left py-2">
+              <span class="block text-2xl font-bold tracking-tight text-brand-600">Lengkap</span>
+              <span class="block text-xs font-semibold text-slate-700 mt-1">Tanda Tangan & Nilai</span>
+              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Validasi dokumen pasca periode selesai.</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Open Curricular Programs -->
-      <section id="programs" class="scroll-mt-14 py-16 md:py-24 bg-slate-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Competence Jurusan -->
+      <section id="programs" class="scroll-mt-14 py-16 bg-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
           
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
-              <i data-lucide="sparkles" class="h-3 w-3"></i>
-              <span>Pilihan Jurusan Prakerin</span>
-            </div>
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Kompetensi Keahlian Terbuka
-            </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
-              Seluruh program jurusan diarahkan langsung pada praktek nyata <strong>Digital Marketing & Bisnis Online</strong> yang sederhana, praktis, dan sesuai dengan penyusunan laporan sekolah di <strong>CV. YOGIES</strong>.
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Kompetensi Keahlian</span>
+            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pilihan Jurusan Prakerin / PKL</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+              Program PKL dioptimasi langsung pada praktek digital nyata, mempermudah siswa menyusun materi laporan formal sekolah di <strong>CV. YOGIES</strong>.
             </p>
           </div>
 
-          <!-- Cards Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" 
+          <!-- Simplified Lighter Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="programs-container">
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-9 w-9 items-center justify-center rounded bg-blue-50 text-blue-600 border border-blue-100">
+                    <i data-lucide="code-2" class="h-4.5 w-4.5"></i>
+                  </div>
+                  <span class="rounded bg-blue-50 px-2 py-0.5 text-[9px] font-semibold text-blue-600 uppercase">RPL</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900">Rekayasa Perangkat Lunak</h3>
+                <p class="text-xs text-slate-500 font-light leading-relaxed">Pembuatan layout landing page promosi sederhana, pengelolaan web bisnis, integrasi tautan WhatsApp, serta dasar perapihan sitemap produk.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
+                <span>Daftar Jurusan RPL</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-9 w-9 items-center justify-center rounded bg-purple-50 text-purple-600 border border-purple-100">
+                    <i data-lucide="video" class="h-4.5 w-4.5"></i>
+                  </div>
+                  <span class="rounded bg-purple-50 px-2 py-0.5 text-[9px] font-semibold text-purple-600 uppercase">MM</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900">Multimedia / DKV</h3>
+                <p class="text-xs text-slate-500 font-light leading-relaxed">Pembuatan draft video kreatif untuk platform sosial media, pengeditan poster visual, layout poster promo e-commerce, dan penulisan copywriting dasar.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
+                <span>Daftar Jurusan MM/DKV</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-9 w-9 items-center justify-center rounded bg-teal-50 text-teal-600 border border-teal-100">
+                    <i data-lucide="cpu" class="h-4.5 w-4.5"></i>
+                  </div>
+                  <span class="rounded bg-teal-50 px-2 py-0.5 text-[9px] font-semibold text-teal-600 uppercase">TKJ</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900">Teknik Komputer & Jaringan</h3>
+                <p class="text-xs text-slate-500 font-light leading-relaxed">Konfigurasi dasar LAN/Wi-Fi ruang operasional promosi, bimbingan setup perangkat pendukung live streaming, serta pemeliharaan keandalan sistem laptop operasional.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
+                <span>Daftar Jurusan TKJ</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-9 w-9 items-center justify-center rounded bg-amber-50 text-amber-600 border border-amber-100">
+                    <i data-lucide="trending-up" class="h-4.5 w-4.5"></i>
+                  </div>
+                  <span class="rounded bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-600 uppercase">PROMOSI</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900">Pemasaran Digital & Bisnis</h3>
+                <p class="text-xs text-slate-500 font-light leading-relaxed">Riset topik promo harian, optimalisasi pencarian kata kunci pencarian (SEO) produk lokal, rekap stok etalase dagang online, serta respon pesan konsumen.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
+                <span>Daftar Jurusan Pemasaran</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex h-9 w-9 items-center justify-center rounded bg-emerald-50 text-emerald-600 border border-emerald-100">
+                    <i data-lucide="globe" class="h-4.5 w-4.5"></i>
+                  </div>
+                  <span class="rounded bg-emerald-50 px-2 py-0.5 text-[9px] font-semibold text-emerald-600 uppercase">AKUNTANSI</span>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900">Bisnis & Administrasi Kantor</h3>
+                <p class="text-xs text-slate-500 font-light leading-relaxed">Rekapitulasi penjualan produk bulanan, tata kelola komunikasi pengarsipan berkas kerja, dokumentasi nilai harian kelompok, dan draf administrasi pendukung.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
+                <span>Daftar Jurusan Admin</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-100/50 text-slate-400 text-left flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex h-9 w-9 items-center justify-center rounded bg-slate-200/80 text-slate-500">
+                  <i data-lucide="plus-circle" class="h-4.5 w-4.5"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-700">Jurusan / Fakultas Lainnya</h3>
+                <p class="text-xs text-slate-400 font-light leading-relaxed">Apakah jurusan Anda tidak ada di atas? Kami tetap membuka peluang kerja sama bimbingan lintas administrasi. Hubungi bagian kemitraan kami.</p>
+              </div>
+              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:underline pt-4 mt-4">
+                <span>Tanyakan Jurusan Lain</span>
+                <i data-lucide="arrow-right" class="h-3 w-3"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Alur Pendaftaran -->
+      <section id="timeline" class="scroll-mt-14 py-16 bg-slate-50/60 border-t border-b border-slate-100">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Prosedur Penerimaan</span>
+            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Alur Pendaftaran Mudah</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+              Ikuti 4 tahapan ringkas berikut dari awal cek ketersediaan kuota hingga siswa siap diterjunkan magang.
+            </p>
+          </div>
+
+          <!-- Step Layout -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative" id="timeline-steps">
+            
+            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 text-xs font-bold font-mono">01</span>
+                <i data-lucide="message-square" class="h-4 w-4 text-slate-300"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Cek Ketersediaan Kuota</h3>
+              <p class="text-xs text-slate-500 font-light leading-relaxed">Tanyakan langsung slot kuota bulanan aktif yang tersedia untuk jurusan Anda ke Whatsapp admin.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 text-xs font-bold font-mono">02</span>
+                <i data-lucide="file-text" class="h-4 w-4 text-slate-300"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Serahkan Surat Hubin</h3>
+              <p class="text-xs text-slate-500 font-light leading-relaxed">Kirimkan surat permohonan PKL / pengantar formal resmi dari Hubungan Industri sekolah Anda.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-50 text-teal-600 text-xs font-bold font-mono">03</span>
+                <i data-lucide="compass" class="h-4 w-4 text-slate-300"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Sesi Interview Santai</h3>
+              <p class="text-xs text-slate-500 font-light leading-relaxed">Wawancara pengenalan diri ringan bersama tim pembimbing lapangan kami (online / tatap muka).</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 text-xs font-bold font-mono">04</span>
+                <i data-lucide="award" class="h-4 w-4 text-slate-300"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Orientasi & Mulai PKL</h3>
+              <p class="text-xs text-slate-500 font-light leading-relaxed">Pengenalan aturan SOP kerja harian, pembagian tools kerja, dan dimulainya kegiatan prakerin resmi.</p>
+            </div>
+
+          </div>
+
+          <!-- Sleek Info Alert -->
+          <div class="mt-8 p-4 rounded-xl bg-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-4 text-left">
+            <div class="flex items-center gap-2.5">
+              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-slate-800 text-brand-300">
+                <i data-lucide="alert-circle" class="h-4 w-4"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold">Wajib Bawa Handphone / Laptop Sendiri</p>
+                <p class="text-[11px] text-slate-300 font-light mt-0.5">Siswa diharuskan membawa hp / laptop aktif masing-masing demi menunjang kelancaran praktik kerja setiap hari.</p>
+              </div>
+            </div>
+            <button @click="scrollTo('contact')" class="shrink-0 bg-brand-600 hover:bg-brand-700 hover:scale-[1.01] active:scale-[0.99] transition px-4 py-2 text-xs font-bold rounded-lg text-white">Hubungi Admin</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Galeri Siswa -->
+      <section id="gallery" class="scroll-mt-14 py-16 bg-white" 
                x-data="{
-                 progs: [
-                   { id: 'rpl', abb: 'RPL', name: 'Rekayasa Perangkat Lunak', desc: 'Pembuatan website landing page promosi, integrasi form order WhatsApp, optimasi performa web bisnis, serta pengelolaan domain penjualan.', icon: 'code-2', gradient: 'text-blue-600 bg-blue-50/70 border-blue-100 hover:border-blue-300', badge: 'bg-blue-50 border-blue-100 text-blue-700', textVal: 'Rekayasa Perangkat Lunak (RPL)' },
-                   { id: 'mm', abb: 'MM', name: 'Multimedia', desc: 'Produksi video kreatif promosi produk untuk TikTok, Reels, dan Shorts, editing materi visual media sosial, serta penulisan draf copywriting promosi.', icon: 'video', gradient: 'text-purple-600 bg-purple-50/70 border-purple-100 hover:border-purple-300', badge: 'bg-purple-50 border-purple-100 text-purple-700', textVal: 'Multimedia / DKV' },
-                   { id: 'dkv', abb: 'DKV', name: 'Desain Komunikasi Visual', desc: 'Desain poster iklan, penyusunan visual identitas brand, pembuatan banner promosi e-commerce, layout katalog digital, serta visualisasi ads.', icon: 'palette', gradient: 'text-pink-600 bg-pink-50/70 border-pink-100 hover:border-pink-300', badge: 'bg-pink-50 border-pink-100 text-pink-700', textVal: 'Multimedia / DKV' },
-                   { id: 'tkj', abb: 'TKJ', name: 'Teknik Komputer & Jaringan', desc: 'Penataan jaringan internet Wi-Fi pendukung live streaming promosi, setup router operasional online shop, serta pemeliharaan laptop tim promosi.', icon: 'cpu', gradient: 'text-teal-600 bg-teal-50/70 border-teal-100 hover:border-teal-300', badge: 'bg-teal-50 border-teal-100 text-teal-700', textVal: 'Teknik Komputer & Jaringan (TKJ)' },
-                   { id: 'pemasaran', abb: 'PEMASARAN', name: 'Pemasaran Digital', desc: 'Riset tren produk terpopuler, optimalisasi kata kunci (SEO) toko online, pengelolaan iklan berbayar media sosial, serta penyusunan strategi campaign.', icon: 'trending-up', gradient: 'text-amber-600 bg-amber-50/70 border-amber-100 hover:border-amber-300', badge: 'bg-amber-50 border-amber-100 text-amber-700', textVal: 'Pemasaran (Marketing)' },
-                   { id: 'bisnis', abb: 'BISNIS DARING', name: 'Bisnis Daring & Ritel', desc: 'Administrasi rekap stok dagang e-commerce, input pesanan marketplace harian, rekapitulasi penjualan berkala, serta layanan fast-response konsumen.', icon: 'globe', gradient: 'text-emerald-600 bg-emerald-50/70 border-emerald-100 hover:border-emerald-300', badge: 'bg-emerald-50 border-emerald-200 text-emerald-700', textVal: 'Bisnis Daring & Ritel (BDP)' },
-                   { id: 'lainnya', abb: 'JURUSAN LAIN', name: 'Administrasi & Lainnya', desc: 'Penyusunan dokumen digital laporan penjualan harian, tata kelola percakapan admin bisnis, serta pengarsipan berkas kerja pendukung operasional.', icon: 'plus-circle', gradient: 'text-slate-600 bg-slate-100/70 border-slate-200 hover:border-slate-400', badge: 'bg-slate-100 border-slate-200 text-slate-700', textVal: 'Rekayasa Perangkat Lunak (RPL)' }
+                 currentGallery: [
+                   { img: 'https://i.imgur.com/1tM325I.jpeg', title: 'Diskusi Pendampingan Guru', detail: 'Pemaparan berkas kemitraan dan sinkronisasi kerja sama akademis.', origin: 'Kunjungan Sekolah' },
+                   { img: 'https://i.imgur.com/3ZcHJig.jpeg', title: 'Sesi Pembagian Project', detail: 'Pemberian arahan target kerja harian promosi digital.', origin: 'Bimbingan Industri' },
+                   { img: 'https://i.imgur.com/ks22x4f.jpeg', title: 'Proses Monitoring Guru', detail: 'Guru pendamping berkunjung mengawasi kedisplinan harian.', origin: 'Monitoring Berkala' },
+                   { img: 'https://i.imgur.com/gPgwUVg.jpeg', title: 'Review Hasil Kampanye Desain', detail: 'Koreksi teknis banner promosi karya Multimedia.', origin: 'Evaluasi Mingguan' },
+                   { img: 'https://i.imgur.com/9qDc0Kd.jpeg', title: 'Evaluasi Project Laporan', detail: 'Sinkronisasi penyusunan draf lembar kerja akhir laporan.', origin: 'Evaluasi Hasil' },
+                   { img: 'https://i.imgur.com/VbwLSqx.jpeg', title: 'Pengenalan SOP Dunia Digital', detail: 'Pembekalan wawasan standar prosedur operasional.', origin: 'Orientasi Siswa' }
                  ]
                }">
-            <template x-for="p in progs" :key="p.id">
-              <div class="bg-white rounded-2xl p-5 border border-slate-200/75 shadow-sm hover:shadow-md hover:scale-[1.01] smooth-transition flex flex-col justify-between" :class="p.id === 'rpl' ? 'hover:border-blue-300' : p.id === 'mm' ? 'hover:border-purple-300' : p.id === 'dkv' ? 'hover:border-pink-300' : p.id === 'tkj' ? 'hover:border-teal-300' : p.id === 'pemasaran' ? 'hover:border-amber-300' : 'hover:border-emerald-300'">
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between font-sans">
-                    <div class="flex h-11 w-11 items-center justify-center rounded-xl border" :class="p.gradient">
-                      <i :data-lucide="p.icon" class="h-5.5 w-5.5"></i>
-                    </div>
-                    <span class="text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded border font-mono" :class="p.badge" x-text="p.abb"></span>
-                  </div>
-                  <div>
-                    <h3 class="text-base font-extrabold text-slate-900 tracking-tight leading-snug" x-text="p.name"></h3>
-                    <p class="text-xs text-slate-500 font-light leading-relaxed mt-2" x-text="p.desc"></p>
-                  </div>
-                </div>
-
-                <div class="pt-5 mt-5 border-t border-slate-100">
-                  <a 
-                    :href="'https://wa.me/6283172397127?text=Halo%20CV.%20YOGIES%20Bandung%2C%20saya%20tertarik%20untuk%20menanyakan%20kuota%20PKL%20aktif%20untuk%20kompetensi%20' + encodeURIComponent(p.textVal) + '.%20Apakah%20saat%20ini%20masih%20tersedia%3F'"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="w-full flex items-center justify-between text-left text-xs font-bold text-slate-700 hover:text-blue-600 transition"
-                  >
-                    <span>Daftar Jurusan Ini</span>
-                    <i data-lucide="arrow-right" class="h-4 w-4 text-slate-400"></i>
-                  </a>
-                </div>
-              </div>
-            </template>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Timeline Procedures -->
-      <section id="timeline" class="scroll-mt-14 py-16 md:py-24 bg-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
           
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600 border border-indigo-200">
-              <i data-lucide="calendar" class="h-3 w-3"></i>
-              <span>Alur Pendaftaran Resmi</span>
-            </span>
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Prosedur Mudah Bergabung di CV. YOGIES
-            </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
-              Ikuti 4 langkah terstruktur berikut dari awal pendaftaran hingga mulainya kegiatan Praktek Kerja Lapangan (PKL) Anda.
+          <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Momen Kegiatan</span>
+            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pekerjaan & Kunjungan Lapangan</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+              Koleksi dokumentasi nyata pengerjaan tugas, evaluasi, hingga kunjungan pemantauan guru pendamping sekolah.
             </p>
           </div>
 
-          <!-- Vertical Timeline Connector -->
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative" 
-               x-data="{
-                 steps: [
-                   { num: '01', title: 'Cek Kuota', desc: 'Hubungi admin kami untuk menanyakan ketersediaan kuota PKL/Prakerin khusus untuk program Anda pada periode batch target.', icon: 'message-square', color: 'bg-blue-50 border-blue-200 text-blue-600' },
-                   { num: '02', title: 'Kirim Surat Pengantar', desc: 'Serahkan surat permohonan PKL / surat pengantar pengenalan resmi dari Hubungan Industri (Hubin) pihak sekolah Anda.', icon: 'file-text', color: 'bg-indigo-50 border-indigo-200 text-indigo-600' },
-                   { num: '03', title: 'Interview', desc: 'Wawancara singkat secara santai online atau tatap muka langsung bersama tim pembimbing lapangan kami.', icon: 'compass', color: 'bg-teal-50 border-teal-200 text-teal-600' },
-                   { num: '04', title: 'Orientasi & Pembekalan', desc: 'Pengenalan dasar SOP harian, materi awal dunia kerja digital, pembagian divisi, serta persiapan kelancaran pengisian laporan PKL.', icon: 'award', color: 'bg-emerald-50 border-emerald-200 text-emerald-600' }
-                 ]
-               }">
-            
-            <div class="hidden md:block absolute top-[2.25rem] left-[4rem] right-[4rem] h-0.5 border-t border-dashed border-slate-300 -z-0"></div>
-
-            <template x-for="(s, index) in steps" :key="index">
-              <div class="relative flex flex-col items-start bg-slate-50 rounded-2xl p-5 border border-slate-100/85 shadow-sm hover:shadow-md hover:translate-y-[-1px] smooth-transition z-10 text-left">
-                <div class="flex items-center justify-between w-full mb-5 font-sans">
-                  <div class="flex h-11 w-11 items-center justify-center rounded-xl border shadow-sm" :class="s.color">
-                    <i :data-lucide="s.icon" class="h-5 w-5"></i>
-                  </div>
-                  <span class="text-2xl font-extrabold text-slate-300 select-none font-mono" x-text="s.num"></span>
-                </div>
-
-                <div class="space-y-2">
-                  <p class="text-base font-bold text-slate-800 tracking-tight" x-text="s.title"></p>
-                  <p class="text-xs md:text-[13px] text-slate-500 font-light leading-relaxed" x-text="s.desc"></p>
-                </div>
-              </div>
-            </template>
-          </div>
-
-          <!-- Alert Requirements -->
-          <div class="mt-12 rounded-3xl p-6 md:p-8 bg-gradient-to-r from-slate-900 to-indigo-950 text-white border border-slate-800 shadow-xl space-y-4">
-            <div class="flex items-center gap-2 text-indigo-300">
-              <i data-lucide="laptop" class="h-5 w-5 text-indigo-400"></i>
-              <span class="font-semibold text-xs md:text-sm uppercase tracking-wider">Persyaratan Penting Peserta PKL:</span>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 text-left">
-              <div class="flex items-start gap-3">
-                <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 text-indigo-400 text-xs font-bold font-mono">1</div>
-                <div>
-                  <p class="text-xs md:text-sm font-bold text-slate-100">Wajib Membawa Handphone / Laptop</p>
-                  <p class="text-[11px] md:text-xs text-slate-300 font-light mt-0.5">Siswa wajib membawa smartphone aktif atau perangkat laptop pribadi demi menunjang kelancaran praktik kerja setiap hari.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 text-indigo-400 text-xs font-bold font-mono">2</div>
-                <div>
-                  <p class="text-xs md:text-sm font-bold text-slate-100">Disiplin & Atribut Sekolah</p>
-                  <p class="text-[11px] md:text-xs text-slate-300 font-light mt-0.5">Mengenakan seragam sekolah asal atau pakaian bebas rapi, menjaga tata krama, kesopanan, dan kedisiplinan kerja.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 text-indigo-400 text-xs font-bold font-mono">3</div>
-                <div>
-                  <p class="text-xs md:text-sm font-bold text-slate-100">Jaga Kehadiran Rutin</p>
-                  <p class="text-[11px] md:text-xs text-slate-300 font-light mt-0.5">Memenuhi batas minimum jam kerja/kehadiran harian sesuai kesepakatan surat penugasan sekolah asal.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Galeri Dokumentasi -->
-      <section id="gallery" class="scroll-mt-14 py-16 md:py-24 bg-slate-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" 
-             x-data="{
-               galItems: [
-                 { id: 'gal-1', img: 'https://i.imgur.com/1tM325I.jpeg', title: 'Sesi Diskusi Bersama Guru Pendamping', desc: 'Pemaparan program bimbingan industri di depan guru-guru koordinasi asal sekolah.', school: 'SMK Cianjur' },
-                 { id: 'gal-2', img: 'https://i.imgur.com/3ZcHJig.jpeg', title: 'Pembagian Sesi Project Laporan', desc: 'Siswa berkumpul mengisi jurnal harian dan merumuskan ide usulan project akhir.', school: 'SMK LPPM' },
-                 { id: 'gal-3', img: 'https://i.imgur.com/ks22x4f.jpeg', title: 'Monitoring Perkembangan Jurnal', desc: 'Guru berkunjung memantau kedisiplinan dan mencocokkan nilai harian siswa.', school: 'SMK Soreang' },
-                 { id: 'gal-4', img: 'https://i.imgur.com/gPgwUVg.jpeg', title: 'Review Karya Desain Grafis', desc: 'Pembimbing industri memberikan koreksi langsung terhadap post banner karya siswa MM.', school: 'SMK ANGKASA' },
-                 { id: 'gal-5', img: 'https://i.imgur.com/9qDc0Kd.jpeg', title: 'Evaluasi Mingguan Bersama', desc: 'Diskusi dua arah membahas kendala teknis pembuatan aplikasi kasir rpl.', school: 'Kegiatan Pembelajaran' },
-                 { id: 'gal-6', img: 'https://i.imgur.com/VbwLSqx.jpeg', title: 'Presentasi Hasil Prakerin', desc: 'Uji sertifikasi internal mempresentasikan website buatan siswa di depan rekan satu tim.', school: 'Kegiatan Evaluasi' }
-               ]
-             }">
-          
-          <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 font-sans">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
-              <i data-lucide="image" class="h-3 w-3"></i>
-              <span>Dokumentasi Kegiatan</span>
-            </span>
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Galeri Kegiatan CV. YOGIES
-            </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
-              Momen-momen produktif dan seru saat siswa/siswi melangsungkan Praktek Kerja Lapangan, bimbingan, maupun sesi kunjungan monitoring guru di kantor kami.
-            </p>
-          </div>
-
-          <!-- Thumbnail Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <template x-for="(item, idx) in galItems" :key="item.id">
-              <div @click="lightboxIndex = idx" class="group relative cursor-pointer overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md smooth-transition aspect-[4/3] select-none">
-                <img :src="item.img" :alt="item.title" class="h-full w-full object-cover smooth-transition group-hover:scale-[1.03] select-none pointer-events-none" draggable="false" referrerpolicy="no-referrer" />
-                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
-                    <i data-lucide="eye" class="h-5 w-5"></i>
+          <!-- Lighter Gallery Thumbnail Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-grid">
+            <template x-for="(g, index) in currentGallery" :key="index">
+              <div 
+                @click="lightboxIndex = index" 
+                class="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-50 border border-slate-100 shadow-3xs hover:shadow-xs aspect-[4/3] transition-all"
+              >
+                <img :src="g.img" :alt="g.title" class="h-full w-full object-cover transition duration-300 group-hover:scale-102" referrerpolicy="no-referrer" />
+                <div class="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white">
+                    <i data-lucide="eye" class="h-4.5 w-4.5"></i>
                   </div>
                 </div>
               </div>
             </template>
           </div>
 
-          <!-- Lightbox Fullscreen modal -->
-          <div x-show="lightboxIndex !== null" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md select-none" x-cloak>
+          <!-- Alpine Lightweight Lightbox Modal -->
+          <div x-show="lightboxIndex !== null" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm" x-cloak>
+            <!-- Overlay click close -->
             <div class="absolute inset-0 -z-10" @click="lightboxIndex = null"></div>
 
             <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-white z-10">
-              <div class="flex items-center gap-2">
-                <div class="flex h-7 w-7 items-center justify-center rounded bg-slate-800 text-slate-300">
-                  <i data-lucide="image" class="h-4 w-4"></i>
-                </div>
-                <span class="font-mono text-[11px] text-slate-400 font-semibold uppercase">
-                  FOTO <span x-text="(lightboxIndex || 0) + 1"></span> DARI 6
-                </span>
-              </div>
+              <span class="font-mono text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                TAMPILAN FOTO <span x-text="(lightboxIndex || 0) + 1"></span> / 6
+              </span>
               <button @click="lightboxIndex = null" class="rounded-full bg-slate-800 p-2 text-slate-300 hover:text-white transition hover:bg-slate-700">
                 <i data-lucide="x" class="h-4.5 w-4.5"></i>
               </button>
             </div>
 
-            <!-- Image slider area -->
+            <!-- Main Slide Content -->
             <template x-if="lightboxIndex !== null">
-              <div class="relative flex max-w-4xl w-full items-center justify-center py-10">
-                <button @click="lightboxIndex = (lightboxIndex - 1 + 6) % 6" class="absolute left-2 md:left-4 z-10 rounded-full bg-slate-800/80 p-2 text-white hover:bg-slate-700 transition">
+              <div class="relative flex max-w-4xl w-full items-center justify-center py-8">
+                <!-- Navigation Buttons -->
+                <button @click="lightboxIndex = (lightboxIndex - 1 + 6) % 6" class="absolute left-2 z-10 rounded-full bg-slate-800/85 p-2 text-white hover:bg-slate-700 transition">
                   <i data-lucide="chevron-left" class="h-5 w-5"></i>
                 </button>
-
-                <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 max-h-[60vh] md:max-h-[70vh] aspect-[4/3] relative flex items-center justify-center max-w-full">
-                  <img :src="galItems[lightboxIndex].img" class="h-[60vh] md:h-[70vh] object-contain select-none pointer-events-none" draggable="false" referrerpolicy="no-referrer" />
-                  <div class="absolute top-3.5 right-3.5 flex items-center gap-1 rounded bg-slate-950/80 border border-white/10 px-2 py-0.5 text-[9px] font-bold text-rose-300">
-                    <i data-lucide="shield-alert" class="h-3 w-3 inline text-rose-400"></i>
-                    <span>ASET DILINDUNGI</span>
-                  </div>
+                
+                <div class="overflow-hidden rounded-xl bg-slate-900 border border-slate-800 max-h-[60vh] max-w-full flex items-center justify-center relative shadow-xl">
+                  <img :src="currentGallery[lightboxIndex].img" class="max-h-[60vh] object-contain" referrerpolicy="no-referrer" />
                 </div>
 
-                <button @click="lightboxIndex = (lightboxIndex + 1) % 6" class="absolute right-2 md:right-4 z-10 rounded-full bg-slate-800/80 p-2 text-white hover:bg-slate-700 transition">
+                <button @click="lightboxIndex = (lightboxIndex + 1) % 6" class="absolute right-2 z-10 rounded-full bg-slate-800/85 p-2 text-white hover:bg-slate-700 transition">
                   <i data-lucide="chevron-right" class="h-5 w-5"></i>
                 </button>
               </div>
             </template>
 
-            <!-- Lightbox Captions -->
+            <!-- Metadata Box -->
             <template x-if="lightboxIndex !== null">
-              <div class="max-w-2xl w-full text-center space-y-2 mt-4 px-4 text-white font-sans">
-                <span class="inline-block rounded bg-blue-500/10 border border-blue-500/25 px-2.5 py-0.5 text-[10px] font-bold text-blue-400 uppercase" x-text="'Mitra: ' + galItems[lightboxIndex].school"></span>
-                <p class="text-base md:text-lg font-bold text-slate-100" x-text="galItems[lightboxIndex].title"></p>
-                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed max-w-lg mx-auto" x-text="galItems[lightboxIndex].desc"></p>
-                
-                <div class="inline-flex items-center gap-1 text-[10px] text-yellow-500 py-1 bg-yellow-500/5 px-3 rounded border border-yellow-500/10">
-                  <i data-lucide="alert-circle" class="h-3 w-3"></i>
-                  <span>Dilarang menduplikat, screenshot, atau mengunduh orisinalitas foto tanpa izin pembimbing.</span>
-                </div>
+              <div class="max-w-xl w-full text-center space-y-1 mt-3 px-4 text-white">
+                <span class="inline-block rounded bg-brand-500/20 border border-brand-500/30 px-2.5 py-0.5 text-[9px] font-bold text-brand-400 uppercase" x-text="currentGallery[lightboxIndex].origin"></span>
+                <p class="text-sm md:text-base font-bold text-slate-100" x-text="currentGallery[lightboxIndex].title"></p>
+                <p class="text-xs text-slate-400 font-light leading-relaxed max-w-md mx-auto" x-text="currentGallery[lightboxIndex].detail"></p>
               </div>
             </template>
           </div>
@@ -611,8 +523,8 @@
         </div>
       </section>
 
-      <!-- Schools Partnerships -->
-      <section id="schools" class="scroll-mt-14 py-16 md:py-24 bg-white"
+      <!-- Schools Partnerships Database -->
+      <section id="schools" class="scroll-mt-14 py-16 bg-slate-50/60 border-t border-b border-slate-100"
                x-data="{
                  partnersList: [
                    'SMK BBPI BALEENDAH',
@@ -631,7 +543,7 @@
                    'SMKN 4 PADALARANG',
                    'SMK ANGKASA 1 BANDUNG'
                  ],
-                 submitRequest(e) {
+                 submitRequest() {
                    if (formName && formSchool) {
                      formSubmitted = true;
                      setTimeout(() => {
@@ -643,122 +555,57 @@
                    }
                  }
                }">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
           
-          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8 uppercase">
-            <div class="max-w-2xl space-y-3 text-left">
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
-                <i data-lucide="graduation-cap" class="h-3.5 w-3.5 text-blue-600"></i>
-                <span>Mitra Pendidikan Resmi</span>
-              </span>
-              <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Daftar Sekolah & Kampus Mitra
-              </h2>
-              <p class="text-sm md:text-[15px] text-slate-500 font-light leading-relaxed normal-case">
-                CV. YOGIES telah dipercaya oleh berbagai sekolah menengah kejuruan (SMK) dan perguruan tinggi, baik di dalam kota Bandung maupun dari luar provinsi.
+          <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-6 border-b border-slate-200/50 mb-8">
+            <div class="max-w-2xl text-left space-y-2">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Database Lembaga</span>
+              <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Lembaga & Sekolah Rekanan</h2>
+              <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                CV. YOGIES bermitra secara formal dengan sekumpulan sekolah kejuruan (vokasi) dan perguruan tinggi, mempermudah penerimaan administratif.
               </p>
             </div>
 
-            <div class="flex items-center gap-4.5 bg-slate-50 border border-slate-100 p-4 rounded-2xl w-full sm:w-auto self-stretch md:self-auto shrink-0 shadow-sm text-left font-sans">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/10">
-                <i data-lucide="school" class="h-5 w-5"></i>
+            <div class="flex items-center gap-3 bg-white border border-slate-100 p-3 rounded-lg shadow-3xs shrink-0 self-stretch md:self-auto text-left">
+              <div class="flex h-9 w-9 items-center justify-center rounded bg-brand-50 text-brand-600">
+                <i data-lucide="school" class="h-4.5 w-4.5"></i>
               </div>
               <div>
-                <p class="text-2xl font-extrabold text-slate-900 leading-none">15+</p>
-                <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">Sekolah Terdaftar</p>
+                <p class="text-lg font-bold text-slate-950">15+</p>
+                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Mitra Pendidikan Aktif</p>
               </div>
             </div>
           </div>
 
-          <!-- School Database Search -->
-          <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between mb-8">
-            <div class="relative flex-1 max-w-md">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+          <!-- Dynamic Database Filter -->
+          <div class="flex mb-6">
+            <div class="relative w-full max-w-sm">
+              <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
                 <i data-lucide="search" class="h-4 w-4"></i>
-              </div>
+              </span>
               <input 
                 type="text" 
                 x-model="searchQuery" 
-                placeholder="Cari sekolah anda di sini..." 
-                class="w-full pl-10 pr-4 py-3 text-xs md:text-sm text-slate-800 bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors text-left font-sans"
+                placeholder="Cari nama sekolah / SMK di sini..." 
+                class="w-full pl-9 pr-4 py-2 text-xs md:text-sm text-slate-800 bg-white rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/10 focus:border-brand-500 transition-colors text-left font-sans"
               />
             </div>
-
-            <button @click="showRequestForm = !showRequestForm" class="flex items-center justify-center gap-1.5 rounded-xl bg-slate-90 px-5 py-3 text-xs font-bold text-slate-800 border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition font-sans">
-              <span>Ajukan Kerjasama Kemitraan Baru</span>
-              <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 text-slate-400"></i>
-            </button>
           </div>
 
-          <!-- MOU Request Sliding Panel -->
-          <div 
-            x-show="showRequestForm" 
-            class="overflow-hidden mb-10 transition-all duration-300"
-            x-cloak
-          >
-            <div class="p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-inner grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div class="md:col-span-5 space-y-3 text-left">
-                <div class="inline-flex items-center gap-1.5 text-blue-600 font-bold text-xs uppercase tracking-wider">
-                  <i data-lucide="file-check" class="h-4 w-4"></i>
-                  <span>School Partnership</span>
-                </div>
-                <h3 class="text-lg md:text-xl font-extrabold text-slate-900 leading-tight">
-                  Ajukan Kemitraan Hubungan Industri
-                </h3>
-                <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-                  Ajukan nama sekolah atau kampus Anda ke dalam database binaan <strong>CV. YOGIES</strong>. Tim Hubin kami akan mengonfirmasi surat kerjasama resmi dengan administrasi sekolah.
-                </p>
-                <div class="flex items-center gap-1.5 text-[11px] text-slate-400 bg-slate-200/50 p-2.5 rounded-lg border border-slate-200/30">
-                  <i data-lucide="alert-circle" class="h-4 w-4 text-slate-400 shrink-0"></i>
-                  <span>Kerjasama resmi mematangkan jaminan kuota tetap setiap pergantian semester.</span>
-                </div>
-              </div>
-
-              <!-- Partner Form Column -->
-              <div class="md:col-span-7">
-                <div x-show="formSubmitted" class="flex flex-col items-center text-center p-6 bg-white border border-emerald-100 rounded-2xl shadow-sm space-y-2.5">
-                  <div class="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-50 text-emerald-500 border border-emerald-100">
-                    <i data-lucide="check" class="h-5 w-5"></i>
-                  </div>
-                  <p class="text-sm font-bold text-slate-950">Permohonan Kemitraan Berhasil Dikirim!</p>
-                  <p class="text-xs text-slate-500 max-w-sm font-light">
-                    Terima kasih. Hubungan Industri sekolah Anda akan segera diverifikasi oleh tim sekretariat CV. YOGIES.
-                  </p>
-                </div>
-
-                <form x-show="!formSubmitted" @submit.prevent="submitRequest" class="space-y-4 font-sans">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-                    <div class="space-y-1">
-                      <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Nama Pengaju (Guru/Hubin/Siswa)</label>
-                      <input type="text" required x-model="formName" placeholder="Contoh: Bpk. Ahmad, M.T." class="w-full px-4 py-2.5 text-xs bg-white rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-500 transition-colors" />
-                    </div>
-                    <div class="space-y-1">
-                      <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Nama Lengkap Sekolah / SMK</label>
-                      <input type="text" required x-model="formSchool" placeholder="Contoh: SMKN 1 KOTA BANDUNG" class="w-full px-4 py-2.5 text-xs bg-white rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-500 transition-colors" />
-                    </div>
-                  </div>
-                  <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-md shadow-blue-500/10 transition">
-                    Kirim Pengajuan Kemitraan Resmi
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- Match lists results -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <template x-for="(sch, i) in partnersList" :key="i">
+          <!-- School Cards List Filtered -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5" id="school-results-grid">
+            <template x-for="(s, index) in partnersList" :key="index">
               <div 
-                x-show="sch.toLowerCase().includes(searchQuery.toLowerCase())" 
-                class="flex items-center gap-3.5 bg-slate-50/50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 hover:border-slate-200 hover:shadow-sm smooth-transition text-left font-sans"
+                x-show="s.toLowerCase().includes(searchQuery.toLowerCase())" 
+                class="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-100 hover:border-slate-200 transition text-left"
               >
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 shadow-sm font-bold text-xs font-mono" x-text="i + 1"></div>
-                <div>
-                  <p class="text-xs md:text-sm font-bold text-slate-800 leading-snug tracking-tight" x-text="sch"></p>
-                  <div class="flex items-center gap-1 text-[9px] font-bold text-emerald-600 uppercase tracking-widest mt-0.5">
-                    <i data-lucide="check" class="h-3 w-3 text-emerald-500"></i>
-                    <span>MITRA AKTIF</span>
-                  </div>
+                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600 font-bold text-xs font-mono" x-text="index + 1"></div>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-slate-800 truncate" x-text="s"></p>
+                  <span class="inline-flex items-center gap-0.5 text-[9px] font-bold text-emerald-600 uppercase mt-0.5">
+                    <i data-lucide="check" class="h-2.5 w-2.5 text-emerald-500"></i>
+                    <span>Tervalidasi Aktif</span>
+                  </span>
                 </div>
               </div>
             </template>
@@ -767,51 +614,50 @@
         </div>
       </section>
 
-      <!-- FAQ Section -->
-      <section id="faq" class="scroll-mt-14 py-16 md:py-24 bg-slate-50">
-        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <!-- Clean FAQ Section -->
+      <section id="faq" class="scroll-mt-14 py-16 bg-white">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6" 
+             x-data="{
+               faqItems: [
+                 { id: 'faq-1', q: 'Apakah program PKL di CV. YOGIES dipungut biaya?', a: 'Tidak ada biaya sama sekali. Program Praktek Kerja Lapangan (PKL) tingkat SMK dan magang mahasiswa dasar di tempat kami TIDAK dipungut biaya pendaftaran ataupun iuran bulanan (DIPASTIKAN GRATIS). Siswa hanya wajib menyediakan laptop pribadi sendiri sebagai alat pendukung praktik.' },
+                 { id: 'faq-2', q: 'Berapa durasi waktu PKL yang diizinkan?', a: 'Sangat fleksibel dan disesuaikan penuh dengan arahan modul kurikulum sekolah asal Anda. Mulai dari paket durasi 3 bulan, 4 bulan, hingga durasi penuh maksimal 6 bulan.' },
+                 { id: 'faq-3', q: 'Bagaimana jadwal kedisplinan harian harian?', a: 'Kegiatan PKL terjadwal secara aktif pada hari Senin sampai Jumat, masuk pukul 08:00 WIB dan selesai pukul 16:00 WIB. Untuk hari Sabtu, Minggu, serta tanggal merah libur nasional ditiadakan.' },
+                 { id: 'faq-4', q: 'Apakah siswa mendapat lembar penilaian resmi dan sertifikat?', a: 'Ya tentu. Di masa perpisahan / akhir periode, seluruh siswa yang dinilai menyelesaikan seluruh tugas harian dengan baik akan memperoleh Lembar Nilai Resmi, Sertifikat Akreditasi Industri, serta validasi tanda tangan dokumen laporan.' },
+                 { id: 'faq-3', q: 'Apakah menerima siswa magang yang berdomisili luar kota?', a: 'Sangat terbuka! Kami menyambut hangat siswa dari luar kota (seperti Garut, Cianjur, Indramayu, dsb.) sepanjang bersedia menetap sementara/kos mandiri di sekitar wilayah kantor kami.' }
+               ]
+             }">
           
-          <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
-              <i data-lucide="help-circle" class="h-3.5 w-3.5"></i>
-              <span>Tanya & Jawab</span>
-            </span>
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Pusat Informasi & FAQ PKL
-            </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
-              Temukan jawaban instan untuk pertanyaan umum yang sering ditanyakan oleh siswa, guru pendamping, maupun orang tua murid terkait sistem kerja prakerin di kantor kami.
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Pertanyaan Umum</span>
+            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pertanyaan Sering Diajukan</h2>
+            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+              Daftar jawaban cepat terkait persoalan teknis bimbingan, biaya, sertifikat, dan administrasi siswa.
             </p>
           </div>
 
-          <!-- Dynamic Accordion list -->
-          <div class="space-y-4" 
-               x-data="{
-                 faqs: [
-                   { id: 'faq-1', q: 'Apakah kegiatan PKL di CV. YOGIES berbayar?', a: 'Sama sekali tidak. Program Praktek Kerja Lapangan (PKL / Prakerin) tingkat SMK dan magang mahasiswa dasar di sekolah kami tidak dipungut biaya pendaftaran maupun iuran (GRATIS). Peserta hanya wajib membawa laptop pribadi sebagai penunjang belajar mandiri.' },
-                   { id: 'faq-2', q: 'Berapa lama durasi PKL yang diizinkan di perusahaan?', a: 'Durasi PKL bersifat fleksibel dan disesuaikan penuh dengan regulasi kurikulum sekolah/kampus asal Anda, umumnya berkisar antara 2 bulan, 3 bulan, 4 bulan, hingga maksimal 6 bulan s/d 1 tahun.' },
-                   { id: 'faq-3', q: 'Seperti apa jadwal absensi dan jam operasional PKL harian?', a: 'Kegiatan PKL dilaksanakan dari hari Senin hingga Jumat, masuk pukul 08:00 WIB dan selesai pukul 16:00 WIB. Hari Sabtu, Minggu, serta tanggal merah libur nasional seluruh aktivitas ditiadakan (libur).' },
-                   { id: 'faq-4', q: 'Apakah siswa mendapatkan sertifikat resmi dan penilaian di akhir periode?', a: 'Ya. Setiap peserta PKL yang menyelesaikan tugas bimbingan dengan baik hingga masa akhir penugasan berhak memperoleh sertifikat kelayakan industri resmi, lembar nilai kompetensi, serta pendampingan tanda tangan dokumen laporan dari pembimbing perusahaan.' },
-                   { id: 'faq-5', q: 'Apakah menerima siswa PKL dari luar kota/luar Bandung?', a: 'Tentu saja! Kami sangat menyambut antusiasme siswa-siswi dari luar kota Bandung (seperti Cianjur, Garut, Indramayu, Majalengka, Bengkulu, dll.) selama bersedia mencari tempat tinggal sementara/kos mandiri di sekitar lokasi kantor kami.' }
-                 ]
-               }">
-            <template x-for="f in faqs" :key="f.id">
-              <div class="rounded-2xl border transition-all" 
-                   :class="openFaqId === f.id ? 'bg-white border-blue-200 shadow-md' : 'bg-white/60 border-slate-200 hover:bg-white'">
-                <!-- Toggle Btn -->
-                <button @click="openFaqId = (openFaqId === f.id ? null : f.id)" class="flex w-full items-center justify-between p-5 text-left font-semibold text-slate-800 transition select-none">
-                  <span class="text-sm md:text-base font-bold text-slate-800 tracking-tight pr-4" x-text="f.q"></span>
-                  <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 smooth-transition" :class="openFaqId === f.id ? 'rotate-180 bg-blue-50 text-blue-600' : ''">
-                    <i data-lucide="chevron-down" class="h-4 w-4"></i>
-                  </div>
-                </button>
-                <!-- Body panel -->
-                <div 
-                  x-show="openFaqId === f.id" 
-                  class="overflow-hidden border-t border-slate-100 select-none"
-                  x-cloak
+          <!-- Lightweight Clean Accordion List -->
+          <div class="space-y-3" id="faq-accordions">
+            <template x-for="item in faqItems" :key="item.id">
+              <div class="rounded-xl border border-slate-100 bg-slate-50/20 overflow-hidden text-left">
+                <button 
+                  @click="openFaqId = openFaqId === item.id ? null : item.id" 
+                  class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50/50 transition duration-150"
                 >
-                  <div class="px-5 pb-5 pt-3.5 text-xs md:text-sm text-slate-500 leading-relaxed font-light text-left" x-text="f.a"></div>
+                  <span class="text-xs sm:text-sm font-bold text-slate-900 pr-4" x-text="item.q"></span>
+                  <i 
+                    data-lucide="chevron-down" 
+                    class="h-4 w-4 text-slate-400 shrink-0 transition-transform duration-200"
+                    :class="openFaqId === item.id ? 'rotate-180' : ''"
+                  ></i>
+                </button>
+                <div 
+                  x-show="openFaqId === item.id" 
+                  x-transition:enter="transition ease-out duration-150"
+                  x-transition:enter-start="opacity-0 transform scale-y-95 origin-top"
+                  x-transition:enter-end="opacity-100 transform scale-y-100"
+                  class="p-4 bg-slate-50 border-t border-slate-100/60"
+                >
+                  <p class="text-xs text-slate-600 font-light leading-relaxed font-sans" x-text="item.a"></p>
                 </div>
               </div>
             </template>
@@ -820,323 +666,137 @@
         </div>
       </section>
 
-      <!-- Simplified Centered Contact Section -->
-      <section id="contact" class="scroll-mt-14 py-16 md:py-20 bg-white">
-        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto space-y-6 shadow-md">
+      <!-- Sleek Map & Contact Section -->
+      <section id="contact" class="scroll-mt-14 py-16 bg-slate-50/70 border-t border-slate-100">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600 border border-emerald-200">
-              <i data-lucide="message-square" class="h-3.5 w-3.5"></i>
-              <span>Konsultasi & Hubungi Kami</span>
-            </span>
+            <!-- Contact column -->
+            <div class="lg:col-span-5 text-left flex flex-col justify-between space-y-6">
+              <div class="space-y-4">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Kontak & Alamat</span>
+                <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl leading-snug">Hubungi Kami / Datang Langsung</h2>
+                <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
+                  Konsultasikan slot kuota yang kosong dengan cepat lewat pesan WhatsApp, atau kunjungi kantor bimbingan sesuai jam kerja.
+                </p>
 
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900">
-              Ajukan Pertanyaan & Pendaftaran PKL
-            </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed max-w-xl mx-auto">
-              Silakan hubungi kami langsung secara instan melalui WhatsApp untuk menanyakan informasi kuota magang aktif, penyerahan berkas Hubungan Industri (Hubin), maupun penjadwalan observasi.
-            </p>
+                <!-- Information list cards -->
+                <div class="space-y-3.5 pt-2">
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
+                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
+                      <i data-lucide="map-pin" class="h-4 w-4"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-800">Alamat Kantor:</p>
+                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">Jl. Srimahi Dalam No.2A, Ancol, Kec. Regol, Kota Bandung, Jawa Barat 40254</p>
+                    </div>
+                  </div>
 
-            <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
-                href="https://wa.me/6283172397127?text=Halo%20CV.%20YOGIES%20Bandung%2C%20saya%20tertarik%20untuk%20mendaftar%20PKL%2FMagang%20di%20sana.%20Bagaimana%20prosedur%20dan%20kuota%20saat%20ini%3F" 
-                target="_blank" 
-                rel="noreferrer" 
-                class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-8 py-4 shadow-lg shadow-emerald-600/10 transition"
-              >
-                <i data-lucide="send" class="h-4.5 w-4.5"></i>
-                <span>Mulai Chat WhatsApp Resmi</span>
-              </a>
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
+                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
+                      <i data-lucide="phone" class="h-4 w-4"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-800">WhatsApp Admin:</p>
+                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">+62 831-7239-7127 (Yogies)</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
+                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
+                      <i data-lucide="clock" class="h-4 w-4"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-800">Waktu Operasional:</p>
+                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">Senin - Jumat: Pukul 08:00 - 16:00 WIB (Sabtu/Minggu Libur)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Instant WA buttons -->
+              <div class="pt-4">
+                <a 
+                  href="https://wa.me/6283172397127?text=Halo%2520CV%2520YOGIES%2520Bandung%252C%2520saya%2520ingin%2520bertanya%2520ketersediaan%2520sisa%2520slot%2520penerimaan%2520PKL%2520periode%2520sekarang."
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex items-center justify-center gap-2 w-full rounded-lg bg-emerald-600 px-6 py-3.5 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition"
+                  id="wa-chat-link"
+                >
+                  <i data-lucide="message-square" class="h-4.5 w-4.5"></i>
+                  <span>Kirim Pesan WhatsApp Kuota</span>
+                </a>
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200/65 pt-6 text-left max-w-lg mx-auto">
-              <div class="space-y-1">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Jam Pelayanan Kerja</p>
-                <p class="text-xs text-slate-700 font-semibold">Senin - Jumat: Pukul 08.00 - 16.00 WIB</p>
-              </div>
-              <div class="space-y-1">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Kontak Telepon / WA</p>
-                <p class="text-xs text-slate-700 font-semibold">+62 831-7239-7127</p>
-              </div>
-            </div>
-
-            <!-- Social Channels inside the centered card -->
-            <div class="flex justify-center gap-4 pt-2">
-              <a 
-                href="https://www.facebook.com/tempatpkldibandung/" 
-                target="_blank" 
-                rel="noreferrer" 
-                class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/80 hover:bg-slate-100 transition text-[11px]"
-              >
-                <i data-lucide="facebook" class="h-3.5 w-3.5 text-blue-600"></i>
-                <span class="font-semibold text-slate-700">Facebook</span>
-              </a>
-              <a 
-                href="https://www.instagram.com/tempatpkldibandung12/" 
-                target="_blank" 
-                rel="noreferrer" 
-                class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/80 hover:bg-slate-100 transition text-[11px]"
-              >
-                <i data-lucide="instagram" class="h-3.5 w-3.5 text-pink-500"></i>
-                <span class="font-semibold text-slate-700">Instagram</span>
-              </a>
+            <!-- Integrated slim Map Frame -->
+            <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 bg-white p-1.5 shadow-sm min-h-80 relative flex">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                style="border: 0; min-height: 20rem;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                title="Lokasi Kantor CV. YOGIES"
+                class="rounded-xl w-full h-full grayscale opacity-90 hover:opacity-100 transition-opacity duration-300"
+              ></iframe>
             </div>
 
           </div>
+
         </div>
       </section>
     </main>
 
-    <!-- Footer Area + Interactive Maps -->
-    <footer class="bg-slate-900 text-slate-400 font-sans border-t border-slate-800">
-      
-      <!-- Integrated Google Map -->
-      <div id="footer-map" class="w-full h-80 relative group overflow-hidden border-b border-slate-800">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-          width="100%"
-          height="100%"
-          style="border: 0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer"
-          title="Lokasi Kantor CV. YOGIES"
-          class="filter grayscale contrast-110 opacity-80 group-hover:opacity-100 transition duration-500"
-        ></iframe>
-
-        <div class="absolute top-4 left-4 bg-slate-950/90 border border-slate-800 p-4.5 rounded-2xl w-72 max-w-sm shadow-xl backdrop-blur-md hidden sm:block text-left">
-          <div class="flex gap-3">
-            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white shrink-0 shadow-md shadow-blue-500/10">
-              <i data-lucide="map-pin" class="h-4.5 w-4.5"></i>
-            </div>
-            <div class="space-y-1">
-              <p class="text-xs font-bold text-white">Fisik Kantor CV. YOGIES</p>
-              <p class="text-[11px] leading-relaxed text-slate-400">
-                Jl. Srimahi Dalam No.2A, Ancol, Kec. Regol, Kota Bandung, Jawa Barat 40254
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer Navigation and Identity Grid -->
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-left">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+    <!-- Simple Sleek Footnote -->
+    <footer class="border-t border-slate-100 bg-white py-12 text-slate-500">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           
-          <div class="md:col-span-5 space-y-4">
-            <div @click="scrollTo('hero')" class="flex items-center gap-2.5 cursor-pointer max-w-xs">
-              <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md">
-                <i data-lucide="graduation-cap" class="h-5 w-5"></i>
-              </div>
-              <div>
-                <span class="font-sans text-lg font-extrabold tracking-tight text-white">
-                  CV. YOGIES
-                </span>
-                <p class="text-[9px] uppercase font-bold tracking-widest text-slate-500 leading-none">BANDUNG INDONESIA</p>
-              </div>
+          <div class="space-y-1">
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="font-display font-bold text-slate-800 text-sm">CV. YOGIES BANDUNG</span>
+              <span class="text-[9px] font-bold text-brand-600 bg-brand-50 border border-brand-100/50 px-1.5 py-0.5 rounded uppercase">RESMI</span>
             </div>
-
-            <p class="text-xs md:text-sm font-light leading-relaxed max-w-sm text-slate-400">
-              Kami berdiri sejak bertahun-tahun sebagai mediator industri resmi yang siap menampung, melatih, serta melahirkan bibit-bibit unggul lulusan sekolah vokasi di Kota Bandung.
-            </p>
-
-            <div class="space-y-2 text-xs font-light pt-2">
-              <div class="flex items-center gap-2.5">
-                <i data-lucide="clock" class="h-4 w-4 text-blue-400"></i>
-                <span>Senin - Jumat: Pukul 08:00 - 16:00 WIB</span>
-              </div>
-              <div class="flex items-center gap-2.5">
-                <i data-lucide="phone" class="h-4 w-4 text-blue-400"></i>
-                <span>+62 831-7239-7127 (WhatsApp)</span>
-              </div>
-            </div>
-
-            <!-- Social Links in Box -->
-            <div class="flex items-center gap-3 pt-3">
-              <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#1877F2] hover:text-white border border-slate-700/50 transition-all duration-300 shadow-sm" title="Facebook">
-                <i data-lucide="facebook" class="h-4 w-4"></i>
-              </a>
-              <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#E1306C] hover:text-white border border-slate-700/50 transition-all duration-300 shadow-sm" title="Instagram">
-                <i data-lucide="instagram" class="h-4 w-4"></i>
-              </a>
-            </div>
+            <p class="text-xs text-slate-400 font-light font-sans">Mediator & Pembimbing Industri Terakreditasi Penyelenggara Magang.</p>
           </div>
 
-          <!-- Quick Navigation Links (Footer columns) -->
-          <div class="md:col-span-4 grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Navigasi</p>
-              <ul class="space-y-2.5 text-xs font-light">
-                <li><button @click="scrollTo('hero')" class="hover:text-blue-400 hover:underline transition">Beranda</button></li>
-                <li><button @click="scrollTo('programs')" class="hover:text-blue-400 hover:underline transition">Kompetensi</button></li>
-                <li><button @click="scrollTo('timeline')" class="hover:text-blue-400 hover:underline transition">Alur Pendaftaran</button></li>
-                <li><button @click="scrollTo('gallery')" class="hover:text-blue-400 hover:underline transition">Galeri Kegiatan</button></li>
-              </ul>
-            </div>
-
-            <div class="space-y-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Administrasi</p>
-              <ul class="space-y-2.5 text-xs font-light">
-                <li><button @click="scrollTo('schools')" class="hover:text-blue-400 hover:underline transition">Mitra Sekolah</button></li>
-                <li><button @click="scrollTo('faq')" class="hover:text-blue-400 hover:underline transition">Pusat FAQ</button></li>
-                <li><button @click="scrollTo('contact')" class="hover:text-blue-400 hover:underline transition">Daftar Slot WA</button></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Secure certification card widget -->
-          <div class="md:col-span-3 space-y-4 bg-slate-950 p-4.5 rounded-2xl border border-slate-800">
-            <div class="flex items-center gap-2 text-white">
-              <i data-lucide="shield" class="h-4 w-4 text-blue-400"></i>
-              <span class="text-xs font-bold uppercase tracking-wider font-display">Garansi Keaslian Dokumen</span>
-            </div>
-            <p class="text-[11px] leading-relaxed font-light text-slate-400">
-              Evaluasi & sertifikasi dari CV. YOGIES didukung data otentik, diakreditasi resmi untuk kebutuhan akreditasi sekolah vokasi oleh Kementerian Pendidikan.
-            </p>
-            <div class="flex justify-between items-center pt-2 border-t border-slate-900">
-              <span class="text-[9px] font-mono font-bold tracking-wider text-slate-500">IND-REGOL-40254</span>
-              <button @click="window.scrollTo({ top: 0, behavior: 'smooth' })" class="flex items-center gap-1 text-[10px] text-blue-400 font-bold hover:underline font-sans">
-                <span>Ke Atas</span>
-                <i data-lucide="arrow-up" class="h-3 w-3"></i>
-              </button>
-            </div>
+          <!-- Social link icons -->
+          <div class="flex items-center gap-3">
+            <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 text-slate-400 hover:bg-[#1877F2] hover:text-white border border-slate-200/50 transition shadow-3xs" title="Facebook">
+              <i data-lucide="facebook" class="h-4 w-4"></i>
+            </a>
+            <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 text-slate-400 hover:bg-[#E1306C] hover:text-white border border-slate-200/50 transition shadow-3xs" title="Instagram">
+              <i data-lucide="instagram" class="h-4 w-4"></i>
+            </a>
           </div>
 
         </div>
 
-        <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs font-light">
-          <p class="text-slate-500">
-            © <span x-text="new Date().getFullYear()"></span> <strong>CV. YOGIES BANDUNG</strong>. Seluruh hak atas gambar & konten dilindungi sistem keamanan enkripsi plagiat.
-          </p>
-
-          <div class="flex items-center gap-1 text-slate-500 text-[11px] font-mono">
-            <span>Dibuat dengan</span>
-            <i data-lucide="heart" class="h-3 w-3 text-rose-500 fill-rose-500"></i>
-            <span>untuk Vokasi Pintar Bandung</span>
+        <div class="mt-8 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 font-light">
+          <p>© <span x-text="new Date().getFullYear()"></span> <strong>CV. YOGIES BANDUNG</strong>. Semua Hak Cipta Dilindungi.</p>
+          <div class="flex items-center gap-1">
+            <span>Dibuat untuk</span>
+            <i data-lucide="heart" class="h-3 w-3 text-red-500 fill-red-500"></i>
+            <span>Vokasi Siap Kerja Industri Pintar</span>
           </div>
         </div>
-
       </div>
     </footer>
 
-    <!-- Interactive Security Dev tools control panel -->
-    <div class="fixed bottom-6 left-6 z-40" x-data="{ monitorExpanded: false }">
-      <!-- Launcher Button -->
-      <button 
-        @click="monitorExpanded = !monitorExpanded" 
-        class="flex items-center gap-2 rounded-full px-4 py-2.5 shadow-lg border text-xs font-semibold backdrop-blur-md transition-all active:scale-95 duration-150"
-        :class="securityActive ? 'bg-slate-900/90 border-emerald-500/30 text-emerald-400 hover:bg-slate-950' : 'bg-white/90 border-rose-200 text-rose-500 hover:bg-rose-50'"
-      >
-        <i data-lucide="shield" class="h-4 w-4"></i>
-        <span>Keamanan Konten: <span x-text="securityActive ? 'AKTIF' : 'NONAKTIF'"></span></span>
-        <span x-show="logs.length > 0 && securityActive" class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-slate-950" x-text="logs.length" x-cloak></span>
-      </button>
-
-      <!-- Logging Shell display -->
-      <div 
-        x-show="monitorExpanded" 
-        class="absolute bottom-14 left-0 w-80 rounded-2xl bg-slate-950 p-4 text-slate-200 shadow-2xl border border-slate-800"
-        x-cloak
-      >
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <div class="flex items-center gap-2">
-            <i data-lucide="terminal" class="h-4 w-4 text-emerald-400"></i>
-            <span class="font-mono text-xs font-bold tracking-wider text-slate-400">SECURITY MONITOR</span>
-          </div>
-          <button 
-            @click="securityActive = !securityActive; addLog('KEAMANAN SISTEM', securityActive ? 'Sistem pengaman hak cipta dan plagiat diaktifkan kembali.' : 'Hak cipta dilonggarkan sementara.')" 
-            class="rounded px-2 py-1 font-mono text-[9px] font-semibold transition"
-            :class="securityActive ? 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30' : 'bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 border border-rose-500/30'"
-            x-text="securityActive ? 'DISABLE' : 'ENABLE'"
-          ></button>
-        </div>
-
-        <div class="my-3 space-y-1.5 font-mono text-[11px] text-left">
-          <div class="flex justify-between text-slate-500">
-            <span>System Status:</span>
-            <span :class="securityActive ? 'text-emerald-400 font-bold' : 'text-rose-500'" x-text="securityActive ? 'SHIELD_LIVE' : 'UNPROTECTED'"></span>
-          </div>
-          <div class="flex justify-between text-slate-500">
-            <span>Anti-RightClick:</span>
-            <span x-text="securityActive ? 'ON' : 'OFF'"></span>
-          </div>
-          <div class="flex justify-between text-slate-500">
-            <span>Anti-Select / Save:</span>
-            <span x-text="securityActive ? 'ON' : 'OFF'"></span>
-          </div>
-        </div>
-
-        <!-- Terminal Output -->
-        <div class="mt-4 text-left">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-mono text-[10px] text-slate-400 font-semibold uppercase">Aktivitas Terblokir</span>
-            <button x-show="logs.length > 0" @click="logs = []" class="text-[9px] font-mono text-rose-400 hover:underline">Clear Logs</button>
-          </div>
-
-          <div class="max-h-40 overflow-y-auto rounded bg-slate-900 p-2 font-mono text-[10px] text-slate-300 space-y-1.5 border border-slate-800">
-            <template x-if="logs.length === 0">
-              <div class="py-6 text-center text-slate-500 flex flex-col items-center gap-1.5 justify-center">
-                <i data-lucide="shield" class="h-5 w-5 opacity-40 text-slate-500"></i>
-                <span class="leading-relaxed">Belum ada aktivitas mencurigakan. Coba klik kanan atau salin teks!</span>
-              </div>
-            </template>
-            <template x-for="log in logs" :key="log.id">
-              <div class="border-b border-slate-850 pb-1 last:border-0 last:pb-0">
-                <div class="flex justify-between text-yellow-500 text-[9px]">
-                  <span x-text="'[' + log.time + '] ' + log.action"></span>
-                  <span class="text-emerald-400 font-bold text-[8px] px-1 bg-emerald-500/10 rounded">BLOCKED</span>
-                </div>
-                <p class="text-slate-400 leading-normal mt-0.5 font-mono" x-text="log.message"></p>
-              </div>
-            </template>
-          </div>
-        </div>
-
-        <p class="mt-3 text-center text-[9px] font-mono text-slate-500 border-t border-slate-900 pt-2 font-sans">
-          Dilindungi oleh Fitur Anti-Plagiasi CV. YOGIES
-        </p>
-      </div>
-    </div>
-
-    <!-- Alarm Floater Toast warning alert -->
-    <div 
-      x-show="activeToast && securityActive" 
-      :class="activeToast ? '' : 'hidden'"
-      class="fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl bg-slate-900 text-white shadow-2xl p-4 border border-rose-500/20 flex items-start gap-3.5 backdrop-blur-md text-left"
-      x-cloak
-    >
-      <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
-        <i data-lucide="shield-alert" class="h-4.5 w-4.5"></i>
-      </div>
-      
-      <div class="flex-1 space-y-1">
-        <div class="flex items-center justify-between">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 font-mono" x-text="(activeToast ? activeToast.action : '') + ' DICEGAH'"></span>
-          <span class="text-[9px] font-mono text-slate-500 font-medium">Cap Perusahaan</span>
-        </div>
-        <p class="text-xs font-bold text-slate-100 leading-snug">Aset Gambar & Hak Cipta Dilindungi</p>
-        <p class="text-[11px] text-slate-400 font-light leading-relaxed font-sans" x-text="activeToast ? activeToast.message : ''"></p>
-        <div class="flex items-center gap-1 text-[9px] text-slate-500 pt-1.5 border-t border-slate-800 font-mono mt-1.5">
-          <i data-lucide="lock" class="h-3 w-3 text-slate-500"></i>
-          <span>CV. YOGIES SECURITY ENGINE V2.0</span>
-        </div>
-      </div>
-
-      <button @click="activeToast = null" class="text-slate-500 hover:text-slate-300 transition shrink-0 p-0.5 rounded-md hover:bg-slate-800">
-        <i data-lucide="x" class="h-4 w-4"></i>
-      </button>
-    </div>
-
-    <!-- Active icons hydration -->
+    <!-- Automatically Hydrate Lucide Icons on Render -->
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         lucide.createIcons();
         
-        // Bulletproof MutationObserver to automatically hydrate Lucide icons whenever DOM changes (Alpine.js rendering)
-        const observer = new MutationObserver(() => {
+        // Dynamic observer to continuously capture Lucide icons if items render via AlpineJS transitions
+        const iconObserver = new MutationObserver(() => {
           lucide.createIcons();
         });
-        observer.observe(document.body, { childList: true, subtree: true });
+        iconObserver.observe(document.body, { childList: true, subtree: true });
       });
     </script>
   </body>

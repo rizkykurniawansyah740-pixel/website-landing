@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV. YOGIES PKL Bandung - Tempat PKL & Prakerin Resmi SMK / Mahasiswa</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +40,13 @@
         -ms-user-select: none;
         user-select: none;
       }
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Clean, modern, unified transition style */
+      .smooth-transition {
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
     </style>
   </head>
   <body 
@@ -52,19 +60,13 @@
       formName: '',
       formSchool: '',
       formSubmitted: false,
-      // Contact Form fields
-      contactName: '',
-      contactSchool: '',
-      contactMajor: 'Rekayasa Perangkat Lunak (RPL)',
-      contactDuration: '2 Bulan',
-      contactStartDate: '',
-      contactNote: '',
-      // Gallery slide index for lightbox
+      
+      // Lightbox variables
       lightboxIndex: null,
-      // Hero Slider index
+      // Hero image active slide
       heroSlide: 0,
       
-      // Add secure log entries
+      // Document Security Logger
       addLog(action, message) {
         if (!this.securityActive) return;
         const now = new Date();
@@ -80,7 +82,7 @@
           action: action,
           message: message
         };
-        // Auto dismiss toast after 4 sec
+        // Auto dismiss warning toasts in 4 seconds
         setTimeout(() => {
           if (this.activeToast && this.activeToast.action === action) {
             this.activeToast = null;
@@ -88,7 +90,7 @@
         }, 4000);
       },
       
-      // Scrolling assist
+      // Smooth Scroll Assist
       scrollTo(id) {
         const el = document.getElementById(id);
         if (el) {
@@ -97,12 +99,12 @@
       }
     }"
     x-init="
-      // Setup hero slide autoplay interval
+      // Automatic non-intrusive hero crossfade slider interval
       setInterval(() => {
         heroSlide = (heroSlide + 1) % 2;
       }, 5500);
 
-      // Wire up safety listeners
+      // Secure content safety event listeners
       document.addEventListener('contextmenu', (e) => {
         if (securityActive) {
           e.preventDefault();
@@ -158,13 +160,14 @@
         }
       });
     "
-    class="relative min-h-screen bg-slate-50 text-slate-800 antialiased font-sans overflow-x-hidden select-none"
+    class="relative min-h-screen bg-slate-50 text-slate-800 antialiased font-sans overflow-x-hidden"
     :class="securityActive ? 'select-none' : ''"
   >
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md" x-data="{ mobileMenuOpen: false }">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5">
+        
         <!-- Brand Logo -->
         <div @click="scrollTo('hero')" class="flex cursor-pointer items-center gap-2.5 transition-opacity hover:opacity-90">
           <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/10">
@@ -199,12 +202,12 @@
         <!-- Header Actions -->
         <div class="hidden md:flex items-center gap-3">
           <template x-if="securityActive">
-            <div class="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700 border border-emerald-100 animate-pulse">
+            <div class="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700 border border-emerald-100">
               <i data-lucide="shield" class="h-3 w-3"></i>
               <span>Anti-Plagiat ON</span>
             </div>
           </template>
-          <button @click="scrollTo('contact')" class="flex items-center gap-1.5 rounded-full bg-blue-600 px-4.5 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transform active:scale-95 transition-all">
+          <button @click="scrollTo('contact')" class="flex items-center gap-1.5 rounded-full bg-blue-600 px-4.5 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/10 hover:bg-blue-700 transition">
             <span>Daftar PKL</span>
             <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
           </button>
@@ -213,7 +216,7 @@
         <!-- Mobile Menu Trigger -->
         <div class="flex md:hidden items-center gap-2">
           <template x-if="securityActive">
-            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.7)]"></span>
           </template>
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="rounded-lg p-1.5 text-slate-600 hover:bg-slate-100">
             <i :data-lucide="mobileMenuOpen ? 'x' : 'menu'" class="h-5 w-5"></i>
@@ -224,12 +227,6 @@
       <!-- Mobile Dropdown Navigation -->
       <div 
         x-show="mobileMenuOpen" 
-        x-transition:enter="transition ease-out duration-150"
-        x-transition:enter-start="opacity-0 -translate-y-2"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-100"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
         class="md:hidden border-t border-slate-100 bg-white"
         x-cloak
       >
@@ -257,7 +254,7 @@
         <!-- Background Slider -->
         <div class="absolute inset-0 z-0">
           <div 
-            class="absolute inset-0 bg-cover bg-center transition-all duration-1000 opacity-35"
+            class="absolute inset-0 bg-cover bg-center smooth-transition opacity-30 select-none pointer-events-none"
             :style="heroSlide === 0 ? 'background-image: url(\'https://i.imgur.com/tJuwrm1.jpeg\')' : 'background-image: url(\'https://i.imgur.com/2S5y0Jg.jpeg\')'"
           ></div>
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-900/40"></div>
@@ -267,7 +264,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-7 space-y-6">
-              <div class="inline-flex items-center gap-1.5 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-400 border border-blue-500/30">
+              <div class="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-400 border border-blue-500/20">
                 <i data-lucide="sparkles" class="h-3 w-3"></i>
                 <span>Penerimaan PKL Periode Terbaru 2026</span>
               </div>
@@ -308,12 +305,13 @@
 
             <!-- Visual Slider Graphical Box -->
             <div class="lg:col-span-5 relative">
-              <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-2 shadow-2xl shadow-indigo-500/5 aspect-[4/3] group">
+              <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-2 shadow-2xl shadow-indigo-500/5 aspect-[4/3] group text-left">
                 <img 
                   :src="heroSlide === 0 ? 'https://i.imgur.com/tJuwrm1.jpeg' : 'https://i.imgur.com/2S5y0Jg.jpeg'" 
                   alt="PKL Bandung" 
-                  class="h-full w-full object-cover rounded-2xl select-none transition-all duration-700" 
+                  class="h-full w-full object-cover rounded-2xl select-none smooth-transition pointer-events-none" 
                   draggable="false"
+                  referrerpolicy="no-referrer"
                 />
 
                 <div class="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-3.5 rounded-xl border border-white/5 space-y-1">
@@ -333,7 +331,7 @@
               <!-- Floating Location Pill -->
               <div class="absolute -top-4 -right-4 flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 px-4 py-2 text-xs font-bold shadow-lg border border-emerald-400/20">
                 <i data-lucide="map-pin" class="h-4 w-4 text-emerald-100"></i>
-                <div>
+                <div class="text-left">
                   <p class="text-[9px] text-emerald-100 font-medium leading-none">Lokasi Bandung</p>
                   <p class="text-[11px] text-white">Regol, Srimahi</p>
                 </div>
@@ -344,22 +342,22 @@
 
           <!-- Stats Grid -->
           <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 border-t border-slate-800/80 pt-12">
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition text-left">
+            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
               <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">15+</p>
               <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Sekolah & Kampus Mitra</p>
               <p class="text-[11px] text-slate-400 font-light mt-0.5">Dari berbagai kota di Jawa Barat</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition text-left">
+            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
               <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">5+</p>
               <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Pilihan Jurusan</p>
               <p class="text-[11px] text-slate-400 font-light mt-0.5">RPL, DKV, TKJ, Pemasaran, Bisnis</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition text-left">
+            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
               <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">100%</p>
               <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Bimbingan Ahli</p>
               <p class="text-[11px] text-slate-400 font-light mt-0.5">Mentor berpengalaman di industri</p>
             </div>
-            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition text-left">
+            <div class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-4 md:p-5 hover:border-slate-700/60 transition-all text-left">
               <p class="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Lancar</p>
               <p class="text-[13px] font-bold text-slate-200 mt-1 leading-snug">Laporan & Dokumen</p>
               <p class="text-[11px] text-slate-400 font-light mt-0.5">Dibantu tanda tangan & nilai resmi</p>
@@ -399,9 +397,9 @@
                  ]
                }">
             <template x-for="p in progs" :key="p.id">
-              <div class="bg-white rounded-2xl p-5 border border-slate-200/75 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between" :class="p.id === 'rpl' ? 'hover:border-blue-300' : p.id === 'mm' ? 'hover:border-purple-300' : p.id === 'dkv' ? 'hover:border-pink-300' : p.id === 'tkj' ? 'hover:border-teal-300' : p.id === 'pemasaran' ? 'hover:border-amber-300' : 'hover:border-emerald-300'">
+              <div class="bg-white rounded-2xl p-5 border border-slate-200/75 shadow-sm hover:shadow-md hover:scale-[1.01] smooth-transition flex flex-col justify-between" :class="p.id === 'rpl' ? 'hover:border-blue-300' : p.id === 'mm' ? 'hover:border-purple-300' : p.id === 'dkv' ? 'hover:border-pink-300' : p.id === 'tkj' ? 'hover:border-teal-300' : p.id === 'pemasaran' ? 'hover:border-amber-300' : 'hover:border-emerald-300'">
                 <div class="space-y-4">
-                  <div class="flex items-center justify-between">
+                  <div class="flex items-center justify-between font-sans">
                     <div class="flex h-11 w-11 items-center justify-center rounded-xl border" :class="p.gradient">
                       <i :data-lucide="p.icon" class="h-5.5 w-5.5"></i>
                     </div>
@@ -414,10 +412,15 @@
                 </div>
 
                 <div class="pt-5 mt-5 border-t border-slate-100">
-                  <button @click="contactMajor = p.textVal; scrollTo('contact')" class="w-full flex items-center justify-between text-left text-xs font-bold text-slate-700 hover:text-blue-600 transition">
+                  <a 
+                    :href="'https://wa.me/6283172397127?text=Halo%20CV.%20YOGIES%20Bandung%2C%20saya%20tertarik%20untuk%20menanyakan%20kuota%20PKL%20aktif%20untuk%20kompetensi%20' + encodeURIComponent(p.textVal) + '.%20Apakah%20saat%20ini%20masih%20tersedia%3F'"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="w-full flex items-center justify-between text-left text-xs font-bold text-slate-700 hover:text-blue-600 transition"
+                  >
                     <span>Daftar Jurusan Ini</span>
                     <i data-lucide="arrow-right" class="h-4 w-4 text-slate-400"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </template>
@@ -454,19 +457,19 @@
                  ]
                }">
             
-            <div class="hidden md:block absolute top-16 left-8 right-8 h-0.5 bg-dashed bg-slate-200 border-t border-dashed border-slate-300 -z-0"></div>
+            <div class="hidden md:block absolute top-[2.25rem] left-[4rem] right-[4rem] h-0.5 border-t border-dashed border-slate-300 -z-0"></div>
 
             <template x-for="(s, index) in steps" :key="index">
-              <div class="relative flex flex-col items-start bg-slate-50 rounded-2xl p-5 border border-slate-100/80 shadow-sm hover:shadow-md transition group z-10">
-                <div class="flex items-center justify-between w-full mb-5">
-                  <div class="flex h-11 w-11 items-center justify-center rounded-xl border shadow-sm group-hover:scale-110 transition" :class="s.color">
+              <div class="relative flex flex-col items-start bg-slate-50 rounded-2xl p-5 border border-slate-100/85 shadow-sm hover:shadow-md hover:translate-y-[-1px] smooth-transition z-10 text-left">
+                <div class="flex items-center justify-between w-full mb-5 font-sans">
+                  <div class="flex h-11 w-11 items-center justify-center rounded-xl border shadow-sm" :class="s.color">
                     <i :data-lucide="s.icon" class="h-5 w-5"></i>
                   </div>
                   <span class="text-2xl font-extrabold text-slate-300 select-none font-mono" x-text="s.num"></span>
                 </div>
 
                 <div class="space-y-2">
-                  <p class="text-base font-bold text-slate-800 tracking-tight group-hover:text-blue-600 transition" x-text="s.title"></p>
+                  <p class="text-base font-bold text-slate-800 tracking-tight" x-text="s.title"></p>
                   <p class="text-xs md:text-[13px] text-slate-500 font-light leading-relaxed" x-text="s.desc"></p>
                 </div>
               </div>
@@ -480,7 +483,7 @@
               <span class="font-semibold text-xs md:text-sm uppercase tracking-wider">Persyaratan Penting Peserta PKL:</span>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 text-left">
               <div class="flex items-start gap-3">
                 <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 text-indigo-400 text-xs font-bold font-mono">1</div>
                 <div>
@@ -524,7 +527,7 @@
                ]
              }">
           
-          <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 font-sans">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
               <i data-lucide="image" class="h-3 w-3"></i>
               <span>Dokumentasi Kegiatan</span>
@@ -540,8 +543,8 @@
           <!-- Thumbnail Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <template x-for="(item, idx) in galItems" :key="item.id">
-              <div @click="lightboxIndex = idx" class="group relative cursor-pointer overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 aspect-[4/3]">
-                <img :src="item.img" :alt="item.title" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 select-none pointer-events-none" draggable="false" />
+              <div @click="lightboxIndex = idx" class="group relative cursor-pointer overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md smooth-transition aspect-[4/3] select-none">
+                <img :src="item.img" :alt="item.title" class="h-full w-full object-cover smooth-transition group-hover:scale-[1.03] select-none pointer-events-none" draggable="false" referrerpolicy="no-referrer" />
                 <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
                     <i data-lucide="eye" class="h-5 w-5"></i>
@@ -552,7 +555,7 @@
           </div>
 
           <!-- Lightbox Fullscreen modal -->
-          <div x-show="lightboxIndex !== null" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md" x-cloak>
+          <div x-show="lightboxIndex !== null" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md select-none" x-cloak>
             <div class="absolute inset-0 -z-10" @click="lightboxIndex = null"></div>
 
             <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-white z-10">
@@ -577,7 +580,7 @@
                 </button>
 
                 <div class="overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 max-h-[60vh] md:max-h-[70vh] aspect-[4/3] relative flex items-center justify-center max-w-full">
-                  <img :src="galItems[lightboxIndex].img" class="h-[60vh] md:h-[70vh] object-contain select-none pointer-events-none" draggable="false" />
+                  <img :src="galItems[lightboxIndex].img" class="h-[60vh] md:h-[70vh] object-contain select-none pointer-events-none" draggable="false" referrerpolicy="no-referrer" />
                   <div class="absolute top-3.5 right-3.5 flex items-center gap-1 rounded bg-slate-950/80 border border-white/10 px-2 py-0.5 text-[9px] font-bold text-rose-300">
                     <i data-lucide="shield-alert" class="h-3 w-3 inline text-rose-400"></i>
                     <span>ASET DILINDUNGI</span>
@@ -592,7 +595,7 @@
 
             <!-- Lightbox Captions -->
             <template x-if="lightboxIndex !== null">
-              <div class="max-w-2xl w-full text-center space-y-2 mt-4 px-4 text-white">
+              <div class="max-w-2xl w-full text-center space-y-2 mt-4 px-4 text-white font-sans">
                 <span class="inline-block rounded bg-blue-500/10 border border-blue-500/25 px-2.5 py-0.5 text-[10px] font-bold text-blue-400 uppercase" x-text="'Mitra: ' + galItems[lightboxIndex].school"></span>
                 <p class="text-base md:text-lg font-bold text-slate-100" x-text="galItems[lightboxIndex].title"></p>
                 <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed max-w-lg mx-auto" x-text="galItems[lightboxIndex].desc"></p>
@@ -642,25 +645,25 @@
                }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8">
-            <div class="max-w-2xl space-y-3">
+          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 border-b border-slate-100 pb-8 uppercase">
+            <div class="max-w-2xl space-y-3 text-left">
               <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
                 <i data-lucide="graduation-cap" class="h-3.5 w-3.5 text-blue-600"></i>
                 <span>Mitra Pendidikan Resmi</span>
               </span>
-              <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl text-left">
+              <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
                 Daftar Sekolah & Kampus Mitra
               </h2>
-              <p class="text-sm md:text-[15px] text-slate-500 font-light leading-relaxed text-left">
+              <p class="text-sm md:text-[15px] text-slate-500 font-light leading-relaxed normal-case">
                 CV. YOGIES telah dipercaya oleh berbagai sekolah menengah kejuruan (SMK) dan perguruan tinggi, baik di dalam kota Bandung maupun dari luar provinsi.
               </p>
             </div>
 
-            <div class="flex items-center gap-4.5 bg-slate-50 border border-slate-100 p-4 rounded-2xl w-full sm:w-auto self-stretch md:self-auto shrink-0 shadow-sm">
+            <div class="flex items-center gap-4.5 bg-slate-50 border border-slate-100 p-4 rounded-2xl w-full sm:w-auto self-stretch md:self-auto shrink-0 shadow-sm text-left font-sans">
               <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/10">
                 <i data-lucide="school" class="h-5 w-5"></i>
               </div>
-              <div class="text-left">
+              <div>
                 <p class="text-2xl font-extrabold text-slate-900 leading-none">15+</p>
                 <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">Sekolah Terdaftar</p>
               </div>
@@ -677,11 +680,11 @@
                 type="text" 
                 x-model="searchQuery" 
                 placeholder="Cari sekolah anda di sini..." 
-                class="w-full pl-10 pr-4 py-3 text-xs md:text-sm text-slate-800 bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors"
+                class="w-full pl-10 pr-4 py-3 text-xs md:text-sm text-slate-800 bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors text-left font-sans"
               />
             </div>
 
-            <button @click="showRequestForm = !showRequestForm" class="flex items-center justify-center gap-1.5 rounded-xl bg-slate-90 px-5 py-3 text-xs font-bold text-slate-800 border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition">
+            <button @click="showRequestForm = !showRequestForm" class="flex items-center justify-center gap-1.5 rounded-xl bg-slate-90 px-5 py-3 text-xs font-bold text-slate-800 border border-slate-200 hover:bg-slate-50 hover:text-blue-600 transition font-sans">
               <span>Ajukan Kerjasama Kemitraan Baru</span>
               <i data-lucide="arrow-up-right" class="h-3.5 w-3.5 text-slate-400"></i>
             </button>
@@ -690,13 +693,7 @@
           <!-- MOU Request Sliding Panel -->
           <div 
             x-show="showRequestForm" 
-            x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 max-h-0"
-            x-transition:enter-end="opacity-100 max-h-[500px]"
-            x-transition:leave="transition ease-in duration-150"
-            x-transition:leave-start="opacity-100 max-h-[500px]"
-            x-transition:leave-end="opacity-0 max-h-0"
-            class="overflow-hidden mb-10"
+            class="overflow-hidden mb-10 transition-all duration-300"
             x-cloak
           >
             <div class="p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-inner grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -729,7 +726,7 @@
                   </p>
                 </div>
 
-                <form x-show="!formSubmitted" @submit.prevent="submitRequest" class="space-y-4">
+                <form x-show="!formSubmitted" @submit.prevent="submitRequest" class="space-y-4 font-sans">
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                     <div class="space-y-1">
                       <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Nama Pengaju (Guru/Hubin/Siswa)</label>
@@ -749,16 +746,16 @@
           </div>
 
           <!-- Match lists results -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" x-data="{ count: 0 }">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <template x-for="(sch, i) in partnersList" :key="i">
               <div 
                 x-show="sch.toLowerCase().includes(searchQuery.toLowerCase())" 
-                class="flex items-center gap-3.5 bg-slate-50/50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 hover:border-slate-200 hover:shadow-sm transition-all text-left"
+                class="flex items-center gap-3.5 bg-slate-50/50 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 hover:border-slate-200 hover:shadow-sm smooth-transition text-left font-sans"
               >
                 <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 shadow-sm font-bold text-xs font-mono" x-text="i + 1"></div>
                 <div>
                   <p class="text-xs md:text-sm font-bold text-slate-800 leading-snug tracking-tight" x-text="sch"></p>
-                  <div class="flex items-center gap-1 text-[9px] font-bold text-emerald-600 uppercase tracking-widest mt-0.5 animate-pulse">
+                  <div class="flex items-center gap-1 text-[9px] font-bold text-emerald-600 uppercase tracking-widest mt-0.5">
                     <i data-lucide="check" class="h-3 w-3 text-emerald-500"></i>
                     <span>MITRA AKTIF</span>
                   </div>
@@ -779,10 +776,10 @@
               <i data-lucide="help-circle" class="h-3.5 w-3.5"></i>
               <span>Tanya & Jawab</span>
             </span>
-            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl text-center">
+            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
               Pusat Informasi & FAQ PKL
             </h2>
-            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed text-center">
+            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
               Temukan jawaban instan untuk pertanyaan umum yang sering ditanyakan oleh siswa, guru pendamping, maupun orang tua murid terkait sistem kerja prakerin di kantor kami.
             </p>
           </div>
@@ -802,22 +799,16 @@
               <div class="rounded-2xl border transition-all" 
                    :class="openFaqId === f.id ? 'bg-white border-blue-200 shadow-md' : 'bg-white/60 border-slate-200 hover:bg-white'">
                 <!-- Toggle Btn -->
-                <button @click="openFaqId = (openFaqId === f.id ? null : f.id)" class="flex w-full items-center justify-between p-5 text-left font-semibold text-slate-800 transition">
+                <button @click="openFaqId = (openFaqId === f.id ? null : f.id)" class="flex w-full items-center justify-between p-5 text-left font-semibold text-slate-800 transition select-none">
                   <span class="text-sm md:text-base font-bold text-slate-800 tracking-tight pr-4" x-text="f.q"></span>
-                  <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-200" :class="openFaqId === f.id ? 'rotate-180 bg-blue-50 text-blue-600' : ''">
+                  <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 smooth-transition" :class="openFaqId === f.id ? 'rotate-180 bg-blue-50 text-blue-600' : ''">
                     <i data-lucide="chevron-down" class="h-4 w-4"></i>
                   </div>
                 </button>
                 <!-- Body panel -->
                 <div 
                   x-show="openFaqId === f.id" 
-                  x-transition:enter="transition ease-out duration-200"
-                  x-transition:enter-start="opacity-0 max-h-0"
-                  x-transition:enter-end="opacity-100 max-h-[300px]"
-                  x-transition:leave="transition ease-in duration-100"
-                  x-transition:leave-start="opacity-100 max-h-[300px]"
-                  x-transition:leave-end="opacity-0 max-h-0"
-                  class="overflow-hidden border-t border-slate-100"
+                  class="overflow-hidden border-t border-slate-100 select-none"
                   x-cloak
                 >
                   <div class="px-5 pb-5 pt-3.5 text-xs md:text-sm text-slate-500 leading-relaxed font-light text-left" x-text="f.a"></div>
@@ -829,205 +820,69 @@
         </div>
       </section>
 
-      <!-- Contact Draft Register Link -->
-      <section id="contact" class="scroll-mt-14 py-16 md:py-24 bg-white"
-               x-data="{
-                 get whatsappUrl() {
-                   const defName = contactName || '[Nama Lengkap]';
-                   const defSchool = contactSchool || '[Nama Sekolah/Kampus]';
-                   const defDate = contactStartDate || '[Bulan Mulai PKL]';
-                   const defNote = contactNote || '[Contoh: Apakah bisa sambil membawa kelengkapan sendiri?]';
-                   const text = `Halo CV. YOGIES Bandung,\n\nSaya ingin mengajukan konsultasi & koordinasi ketersediaan kuota PKL/Prakerin:\n\n• *Nama Lengkap*: ${defName}\n• *Sekolah/Asal*: ${defSchool}\n• *Pilihan Jurusan*: ${contactMajor}\n• *Durasi PKL*: ${contactDuration}\n• *Rencana Mulai*: ${defDate}\n• *Catatan Tambahan*: ${defNote}\n\nApakah kuota slot magang masih terbuka? Terima kasih.`;
-                   return 'https://wa.me/6283172397127?text=' + encodeURIComponent(text);
-                 },
-                 get messagePreview() {
-                   const defName = contactName || '[Nama Lengkap]';
-                   const defSchool = contactSchool || '[Nama Sekolah/Kampus]';
-                   const defDate = contactStartDate || '[Bulan Mulai PKL]';
-                   const defNote = contactNote || '[Contoh: Apakah bisa sambil membawa kelengkapan sendiri?]';
-                   return `Halo CV. YOGIES Bandung,\n\nSaya ingin mengajukan konsultasi & koordinasi ketersediaan kuota PKL/Prakerin:\n\n• Nama Lengkap: ${defName}\n• Sekolah/Asal: ${defSchool}\n• Pilihan Jurusan: ${contactMajor}\n• Durasi PKL: ${contactDuration}\n• Rencana Mulai: ${defDate}\n• Catatan Tambahan: ${defNote}\n\nApakah kuota slot magang masih terbuka? Terima kasih.`;
-                 },
-                 submitForm(e) {
-                   if (!contactName || !contactSchool || !contactStartDate) {
-                     alert('Silakan lengkapi form Nama, Asal Sekolah, dan Rencana Mulai terlebih dahulu ya!');
-                     e.preventDefault();
-                   }
-                 }
-               }">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Simplified Centered Contact Section -->
+      <section id="contact" class="scroll-mt-14 py-16 md:py-20 bg-white">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto space-y-6 shadow-md">
             
-            <div class="lg:col-span-12 xl:col-span-5 space-y-6 text-left">
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-200">
-                <i data-lucide="message-square" class="h-3 w-3"></i>
-                <span>Registrasi Berkas & Kuota</span>
-              </span>
-              <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Ajukan Pertanyaan / Pendaftaran Instan
-              </h2>
-              <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed">
-                Gunakan form pendaftaran interaktif ini untuk membuat draf permohonan PKL Anda. Sistem kami akan menyusun pesan rapi terstruktur bernilai profesional yang bisa langsung dikirim seketika melalui WhatsApp.
-              </p>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600 border border-emerald-200">
+              <i data-lucide="message-square" class="h-3.5 w-3.5"></i>
+              <span>Konsultasi & Hubungi Kami</span>
+            </span>
 
-              <div class="space-y-4 pt-4 border-t border-slate-100">
-                <div class="flex gap-3.5">
-                  <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
-                    <i data-lucide="user" class="h-4.5 w-4.5 text-blue-600"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm font-bold text-slate-800">Respon Cepat Jam Kerja</p>
-                    <p class="text-xs text-slate-500 font-light leading-snug mt-0.5">Admin Hubung Kerja kami membalas pesan pada jam operasional kerja aktif.</p>
-                  </div>
-                </div>
+            <h2 class="font-sans text-3xl font-extrabold tracking-tight text-slate-900">
+              Ajukan Pertanyaan & Pendaftaran PKL
+            </h2>
+            <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed max-w-xl mx-auto">
+              Silakan hubungi kami langsung secara instan melalui WhatsApp untuk menanyakan informasi kuota magang aktif, penyerahan berkas Hubungan Industri (Hubin), maupun penjadwalan observasi.
+            </p>
 
-                <div class="flex gap-3.5">
-                  <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100">
-                    <i data-lucide="laptop" class="h-4.5 w-4.5 text-blue-600"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm font-bold text-slate-800">Persiapan Sederhana</p>
-                    <p class="text-xs text-slate-500 font-light leading-snug mt-0.5">Setelah ketersediaan kuota disetujui, Anda cukup membawa lembar persetujuan sekolah & laptop.</p>
-                  </div>
-                </div>
+            <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="https://wa.me/6283172397127?text=Halo%20CV.%20YOGIES%20Bandung%2C%20saya%20tertarik%20untuk%20mendaftar%20PKL%2FMagang%20di%20sana.%20Bagaimana%20prosedur%20dan%20kuota%20saat%20ini%3F" 
+                target="_blank" 
+                rel="noreferrer" 
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-8 py-4 shadow-lg shadow-emerald-600/10 transition"
+              >
+                <i data-lucide="send" class="h-4.5 w-4.5"></i>
+                <span>Mulai Chat WhatsApp Resmi</span>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200/65 pt-6 text-left max-w-lg mx-auto">
+              <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Jam Pelayanan Kerja</p>
+                <p class="text-xs text-slate-700 font-semibold">Senin - Jumat: Pukul 08.00 - 16.00 WIB</p>
               </div>
-
-              <div class="bg-yellow-50 border border-yellow-200 p-4.5 rounded-2xl flex gap-3">
-                <i data-lucide="alert-circle" class="h-5 w-5 text-yellow-600 shrink-0 mt-0.5"></i>
-                <div class="space-y-1">
-                  <p class="text-xs font-bold text-yellow-800">Tips Pendaftaran PKL:</p>
-                  <p class="text-[11px] md:text-xs text-yellow-700 font-light leading-relaxed">
-                    Sebaiknya ajukan konsultasi kuota <strong>1 bulan sebelum jadwal pelaksanaan</strong> agar tidak kehabisan jatah bangku bimbingan mingguan.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Social links box -->
-              <div class="bg-slate-50 border border-slate-200 p-4.5 rounded-2xl space-y-3.5">
-                <p class="text-xs font-bold text-slate-800 uppercase tracking-wider">Kunjungi Sosial Media Resmi Kami:</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-slate-100 hover:border-blue-400 hover:bg-blue-50/20 transition-all duration-300">
-                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 border border-blue-100 shrink-0">
-                      <i data-lucide="facebook" class="h-4 w-4 text-blue-600"></i>
-                    </div>
-                    <div class="min-w-0">
-                      <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest leading-none">Facebook</p>
-                      <p class="text-xs text-slate-600 font-medium truncate mt-1">tempatpkldibandung</p>
-                    </div>
-                  </a>
-                  
-                  <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-slate-100 hover:border-pink-300 hover:bg-pink-50/20 transition-all duration-300">
-                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-pink-50 text-pink-600 border border-pink-100 shrink-0">
-                      <i data-lucide="instagram" class="h-4 w-4 text-pink-500"></i>
-                    </div>
-                    <div class="min-w-0">
-                      <p class="text-[10px] font-bold text-pink-600 uppercase tracking-widest leading-none">Instagram</p>
-                      <p class="text-xs text-slate-600 font-medium truncate mt-1">@tempatpkldibandung12</p>
-                    </div>
-                  </a>
-                </div>
+              <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Kontak Telepon / WA</p>
+                <p class="text-xs text-slate-700 font-semibold">+62 831-7239-7127</p>
               </div>
             </div>
 
-            <!-- Interacting Form Sheet layout -->
-            <div class="lg:col-span-12 xl:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50/50 rounded-3xl p-6 md:p-8 border border-slate-200 shadow-lg text-left">
-              
-              <div class="space-y-4.5">
-                <p class="text-xs font-extrabold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">SIAPKAN IDENTITAS</p>
-                
-                <div class="space-y-1">
-                  <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Nama Lengkap Siswa/Mahasiswa</label>
-                  <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
-                      <i data-lucide="user" class="h-4 w-4"></i>
-                    </span>
-                    <input type="text" required x-model="contactName" placeholder="Masukkan nama lengkap kamu..." class="w-full pl-9 pr-3 py-2.5 text-xs md:text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors" />
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Asal Sekolah / Kampus</label>
-                  <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
-                      <i data-lucide="building" class="h-4 w-4"></i>
-                    </span>
-                    <input type="text" required x-model="contactSchool" placeholder="Contoh: SMKN 1 Bandung" class="w-full pl-9 pr-3 py-2.5 text-xs md:text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors" />
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Kompetensi Keahlian (Jurusan)</label>
-                  <select x-model="contactMajor" class="w-full px-3 py-2.5 text-xs md:text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors cursor-pointer">
-                    <option value="Rekayasa Perangkat Lunak (RPL)">Rekayasa Perangkat Lunak (RPL)</option>
-                    <option value="Multimedia / DKV">Multimedia / DKV</option>
-                    <option value="Teknik Komputer & Jaringan (TKJ)">Teknik Komputer & Jaringan (TKJ)</option>
-                    <option value="Pemasaran (Marketing)">Pemasaran (Marketing)</option>
-                    <option value="Bisnis Daring & Ritel (BDP)">Bisnis Daring & Ritel (BDP)</option>
-                  </select>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                  <div class="space-y-1">
-                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Durasi PKL</label>
-                    <select x-model="contactDuration" class="w-full px-2 py-2.5 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors cursor-pointer">
-                      <option value="2 Bulan">2 Bulan</option>
-                      <option value="3 Bulan">3 Bulan</option>
-                      <option value="4 Bulan">4 Bulan</option>
-                      <option value="6 Bulan">6 Bulan</option>
-                      <option value="9 Bulan">9 Bulan</option>
-                      <option value="1 Tahun">1 Tahun</option>
-                    </select>
-                  </div>
-
-                  <div class="space-y-1">
-                    <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Rencana Mulai</label>
-                    <input type="text" required x-model="contactStartDate" placeholder="Contoh: Juli 2026" class="w-full px-3 py-2.5 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors" />
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 pl-1">Catatan Pertanyaan Tambahan</label>
-                  <textarea x-model="contactNote" placeholder="Opsional: Tuliskan pertanyaan jika ada..." rows="2" class="w-full px-3 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-colors resize-none"></textarea>
-                </div>
-              </div>
-
-              <!-- Terminal Draft whatsapp -->
-              <div class="flex flex-col h-full bg-slate-900 rounded-2xl p-4.5 text-slate-300 border border-slate-800 relative shadow-inner">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                  <div class="flex items-center gap-1.5">
-                    <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
-                    <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-                    <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
-                  </div>
-                  <span class="font-mono text-[9px] uppercase tracking-wider text-slate-500">Live WhatsApp Draft Preview</span>
-                </div>
-
-                <div class="flex-1 overflow-y-auto max-h-56 font-mono text-[11px] leading-relaxed whitespace-pre-wrap select-all cursor-text text-slate-400 bg-slate-950 p-3 rounded-xl border border-slate-900" x-text="messagePreview"></div>
-
-                <div class="mt-4 pt-3 border-t border-slate-800">
-                  <a 
-                    :href="contactName && contactSchool && contactStartDate ? whatsappUrl : '#'" 
-                    :target="contactName && contactSchool && contactStartDate ? '_blank' : undefined"
-                    @click="submitForm"
-                    class="w-full flex items-center justify-center gap-2 rounded-xl py-3 text-xs font-bold uppercase tracking-wider transition duration-200"
-                    :class="contactName && contactSchool && contactStartDate ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg' : 'bg-slate-800 text-slate-500 border border-slate-800 cursor-not-allowed'"
-                  >
-                    <i data-lucide="send" class="h-3.5 w-3.5"></i>
-                    <span>Kirim Ke WhatsApp Kami</span>
-                  </a>
-                </div>
-
-                <template x-if="!(contactName && contactSchool && contactStartDate)">
-                  <p class="text-[9px] font-mono text-slate-500 text-center mt-2">
-                    *Isi form minimal Nama, Sekolah & Bulan Mulai untuk membuka tombol.
-                  </p>
-                </template>
-              </div>
-
+            <!-- Social Channels inside the centered card -->
+            <div class="flex justify-center gap-4 pt-2">
+              <a 
+                href="https://www.facebook.com/tempatpkldibandung/" 
+                target="_blank" 
+                rel="noreferrer" 
+                class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/80 hover:bg-slate-100 transition text-[11px]"
+              >
+                <i data-lucide="facebook" class="h-3.5 w-3.5 text-blue-600"></i>
+                <span class="font-semibold text-slate-700">Facebook</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/tempatpkldibandung12/" 
+                target="_blank" 
+                rel="noreferrer" 
+                class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/80 hover:bg-slate-100 transition text-[11px]"
+              >
+                <i data-lucide="instagram" class="h-3.5 w-3.5 text-pink-500"></i>
+                <span class="font-semibold text-slate-700">Instagram</span>
+              </a>
             </div>
 
           </div>
-
         </div>
       </section>
     </main>
@@ -1098,10 +953,10 @@
 
             <!-- Social Links in Box -->
             <div class="flex items-center gap-3 pt-3">
-              <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#1877F2] hover:text-white border border-slate-700/50 transition-all duration-300 transform hover:scale-105 shadow-sm" title="Facebook">
+              <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#1877F2] hover:text-white border border-slate-700/50 transition-all duration-300 shadow-sm" title="Facebook">
                 <i data-lucide="facebook" class="h-4 w-4"></i>
               </a>
-              <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#E1306C] hover:text-white border border-slate-700/50 transition-all duration-300 transform hover:scale-105 shadow-sm" title="Instagram">
+              <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-[#E1306C] hover:text-white border border-slate-700/50 transition-all duration-300 shadow-sm" title="Instagram">
                 <i data-lucide="instagram" class="h-4 w-4"></i>
               </a>
             </div>
@@ -1110,7 +965,7 @@
           <!-- Quick Navigation Links (Footer columns) -->
           <div class="md:col-span-4 grid grid-cols-2 gap-4">
             <div class="space-y-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-[#a1a1aa]">Navigasi</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Navigasi</p>
               <ul class="space-y-2.5 text-xs font-light">
                 <li><button @click="scrollTo('hero')" class="hover:text-blue-400 hover:underline transition">Beranda</button></li>
                 <li><button @click="scrollTo('programs')" class="hover:text-blue-400 hover:underline transition">Kompetensi</button></li>
@@ -1120,7 +975,7 @@
             </div>
 
             <div class="space-y-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-[#a1a1aa]">Administrasi</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Administrasi</p>
               <ul class="space-y-2.5 text-xs font-light">
                 <li><button @click="scrollTo('schools')" class="hover:text-blue-400 hover:underline transition">Mitra Sekolah</button></li>
                 <li><button @click="scrollTo('faq')" class="hover:text-blue-400 hover:underline transition">Pusat FAQ</button></li>
@@ -1133,7 +988,7 @@
           <div class="md:col-span-3 space-y-4 bg-slate-950 p-4.5 rounded-2xl border border-slate-800">
             <div class="flex items-center gap-2 text-white">
               <i data-lucide="shield" class="h-4 w-4 text-blue-400"></i>
-              <span class="text-xs font-bold uppercase tracking-wider">Garansi Keaslian Dokumen</span>
+              <span class="text-xs font-bold uppercase tracking-wider font-display">Garansi Keaslian Dokumen</span>
             </div>
             <p class="text-[11px] leading-relaxed font-light text-slate-400">
               Evaluasi & sertifikasi dari CV. YOGIES didukung data otentik, diakreditasi resmi untuk kebutuhan akreditasi sekolah vokasi oleh Kementerian Pendidikan.
@@ -1172,20 +1027,14 @@
         class="flex items-center gap-2 rounded-full px-4 py-2.5 shadow-lg border text-xs font-semibold backdrop-blur-md transition-all active:scale-95 duration-150"
         :class="securityActive ? 'bg-slate-900/90 border-emerald-500/30 text-emerald-400 hover:bg-slate-950' : 'bg-white/90 border-rose-200 text-rose-500 hover:bg-rose-50'"
       >
-        <i data-lucide="shield" class="h-4 w-4" :class="securityActive ? 'animate-pulse' : ''"></i>
+        <i data-lucide="shield" class="h-4 w-4"></i>
         <span>Keamanan Konten: <span x-text="securityActive ? 'AKTIF' : 'NONAKTIF'"></span></span>
-        <span x-show="logs.length > 0 && securityActive" class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-slate-950 animate-bounce" x-text="logs.length" x-cloak></span>
+        <span x-show="logs.length > 0 && securityActive" class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-slate-950" x-text="logs.length" x-cloak></span>
       </button>
 
       <!-- Logging Shell display -->
       <div 
         x-show="monitorExpanded" 
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 scale-95 translate-y-2"
-        x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100 scale-100 translate-y-0"
-        x-transition:leave-end="opacity-0 scale-95 translate-y-2"
         class="absolute bottom-14 left-0 w-80 rounded-2xl bg-slate-950 p-4 text-slate-200 shadow-2xl border border-slate-800"
         x-cloak
       >
@@ -1196,7 +1045,7 @@
           </div>
           <button 
             @click="securityActive = !securityActive; addLog('KEAMANAN SISTEM', securityActive ? 'Sistem pengaman hak cipta dan plagiat diaktifkan kembali.' : 'Hak cipta dilonggarkan sementara.')" 
-            class="rounded px-2  py-1 font-mono text-[9px] font-semibold transition"
+            class="rounded px-2 py-1 font-mono text-[9px] font-semibold transition"
             :class="securityActive ? 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30' : 'bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 border border-rose-500/30'"
             x-text="securityActive ? 'DISABLE' : 'ENABLE'"
           ></button>
@@ -1243,7 +1092,7 @@
           </div>
         </div>
 
-        <p class="mt-3 text-center text-[9px] font-mono text-slate-500 border-t border-slate-900 pt-2">
+        <p class="mt-3 text-center text-[9px] font-mono text-slate-500 border-t border-slate-900 pt-2 font-sans">
           Dilindungi oleh Fitur Anti-Plagiasi CV. YOGIES
         </p>
       </div>
@@ -1252,18 +1101,12 @@
     <!-- Alarm Floater Toast warning alert -->
     <div 
       x-show="activeToast && securityActive" 
-      x-transition:enter="transition ease-out duration-300"
-      x-transition:enter-start="opacity-0 translate-y-10 scale-95"
-      x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-      x-transition:leave="transition ease-in duration-150"
-      x-transition:leave-start="opacity-100 translate-y-0 scale-100"
       :class="activeToast ? '' : 'hidden'"
-      x-transition:leave-end="opacity-0 translate-y-4 scale-95"
       class="fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl bg-slate-900 text-white shadow-2xl p-4 border border-rose-500/20 flex items-start gap-3.5 backdrop-blur-md text-left"
       x-cloak
     >
       <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
-        <i data-lucide="shield-alert" class="h-4.5 w-4.5 animate-pulse"></i>
+        <i data-lucide="shield-alert" class="h-4.5 w-4.5"></i>
       </div>
       
       <div class="flex-1 space-y-1">
@@ -1272,7 +1115,7 @@
           <span class="text-[9px] font-mono text-slate-500 font-medium">Cap Perusahaan</span>
         </div>
         <p class="text-xs font-bold text-slate-100 leading-snug">Aset Gambar & Hak Cipta Dilindungi</p>
-        <p class="text-[11px] text-slate-400 font-light leading-relaxed" x-text="activeToast ? activeToast.message : ''"></p>
+        <p class="text-[11px] text-slate-400 font-light leading-relaxed font-sans" x-text="activeToast ? activeToast.message : ''"></p>
         <div class="flex items-center gap-1 text-[9px] text-slate-500 pt-1.5 border-t border-slate-800 font-mono mt-1.5">
           <i data-lucide="lock" class="h-3 w-3 text-slate-500"></i>
           <span>CV. YOGIES SECURITY ENGINE V2.0</span>

@@ -1,797 +1,542 @@
-<!doctype html>
-<html lang="id" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV. YOGIES PKL Bandung - Tempat PKL & Prakerin Resmi SMK / Mahasiswa</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Pasang Bracket TV Bandung & Cimahi - Teknisi Profesional Bergaransi</title>
+    <meta name="description" content="Jasa pasang bracket TV Bandung & Cimahi profesional. Melayani pemasangan bracket dinding, swivel, ceiling, dan standing untuk semua merk TV LED/Smart TV 10-75 inch. Rapih, presisi, dan bergaransi.">
+    <meta name="keywords" content="jasa pasang tv bandung, jasa pasang bracket tv bandung, tukang pasang bracket tv bandung, jasa pasang tv cimahi, jasa bracket tv bandung, pasang bracket tv antapani, pasang bracket tv coblong, jasa instalasi tv bandung">
+    <link rel="canonical" href="https://yogies-tech.com/jasa-pasang-tv.html">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jasa Pasang Bracket TV Bandung & Cimahi - Teknisi Profesional">
+    <meta property="og:description" content="Solusi pemasangan bracket TV profesional untuk area Bandung & Cimahi. Rapih, kuat, dan presisi.">
+    <meta property="og:image" content="https://i.imgur.com/tok5ACe.png">
+    <meta property="og:type" content="website">
+
+    <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                50: '#f0f7ff',
-                100: '#e0effe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-                950: '#030712'
-              }
-            },
-            fontFamily: {
-              sans: ["Inter", "-apple-system", "sans-serif"],
-              display: ["Space Grotesk", "sans-serif"],
-            },
-          },
-        },
-      }
-    </script>
-
-    <!-- AlpineJS for instant light reactivity -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-      [x-cloak] { display: none !important; }
-      body {
-        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-      }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+        .aspect-square { aspect-ratio: 1 / 1; }
     </style>
-  </head>
-  <body 
-    x-data="{
-      openFaqId: 'faq-1',
-      searchQuery: '',
-      showRequestForm: false,
-      formName: '',
-      formSchool: '',
-      formSubmitted: false,
-      
-      // Lightbox index
-      lightboxIndex: null,
-      
-      // Core active hero slide
-      heroSlide: 0,
-      
-      // Smooth navigation helper
-      scrollTo(id) {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Yogies Jasa Pasang Bracket TV Bandung",
+      "image": "https://i.imgur.com/tok5ACe.png",
+      "@id": "",
+      "url": "https://yogies-tech.com/jasa-pasang-tv.html",
+      "telephone": "+6283172397127",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Antapani",
+        "addressLocality": "Bandung",
+        "addressRegion": "Jawa Barat",
+        "postalCode": "40291",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -6.9147,
+        "longitude": 107.6607
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
       }
-    }"
-    class="bg-white text-slate-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-700"
-  >
-
-    <!-- Clean Sticky Header -->
-    <header class="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/90 backdrop-blur-md" x-data="{ mobileMenuOpen: false }">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-4">
-        
-        <!-- Interactive Brand Logo -->
-        <a href="#hero" @click.prevent="scrollTo('hero')" class="flex items-center gap-2.5 transition-opacity hover:opacity-90">
-          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white shadow-xs">
-            <i data-lucide="graduation-cap" class="h-5 w-5"></i>
-          </div>
-          <div class="text-left">
-            <div class="flex items-center gap-1.5 leading-none">
-              <span class="font-display text-base font-bold tracking-tight text-slate-900">
-                CV. YOGIES
-              </span>
-              <span class="rounded bg-brand-50 px-1.5 py-0.5 text-[9px] font-bold text-brand-600 border border-brand-100 uppercase tracking-wider">
-                Bandung
-              </span>
-            </div>
-            <p class="text-[9px] text-slate-400 mt-0.5 font-medium tracking-wide">Tempat PKL SMK & Mahasiswa</p>
-          </div>
-        </a>
-
-        <!-- Menu Navigation (Desktop) -->
-        <nav class="hidden md:flex items-center gap-1" id="nav-desktop">
-          <button @click="scrollTo('hero')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Beranda</button>
-          <button @click="scrollTo('programs')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Jurusan</button>
-          <button @click="scrollTo('timeline')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Alur</button>
-          <button @click="scrollTo('gallery')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Galeri</button>
-          <button @click="scrollTo('schools')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Mitra Sekolah</button>
-          <button @click="scrollTo('faq')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">FAQ</button>
-          <button @click="scrollTo('contact')" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-brand-600 transition">Kontak</button>
-        </nav>
-
-        <!-- CTA Action -->
-        <div class="hidden md:block">
-          <button @click="scrollTo('contact')" class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-brand-700 transition">
-            <span>Daftar Sekarang</span>
-            <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
-          </button>
-        </div>
-
-        <!-- Mobile Menu BTN -->
-        <div class="flex md:hidden">
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="rounded-md p-1.5 text-slate-500 hover:bg-slate-50">
-            <i :data-lucide="mobileMenuOpen ? 'x' : 'menu'" class="h-5 w-5"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Dropdown -->
-      <div x-show="mobileMenuOpen" class="md:hidden border-t border-slate-100 bg-white" x-cloak>
-        <div class="space-y-1 px-4 py-3">
-          <button @click="mobileMenuOpen = false; scrollTo('hero')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Beranda</button>
-          <button @click="mobileMenuOpen = false; scrollTo('programs')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Jurusan</button>
-          <button @click="mobileMenuOpen = false; scrollTo('timeline')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Alur Pendaftaran</button>
-          <button @click="mobileMenuOpen = false; scrollTo('gallery')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Galeri</button>
-          <button @click="mobileMenuOpen = false; scrollTo('schools')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Mitra Sekolah</button>
-          <button @click="mobileMenuOpen = false; scrollTo('faq')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Pusat FAQ</button>
-          <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600">Hubungi Kami</button>
-          <div class="pt-3 border-t border-slate-100">
-            <button @click="mobileMenuOpen = false; scrollTo('contact')" class="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 py-2.5 text-xs font-bold text-white hover:bg-brand-700">
-              <i data-lucide="message-square" class="h-4 w-4"></i>
-              <span>Hubungi WA</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- Optimized Light Hero Section -->
-      <section id="hero" class="relative overflow-hidden bg-slate-50/70 border-b border-slate-100 py-16 md:py-24">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <div class="lg:col-span-7 space-y-6 text-left">
-              <div class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600 border border-brand-100">
-                <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Penerimaan PKL Terbuka Periode Terbaru 2026</span>
-              </div>
-
-              <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl leading-tight">
-                Tempat PKL & Prakerin Resmi SMK / Mahasiswa di <span class="text-brand-600">Bandung</span>
-              </h1>
-
-              <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed max-w-2xl">
-                Tingkatkan keahlian praktismu di <strong>CV. YOGIES BANDUNG</strong>. Kami berkomitmen memberikan bimbingan industri terarah, merapikan berkas administrasi pemenuhan nilai, serta membina kompetensi dunia kerja digital yang nyata.
-              </p>
-
-              <!-- Focusing Badge -->
-              <div class="flex items-center gap-3 rounded-lg p-2.5 bg-white border border-slate-100 max-w-md">
-                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600">
-                  <i data-lucide="info" class="h-4.5 w-4.5"></i>
-                </div>
-                <div class="text-left">
-                  <p class="text-[11px] font-bold text-slate-900">Bimbingan Terarah:</p>
-                  <p class="text-xs text-slate-500 font-light leading-normal">Membangun keahlian Digital Marketing, Admin Online, dan Project Riil secara kondusif.</p>
-                </div>
-              </div>
-
-              <!-- CTA Links -->
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                <button @click="scrollTo('contact')" class="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-brand-700 transition">
-                  <i data-lucide="message-square" class="h-4 w-4"></i>
-                  <span>Hubungi Kuota Slot via WA</span>
-                </button>
-                <button @click="scrollTo('programs')" class="flex items-center justify-center gap-1.5 rounded-lg bg-white px-5 py-3 text-xs font-semibold text-slate-700 hover:bg-slate-50 border border-slate-200 transition">
-                  <span>Lihat Peluang Jurusan</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Light Side Carousel Image -->
-            <div class="lg:col-span-5 relative" x-data="{
-              slides: [
-                'https://i.imgur.com/tJuwrm1.jpeg',
-                'https://i.imgur.com/2S5y0Jg.jpeg'
-              ]
-            }">
-              <div class="relative overflow-hidden rounded-2xl bg-white border border-slate-100 p-1.5 shadow-sm aspect-video sm:aspect-[4/3] text-left">
-                <div class="w-full h-full relative overflow-hidden rounded-xl bg-slate-100">
-                  <img 
-                    :src="slides[heroSlide]" 
-                    alt="Aktivitas PKL Siswa CV YOGIES" 
-                    class="h-full w-full object-cover transition-opacity duration-500" 
-                    referrerpolicy="no-referrer"
-                  />
-                  <!-- Gradient overlay for legibility -->
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
-                  
-                  <div class="absolute bottom-3 left-3 right-3 text-white">
-                    <p class="text-[10px] uppercase font-mono font-bold text-brand-300">Dokumentasi Nyata</p>
-                    <p class="text-xs text-slate-100 font-light mt-0.5 leading-relaxed">Persiapan pengerjaan laporan & bimbingan kerja harian siswa.</p>
-                  </div>
-                </div>
-
-                <!-- Slider Indicators -->
-                <div class="absolute top-4 right-4 flex gap-1">
-                  <button @click="heroSlide = 0" class="h-1.5 w-4 rounded-full transition-colors" :class="heroSlide === 0 ? 'bg-brand-500' : 'bg-white/50'"></button>
-                  <button @click="heroSlide = 1" class="h-1.5 w-4 rounded-full transition-colors" :class="heroSlide === 1 ? 'bg-brand-500' : 'bg-white/50'"></button>
-                </div>
-              </div>
-
-              <!-- Subtle Floating Location Pill -->
-              <div class="absolute -bottom-3 -right-2 flex items-center gap-1.5 rounded-lg bg-white p-2 text-[11px] font-semibold text-slate-800 border border-slate-100 shadow-xs">
-                <i data-lucide="map-pin" class="h-3.5 w-3.5 text-red-500"></i>
-                <span>Regol, Srimahi Bandung</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Concise Clean Stats -->
-          <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-slate-200/50">
-            <div class="text-left py-2">
-              <span class="block text-2xl font-bold tracking-tight text-brand-600">15+</span>
-              <span class="block text-xs font-semibold text-slate-700 mt-1">Sekolah & Kampus Mitra</span>
-              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Dari berbagai kab/kota di Jawa Barat.</span>
-            </div>
-            <div class="text-left py-2">
-              <span class="block text-2xl font-bold tracking-tight text-brand-600">5+</span>
-              <span class="block text-xs font-semibold text-slate-700 mt-1">Kompetensi Terbuka</span>
-              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">RPL, DKV, MM, TKJ, Pemasaran, dsb.</span>
-            </div>
-            <div class="text-left py-2">
-              <span class="block text-2xl font-bold tracking-tight text-brand-600">100%</span>
-              <span class="block text-xs font-semibold text-slate-700 mt-1">Pembimbingan Praktikal</span>
-              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Disertai pembekalan materi kerja nyata.</span>
-            </div>
-            <div class="text-left py-2">
-              <span class="block text-2xl font-bold tracking-tight text-brand-600">Lengkap</span>
-              <span class="block text-xs font-semibold text-slate-700 mt-1">Tanda Tangan & Nilai</span>
-              <span class="block text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">Validasi dokumen pasca periode selesai.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Competence Jurusan -->
-      <section id="programs" class="scroll-mt-14 py-16 bg-white">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          
-          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Kompetensi Keahlian</span>
-            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pilihan Jurusan Prakerin / PKL</h2>
-            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-              Program PKL dioptimasi langsung pada praktek digital nyata, mempermudah siswa menyusun materi laporan formal sekolah di <strong>CV. YOGIES</strong>.
-            </p>
-          </div>
-
-          <!-- Simplified Lighter Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="programs-container">
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex h-9 w-9 items-center justify-center rounded bg-blue-50 text-blue-600 border border-blue-100">
-                    <i data-lucide="code-2" class="h-4.5 w-4.5"></i>
-                  </div>
-                  <span class="rounded bg-blue-50 px-2 py-0.5 text-[9px] font-semibold text-blue-600 uppercase">RPL</span>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900">Rekayasa Perangkat Lunak</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
-                <span>Daftar Jurusan RPL</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex h-9 w-9 items-center justify-center rounded bg-purple-50 text-purple-600 border border-purple-100">
-                    <i data-lucide="video" class="h-4.5 w-4.5"></i>
-                  </div>
-                  <span class="rounded bg-purple-50 px-2 py-0.5 text-[9px] font-semibold text-purple-600 uppercase">MM</span>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900">Multimedia / DKV</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
-                <span>Daftar Jurusan MM/DKV</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex h-9 w-9 items-center justify-center rounded bg-teal-50 text-teal-600 border border-teal-100">
-                    <i data-lucide="cpu" class="h-4.5 w-4.5"></i>
-                  </div>
-                  <span class="rounded bg-teal-50 px-2 py-0.5 text-[9px] font-semibold text-teal-600 uppercase">TKJ</span>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900">Teknik Komputer & Jaringan</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
-                <span>Daftar Jurusan TKJ</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex h-9 w-9 items-center justify-center rounded bg-amber-50 text-amber-600 border border-amber-100">
-                    <i data-lucide="trending-up" class="h-4.5 w-4.5"></i>
-                  </div>
-                  <span class="rounded bg-amber-50 px-2 py-0.5 text-[9px] font-semibold text-amber-600 uppercase">PROMOSI</span>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900">Pemasaran Digital & Bisnis</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
-                <span>Daftar Jurusan Pemasaran</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xs transition text-left flex flex-col justify-between">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <div class="flex h-9 w-9 items-center justify-center rounded bg-emerald-50 text-emerald-600 border border-emerald-100">
-                    <i data-lucide="globe" class="h-4.5 w-4.5"></i>
-                  </div>
-                  <span class="rounded bg-emerald-50 px-2 py-0.5 text-[9px] font-semibold text-emerald-600 uppercase">AKUNTANSI</span>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900">Bisnis & Administrasi Kantor</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600 hover:underline pt-4 mt-4 border-t border-slate-100">
-                <span>Daftar Jurusan Admin</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-
-            <div class="p-5 rounded-xl border border-slate-100 bg-slate-100/50 text-slate-400 text-left flex flex-col justify-between">
-              <div class="space-y-2">
-                <div class="flex h-9 w-9 items-center justify-center rounded bg-slate-200/80 text-slate-500">
-                  <i data-lucide="plus-circle" class="h-4.5 w-4.5"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-slate-700">Jurusan / Fakultas Lainnya</h3>
-              </div>
-              <a href="https://wa.me/6283172397127" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:underline pt-4 mt-4">
-                <span>Tanyakan Jurusan Lain</span>
-                <i data-lucide="arrow-right" class="h-3 w-3"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Alur Pendaftaran -->
-      <section id="timeline" class="scroll-mt-14 py-16 bg-slate-50/60 border-t border-b border-slate-100">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          
-          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Prosedur Penerimaan</span>
-            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Alur Pendaftaran Mudah</h2>
-            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-              Ikuti 4 tahapan ringkas berikut dari awal cek ketersediaan kuota hingga siswa siap diterjunkan magang.
-            </p>
-          </div>
-
-          <!-- Step Layout -->
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative" id="timeline-steps">
-            
-            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 text-xs font-bold font-mono">01</span>
-                <i data-lucide="message-square" class="h-4 w-4 text-slate-300"></i>
-              </div>
-              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Cek Ketersediaan Kuota</h3>
-              <p class="text-xs text-slate-500 font-light leading-relaxed">Tanyakan langsung slot kuota bulanan aktif yang tersedia untuk jurusan Anda ke Whatsapp admin.</p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 text-xs font-bold font-mono">02</span>
-                <i data-lucide="file-text" class="h-4 w-4 text-slate-300"></i>
-              </div>
-              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Serahkan Surat Hubin</h3>
-              <p class="text-xs text-slate-500 font-light leading-relaxed">Kirimkan surat permohonan PKL / pengantar formal resmi dari Hubungan Industri sekolah Anda.</p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-50 text-teal-600 text-xs font-bold font-mono">03</span>
-                <i data-lucide="compass" class="h-4 w-4 text-slate-300"></i>
-              </div>
-              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Sesi Interview Santai</h3>
-              <p class="text-xs text-slate-500 font-light leading-relaxed">Wawancara pengenalan diri ringan bersama tim pembimbing lapangan kami (online / tatap muka).</p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-white border border-slate-100 hover:shadow-xs transition text-left space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 text-xs font-bold font-mono">04</span>
-                <i data-lucide="award" class="h-4 w-4 text-slate-300"></i>
-              </div>
-              <h3 class="text-xs sm:text-sm font-bold text-slate-900">Orientasi & Mulai PKL</h3>
-              <p class="text-xs text-slate-500 font-light leading-relaxed">Pengenalan aturan SOP kerja harian, pembagian tools kerja, dan dimulainya kegiatan prakerin resmi.</p>
-            </div>
-
-          </div>
-
-          <!-- Sleek Info Alert -->
-          <div class="mt-8 p-4 rounded-xl bg-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-4 text-left">
-            <div class="flex items-center gap-2.5">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-slate-800 text-brand-300">
-                <i data-lucide="alert-circle" class="h-4 w-4"></i>
-              </div>
-              <div>
-                <p class="text-xs font-bold">Wajib Bawa Handphone / Laptop Sendiri</p>
-                <p class="text-[11px] text-slate-300 font-light mt-0.5">Siswa diharuskan membawa hp / laptop aktif masing-masing demi menunjang kelancaran praktik kerja setiap hari.</p>
-              </div>
-            </div>
-            <button @click="scrollTo('contact')" class="shrink-0 bg-brand-600 hover:bg-brand-700 hover:scale-[1.01] active:scale-[0.99] transition px-4 py-2 text-xs font-bold rounded-lg text-white">Hubungi Admin</button>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Galeri Siswa -->
-      <section id="gallery" class="scroll-mt-14 py-16 bg-white" 
-               x-data="{
-                 currentGallery: [
-                   { img: 'https://i.imgur.com/1tM325I.jpeg', title: 'Diskusi Pendampingan Guru', detail: 'Pemaparan berkas kemitraan dan sinkronisasi kerja sama akademis.', origin: 'Kunjungan Sekolah' },
-                   { img: 'https://i.imgur.com/3ZcHJig.jpeg', title: 'Sesi Pembagian Project', detail: 'Pemberian arahan target kerja harian promosi digital.', origin: 'Bimbingan Industri' },
-                   { img: 'https://i.imgur.com/ks22x4f.jpeg', title: 'Proses Monitoring Guru', detail: 'Guru pendamping berkunjung mengawasi kedisplinan harian.', origin: 'Monitoring Berkala' },
-                   { img: 'https://i.imgur.com/gPgwUVg.jpeg', title: 'Review Hasil Kampanye Desain', detail: 'Koreksi teknis banner promosi karya Multimedia.', origin: 'Evaluasi Mingguan' },
-                   { img: 'https://i.imgur.com/9qDc0Kd.jpeg', title: 'Evaluasi Project Laporan', detail: 'Sinkronisasi penyusunan draf lembar kerja akhir laporan.', origin: 'Evaluasi Hasil' },
-                   { img: 'https://i.imgur.com/VbwLSqx.jpeg', title: 'Pengenalan SOP Dunia Digital', detail: 'Pembekalan wawasan standar prosedur operasional.', origin: 'Orientasi Siswa' }
-                 ]
-               }">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          
-          <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Momen Kegiatan</span>
-            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pekerjaan & Kunjungan Lapangan</h2>
-            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-              Koleksi dokumentasi nyata pengerjaan tugas, evaluasi, hingga kunjungan pemantauan guru pendamping sekolah.
-            </p>
-          </div>
-
-          <!-- Lighter Gallery Thumbnail Grid -->
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery-grid">
-            <template x-for="(g, index) in currentGallery" :key="index">
-              <div 
-                @click="lightboxIndex = index" 
-                class="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-50 border border-slate-100 shadow-3xs hover:shadow-xs aspect-[4/3] transition-all"
-              >
-                <img :src="g.img" :alt="g.title" class="h-full w-full object-cover transition duration-300 group-hover:scale-102" referrerpolicy="no-referrer" />
-                <div class="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white">
-                    <i data-lucide="eye" class="h-4.5 w-4.5"></i>
-                  </div>
-                </div>
-              </div>
-            </template>
-          </div>
-
-          <!-- Alpine Lightweight Lightbox Modal -->
-          <div x-show="lightboxIndex !== null" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm" x-cloak>
-            <!-- Overlay click close -->
-            <div class="absolute inset-0 -z-10" @click="lightboxIndex = null"></div>
-
-            <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-white z-10">
-              <span class="font-mono text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                TAMPILAN FOTO <span x-text="(lightboxIndex || 0) + 1"></span> / 6
-              </span>
-              <button @click="lightboxIndex = null" class="rounded-full bg-slate-800 p-2 text-slate-300 hover:text-white transition hover:bg-slate-700">
-                <i data-lucide="x" class="h-4.5 w-4.5"></i>
-              </button>
-            </div>
-
-            <!-- Main Slide Content -->
-            <template x-if="lightboxIndex !== null">
-              <div class="relative flex max-w-4xl w-full items-center justify-center py-8">
-                <!-- Navigation Buttons -->
-                <button @click="lightboxIndex = (lightboxIndex - 1 + 6) % 6" class="absolute left-2 z-10 rounded-full bg-slate-800/85 p-2 text-white hover:bg-slate-700 transition">
-                  <i data-lucide="chevron-left" class="h-5 w-5"></i>
-                </button>
-                
-                <div class="overflow-hidden rounded-xl bg-slate-900 border border-slate-800 max-h-[60vh] max-w-full flex items-center justify-center relative shadow-xl">
-                  <img :src="currentGallery[lightboxIndex].img" class="max-h-[60vh] object-contain" referrerpolicy="no-referrer" />
-                </div>
-
-                <button @click="lightboxIndex = (lightboxIndex + 1) % 6" class="absolute right-2 z-10 rounded-full bg-slate-800/85 p-2 text-white hover:bg-slate-700 transition">
-                  <i data-lucide="chevron-right" class="h-5 w-5"></i>
-                </button>
-              </div>
-            </template>
-
-            <!-- Metadata Box -->
-            <template x-if="lightboxIndex !== null">
-              <div class="max-w-xl w-full text-center space-y-1 mt-3 px-4 text-white">
-                <span class="inline-block rounded bg-brand-500/20 border border-brand-500/30 px-2.5 py-0.5 text-[9px] font-bold text-brand-400 uppercase" x-text="currentGallery[lightboxIndex].origin"></span>
-                <p class="text-sm md:text-base font-bold text-slate-100" x-text="currentGallery[lightboxIndex].title"></p>
-                <p class="text-xs text-slate-400 font-light leading-relaxed max-w-md mx-auto" x-text="currentGallery[lightboxIndex].detail"></p>
-              </div>
-            </template>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Schools Partnerships Database -->
-      <section id="schools" class="scroll-mt-14 py-16 bg-slate-50/60 border-t border-b border-slate-100"
-               x-data="{
-                 partnersList: [
-                   'SMK BBPI BALEENDAH',
-                   'SMK BUDAYA BANGSA',
-                   'SMKN 6 GARUT',
-                   'SMKN 1 PALASAH MAJALENGKA',
-                   'SMK 5 PANGALENGAN',
-                   'SMK MEDIKACOM',
-                   'SMKN 1 LOSARANG INDRAMAYU',
-                   'SMKN 13 BANDUNG',
-                   'SMK LPPM RI',
-                   'SMK NEGERI 1 ANJATAN INDRAMAYU',
-                   'SMK NEGERI 1 KATAPANG BANDUNG',
-                   'SMK 1 BENGKULU',
-                   'SMKS AL-FARISI',
-                   'SMKN 4 PADALARANG',
-                   'SMK ANGKASA 1 BANDUNG'
-                 ],
-                 submitRequest() {
-                   if (formName && formSchool) {
-                     formSubmitted = true;
-                     setTimeout(() => {
-                       formSubmitted = false;
-                       formName = '';
-                       formSchool = '';
-                       showRequestForm = false;
-                     }, 4000);
-                   }
-                 }
-               }">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          
-          <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-6 border-b border-slate-200/50 mb-8">
-            <div class="max-w-2xl text-left space-y-2">
-              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Database Lembaga</span>
-              <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Lembaga & Sekolah Rekanan</h2>
-              <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-                CV. YOGIES bermitra secara formal dengan sekumpulan sekolah kejuruan (vokasi) dan perguruan tinggi, mempermudah penerimaan administratif.
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 bg-white border border-slate-100 p-3 rounded-lg shadow-3xs shrink-0 self-stretch md:self-auto text-left">
-              <div class="flex h-9 w-9 items-center justify-center rounded bg-brand-50 text-brand-600">
-                <i data-lucide="school" class="h-4.5 w-4.5"></i>
-              </div>
-              <div>
-                <p class="text-lg font-bold text-slate-950">15+</p>
-                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Mitra Pendidikan Aktif</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Dynamic Database Filter -->
-          <div class="flex mb-6">
-            <div class="relative w-full max-w-sm">
-              <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-                <i data-lucide="search" class="h-4 w-4"></i>
-              </span>
-              <input 
-                type="text" 
-                x-model="searchQuery" 
-                placeholder="Cari nama sekolah / SMK di sini..." 
-                class="w-full pl-9 pr-4 py-2 text-xs md:text-sm text-slate-800 bg-white rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/10 focus:border-brand-500 transition-colors text-left font-sans"
-              />
-            </div>
-          </div>
-
-          <!-- School Cards List Filtered -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5" id="school-results-grid">
-            <template x-for="(s, index) in partnersList" :key="index">
-              <div 
-                x-show="s.toLowerCase().includes(searchQuery.toLowerCase())" 
-                class="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-slate-100 hover:border-slate-200 transition text-left"
-              >
-                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600 font-bold text-xs font-mono" x-text="index + 1"></div>
-                <div class="min-w-0">
-                  <p class="text-xs font-bold text-slate-800 truncate" x-text="s"></p>
-                  <span class="inline-flex items-center gap-0.5 text-[9px] font-bold text-emerald-600 uppercase mt-0.5">
-                    <i data-lucide="check" class="h-2.5 w-2.5 text-emerald-500"></i>
-                    <span>Tervalidasi Aktif</span>
-                  </span>
-                </div>
-              </div>
-            </template>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Clean FAQ Section -->
-      <section id="faq" class="scroll-mt-14 py-16 bg-white">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6" 
-             x-data="{
-               faqItems: [
-                 { id: 'faq-1', q: 'Apakah program PKL di CV. YOGIES dipungut biaya?', a: 'Tidak ada biaya sama sekali. Program Praktek Kerja Lapangan (PKL) tingkat SMK dan magang mahasiswa dasar di tempat kami TIDAK dipungut biaya pendaftaran ataupun iuran bulanan (DIPASTIKAN GRATIS). Siswa hanya wajib menyediakan laptop pribadi sendiri sebagai alat pendukung praktik.' },
-                 { id: 'faq-2', q: 'Berapa durasi waktu PKL yang diizinkan?', a: 'Sangat fleksibel dan disesuaikan penuh dengan arahan modul kurikulum sekolah asal Anda. Mulai dari paket durasi 3 bulan, 4 bulan, hingga durasi penuh maksimal 6 bulan.' },
-                 { id: 'faq-3', q: 'Bagaimana jadwal kedisplinan harian harian?', a: 'Kegiatan PKL terjadwal secara aktif pada hari Senin sampai Jumat, masuk pukul 08:00 WIB dan selesai pukul 16:00 WIB. Untuk hari Sabtu, Minggu, serta tanggal merah libur nasional ditiadakan.' },
-                 { id: 'faq-4', q: 'Apakah siswa mendapat lembar penilaian resmi dan sertifikat?', a: 'Ya tentu. Di masa perpisahan / akhir periode, seluruh siswa yang dinilai menyelesaikan seluruh tugas harian dengan baik akan memperoleh Lembar Nilai Resmi, Sertifikat Akreditasi Industri, serta validasi tanda tangan dokumen laporan.' },
-                 { id: 'faq-3', q: 'Apakah menerima siswa magang yang berdomisili luar kota?', a: 'Sangat terbuka! Kami menyambut hangat siswa dari luar kota (seperti Garut, Cianjur, Indramayu, dsb.) sepanjang bersedia menetap sementara/kos mandiri di sekitar wilayah kantor kami.' }
-               ]
-             }">
-          
-          <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Pertanyaan Umum</span>
-            <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl">Pertanyaan Sering Diajukan</h2>
-            <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-              Daftar jawaban cepat terkait persoalan teknis bimbingan, biaya, sertifikat, dan administrasi siswa.
-            </p>
-          </div>
-
-          <!-- Lightweight Clean Accordion List -->
-          <div class="space-y-3" id="faq-accordions">
-            <template x-for="item in faqItems" :key="item.id">
-              <div class="rounded-xl border border-slate-100 bg-slate-50/20 overflow-hidden text-left">
-                <button 
-                  @click="openFaqId = openFaqId === item.id ? null : item.id" 
-                  class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50/50 transition duration-150"
-                >
-                  <span class="text-xs sm:text-sm font-bold text-slate-900 pr-4" x-text="item.q"></span>
-                  <i 
-                    data-lucide="chevron-down" 
-                    class="h-4 w-4 text-slate-400 shrink-0 transition-transform duration-200"
-                    :class="openFaqId === item.id ? 'rotate-180' : ''"
-                  ></i>
-                </button>
-                <div 
-                  x-show="openFaqId === item.id" 
-                  x-transition:enter="transition ease-out duration-150"
-                  x-transition:enter-start="opacity-0 transform scale-y-95 origin-top"
-                  x-transition:enter-end="opacity-100 transform scale-y-100"
-                  class="p-4 bg-slate-50 border-t border-slate-100/60"
-                >
-                  <p class="text-xs text-slate-600 font-light leading-relaxed font-sans" x-text="item.a"></p>
-                </div>
-              </div>
-            </template>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Sleek Map & Contact Section -->
-      <section id="contact" class="scroll-mt-14 py-16 bg-slate-50/70 border-t border-slate-100">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            
-            <!-- Contact column -->
-            <div class="lg:col-span-5 text-left flex flex-col justify-between space-y-6">
-              <div class="space-y-4">
-                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Kontak & Alamat</span>
-                <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight sm:text-3xl leading-snug">Hubungi Kami / Datang Langsung</h2>
-                <p class="text-xs md:text-sm text-slate-500 font-light leading-relaxed">
-                  Konsultasikan slot kuota yang kosong dengan cepat lewat pesan WhatsApp, atau kunjungi kantor bimbingan sesuai jam kerja.
-                </p>
-
-                <!-- Information list cards -->
-                <div class="space-y-3.5 pt-2">
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
-                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
-                      <i data-lucide="map-pin" class="h-4 w-4"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold text-slate-800">Alamat Kantor:</p>
-                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">Jl. Srimahi Dalam No.2A, Ancol, Kec. Regol, Kota Bandung, Jawa Barat 40254</p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
-                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
-                      <i data-lucide="phone" class="h-4 w-4"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold text-slate-800">WhatsApp Admin:</p>
-                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">+62 831-7239-7127 (Yogies)</p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-100 shadow-3xs">
-                    <div class="flex h-8 w-8 items-center justify-center rounded bg-brand-50 text-brand-600 shrink-0">
-                      <i data-lucide="clock" class="h-4 w-4"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold text-slate-800">Waktu Operasional:</p>
-                      <p class="text-[11px] text-slate-500 font-light leading-relaxed mt-0.5">Senin - Jumat: Pukul 08:00 - 16:00 WIB (Sabtu/Minggu Libur)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Instant WA buttons -->
-              <div class="pt-4">
-                <a 
-                  href="https://wa.me/6283172397127?text=Halo%2520CV%2520YOGIES%2520Bandung%252C%2520saya%2520ingin%2520bertanya%2520ketersediaan%2520sisa%2520slot%2520penerimaan%2520PKL%2520periode%2520sekarang."
-                  target="_blank"
-                  rel="noreferrer"
-                  class="flex items-center justify-center gap-2 w-full rounded-lg bg-emerald-600 px-6 py-3.5 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition"
-                  id="wa-chat-link"
-                >
-                  <i data-lucide="message-square" class="h-4.5 w-4.5"></i>
-                  <span>Kirim Pesan WhatsApp Kuota</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Integrated slim Map Frame -->
-            <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 bg-white p-1.5 shadow-sm min-h-80 relative flex">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7826874234863!2d107.6083072749966!3d-6.917463993078007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e636dd0a3c67%3A0x7cfb486cda47805e!2sJl.%20Srimahi%20Dalam%20No.2A%2C%20Ancol%2C%20Regol%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1697437747766!5m2!1sid!2sid"
-                width="100%"
-                height="100%"
-                style="border: 0; min-height: 20rem;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer"
-                title="Lokasi Kantor CV. YOGIES"
-                class="rounded-xl w-full h-full grayscale opacity-90 hover:opacity-100 transition-opacity duration-300"
-              ></iframe>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-    </main>
-
-    <!-- Simple Sleek Footnote -->
-    <footer class="border-t border-slate-100 bg-white py-12 text-slate-500">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          
-          <div class="space-y-1">
-            <div class="flex items-center justify-center md:justify-start gap-2">
-              <span class="font-display font-bold text-slate-800 text-sm">CV. YOGIES BANDUNG</span>
-              <span class="text-[9px] font-bold text-brand-600 bg-brand-50 border border-brand-100/50 px-1.5 py-0.5 rounded uppercase">RESMI</span>
-            </div>
-            <p class="text-xs text-slate-400 font-light font-sans">Mediator & Pembimbing Industri Terakreditasi Penyelenggara Magang.</p>
-          </div>
-
-          <!-- Social link icons -->
-          <div class="flex items-center gap-3">
-            <a href="https://www.facebook.com/tempatpkldibandung/" target="_blank" rel="noreferrer" class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 text-slate-400 hover:bg-[#1877F2] hover:text-white border border-slate-200/50 transition shadow-3xs" title="Facebook">
-              <i data-lucide="facebook" class="h-4 w-4"></i>
-            </a>
-            <a href="https://www.instagram.com/tempatpkldibandung12/" target="_blank" rel="noreferrer" class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-50 text-slate-400 hover:bg-[#E1306C] hover:text-white border border-slate-200/50 transition shadow-3xs" title="Instagram">
-              <i data-lucide="instagram" class="h-4 w-4"></i>
-            </a>
-          </div>
-
-        </div>
-
-        <div class="mt-8 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 font-light">
-          <p>© <span x-text="new Date().getFullYear()"></span> <strong>CV. YOGIES BANDUNG</strong>. Semua Hak Cipta Dilindungi.</p>
-          <div class="flex items-center gap-1">
-            <span>Dibuat untuk</span>
-            <i data-lucide="heart" class="h-3 w-3 text-red-500 fill-red-500"></i>
-            <span>Vokasi Siap Kerja Industri Pintar</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Automatically Hydrate Lucide Icons on Render -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        lucide.createIcons();
-        
-        // Dynamic observer to continuously capture Lucide icons if items render via AlpineJS transitions
-        const iconObserver = new MutationObserver(() => {
-          lucide.createIcons();
-        });
-        iconObserver.observe(document.body, { childList: true, subtree: true });
-      });
+    }
     </script>
-  </body>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        window.addEventListener('error', function(e) {
+            console.error("Global Error:", e.message);
+            const root = document.getElementById('root');
+            if (root && root.innerHTML === "") {
+                 root.innerHTML = `<div style="color: red; padding: 20px;">Runtime Error: ${e.message}</div>`;
+            }
+        });
+
+        const { useState, useEffect, useMemo } = React;
+        
+        // Defensive check for FramerMotion
+        const motion = (window.FramerMotion && window.FramerMotion.motion) ? window.FramerMotion.motion : (window.Motion && window.Motion.motion) ? window.Motion.motion : { div: "div", section: "section", nav: "nav", a: "a", button: "button", h1: "h1", h2: "h2", h3: "h3", h4: "h4", p: "p", span: "span", i: "i" };
+        const AnimatePresence = (window.FramerMotion && window.FramerMotion.AnimatePresence) ? window.FramerMotion.AnimatePresence : (window.Motion && window.Motion.AnimatePresence) ? window.Motion.AnimatePresence : (({children}) => <>{children}</>);
+
+        try {
+            const APP_CONFIG = {
+            whatsapp: "6283172397127",
+            products: [
+                { 
+                    title: "Bracket Dinding (Fixed)", 
+                    type: "fixed",
+                    label: "Terlaris",
+                    image: "https://i.imgur.com/tok5ACe.png",
+                    desc: "Pilihan utama keluarga. Menempel kuat di dinding, hemat ruang, sangat kokoh untuk semua merk TV LED/Smart TV.",
+                    sizes: "10 - 75 Inch"
+                },
+                { 
+                    title: "Bracket Swivel (Lengan)", 
+                    type: "swivel",
+                    label: "Paling Fleksibel",
+                    image: "https://i.imgur.com/LEhiCdT.png",
+                    desc: "Bisa ditarik, diputar, dan dimiringkan untuk sudut pandang maksimal. Cocok untuk ruang keluarga luas.",
+                    sizes: "10 - 55 Inch"
+                },
+                { 
+                    title: "Bracket Ceiling (Plafon)", 
+                    type: "ceiling",
+                    label: "Premium",
+                    image: "https://i.imgur.com/zPNsCI1.png",
+                    desc: "Solusi cerdas untuk ruangan publik, kantor, atau setup komersial dengan instalasi plafon yang kokoh.",
+                    sizes: "10 - 55 Inch"
+                },
+                { 
+                    title: "Bracket Standing (Berdiri)", 
+                    type: "standing",
+                    image: "https://i.imgur.com/uo5ZiLG.png",
+                    desc: "Mobile bracket dengan roda premium. Ideal untuk ruang meeting kantor atau event pameran.",
+                    sizes: "32 - 75 Inch"
+                },
+                { 
+                    title: "Bracket Projector", 
+                    type: "projector",
+                    image: "https://i.imgur.com/pqafrwr.png",
+                    desc: "Instalasi proyektor profesional untuk home theater maupun ruang meeting kantor.",
+                    sizes: "Universal"
+                }
+            ],
+            services: [
+                { title: "Pasang Bracket", desc: "Instalasi unit baru dengan presisi tinggi menggunakan waterpass." },
+                { title: "Bongkar Pasang", desc: "Solusi saat Anda pindah rumah atau ingin upgrade ke TV yang lebih besar." },
+                { title: "Rapih Kabel", desc: "Cable management profesional agar interior bersih dari kabel yang menjuntai." },
+                { title: "Setup Smart TV", desc: "Setting internet, aplikasi streaming, dan optimasi gambar TV Anda." }
+            ],
+            faqs: [
+                {
+                    q: "Berapa lama proses pemasangan bracket TV?",
+                    a: "Proses pemasangan biasanya memakan waktu 30-60 menit, tergantung pada ukuran TV dan jenis dinding Anda."
+                },
+                {
+                    q: "Apakah jasa pasang TV ini bergaransi?",
+                    a: "Ya, kami memberikan garansi pemasangan. Jika posisi tidak presisi atau bracket goyang, teknisi kami akan datang memperbaikinya gratis!"
+                },
+                {
+                    q: "Tipe TV apa saja yang bisa dipasang?",
+                    a: "Kami melayani semua merk TV (Samsung, LG, Sony, Sharp, TCL, Xiaomi, dll) mulai dari ukuran 14 inch hingga 85 inch."
+                },
+                {
+                    q: "Apakah harga sudah termasuk unit bracket?",
+                    a: "Kami menyediakan paket jasa saja (jika Anda sudah punya unit) atau paket lengkap (jasa + unit bracket)."
+                }
+            ],
+            gallery: [
+                { src: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=800", alt: "Modern TV Setup" },
+                { src: "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?q=80&w=800", alt: "Living Room Design" },
+                { src: "https://i.imgur.com/fBQGlHU.png", alt: "Clean Installation" },
+                { src: "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800", alt: "Professional Mounting" },
+            ]
+        };
+
+        const WHATSAPP_LINK = `https://wa.me/${APP_CONFIG.whatsapp}`;
+
+        const Icon = ({ name, className }) => {
+            useEffect(() => {
+                if (window.lucide) window.lucide.createIcons();
+            }, [name]);
+            return <i data-lucide={name} className={className}></i>;
+        };
+
+        function App() {
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [scrolled, setScrolled] = useState(false);
+
+            useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener("scroll", handleScroll);
+                if (window.lucide) window.lucide.createIcons();
+                return () => window.removeEventListener("scroll", handleScroll);
+            }, []);
+
+            const navLinks = [
+                { name: "Beranda", href: "#" },
+                { name: "Produk", href: "#produk" },
+                { name: "Layanan", href: "#layanan" },
+                { name: "Galeri", href: "#galeri" },
+            ];
+
+            return (
+                <div className="min-h-screen bg-[#FDFDFF] text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
+                    {/* Nav */}
+                    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-4" : "py-8"}`}>
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className={`flex items-center justify-between px-5 py-2.5 rounded-full transition-all duration-500 ${scrolled ? "bg-white/80 backdrop-blur-xl shadow-lg border border-white" : "bg-transparent"}`}>
+                                <div className="flex items-center gap-2.5">
+                                    <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-200">
+                                        <Icon name="tv" className="text-white w-4 h-4" />
+                                    </div>
+                                    <span className="text-lg font-black tracking-tight uppercase">YOGIES</span>
+                                </div>
+
+                                <div className="hidden md:flex items-center gap-10">
+                                    {navLinks.map((link) => (
+                                        <a key={link.name} href={link.href} className="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors">
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                    <a href={WHATSAPP_LINK} className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-600 transition-all shadow-lg">
+                                        Order Jasa
+                                    </a>
+                                </div>
+
+                                <button className="md:hidden p-2 text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                                    <Icon name={isMenuOpen ? "x" : "menu"} className="w-6 h-6" />
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Mobile Nav */}
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                            <motion.div 
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className="fixed inset-0 z-40 bg-white pt-24 px-10 md:hidden"
+                            >
+                                <div className="flex flex-col gap-5">
+                                    {navLinks.map((link) => (
+                                        <a key={link.name} href={link.href} className="text-2xl font-black border-b border-slate-50 pb-4 tracking-tight" onClick={() => setIsMenuOpen(false)}>
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                    <a href={WHATSAPP_LINK} className="bg-blue-600 text-white p-4 rounded-2xl text-center font-bold text-lg mt-4 shadow-xl shadow-blue-100">
+                                        Pesan Sekarang
+                                    </a>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    {/* Hero */}
+                    <section className="relative pt-40 pb-20 md:pt-64 md:pb-40 overflow-hidden text-center">
+                        <div className="absolute top-0 left-0 w-full h-full bg-blue-50/30 -z-10 rounded-b-[10rem]" />
+                        <div className="max-w-7xl mx-auto px-6">
+                            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+                                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-full mb-8">
+                                    <Icon name="shield-check" className="w-4 h-4" />
+                                    <span className="text-xs font-black uppercase tracking-widest">Terpercaya & Bergaransi</span>
+                                </div>
+                                <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
+                                    Gantung <span className="text-blue-600">TV Anda</span> <br /> Dengan Ahlinya.
+                                </h1>
+                                <p className="text-xl text-slate-500 mb-12 leading-relaxed mx-auto max-w-lg">
+                                    Solusi pemasangan bracket TV profesional untuk area <span className="font-bold text-slate-900 underline decoration-blue-500 decoration-4">Bandung & Cimahi</span>. Rapih, kuat, dan presisi.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
+                                    <a href={WHATSAPP_LINK} className="flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-3xl font-black text-lg hover:bg-slate-900 transition-all shadow-2xl shadow-blue-200">
+                                        <Icon name="message-circle" className="w-5 h-5 fill-current" />
+                                        Hubungi Teknisi
+                                    </a>
+                                    <a href="#produk" className="flex items-center justify-center gap-3 bg-white text-slate-900 border border-slate-200 px-10 py-5 rounded-3xl font-black text-lg hover:bg-slate-50 transition-all">
+                                        Lihat Katalog
+                                    </a>
+                                </div>
+
+                                <div className="grid grid-cols-3 gap-8 border-t border-slate-200 pt-12 max-w-2xl mx-auto">
+                                    <div>
+                                        <div className="text-3xl font-black text-slate-900">1.2K+</div>
+                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">TV Terpasang</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-black text-slate-900">100%</div>
+                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Kepuasan</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-black text-slate-900">30mnt</div>
+                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Proses Cepat</div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </section>
+
+                    {/* Catalog */}
+                    <section id="produk" className="py-32 bg-white">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="flex flex-col items-center text-center mb-24">
+                                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6">
+                                    <Icon name="sparkles" className="w-4 h-4" />
+                                    <span className="text-xs font-black uppercase tracking-widest">Katalog Produk</span>
+                                </div>
+                                <h2 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">Bracket Untuk Semua Ukuran.</h2>
+                                <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+                                    Kami menyediakan berbagai jenis bracket original untuk semua merk TV mulai dari ukuran <strong className="text-blue-600">10 hingga 75 inch</strong>.
+                                </p>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {APP_CONFIG.products.map((p, i) => (
+                                    <motion.div 
+                                        key={i} 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: i * 0.1 }}
+                                        whileHover={{ y: -12 }}
+                                        className="group bg-[#F8FAFC] rounded-[3rem] overflow-hidden border border-slate-100 flex flex-col transition-all duration-500 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)]"
+                                    >
+                                        <div className="relative aspect-square overflow-hidden">
+                                            <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            {p.label && (
+                                                <div className="absolute top-6 right-6 z-20 bg-blue-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
+                                                    {p.label}
+                                                </div>
+                                            )}
+                                            <div className="absolute top-6 left-6 w-12 h-12 bg-white/90 backdrop-blur-md rounded-2xl flex items-center justify-center text-blue-600 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                                                <Icon name={p.type === 'fixed' ? 'layout' : p.type === 'swivel' ? 'monitor' : p.type === 'ceiling' ? 'layers' : p.type === 'standing' ? 'monitor' : 'sparkles'} className="w-6 h-6" />
+                                            </div>
+                                        </div>
+                                        <div className="p-10 flex flex-col flex-grow justify-between">
+                                            <div>
+                                                <h3 className="text-2xl font-black mb-4 tracking-tight uppercase group-hover:text-blue-600 transition-colors">{p.title}</h3>
+                                                <p className="text-slate-500 text-sm leading-relaxed mb-10">{p.desc}</p>
+                                            </div>
+                                            <div className="space-y-4 pt-8 border-t border-slate-200/50">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Kapasitas Ukuran</span>
+                                                    <span className="text-xs font-bold text-slate-900 bg-white px-3 py-1 rounded-full shadow-sm border border-slate-50">{p.sizes}</span>
+                                                </div>
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Kualitas Bahan</span>
+                                                    <span className="text-xs font-bold text-green-600 flex items-center gap-1">
+                                                        <Icon name="shield-check" className="w-3 h-3" /> Premium Steel
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Services */}
+                    <section id="layanan" className="py-32 bg-white">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid lg:grid-cols-3 gap-16">
+                                <div className="lg:col-span-1">
+                                    <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Layanan</h2>
+                                    <p className="text-4xl font-black text-slate-900 mb-8 tracking-tighter leading-none">Apa Saja <br /> Yang Kami Lakukan?</p>
+                                    <p className="text-slate-500 mb-10">Bukan sekedar nempel, kami memastikan TV Anda aman dan interior terlihat mewah.</p>
+                                    <a href={WHATSAPP_LINK} className="inline-flex items-center gap-2 group font-black text-sm uppercase tracking-widest hover:text-blue-600 transition-colors">
+                                        Hubungi Sekarang <Icon name="arrow-right" className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                                    </a>
+                                </div>
+                                <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+                                    {APP_CONFIG.services.map((s, i) => (
+                                        <div key={i} className="flex gap-6 p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all group">
+                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-blue-600 font-black shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">0{i+1}</div>
+                                            <div>
+                                                <h3 className="text-xl font-black mb-2 tracking-tight">{s.title}</h3>
+                                                <p className="text-slate-500 text-sm">{s.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="mt-24 bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+                                <div className="relative z-10 max-w-xl">
+                                    <h3 className="text-4xl font-black mb-4 tracking-tight">Butuh Pasang Hari Ini?</h3>
+                                    <p className="text-slate-400 text-lg">Teknisi kami standby untuk pengerjaan area Bandung & Cimahi. Respon cepat tanpa ribet.</p>
+                                </div>
+                                <a href={WHATSAPP_LINK} className="relative z-10 bg-blue-600 text-white px-12 py-5 rounded-3xl font-black text-lg hover:bg-blue-700 transition-all shadow-2xl active:scale-95 whitespace-nowrap">
+                                    Booking Sekarang
+                                </a>
+                                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-600/10 to-transparent pointer-events-none" />
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* SEO / Education */}
+                    <section className="py-32 bg-white overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid lg:grid-cols-2 gap-20 items-center">
+                                <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
+                                    <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                                        <img src="https://i.imgur.com/tok5ACe.png" alt="Solusi Jasa Pasang Bracket TV Bandung" className="w-full aspect-square object-cover" />
+                                    </div>
+                                    <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -z-10" />
+                                </motion.div>
+                                <div>
+                                    <h2 className="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Edukasi & SEO</h2>
+                                    <p className="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">Solusi Jasa Pasang <br /> Bracket TV Bandung</p>
+                                    <div className="space-y-8">
+                                        {[
+                                            { title: "Hemat Ruang & Minimalis", desc: "TV yang digantung di dinding menghilangkan kebutuhan akan meja TV besar. Ruangan jadi terasa lebih luas, bersih, dan modern - sangat cocok untuk apartemen atau rumah minimalis di Bandung." },
+                                            { title: "Keamanan Keluarga", desc: "Mencegah TV terjatuh atau tersenggol oleh anak-anak atau hewan peliharaan. Tukang pasang TV kami memastikan bracket terpasang kokoh pada struktur dinding beton maupun bata." },
+                                            { title: "Sudut Pandang Fleksibel", desc: "Dengan bracket swivel, Anda bisa menyesuaikan sudut pandang TV dari berbagai posisi duduk di ruangan Anda. Instalasi dilakukan presisi oleh teknisi berpengalaman." },
+                                            { title: "Estetika Interior Mewah", desc: "Instalasi bracket memberikan kesan 'floating' yang mewah. Kami juga melayani cable management agar kabel tidak berantakan, interior rumah Anda jadi rapi maksimal." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="flex gap-6 group">
+                                                <div className="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                                    <Icon name="check-circle-2" className="w-6 h-6" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="text-xl font-black mb-2 tracking-tight">{item.title}</h4>
+                                                    <p className="text-slate-500 leading-relaxed text-sm md:text-base">{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* FAQ */}
+                    <section className="py-32 bg-slate-900 text-white">
+                        <div className="max-w-4xl mx-auto px-6">
+                            <div className="text-center mb-20">
+                                <h2 className="text-xs font-black text-blue-400 uppercase tracking-[0.3em] mb-4">FAQ</h2>
+                                <p className="text-4xl md:text-5xl font-black tracking-tighter">Pertanyaan Umum.</p>
+                            </div>
+                            <div className="space-y-6">
+                                {APP_CONFIG.faqs.map((faq, i) => (
+                                    <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="bg-slate-800/50 border border-slate-700/50 p-8 rounded-[2rem] hover:border-blue-500/30 transition-all">
+                                        <h4 className="text-xl font-black mb-4 flex items-center gap-4 uppercase">
+                                            <span className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm font-black">Q</span>
+                                            {faq.q}
+                                        </h4>
+                                        <p className="text-slate-400 leading-relaxed md:pl-12 text-sm md:text-base">
+                                            {faq.a}
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Gallery */}
+                    <section id="galeri" className="py-32 bg-slate-50/50">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="flex items-center justify-between mb-20">
+                                <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase">Galeri</h2>
+                                <div className="w-20 h-1 bg-blue-600 rounded-full" />
+                            </div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                {APP_CONFIG.gallery.map((img, i) => (
+                                    <motion.div key={i} whileHover={{ y: -10 }} className="aspect-[4/5] rounded-[2rem] overflow-hidden relative group">
+                                        <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-8">
+                                            <span className="text-white font-black text-xs uppercase tracking-widest">{img.alt}</span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="pt-32 pb-16 bg-white border-t border-slate-100">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid md:grid-cols-4 gap-20 mb-24">
+                                <div className="md:col-span-2">
+                                    <div className="flex items-center gap-3 mb-8">
+                                        <div className="bg-blue-600 p-2.5 rounded-xl text-white">
+                                            <Icon name="tv" className="w-5 h-5" />
+                                        </div>
+                                        <span className="text-2xl font-black tracking-tighter uppercase">YOGIES</span>
+                                    </div>
+                                    <p className="text-slate-500 text-lg max-w-sm mb-10 leading-relaxed">Pelopor jasa pemasangan bracket TV di Bandung yang mengutamakan kualitas visual dan keamanan struktural.</p>
+                                    <div className="flex items-center gap-8 text-slate-400">
+                                        <a href={WHATSAPP_LINK} className="hover:text-blue-600 transition-colors"><Icon name="phone" className="w-6 h-6" /></a>
+                                        <a href={WHATSAPP_LINK} className="hover:text-blue-600 transition-colors"><Icon name="message-circle" className="w-6 h-6" /></a>
+                                        <a href={WHATSAPP_LINK} className="hover:text-blue-600 transition-colors tracking-widest font-black text-[10px] uppercase">Instagram</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">Area Layanan</h4>
+                                    <ul className="space-y-4 font-bold text-slate-600">
+                                        <li className="flex items-center gap-3"><Icon name="map-pin" className="w-4 h-4 text-blue-600" /> Bandung Kota</li>
+                                        <li className="flex items-center gap-3"><Icon name="map-pin" className="w-4 h-4 text-blue-600" /> Cimahi</li>
+                                        <li className="flex items-center gap-3"><Icon name="map-pin" className="w-4 h-4 text-blue-600" /> Bandung Timur</li>
+                                        <li className="flex items-center gap-3"><Icon name="map-pin" className="w-4 h-4 text-blue-600" /> Bandung Selatan</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">Bantuan</h4>
+                                    <ul className="space-y-4 font-bold text-slate-600 text-sm">
+                                        <li><a href="#" className="hover:text-blue-600 transition-colors">• Cara Order</a></li>
+                                        <li><a href="#" className="hover:text-blue-600 transition-colors">• Cek Harga</a></li>
+                                        <li><a href="#" className="hover:text-blue-600 transition-colors">• Katalog Produk</a></li>
+                                        <li className="flex items-center gap-3 pt-4"><Icon name="clock" className="w-4 h-4 text-blue-600" /> 08:00 - 20:00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-slate-50 text-center md:text-left">
+                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">© 2024 YOGIES TECH. Terpercaya Sejak 2018.</p>
+                                <div className="flex gap-10">
+                                    <a href="#" className="text-xs font-bold text-slate-400 hover:text-slate-900 uppercase tracking-widest">Privacy</a>
+                                    <a href="#" className="text-xs font-bold text-slate-400 hover:text-slate-900 uppercase tracking-widest">Terms</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+
+                    {/* Floating Button */}
+                    <motion.a 
+                        whileHover={{ scale: 1.1, y: -5 }} 
+                        whileTap={{ scale: 0.9 }}
+                        href={WHATSAPP_LINK} 
+                        className="fixed bottom-10 right-10 z-[60] bg-white text-blue-600 p-5 rounded-3xl shadow-2xl border border-slate-100 flex items-center group"
+                    >
+                        <Icon name="message-circle" className="w-8 h-8 fill-current" />
+                        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-black uppercase text-xs ml-0 group-hover:ml-3 tracking-widest whitespace-nowrap">Tanya Teknisi</span>
+                    </motion.a>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    } catch (e) {
+        console.error("App Crash:", e);
+        document.getElementById('root').innerHTML = `
+            <div style="padding: 40px; font-family: sans-serif; text-align: center;">
+                <h1 style="color: #e11d48;">Terjadi Kesalahan</h1>
+                <p>Maaf, aplikasi gagal memuat. Detail error:</p>
+                <div style="background: #f1f5f9; padding: 20px; border-radius: 12px; display: inline-block; text-align: left; max-width: 80%; overflow: auto;">
+                    <pre style="margin: 0;">${e.stack || e.message}</pre>
+                </div>
+                <p style="margin-top: 20px;"><button onclick="location.reload()" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer;">Muat Ulang</p>
+            </div>
+        `;
+    }
+    </script>
+</body>
 </html>

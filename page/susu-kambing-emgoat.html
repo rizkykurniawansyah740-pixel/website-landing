@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMGOAT | Susu Kambing Etawa Premium untuk Gaya Hidup Sehat</title>
+  <meta name="description" content="Kenali EMGOAT, susu kambing Etawa dengan nutrisi alami dan rasa nikmat untuk menemani rutinitas harian keluarga. Bebas bau prengus, lembut di lambung." />
+  <meta name="keywords" content="susu kambing etawa, susu kambing etawa EMGOAT, susu kambing etawa terbaik, manfaat susu kambing etawa, susu kambing etawa untuk kesehatan, susu kambing Etawa, susu kambing premium, EMGOAT" />
+  
+  <!-- Open Graph / Media Sosial -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="EMGOAT | Susu Kambing Etawa Premium untuk Gaya Hidup Sehat" />
+  <meta property="og:description" content="Nikmati nutrisi alami susu kambing Etawa dalam setiap sajian. Bersih, alami, bernutrisi, dan bersahabat untuk pencernaan." />
+  
+  <!-- Google Fonts: Outfit (Heading) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            emgoat: {
+              primary: '#1B5E20',
+              secondary: '#2E7D32',
+              light: '#E8F5E9',
+              cream: '#FAF7F2',
+              sand: '#F4EFE6',
+              surface: '#FFFFFF',
+              dark: '#1C1917',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF9F6;
+      color: #292524;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6, .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #2E7D32;
+      border-radius: 4px;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      50% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+    }
+    .animate-wa-glow {
+      animation: pulseGlow 2.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF9F6] text-stone-800 antialiased min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- ======================================================================= -->
+  <!-- PANDUAN PENTING MEMASUKKAN GAMBAR (BACA INI SEBELUM UPLOAD KE GITHUB):   -->
+  <!-- ======================================================================= -->
+  <!-- File HTML ini sudah 100% mandiri (single file).                         -->
+  <!-- Untuk memasukkan foto produk/logo/hero milik Anda sendiri:              -->
+  <!-- 1. Simpan foto Anda di folder yang sama, misal dalam folder 'images/'   -->
+  <!-- 2. Cari komentar bertuliskan 'KODE GAMBAR' di bawah ini                -->
+  <!-- 3. Ganti nilai atribut src="..." dengan nama file gambar Anda           -->
+  <!--    Contoh: src="images/produk-original.jpg" atau src="foto-emgoat.png"  -->
+  <!-- Saat ini sudah terpasang foto ilustrasi susu & peternakan berkualitas   -->
+  <!-- tinggi sehingga halaman langsung tampil cantik dan siap dipakai!        -->
+  <!-- ======================================================================= -->
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Brand -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <!-- KODE LOGO GAMBAR: Ganti src="images/logo.png" jika memiliki file logo sendiri -->
+          <!-- <img src="images/logo.png" alt="Logo EMGOAT" class="h-10 w-auto" /> -->
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-600 flex items-center justify-center text-white shadow-md shadow-emerald-900/15 group-hover:scale-105 transition-transform duration-200">
+            <span class="font-display font-extrabold text-xl tracking-tight">EG</span>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-2xl tracking-tight text-emerald-950 block leading-none">EMGOAT</span>
+            <span class="text-[10px] font-semibold tracking-wider text-emerald-700 uppercase">Susu Kambing Etawa</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1 bg-stone-100/90 p-1.5 rounded-full border border-stone-200/70 text-xs font-semibold text-stone-600">
+          <a href="#hero" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Home</a>
+          <a href="#kenapa" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Tentang</a>
+          <a href="#manfaat" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Manfaat</a>
+          <a href="#produk" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Produk</a>
+          <a href="#cara-minum" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Cara Minum</a>
+          <a href="#testimoni" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">Testimoni</a>
+          <a href="#faq" class="px-3.5 py-1.5 rounded-full hover:text-emerald-800 hover:bg-white transition-all">FAQ</a>
+        </nav>
+
+        <!-- Direct CTA -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button onclick="pesanWhatsAppUmum()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold shadow-md shadow-emerald-900/15 hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+            <span>Pesan via WhatsApp</span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button onclick="pesanWhatsAppUmum()" class="p-2.5 rounded-xl bg-emerald-800 text-white">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </button>
+          <button onclick="toggleMobileNav()" class="p-2.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-nav" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-5 shadow-lg">
+      <div class="flex flex-col gap-2 text-sm font-semibold text-stone-700">
+        <a href="#hero" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Home</a>
+        <a href="#kenapa" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Tentang EMGOAT</a>
+        <a href="#manfaat" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Manfaat</a>
+        <a href="#produk" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Produk Pilihan</a>
+        <a href="#cara-minum" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Cara Minum</a>
+        <a href="#testimoni" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Testimoni</a>
+        <a href="#faq" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-emerald-50 hover:text-emerald-800">Tanya Jawab (FAQ)</a>
+        <div class="pt-3 border-t border-stone-100">
+          <button onclick="pesanWhatsAppUmum(); toggleMobileNav()" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-800 text-white font-bold text-sm shadow-md">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+            <span>Chat WhatsApp Sekarang</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden bg-gradient-to-b from-[#F5F2EB] via-[#FAF9F6] to-white">
+    <!-- Ambient organic blobs -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-emerald-100/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-36 -right-16 w-72 h-72 bg-amber-100/40 rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left: Copywriting & Actions -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/90 border border-emerald-300/70 text-emerald-900 text-xs font-bold tracking-wide mb-5 shadow-2xs">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>Susu Kambing Etawa Pilihan Berkualitas</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-stone-900 leading-[1.16] mb-4">
+            Susu Kambing Etawa <span class="text-emerald-800 underline decoration-emerald-500/40 decoration-wavy decoration-2">EMGOAT</span>
+          </h1>
+
+          <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-emerald-950/90 leading-snug mb-4 max-w-2xl">
+            Nikmati Nutrisi Alami Susu Kambing Etawa dalam Setiap Sajian.
+          </h2>
+
+          <p class="text-base sm:text-lg text-stone-600 leading-relaxed mb-8 max-w-xl">
+            Pilihan susu kambing Etawa dengan rasa gurih lembut dan kandungan nutrisi alami untuk menemani gaya hidup sehat seluruh keluarga.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-10">
+            <button onclick="pesanWhatsAppUmum()" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-900/20 hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
+              <i data-lucide="message-circle" class="w-5 h-5 text-emerald-300"></i>
+              <span>Pesan via WhatsApp</span>
+            </button>
+            <a href="#manfaat" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-stone-50 border border-stone-300/80 text-stone-800 font-semibold text-sm shadow-2xs hover:border-stone-400 transition-all duration-200">
+              <span>Pelajari Manfaat</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-700"></i>
+            </a>
+          </div>
+
+          <!-- Feature Highlights -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-5 border-t border-stone-200/90 w-full text-xs font-semibold text-stone-700">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+              <span>Lembut di Lambung</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+              <span>Tanpa Bau Prengus</span>
+            </div>
+            <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+              <span>100% Ekstrak Etawa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Hero Image -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative bg-white p-3 sm:p-4 rounded-3xl shadow-xl shadow-stone-900/10 border border-stone-200/80">
+            
+            <!-- ============================================================== -->
+            <!-- KODE GAMBAR HERO UTAMA:                                        -->
+            <!-- Ganti URL di bawah dengan file foto Anda, contoh:              -->
+            <!-- <img src="images/hero-susu-emgoat.jpg" alt="EMGOAT Hero" ... /> -->
+            <!-- ============================================================== -->
+            <div class="relative aspect-4/3 sm:aspect-square overflow-hidden rounded-2xl bg-emerald-50">
+              <img 
+                id="hero-img" 
+                src="images/hero.jpg" 
+                onerror="this.onerror=null; this.src='https://i.imgur.com/rsLw9Tv.jpeg';"
+                alt="Susu Kambing Etawa EMGOAT Segar dan Sehat" 
+                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              
+              <!-- In-image Badge -->
+              <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                <div>
+                  <span class="text-[11px] font-bold tracking-widest uppercase text-emerald-300">Kemurnian Terjaga</span>
+                  <p class="font-display font-bold text-base sm:text-lg drop-shadow-sm">Susu Kambing Etawa Pilihan</p>
+                </div>
+                <span class="bg-emerald-700/90 backdrop-blur-xs text-white text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-500/50">
+                  Premium
+                </span>
+              </div>
+            </div>
+
+            <!-- Floating Trust Badges -->
+            <div class="absolute -top-3 -right-3 sm:-right-5 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-stone-200 flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-800">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] text-stone-500 font-medium leading-none">Mutu Alami</p>
+                <p class="text-xs font-bold text-stone-900 mt-0.5">100% Susu Etawa</p>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-3 -left-3 sm:-left-5 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-stone-200 flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center text-amber-800">
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] text-stone-500 font-medium leading-none">Pencernaan</p>
+                <p class="text-xs font-bold text-stone-900 mt-0.5">Ramah Lambung</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST BAR ==================== -->
+  <section class="relative z-10 -mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-2xl sm:rounded-3xl shadow-lg shadow-stone-900/5 border border-stone-200/80 p-5 sm:p-7">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-stone-100">
+        
+        <div class="flex flex-col items-center text-center px-2 py-2 sm:py-0">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-2.5">
+            <i data-lucide="leaf" class="w-5 h-5 text-emerald-700"></i>
+          </div>
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 mb-1">Bahan Berkualitas</h3>
+          <p class="text-[11px] text-stone-500 leading-snug">Diproses dari susu kambing Etawa murni pilihan</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-2 py-2 sm:py-0">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-2.5">
+            <i data-lucide="milk" class="w-5 h-5 text-emerald-700"></i>
+          </div>
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 mb-1">Susu Etawa Asli</h3>
+          <p class="text-[11px] text-stone-500 leading-snug">Lembut alami & kaya nutrisi harian</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-2 py-2 sm:py-0">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-2.5">
+            <i data-lucide="heart" class="w-5 h-5 text-emerald-700"></i>
+          </div>
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 mb-1">Gaya Hidup Sehat</h3>
+          <p class="text-[11px] text-stone-500 leading-snug">Temani rutinitas aktif & seimbang</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-2 py-2 sm:py-0">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-2.5">
+            <i data-lucide="package-check" class="w-5 h-5 text-emerald-700"></i>
+          </div>
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 mb-1">Kemasan Higienis</h3>
+          <p class="text-[11px] text-stone-500 leading-snug">Rapat, kedap udara, dan terjaga mutunya</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center px-2 py-2 sm:py-0 col-span-2 md:col-span-1">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-2.5">
+            <i data-lucide="truck" class="w-5 h-5 text-emerald-700"></i>
+          </div>
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 mb-1">Pengiriman Cepat</h3>
+          <p class="text-[11px] text-stone-500 leading-snug">Pengiriman aman ke seluruh wilayah Indonesia</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TENTANG & KENAPA EMGOAT ==================== -->
+  <section id="kenapa" class="py-20 bg-stone-50/70 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Keunggulan Produk</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          Kenapa Memilih Susu Kambing Etawa EMGOAT?
+        </h2>
+        <p class="text-base text-stone-600 leading-relaxed">
+          EMGOAT hadir untuk Anda yang menginginkan manfaat alami susu kambing Etawa dengan standar kebersihan tinggi dan rasa nikmat yang nyaman diminum setiap hari.
+        </p>
+      </div>
+
+      <!-- 4 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        
+        <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5 text-emerald-800">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-block text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md mb-2">Nutrisi Alami</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Nutrisi Alami</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Mengandung protein, kalsium, serta mineral penting untuk mendukung stamina harian tubuh.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5 text-emerald-800">
+            <i data-lucide="smile" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-block text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md mb-2">Gurih Lembut</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Rasa Nikmat</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Diproses khusus sehingga tidak berbau prengus atau langu, nikmat diseduh hangat maupun dingin.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5 text-emerald-800">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-block text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md mb-2">Seduh 1 Menit</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Mudah & Praktis</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Bubuk susu halus yang cepat larut dalam air hangat tanpa menggumpal, siap dinikmati kapan saja.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5 text-emerald-800">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-block text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md mb-2">Keluarga Sehat</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Gaya Hidup Seimbang</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Pilihan ideal melengkapi asupan harian anak-anak, remaja, dewasa hingga lansia.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Showcase Banner with Image Placeholder -->
+      <div class="bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+          
+          <div class="lg:col-span-7 p-8 sm:p-10">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-2 block">Peternakan & Mutu Terjaga</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 mb-4">
+              Dari Peternakan Etawa Terpilih Langsung ke Meja Anda
+            </h3>
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-6">
+              Kambing Etawa dirawat dengan pakan alami bernutrisi tinggi dan sanitasi kandang yang terjaga ketat. Proses pengeringan higienis menjaga kebaikan bioaktif susu tetap utuh hingga Anda menyeduhnya.
+            </p>
+            <div class="flex flex-wrap gap-4 text-xs font-semibold text-stone-700">
+              <span class="inline-flex items-center gap-1.5 bg-stone-100 px-3 py-1.5 rounded-lg">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pakan Hijauan Alami
+              </span>
+              <span class="inline-flex items-center gap-1.5 bg-stone-100 px-3 py-1.5 rounded-lg">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pengolahan Standar Pangan
+              </span>
+              <span class="inline-flex items-center gap-1.5 bg-stone-100 px-3 py-1.5 rounded-lg">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pengemasan Vakum Higienis
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 p-4 sm:p-6 bg-stone-50">
+            <!-- ============================================================== -->
+            <!-- KODE GAMBAR PETERNAKAN / EDUKASI:                              -->
+            <!-- File lokal sudah disiapkan di: images/farm.jpg                 -->
+            <!-- Ganti URL di bawah dengan foto peternakan Anda jika ada        -->
+            <!-- ============================================================== -->
+            <img 
+              id="farm-img" 
+              src="images/farm.jpg" 
+              onerror="this.onerror=null; this.src='https://i.imgur.com/gqGs644.jpeg';"
+              alt="Peternakan Kambing Etawa Sehat EMGOAT" 
+              class="w-full h-64 sm:h-72 object-cover rounded-2xl shadow-sm border border-stone-200"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MANFAAT SUSU KAMBING ETAWA ==================== -->
+  <section id="manfaat" class="py-20 md:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Kebaikan Alami</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          Manfaat Susu Kambing Etawa
+        </h2>
+        <p class="text-base sm:text-lg text-stone-600 leading-relaxed">
+          Struktur nutrisi susu kambing Etawa yang unik membuatnya menjadi salah satu asupan gizi paling bersahabat untuk tubuh.
+        </p>
+      </div>
+
+      <!-- 4 Benefit Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        
+        <!-- Benefit 1 -->
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-9 border border-stone-200/80 hover:border-emerald-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-13 h-13 rounded-2xl bg-white border border-stone-200/80 flex items-center justify-center text-emerald-800 shadow-2xs">
+                <i data-lucide="feather" class="w-6 h-6"></i>
+              </div>
+              <span class="font-display font-extrabold text-2xl text-stone-300 group-hover:text-emerald-400 transition-colors">01</span>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 mb-3">1. Mudah Dicerna Tubuh</h3>
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-4">
+              "Memiliki butiran lemak yang lebih kecil dan protein yang lebih lembut dibandingkan susu sapi, sehingga proses penyerapan oleh usus berlangsung lebih cepat dan ringan."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-200/60 flex items-center gap-2 text-xs text-stone-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+            <span>Ukuran globula lemak mikro mudah dicerna tanpa rasa begah</span>
+          </div>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-9 border border-stone-200/80 hover:border-emerald-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-13 h-13 rounded-2xl bg-white border border-stone-200/80 flex items-center justify-center text-emerald-800 shadow-2xs">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <span class="font-display font-extrabold text-2xl text-stone-300 group-hover:text-emerald-400 transition-colors">02</span>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 mb-3">2. Bersahabat untuk Lambung</h3>
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-4">
+              "Susu kambing sering dipilih oleh mereka yang sensitif terhadap susu biasa karena sifat alaminya yang lebih alkali (basa) dan rendah kasein alfa-S1."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-200/60 flex items-center gap-2 text-xs text-stone-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+            <span>Nyaman diminum pagi hari sebelum beraktivitas</span>
+          </div>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-9 border border-stone-200/80 hover:border-emerald-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-13 h-13 rounded-2xl bg-white border border-stone-200/80 flex items-center justify-center text-emerald-800 shadow-2xs">
+                <i data-lucide="droplets" class="w-6 h-6"></i>
+              </div>
+              <span class="font-display font-extrabold text-2xl text-stone-300 group-hover:text-emerald-400 transition-colors">03</span>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 mb-3">3. Pilihan Pemanis Alami Stevia</h3>
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-4">
+              "Tersedia varian dengan pemanis stevia bagi konsumen yang ingin membatasi atau menghindari gula tebu tambahan dalam asupan harian."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-200/60 flex items-center gap-2 text-xs text-stone-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+            <span>Mendukung pola makan rendah kalori dan gaya hidup fit</span>
+          </div>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-9 border border-stone-200/80 hover:border-emerald-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-13 h-13 rounded-2xl bg-white border border-stone-200/80 flex items-center justify-center text-emerald-800 shadow-2xs">
+                <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+              </div>
+              <span class="font-display font-extrabold text-2xl text-stone-300 group-hover:text-emerald-400 transition-colors">04</span>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 mb-3">4. Sumber Kalsium & Fosfor</h3>
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-4">
+              "Mengandung kalsium, fosfor, protein, dan nutrisi esensial yang dapat mendukung kesehatan tulang, gigi, dan kebugaran tubuh."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-200/60 flex items-center gap-2 text-xs text-stone-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+            <span>Menjaga kepadatan tulang dan kebugaran sepanjang hari</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Edukasi Kesehatan Aman -->
+      <div class="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-xs text-amber-950">
+        <i data-lucide="info" class="w-5 h-5 text-amber-800 shrink-0 mt-0.5"></i>
+        <p class="leading-relaxed">
+          <strong>Catatan Edukasi Kesehatan:</strong> Susu kambing Etawa EMGOAT adalah produk pangan bernutrisi untuk melengkapi kebutuhan gizi harian keluarga. Produk ini bukan obat penyembuh penyakit. Hasil dan kenyamanan konsumsi dapat bervariasi pada setiap individu.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION PRODUK EMGOAT ==================== -->
+  <section id="produk" class="py-20 md:py-28 bg-[#FAF7F2] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Katalog Resmi</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          Pilihan Varian EMGOAT
+        </h2>
+        <p class="text-base text-stone-600 leading-relaxed">
+          Tersedia dalam berbagai varian untuk memenuhi selera dan kebutuhan nutrisi keluarga Anda.
+        </p>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        
+        <!-- ==================== PRODUK 1: ORIGINAL ==================== -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div>
+            <!-- Gambar Produk 1 -->
+            <div class="relative aspect-4/3 overflow-hidden bg-stone-100">
+              <!-- ============================================================== -->
+              <!-- KODE GAMBAR PRODUK 1:                                          -->
+              <!-- File lokal sudah disiapkan di: images/hero.jpg                 -->
+              <!-- Ganti URL di bawah dengan gambar produk Original Anda jika ada -->
+              <!-- ============================================================== -->
+              <img 
+                id="product-img-1" 
+                src="images/hero.jpg" 
+                onerror="this.onerror=null; this.src='https://i.imgur.com/ggerLFV.jpeg';"
+                alt="EMGOAT Susu Kambing Etawa Original" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 right-3 bg-emerald-800 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                Paling Diminati
+              </span>
+            </div>
+
+            <div class="p-6 sm:p-7">
+              <span class="text-xs font-bold text-emerald-800 tracking-wide uppercase mb-1 block">Varian Original</span>
+              <h3 class="text-lg font-bold text-stone-900 mb-2">EMGOAT Susu Etawa Original</h3>
+              
+              <div class="space-y-2 mb-6 pt-4 border-t border-stone-100 text-xs text-stone-700">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>100% Ekstrak Susu Etawa Pilihan</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Rasa Creamy Tanpa Bau Amis/Prengus</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Kaya Kalsium, Fosfor & Protein</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0 bg-stone-50/60 border-t border-stone-100">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="text-[11px] text-stone-500 block">Ketersediaan</span>
+                <span class="text-xs font-bold text-emerald-800">Ready Stock</span>
+              </div>
+              <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-3 py-1 rounded-full border border-emerald-200">
+                Higienis
+              </span>
+            </div>
+            <!-- Direct Order Button -->
+            <button onclick="pesanWhatsAppProduk('EMGOAT Original 200g')" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+              <span>Pesan Varian Original via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== PRODUK 2: STEVIA ==================== -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div>
+            <!-- Gambar Produk 2 -->
+            <div class="relative aspect-4/3 overflow-hidden bg-stone-100">
+              <!-- ============================================================== -->
+              <!-- KODE GAMBAR PRODUK 2:                                          -->
+              <!-- File lokal sudah disiapkan di: images/splash.jpg               -->
+              <!-- Ganti URL di bawah dengan gambar produk Stevia Anda jika ada   -->
+              <!-- ============================================================== -->
+              <img 
+                id="product-img-2" 
+                src="images/splash.jpg" 
+                onerror="this.onerror=null; this.src='https://i.imgur.com/SyPquzr.jpeg';"
+                alt="EMGOAT Susu Kambing Etawa Stevia" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                Pemanis Alami
+              </span>
+            </div>
+
+            <div class="p-6 sm:p-7">
+              <span class="text-xs font-bold text-emerald-800 tracking-wide uppercase mb-1 block">Varian Stevia</span>
+              <h3 class="text-lg font-bold text-stone-900 mb-2">EMGOAT Susu Etawa Stevia</h3>
+              <div class="space-y-2 mb-6 pt-4 border-t border-stone-100 text-xs text-stone-700">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Pemanis Daun Stevia Alami</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Bebas Gula Pasir Tebu Tambahan</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Cocok untuk Gaya Hidup Rendah Gula</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0 bg-stone-50/60 border-t border-stone-100">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="text-[11px] text-stone-500 block">Ketersediaan</span>
+                <span class="text-xs font-bold text-emerald-800">Ready Stock</span>
+              </div>
+              <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-3 py-1 rounded-full border border-emerald-200">
+                Low Sugar
+              </span>
+            </div>
+            <!-- Direct Order Button -->
+            <button onclick="pesanWhatsAppProduk('EMGOAT Stevia 200g')" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+              <span>Pesan Varian Stevia via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== PRODUK 3: FAMILY BUNDLE ==================== -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+          <div>
+            <!-- Gambar Produk 3 -->
+            <div class="relative aspect-4/3 overflow-hidden bg-stone-100">
+              <!-- ============================================================== -->
+              <!-- KODE GAMBAR PRODUK 3:                                          -->
+              <!-- File lokal sudah disiapkan di: images/farm.jpg                 -->
+              <!-- Ganti URL di bawah dengan gambar paket hemat Anda jika ada     -->
+              <!-- ============================================================== -->
+              <img 
+                id="product-img-3" 
+                src="images/farm.jpg" 
+                onerror="this.onerror=null; this.src='https://i.imgur.com/YcRRDlZ.jpeg';"
+                alt="EMGOAT Paket Hemat Keluarga" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <span class="absolute top-3 right-3 bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                Paket Hemat
+              </span>
+            </div>
+
+            <div class="p-6 sm:p-7">
+              <span class="text-xs font-bold text-amber-800 tracking-wide uppercase mb-1 block">Paket Hemat Keluarga</span>
+              <h3 class="text-lg font-bold text-stone-900 mb-2">EMGOAT Paket Hemat 1 Bulan</h3>
+              <div class="space-y-2 mb-6 pt-4 border-t border-stone-100 text-xs text-stone-700">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Bisa Mix Varian (Original & Stevia)</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Lebih Hemat Ongkos Kirim</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Stok Rutin Sehat Tanpa Kehabisan</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0 bg-stone-50/60 border-t border-stone-100">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="text-[11px] text-stone-500 block">Ketersediaan</span>
+                <span class="text-xs font-bold text-emerald-800">Ready Stock</span>
+              </div>
+              <span class="text-xs bg-amber-50 text-amber-800 font-bold px-3 py-1 rounded-full border border-amber-200">
+                Diskon Khusus
+              </span>
+            </div>
+            <!-- Direct Order Button -->
+            <button onclick="pesanWhatsAppProduk('EMGOAT Paket Hemat Keluarga')" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs tracking-wide shadow-md transition-all cursor-pointer">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+              <span>Pesan Paket Hemat via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CARA KONSUMSI ==================== -->
+  <section id="cara-minum" class="py-20 md:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="coffee" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Penyajian Praktis</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          3 Langkah Mudah Menikmati EMGOAT
+        </h2>
+        <p class="text-base text-stone-600 leading-relaxed">
+          Cukup 1 menit untuk menyiapkan secangkir susu kambing Etawa hangat yang lezat dan kaya nutrisi.
+        </p>
+      </div>
+
+      <!-- 3 Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+        
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-8 border border-stone-200/80 text-center flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-white border-2 border-emerald-600/30 flex items-center justify-center mb-5 shadow-xs text-emerald-800">
+            <i data-lucide="coffee" class="w-7 h-7"></i>
+          </div>
+          <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full mb-3">Langkah 01</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Tuang Bubuk EMGOAT</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Masukkan 1 Sachet Susu Emgoat bubuk Susu Kambing Etawa EMGOAT ke dalam gelas bersih.
+          </p>
+        </div>
+
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-8 border border-stone-200/80 text-center flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-white border-2 border-emerald-600/30 flex items-center justify-center mb-5 shadow-xs text-emerald-800">
+            <i data-lucide="thermometer" class="w-7 h-7"></i>
+          </div>
+          <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full mb-3">Langkah 02</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Tambahkan Air Hangat</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Tuangkan 150 ml air hangat (suhu sekitar 60°-70°C, hindari air mendidih agar nutrisi tetap utuh), lalu aduk rata.
+          </p>
+        </div>
+
+        <div class="bg-[#FAF9F6] rounded-3xl p-7 sm:p-8 border border-stone-200/80 text-center flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-white border-2 border-emerald-600/30 flex items-center justify-center mb-5 shadow-xs text-emerald-800">
+            <i data-lucide="sparkles" class="w-7 h-7"></i>
+          </div>
+          <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full mb-3">Langkah 03</span>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">Nikmati Selagi Hangat</h3>
+          <p class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+            Nikmati selagi hangat di pagi hari sebelum beraktivitas atau malam hari sebelum beristirahat untuk tidur lebih rileks.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONI KONSUMEN ==================== -->
+  <section id="testimoni" class="py-20 bg-stone-50/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Ulasan Nyata</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          Apa Kata Sahabat EMGOAT?
+        </h2>
+        <p class="text-base text-stone-600 leading-relaxed">
+          Pengalaman jujur dari keluarga yang telah merasakan kenyamanan dan kelezatan susu kambing Etawa EMGOAT.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Testi 1 -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-stone-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 font-bold text-sm tracking-widest mb-3">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed italic mb-6">
+              "Awalnya ragu karena takut bau prengus, ternyata EMGOAT rasanya gurih lembut banget dan harum! Lambung saya yang gampang perih jadi nyaman diminum pagi hari."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <!-- KODE FOTO TESTIMONI 1: Ganti src="images/user1.jpg" jika ada foto asli -->
+            <img 
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" 
+              alt="Ibu Ratna" 
+              class="w-10 h-10 rounded-full object-cover border border-emerald-200" 
+            />
+            <div>
+              <span class="font-bold text-stone-900 text-sm block leading-tight">Ibu Ratna Kumala</span>
+              <span class="text-[11px] text-emerald-800 font-semibold">Pelanggan Rutin • Bandung</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testi 2 -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-stone-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 font-bold text-sm tracking-widest mb-3">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed italic mb-6">
+              "Saya pilih yang varian Stevia karena membatasi gula pasir. Manisnya pas, badan terasa lebih bugar saat bangun pagi. Paket bundle-nya hemat banget untuk sekeluarga."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <!-- KODE FOTO TESTIMONI 2: Ganti src="images/user2.jpg" jika ada foto asli -->
+            <img 
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" 
+              alt="Bapak Hendra" 
+              class="w-10 h-10 rounded-full object-cover border border-emerald-200" 
+            />
+            <div>
+              <span class="font-bold text-stone-900 text-sm block leading-tight">Bapak Hendra W.</span>
+              <span class="text-[11px] text-emerald-800 font-semibold">Penyuka Varian Stevia • Surabaya</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testi 3 -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-stone-200/80 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 font-bold text-sm tracking-widest mb-3">★★★★★</div>
+            <p class="text-stone-700 text-xs sm:text-sm leading-relaxed italic mb-6">
+              "Pelayanan via WhatsApp sangat ramah dan responsif. Pengiriman ke luar kota cepat dan bungkusannya aman dengan bubble wrap tebal. Kualitas susunya jempolan!"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <!-- KODE FOTO TESTIMONI 3: Ganti src="images/user3.jpg" jika ada foto asli -->
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" 
+              alt="Ibu Maya" 
+              class="w-10 h-10 rounded-full object-cover border border-emerald-200" 
+            />
+            <div>
+              <span class="font-bold text-stone-900 text-sm block leading-tight">Ibu Maya Santoso</span>
+              <span class="text-[11px] text-emerald-800 font-semibold">Pelanggan Terverifikasi • Jakarta</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PERTANYAAN UMUM (FAQ) ==================== -->
+  <section id="faq" class="py-20 md:py-28 bg-white relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-900 text-xs font-bold tracking-wide uppercase mb-3">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-emerald-700"></i>
+          <span>Tanya Jawab</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight mb-4">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p class="text-base text-stone-600 leading-relaxed max-w-xl mx-auto">
+          Jawaban praktis seputar keunggulan, cara konsumsi, dan pemesanan EMGOAT.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="space-y-4 mb-12">
+        
+        <div class="rounded-2xl border border-stone-200 bg-[#FAF9F6] overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-bold text-stone-900 text-sm sm:text-base">Apakah Susu Kambing Etawa EMGOAT berbau amis atau prengus?</span>
+            <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-emerald-800 transition-transform duration-200"></i>
+          </button>
+          <div id="faq-ans-1" class="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-100">
+            Tidak. Susu kambing Etawa EMGOAT diolah dengan teknologi modern dari kambing dengan pakan higienis, menghasilkan rasa gurih alami yang lembut, harum, dan bebas bau prengus.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-stone-200 bg-[#FAF9F6] overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-bold text-stone-900 text-sm sm:text-base">Apakah aman dikonsumsi penderita maag atau asam lambung?</span>
+            <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-emerald-800 transition-transform duration-200"></i>
+          </button>
+          <div id="faq-ans-2" class="hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-100">
+            Susu kambing Etawa memiliki sifat alkali (basa alami) dan struktur molekul lemak yang jauh lebih halus daripada susu sapi, sehingga bersahabat dan nyaman untuk saluran pencernaan.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-stone-200 bg-[#FAF9F6] overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-bold text-stone-900 text-sm sm:text-base">Siapa saja yang boleh mengonsumsi EMGOAT?</span>
+            <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-emerald-800 transition-transform duration-200"></i>
+          </button>
+          <div id="faq-ans-3" class="hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-100">
+            EMGOAT cocok dikonsumsi oleh anak di atas usia 1 tahun, remaja, orang dewasa aktif, hingga orang tua lanjut usia untuk melengkapi kebutuhan kalsium dan nutrisi harian.
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-stone-200 bg-[#FAF9F6] overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-bold text-stone-900 text-sm sm:text-base">Bagaimana cara memesan EMGOAT?</span>
+            <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-emerald-800 transition-transform duration-200"></i>
+          </button>
+          <div id="faq-ans-4" class="hidden px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-100">
+            Sangat mudah! Cukup klik tombol 'Pesan via WhatsApp' pada halaman ini. Anda akan langsung terhubung dengan customer service resmi kami untuk konfirmasi alamat dan pengiriman.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CALL TO ACTION ==================== -->
+  <section class="py-16 md:py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950 text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-300 text-xs font-bold tracking-wide uppercase mb-4">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>Mulai Hidup Sehat Hari Ini</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 leading-tight">
+        Rasakan Kebaikan Alami Susu Kambing Etawa EMGOAT
+      </h2>
+
+      <p class="text-emerald-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+        Dapatkan produk EMGOAT asli dengan kemasan higienis, pengiriman aman, dan layanan ramah langsung via WhatsApp resmi kami.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="pesanWhatsAppUmum()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-stone-900 font-extrabold text-base shadow-2xl transition-all duration-200 hover:scale-105 cursor-pointer">
+          <i data-lucide="message-circle" class="w-5 h-5 fill-stone-900 text-stone-900"></i>
+          <span>Pesan Sekarang via WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="kontak" class="bg-[#1C1917] text-white pt-16 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-800">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-md">
+              <span class="font-display font-extrabold text-xl">EG</span>
+            </div>
+            <div>
+              <span class="font-display font-extrabold text-2xl tracking-tight text-white block leading-none">EMGOAT</span>
+              <span class="text-[10px] text-emerald-400 font-medium tracking-wider uppercase">Susu Kambing Etawa</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-400 leading-relaxed mb-6">
+            Pilihan nutrisi alami susu kambing Etawa berkualitas untuk menemani gaya hidup sehat seluruh keluarga Indonesia.
+          </p>
+          <div class="flex items-center gap-3 text-emerald-400 text-xs">
+            <span class="inline-flex items-center gap-1.5 bg-stone-900 px-3 py-1.5 rounded-lg border border-stone-800">
+              <i data-lucide="shield-check" class="w-4 h-4"></i> 100% Asli & Alami
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-stone-900 px-3 py-1.5 rounded-lg border border-stone-800">
+              <i data-lucide="truck" class="w-4 h-4"></i> Kirim se-Indonesia
+            </span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Navigasi Halaman</h4>
+          <ul class="space-y-2.5 text-xs text-stone-400">
+            <li><a href="#hero" class="hover:text-emerald-400 transition-colors">Home</a></li>
+            <li><a href="#kenapa" class="hover:text-emerald-400 transition-colors">Tentang EMGOAT</a></li>
+            <li><a href="#manfaat" class="hover:text-emerald-400 transition-colors">Manfaat Susu Etawa</a></li>
+            <li><a href="#produk" class="hover:text-emerald-400 transition-colors">Katalog Produk</a></li>
+            <li><a href="#cara-minum" class="hover:text-emerald-400 transition-colors">Cara Penyajian</a></li>
+            <li><a href="#faq" class="hover:text-emerald-400 transition-colors">Tanya Jawab (FAQ)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Operations -->
+        <div class="lg:col-span-5">
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Kontak & Layanan</h4>
+          <div class="space-y-3 text-xs text-stone-300">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <span class="font-semibold text-white block">WhatsApp Resmi:</span>
+                <span id="display-wa-num">+62 812-3456-7890</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="clock" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <span class="font-semibold text-white block">Jam Layanan Pesanan:</span>
+                <span>Senin - Sabtu: 08.00 - 17.00 WIB</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <span class="font-semibold text-white block">Distribusi & Pengiriman:</span>
+                <span>Melayani pengiriman ke seluruh kota dan kabupaten di Indonesia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div class="py-6 border-b border-stone-800 text-[11px] text-stone-400 leading-relaxed">
+        <p>
+          <strong>Catatan Edukatif:</strong> Susu kambing Etawa EMGOAT adalah produk pangan bernutrisi untuk mendukung gaya hidup sehat dan pola makan seimbang. Produk ini bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, atau menyembuhkan penyakit.
+        </p>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+        <div>© 2026 EMGOAT Susu Kambing Etawa. Seluruh Hak Cipta Dilindungi.</div>
+        <div>Landing Page Siap Pakai untuk GitHub & Hosting Mandiri</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <aside class="fixed bottom-6 right-6 z-50">
+    <button 
+      onclick="pesanWhatsAppUmum()" 
+      class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer animate-wa-glow" 
+      aria-label="Chat WhatsApp Langsung"
+      title="Hubungi Kami via WhatsApp"
+    >
+      <i data-lucide="message-circle" class="w-7 h-7 fill-white text-white"></i>
+    </button>
+  </aside>
+
+  <!-- ============================================================== -->
+  <!-- JAVASCRIPT LOGIC (SEDERHANA, RINGAN, BEBAS ERROR)              -->
+  <!-- ============================================================== -->
+  <script>
+    // ==============================================================
+    // KONFIGURASI WHATSAPP:
+    // Cukup ubah nomor WhatsApp di bawah ini sekali saja!
+    // Format nomor: gunakan kode negara tanpa tanda +, misal '628123456789'
+    // ==============================================================
+    const EMGOAT_CONFIG = {
+      whatsappNumber: '6283172397127', // <-- GANTI NOMOR WHATSAPP ANDA DISINI
+      brandName: 'EMGOAT Susu Kambing Etawa'
+    };
+
+    // Update tampilan nomor di footer jika ada
+    document.addEventListener('DOMContentLoaded', () => {
+      const displayElem = document.getElementById('display-wa-num');
+      if (displayElem && EMGOAT_CONFIG.whatsappNumber) {
+        displayElem.innerText = '+' + EMGOAT_CONFIG.whatsappNumber;
+      }
+      // Inisialisasi ikon Lucide
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+
+    // Fungsi membuka WhatsApp dengan pesan terformat rapi
+    function openWhatsApp(text) {
+      const phone = EMGOAT_CONFIG.whatsappNumber.replace(/[^0-9]/g, '');
+      const encodedMsg = encodeURIComponent(text);
+      const url = phone.length > 5 
+        ? `https://wa.me/${phone}?text=${encodedMsg}` 
+        : `https://wa.me/?text=${encodedMsg}`;
+      window.open(url, '_blank');
+    }
+
+    // Pesan WhatsApp umum / konsultasi
+    function pesanWhatsAppUmum() {
+      const msg = `Halo ${EMGOAT_CONFIG.brandName}, saya ingin mendapatkan informasi lebih lanjut dan melakukan pemesanan susu kambing Etawa EMGOAT. Mohon info ketersediaan stok & promo yang berlaku. Terima kasih!`;
+      openWhatsApp(msg);
+    }
+
+    // Pesan WhatsApp langsung per produk varian
+    function pesanWhatsAppProduk(namaProduk) {
+      const msg = `Halo ${EMGOAT_CONFIG.brandName}, saya ingin memesan:\n\n📦 Produk: ${namaProduk}\n\nMohon info ketersediaan stok, harga, dan biaya pengiriman ke kota saya. Terima kasih!`;
+      openWhatsApp(msg);
+    }
+
+    // Toggle menu mobile
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobile-nav');
+      if (nav) {
+        nav.classList.toggle('hidden');
+      }
+    }
+
+    // Toggle accordion FAQ
+    function toggleFaq(num) {
+      const ans = document.getElementById(`faq-ans-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (ans) {
+        const isHidden = ans.classList.contains('hidden');
+        ans.classList.toggle('hidden');
+        if (icon) {
+          if (isHidden) {
+            icon.classList.add('rotate-180');
+          } else {
+            icon.classList.remove('rotate-180');
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

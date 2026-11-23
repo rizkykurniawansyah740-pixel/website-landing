@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jual Ayam Kampung Segar - Yogies</title>
+<meta name="description" content="Jual ayam kampung, ayam potong, ayam negeri, ayam frozen dan ati ampela. Segar, bersih, harga bersahabat. Pesan mudah lewat WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Toko Ayam Segar — Ayam Kampung, Ayam Potong &amp; Frozen">
+<meta property="og:description" content="Ayam segar dan berkualitas untuk rumah tangga dan usaha kuliner. Pesan lewat WhatsApp.">
+<meta property="og:image" content="https://i.imgur.com/0CJaoly.jpeg">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"Toko Ayam Segar","description":"Penjual ayam kampung, ayam potong, ayam negeri, ayam frozen dan ati ampela.","url":"https://yogies.my.id","telephone":"+6281234567890","address":{"@type":"PostalAddress","streetAddress":"Jl. Contoh No. 123","addressLocality":"Bandung","addressCountry":"ID"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Ayam Kampung"},"priceCurrency":"IDR"},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Ayam Potong"},"priceCurrency":"IDR"}]}
+</script>
+<style>
+:root{--red:#C62828;--red-d:#9E1B1B;--green:#2E7D32;--cream:#FFF8F0;--ink:#2B1B17;--mute:#6d5a54;--wa:#25D366;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+.alt{background:var(--cream)}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.2;font-weight:700;margin-bottom:10px}
+.sub{color:var(--mute);max-width:36em;margin-bottom:40px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+
+/* tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;font:600 15px Poppins,sans-serif;padding:13px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d)}
+.btn-wa{background:var(--wa);color:#063d19}
+.btn-out{background:transparent;color:var(--red);border:2px solid var(--red)}
+.btn-sm{padding:9px 18px;font-size:14px}
+
+/* navbar */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 #eee}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-weight:800;font-size:20px;color:var(--red);display:flex;align-items:center;gap:8px}
+.logo i{color:var(--green)}
+.menu{display:flex;align-items:center;gap:26px;list-style:none}
+.menu a{font-weight:500;font-size:15px}
+.menu a:hover{color:var(--red)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.home-link{font-size:14px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:6px}
+.burger{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--ink)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--cream) 55%,#fde7e3);padding:64px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.badge{display:inline-block;background:#e8f5e9;color:var(--green);font-weight:600;font-size:13px;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+.hero h1 span{color:var(--red)}
+.hero p{margin:18px 0 28px;color:var(--mute);font-size:17px;max-width:30em}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:28px 28px 120px 28px;box-shadow:0 24px 50px rgba(198,40,40,.25)}
+.chip{position:absolute;left:-14px;bottom:28px;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 10px 30px rgba(0,0,0,.15);font-weight:600;font-size:14px;display:flex;gap:10px;align-items:center}
+.chip i{color:var(--green);font-size:20px}
+
+/* produk */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(0,0,0,.13)}
+.card .ph{aspect-ratio:4/3;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.06)}
+.card .b{padding:18px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:18px}
+.card .w{font-size:13px;color:var(--green);font-weight:600;margin:2px 0 6px}
+.card p{font-size:14px;color:var(--mute);flex:1}
+.card .pr{font-size:22px;font-weight:800;color:var(--red);margin:12px 0}
+.card .pr small{font-size:13px;color:var(--mute);font-weight:500}
+.card .btn{width:100%}
+
+/* keunggulan */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat div{background:#fff;border-radius:var(--r);padding:28px 24px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.feat i{width:52px;height:52px;border-radius:14px;background:#fde7e3;color:var(--red);display:grid;place-items:center;font-size:22px;margin-bottom:14px}
+.feat h3{font-size:17px;margin-bottom:4px}
+.feat p{font-size:14px;color:var(--mute)}
+
+/* tentang */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about img{border-radius:var(--r);aspect-ratio:4/3;object-fit:cover;width:100%}
+.about ul{list-style:none;margin-top:18px}
+.about li{padding:5px 0}.about li i{color:var(--green);margin-right:10px}
+
+/* galeri */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px}
+.gal button{border:0;padding:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#eee}
+.gal button:nth-child(1),.gal button:nth-child(6){grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal button:hover img{transform:scale(1.08)}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.lb.on{display:flex}
+.lb img{max-height:88vh;max-width:96vw;object-fit:contain;border-radius:10px}
+.lb button{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+
+/* langkah */
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.steps li{counter-increment:s;background:#fff;border-radius:var(--r);padding:22px 18px;box-shadow:0 4px 18px rgba(0,0,0,.06);font-size:14px;font-weight:500}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;margin-bottom:12px}
+
+/* cta + footer */
+.band{background:var(--red);color:#fff;text-align:center;padding:60px 0}
+.band p{margin:8px 0 22px;opacity:.9}
+footer{background:#241512;color:#d9cbc6;padding:56px 0 24px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:36px;margin-bottom:30px}
+footer h4{color:#fff;margin-bottom:12px;font-size:16px}
+footer li{list-style:none;padding:3px 0}
+footer a:hover{color:#fff}
+footer i{width:20px;color:#ef9a9a}
+.copy{border-top:1px solid #3d2a26;padding-top:18px;text-align:center;font-size:13px}
+
+/* mengambang */
+.fab{position:fixed;right:18px;z-index:40;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:26px;border:0;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.fab-wa{bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--wa);color:#063d19}
+.fab-top{bottom:calc(86px + env(safe-area-inset-bottom,0px));background:#fff;color:var(--red);font-size:18px;opacity:0;pointer-events:none;transition:opacity .25s}
+.fab-top.on{opacity:1;pointer-events:auto}
+
+/* animasi scroll */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .feat{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+  .gal button:nth-child(1),.gal button:nth-child(6){grid-column:span 2;grid-row:span 1}
+  .fgrid{grid-template-columns:1fr}
+  .burger{display:block}
+  .menu{position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 20px 16px;box-shadow:0 12px 20px rgba(0,0,0,.08);display:none}
+  .menu.on{display:flex}
+  .menu li{width:100%;border-bottom:1px solid #f1e8e3}
+  .menu a{display:block;padding:13px 0}
+  .home-link span{display:none}
+  .chip{left:10px}
+}
+@media(max-width:560px){
+  section{padding:56px 0}
+  .feat,.steps{grid-template-columns:1fr}
+  .nav .btn-sm span{display:none}
+  .cta .btn{flex:1}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="logo"><i class="fa-solid fa-drumstick-bite"></i> Yogies</a>
+    <ul class="menu" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#keunggulan">Keunggulan</a></li>
+      <li><a href="#tentang">Tentang Kami</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-r">
+      <!-- GANTI LINK HOME WEBSITE UTAMA DI SINI -->
+      <a class="home-link" href="https://yogies.my.id" title="Kembali ke Home website utama"><i class="fa-solid fa-arrow-left"></i><span>Kembali ke Home</span></a>
+      <a class="btn btn-wa btn-sm" data-wa="" href="https://wa.me/6281214064220"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+      <button class="burger" id="burger" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="badge"><i class="fa-solid fa-leaf"></i> Segar setiap hari</span>
+      <h1>Ayam berkualitas untuk <span>meja makan</span> dan usaha Anda</h1>
+      <p>Ayam kampung, ayam potong, ayam negeri sampai ayam frozen. Bersih, segar, dan siap diantar. Pesan cukup lewat WhatsApp.</p>
+      <div class="cta">
+        <a class="btn btn-red" data-wa="" href="#"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang</a>
+        <a class="btn btn-out" href="#produk">Lihat Produk</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img data-img="0" alt="https://i.imgur.com/0CJaoly.jpeg">
+      <div class="chip"><i class="fa-solid fa-circle-check"></i> Dikemas bersih &amp; rapi</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="produk">
+  <div class="wrap">
+    <div class="center rv"><h2>Katalog Produk</h2><p class="sub">Pilih produk, klik pesan, dan admin kami langsung membalas di WhatsApp.</p></div>
+    <div class="grid" id="products"></div>
+  </div>
+</section>
+
+<section id="keunggulan">
+  <div class="wrap">
+    <div class="center rv"><h2>Kenapa Pilih Kami</h2><p class="sub">Belanja ayam jadi lebih tenang dan praktis.</p></div>
+    <div class="feat">
+      <div class="rv"><i class="fa-solid fa-award"></i><h3>Produk Berkualitas</h3><p>Ayam dipilih dan diperiksa sebelum dikemas.</p></div>
+      <div class="rv"><i class="fa-solid fa-boxes-stacked"></i><h3>Pilihan Produk Lengkap</h3><p>Dari ayam kampung sampai ati ampela, satu tempat.</p></div>
+      <div class="rv"><i class="fa-solid fa-tags"></i><h3>Harga Kompetitif</h3><p>Harga bersahabat, ada penawaran untuk pembelian banyak.</p></div>
+      <div class="rv"><i class="fa-solid fa-box-open"></i><h3>Pengemasan Rapi</h3><p>Higienis dan aman sampai di tangan Anda.</p></div>
+      <div class="rv"><i class="fa-solid fa-face-smile"></i><h3>Pelayanan Ramah</h3><p>Admin responsif dan siap membantu menentukan pilihan.</p></div>
+      <div class="rv"><i class="fa-brands fa-whatsapp"></i><h3>Pemesanan Mudah</h3><p>Tanpa daftar akun. Cukup chat, pesanan diproses.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="tentang">
+  <div class="wrap about">
+    <img data-img="3" alt="Ayam potong segar di toko kami" class="rv">
+    <div class="rv">
+      <h2>Tentang Kami</h2>
+      <p class="sub" style="margin-bottom:0">Toko Ayam Segar menyediakan berbagai pilihan produk ayam untuk kebutuhan rumah tangga, usaha kuliner, restoran, dan acara keluarga. Kami menjaga kesegaran dan kebersihan di setiap pesanan, dengan layanan yang cepat dan jujur.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Melayani eceran dan partai besar</li>
+        <li><i class="fa-solid fa-check"></i>Bisa potong sesuai permintaan</li>
+        <li><i class="fa-solid fa-check"></i>Cocok untuk warung, katering, dan restoran</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="center rv"><h2>Galeri Produk</h2><p class="sub">Klik foto untuk melihat lebih besar.</p></div>
+    <div class="gal" id="gallery"></div>
+  </div>
+</section>
+
+<section class="alt" id="cara">
+  <div class="wrap">
+    <div class="center rv"><h2>Cara Pemesanan</h2><p class="sub">Lima langkah singkat dari pilih sampai pesanan diproses.</p></div>
+    <ol class="steps">
+      <li class="rv">Pilih produk yang diinginkan.</li>
+      <li class="rv">Klik tombol pesan WhatsApp.</li>
+      <li class="rv">Konfirmasi jumlah dan berat produk.</li>
+      <li class="rv">Lakukan konfirmasi pesanan dengan admin.</li>
+      <li class="rv">Pesanan diproses sesuai kesepakatan.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <h2>Siap pesan ayam hari ini?</h2>
+    <p>Chat admin kami sekarang untuk cek stok dan harga terbaru.</p>
+    <a class="btn btn-wa" data-wa="" href="https://wa.me/6281214064220"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+  </div>
+</div>
+</main>
+
+<footer id="kontak">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Toko Ayam Segar</h4><p>Penyedia ayam kampung, ayam potong, ayam frozen dan ati ampela untuk rumah tangga dan usaha kuliner.</p></div>
+      <div><h4>Navigasi</h4><ul>
+        <li><a href="#home">Home</a></li><li><a href="#produk">Produk</a></li><li><a href="#keunggulan">Keunggulan</a></li><li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="https://yogies.my.id"><i class="fa-solid fa-arrow-left"></i>Kembali ke website utama</a></li></ul></div>
+      <div><h4>Kontak</h4><ul>
+        <li><i class="fa-brands fa-whatsapp"></i>0812-1406-4220<a data-wa="" href="https://wa.me/6281214064220" id="tel"></a></li>
+        <li><i class="fa-solid fa-location-dot"></i>Bandung & Sekitarnya<span id="addr"></span></li>
+        <li><i class="fa-solid fa-clock"></i>Setiap hari, 06.00 – 17.00</li></ul></div>
+    </div>
+    <div class="copy">&copy; <span id="yr"></span> Toko Ayam Segar. Semua hak dilindungi.</div>
+  </div>
+</footer>
+
+<a class="fab fab-wa" data-wa="" href="https://wa.me/6281214064220" aria-label="Chat WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button class="fab fab-top" id="top" aria-label="Kembali ke atas"><i class="fa-solid fa-arrow-up"></i></button>
+
+<div class="lb" id="lb" role="dialog" aria-label="Foto produk"><button aria-label="Tutup">&times;</button><img alt=""></div>
+
+<script>
+/* ===== PENGATURAN — EDIT DI SINI ===== */
+const nomorWhatsApp = "6281214064220";           // format 62, tanpa 0 / +
+const alamatToko = "Jl. Srimahi Dalam No. 2a, Bandung"; // alamat usaha
+const IMG = [                                    // URL gambar (mudah diganti)
+  "https://i.imgur.com/0CJaoly.jpeg",
+  "https://i.imgur.com/YaLHJ4s.jpeg",
+  "https://i.imgur.com/Qcf6vYV.jpeg",
+  "https://i.imgur.com/iByCHOa.jpeg",
+];
+const PRODUK = [  // nama, deskripsi, harga, satuan, berat/ukuran, indeks gambar
+  ["Ayam Kampung","Daging padat dan gurih, cocok untuk opor, soto, dan ayam bakar.","Rp85.000","/ ekor","±1 – 1,3 kg",0],
+  ["Ayam Potong","Ayam potong segar siap masak, bisa dipotong sesuai permintaan.","Rp38.000","/ kg","Per kilogram",1],
+  ["Ayam Negeri","Ayam broiler segar dengan daging lembut dan harga ekonomis.","Rp36.000","/ kg","±0,9 – 1,2 kg / ekor",2],
+  ["Ayam Frozen","Ayam beku higienis, tahan lama, praktis untuk stok usaha.","Rp40.000","/ kg","Kemasan 1 kg",3],
+  ["Ayam Kampung Utuh","Ayam kampung utuh dibersihkan, pas untuk hajatan dan acara keluarga.","Rp95.000","/ ekor","±1,3 – 1,6 kg",4],
+  ["Ayam Potong per Kilogram","Beli sesuai kebutuhan, mulai 1 kg. Ada harga grosir.","Rp37.000","/ kg","Min. 1 kg",5],
+  ["Ati Ampela Ayam","Ati ampela bersih dan segar, favorit untuk sambal dan sate.","Rp30.000","/ kg","Kemasan 500 g – 1 kg",0]
+];
+const GALERI = [0,1,2,3,4,5,0,2];
+const NAMA_TOKO = "Toko Ayam Segar";
+
+/* ===== KODE ===== */
+const FB = "data:image/svg+xml;utf8," + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='#fde7e3'/><text x='200' y='175' font-size='110' text-anchor='middle'>🍗</text></svg>");
+const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const waLink = t => "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(t);
+const imgTag = (i, alt) => `<img loading="lazy" src="${IMG[i]}" alt="${alt}" onerror="this.onerror=null;this.src='${FB}'">`;
+
+// tombol WhatsApp umum
+$$("[data-wa]").forEach(a => {
+  a.href = waLink("Halo, saya tertarik untuk memesan ayam di " + NAMA_TOKO + ". Mohon informasi harga dan ketersediaan stoknya.");
+  a.target = "_blank"; a.rel = "noopener";
+});
+$("#tel").textContent = "+" + nomorWhatsApp;
+$("#addr").textContent = alamatToko;
+$("#yr").textContent = new Date().getFullYear();
+
+// gambar hero & tentang
+$$("[data-img]").forEach(el => {
+  el.src = IMG[+el.dataset.img]; el.onerror = () => { el.onerror = null; el.src = FB; };
+});
+
+// katalog produk
+$("#products").innerHTML = PRODUK.map(([n, d, h, s, b, i]) => `
+  <article class="card rv">
+    <div class="ph">${imgTag(i, n)}</div>
+    <div class="b">
+      <h3>${n}</h3><div class="w"><i class="fa-solid fa-weight-scale"></i> ${b}</div>
+      <p>${d}</p>
+      <div class="pr">${h} <small>${s}</small></div>
+      <a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(`Halo, saya tertarik untuk memesan ${n}. Mohon informasi harga dan ketersediaan stoknya.`)}"><i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp</a>
+    </div>
+  </article>`).join("");
+
+// galeri + lightbox
+$("#gallery").innerHTML = GALERI.map((i, k) => `<button class="rv" data-k="${i}" aria-label="Perbesar foto ${k + 1}">${imgTag(i, "Foto produk ayam " + (k + 1))}</button>`).join("");
+const lb = $("#lb"), lbImg = $("img", lb);
+$("#gallery").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  lbImg.src = $("img", b).src; lb.classList.add("on");
+});
+lb.addEventListener("click", () => lb.classList.remove("on"));
+addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("on"); });
+
+// menu mobile
+const menu = $("#menu"), burger = $("#burger");
+burger.onclick = () => { const o = menu.classList.toggle("on"); burger.firstElementChild.className = o ? "fa-solid fa-xmark" : "fa-solid fa-bars"; };
+$$("a", menu).forEach(a => a.onclick = () => { menu.classList.remove("on"); burger.firstElementChild.className = "fa-solid fa-bars"; });
+
+// kembali ke atas
+const top = $("#top");
+addEventListener("scroll", () => top.classList.toggle("on", scrollY > 500), { passive: true });
+top.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+
+// animasi saat scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+$$(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

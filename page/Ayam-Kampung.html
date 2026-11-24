@@ -103,16 +103,95 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdro
 .about li{padding:5px 0}
 .about li i{color:var(--green);margin-right:10px}
 
-/* Galeri */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px}
-.gal button{border:0;padding:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:#fde7e3}
-.gal button:nth-child(1),.gal button:nth-child(6){grid-column:span 2;grid-row:span 2}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.gal button:hover img{transform:scale(1.08)}
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
-.lb.on{display:flex}
-.lb img{max-height:88vh;max-width:96vw;object-fit:contain;border-radius:10px}
-.lb button{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+
+/* Galeri - Instagram Square Grid */
+.gal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gal button {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 0;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #fde7e3;
+}
+
+.gal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.gal button:hover img {
+  transform: scale(1.06);
+}
+
+/* Tampilan Tablet */
+@media (max-width: 768px) {
+  .gal {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .gal button {
+    border-radius: 9px;
+  }
+}
+
+/* Tampilan HP */
+@media (max-width: 480px) {
+  .gal {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  .gal button {
+    border-radius: 6px;
+  }
+}
+
+/* Lightbox */
+.lb {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.lb.on {
+  display: flex;
+}
+
+.lb img {
+  max-height: 88vh;
+  max-width: 96vw;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lb button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 34px;
+  cursor: pointer;
+}
+
 
 /* Langkah pemesanan */
 .steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
